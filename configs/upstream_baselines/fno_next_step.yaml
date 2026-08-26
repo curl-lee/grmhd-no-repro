@@ -1,0 +1,47 @@
+experiment_name: upstream_next_step_smoke
+seed: 42
+
+data:
+  path: data_proc/grmhd_regrid_inner_r200_64.h5
+  normalizer_stats_path: outputs/stats/all111/normalizer_stats.npz
+  snapshot_start: 0
+  snapshot_end: 111
+  train_snapshot_count: 80
+  val_snapshot_count: 10
+  test_snapshot_count: 21
+  stride: 1
+  downsample: 1
+  with_shells: true
+  n_shells: 8
+
+model:
+  type: fno
+  in_channels: 16
+  out_channels: 8
+  n_modes: [8, 8, 8]
+  hidden_channels: 16
+  n_layers: 4
+  positional_embedding: null
+
+loss:
+  name: l2
+  dimension: 3
+  p: 2
+  reduction: sum
+
+training:
+  device: cuda
+  epochs: 2
+  batch_size: 1
+  learning_rate: 3.0e-4
+  weight_decay: 1.0e-4
+  mixed_precision: false
+  eval_interval: 1
+  max_autoregressive_steps: 9
+
+logging:
+  output_dir: outputs/experiment_round3/upstream_next_step_smoke
+
+notes:
+  scale: RTX 5070 and 111-snapshot resource-scaled smoke baseline
+  not_paper_scale: upstream MHD64 uses 7 channels and FNO_Medium3d width 64/modes 32

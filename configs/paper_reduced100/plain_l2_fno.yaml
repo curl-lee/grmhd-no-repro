@@ -1,0 +1,159 @@
+experiment_name: paper_reduced100_plain_l2_fno
+output_dir: outputs/paper_reduced100/plain_l2_fno
+checkpoint_prefix: plain_l2_fno
+
+protocol:
+  name: paper_reduced100_press_spherical_ks
+  dataset: data_proc/grmhd_regrid_inner_r200_64.h5
+  source_snapshots: [11, 111]
+  train_snapshots: [11, 91]
+  validation_snapshots: [91, 111]
+  dropped_transition: [90, 91]
+  test_split: null
+
+thermal:
+  channel: press
+  paper_adaptation: true
+  eos_conversion: disabled_unverified_gamma
+
+coordinates:
+  system: spherical_kerr_schild
+  tensor_axes: [phi, theta, r]
+  stored_components_not_cartesian: true
+
+preprocessing:
+  mode: canonical_paper
+  gamma: 6
+  inverse_clamp_fraction: 0.99
+  stats_path: outputs/paper_reduced100/stats/normalizer.npz
+  stats_checksum: 1645714424d95b02de2283fc16a8ef05f3864d15f11025580af13f3e67964001
+
+representation:
+  shells:
+    enabled: true
+    count: 8
+    mode: spherical_r_adaptation
+  radial:
+    selected_mode: appendix_literal_press_proxy
+    artifact: outputs/paper_reduced100/priors/radial_selected.json
+    exact_cartesian_paper_radius: false
+
+evaluation:
+  oracle_aware: true
+  rho_press_eval_clamp: true
+  report_normalized: true
+  report_model_to_oracle: true
+  report_model_to_raw: true
+  report_oracle_floor: true
+
+model:
+  source: neuralop.models.FNO
+  in_channels: 16
+  out_channels: 8
+  n_modes: [8, 8, 8]
+  hidden_channels: 16
+  n_layers: 4
+  positional_embedding: null
+  mixed_precision: false
+
+optimizer:
+  name: Adam
+  learning_rate: 1.0e-3
+  weight_decay: 1.0e-4
+
+scheduler:
+  name: warmup_cosine
+  paper_epochs: 1200
+  actual_default_epochs: 30
+  paper_warmup_epochs: 75
+  actual_default_warmup_epochs: 2
+  min_learning_rate: 1.0e-6
+  resource_scaled_training: true
+
+runtime:
+  batch_size: 1
+  gradient_accumulation: 4
+  gradient_clip_norm: 1.0
+  seed: 42
+  num_workers: 0
+  pin_memory: true
+  wandb: false
+
+loss:
+  name: PlainL2Loss
+  contract_version: paper-stage-e-loss-contract-v1
+  implementation_version: paper-plain-l2-v1
+  unit_channel_weights: true
+  h1:
+    enabled: false
+  roi:
+    enabled: false
+  bounds:
+    training_penalty_enabled: false
+  envelope:
+    enabled: false
+  dissipation:
+    enabled: false
+  diagnostic_extensions_enabled: false
+
+provenance:
+  upstream:
+    path: external/neuraloperator
+    commit: 86a8bc7812a31b42c4f7895693cf4ac11521c066
+  dataset:
+    path: data_proc/grmhd_regrid_inner_r200_64.h5
+    sha256: cd3966bed1f617f49d775151cff87ae92eb2432a560bb82ae9355605e7aea70a
+  manifest:
+    path: outputs/paper_reduced100/manifest.json
+    sha256: f6f3497717b577db25ff96f58daa5b98debe5300c329e30b543805d11d21b9d6
+  preprocessing:
+    path: outputs/paper_reduced100/stats/normalizer.npz
+    sha256: 1645714424d95b02de2283fc16a8ef05f3864d15f11025580af13f3e67964001
+  artifacts:
+    radial:
+      path: outputs/paper_reduced100/priors/radial_selected.json
+      sha256: 75e29fdbe0ac38f1cb1bae6b8e9678c10af14508d2b240cf4b738ea12d7b885d
+    bounds:
+      path: outputs/paper_reduced100/priors/physical_bounds.json
+      sha256: 3ac9a148f2ab1b4735925c683438a4eec7194e19bb2d4f2eed40b0a2b383d38e
+    roi:
+      path: outputs/paper_reduced100/priors/velocity_roi.json
+      sha256: 6993051ffddbd7c51c87d951bc8fa082d54d981fe64347b33bcd41d97b5ea060
+    envelope:
+      path: outputs/paper_reduced100/priors/residual_envelope.json
+      sha256: 3354b711f30f58b784869a5df4f33a55b63884a68b9b70f5f251aebc9203dd46
+    dissipation:
+      path: outputs/paper_reduced100/priors/dissipative_reference.json
+      sha256: 95725b031d13f93d76bd97d6cf468926797d367973e227d9259c309f22575192
+    shells:
+      path: outputs/paper_reduced100/priors/shell_metadata.json
+      sha256: 99580fc2c62431f46e6702972660b060aa1294920e5f9530b45b43ce08c190b7
+  stage_e_loss_contract:
+    path: outputs/paper_reduced100/losses/loss_contract.json
+    sha256: 5ca5e5df00490e286550887002f15372883f4dbe591fd31a4a340634d4146aac
+    schema_version: paper-stage-e-loss-contract-v1
+  oracle_baseline:
+    path: outputs/paper_reduced100/oracle_metric_baseline.json
+    sha256: de0dff910c5ddbe237ea17bcfeffb8831dc705e2a37e0da3c2bc8c51952347e4
+    semantics_version: paper-reference-semantics-v1
+  loss_contract_document:
+    path: docs/PAPER_LOSS_CONTRACT.md
+    sha256: 6c6d7feb277f898909c3ac34098f65dbdbad5dd81283b09243d64b484f44e7a7
+  oracle_reference_semantics_version: paper-reference-semantics-v1
+  validation_not_used_for_fit: true
+
+reproduction_metadata:
+  exact:
+    - ordered_reduced100_split
+    - canonical_paper_preprocessing
+    - upstream_FNO_and_H1_implementation
+  adapted:
+    - press_thermal_proxy
+    - spherical_kerr_schild_grid_and_stored_components
+    - spherical_r_shells_and_radial_reference
+    - computational_grid_H1
+    - resource_scaled_epochs
+  blocked:
+    - unverified_EOS_conversion
+    - Cartesian_or_metric_vector_conversion
+    - scientific_claims_from_smoke

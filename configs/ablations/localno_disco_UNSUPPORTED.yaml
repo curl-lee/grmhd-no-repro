@@ -1,0 +1,8 @@
+base_config: ../grmhd_localno.yaml
+experiment_name: localno_disco_unsupported
+model:
+  type: localno_disco
+compatibility:
+  supported: false
+  verified_exception: "NotImplementedError: Local conv layers only implemented for dimension 2."
+  verified_commit: 86a8bc7812a31b42c4f7895693cf4ac11521c066

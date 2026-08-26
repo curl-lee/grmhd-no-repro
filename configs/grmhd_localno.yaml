@@ -1,0 +1,84 @@
+experiment_name: localno_diff_inner_r200_64
+seed: 42
+
+data:
+  path: data_proc/grmhd_regrid_inner_r200_64.h5
+  window_name: all111
+  audit_manifest: outputs/audit_111/data_audit.json
+  snapshot_start: 0
+  snapshot_end: 111
+  train_snapshot_count: 80
+  val_snapshot_count: 10
+  test_snapshot_count: 21
+  stride: 1
+  train_fraction: 0.70
+  val_fraction: 0.15
+  train_time_min: null
+  train_time_max: null
+  downsample: 1
+  num_workers: 0
+  normalizer_samples_per_channel: 200000
+  normalizer_stats_path: outputs/stats/all111/normalizer_stats.npz
+  with_shells: true
+  n_shells: 8
+
+model:
+  type: localno_diff
+  predict_residual: false
+  n_modes: [8, 8, 8]
+  hidden_channels: 16
+  n_layers: 4
+  positional_embedding: null
+  conv_padding_mode: zeros
+
+priors:
+  radial_baseline:
+    enabled: false
+    radial_coordinate: log10(r)
+    fit_space: raw_positive_log
+    fit_separately_for_rho_press: true
+  quantile_bounds:
+    enabled: false
+    quantiles: [0.001, 0.999]
+    samples_per_channel: 100000
+    lambda: 0.01
+  residual_envelope:
+    enabled: false
+    quantiles: [0.001, 0.999]
+    samples_per_channel: 100000
+    lambda: 0.01
+  velocity_roi:
+    enabled: false
+    quantile: 0.80
+    lambda: 0.1
+  dissipative:
+    enabled: false
+    definition: excess_first_difference_energy_over_truth
+    lambda: 0.01
+  evaluation_clamp: false
+
+loss:
+  lambda_B: 1.2
+  lambda_velocity: 1.0
+  lambda_H1: 0.05
+
+training:
+  device: cuda
+  optimizer: Adam
+  learning_rate: 1.0e-3
+  weight_decay: 1.0e-4
+  epochs: 1200
+  warmup_epochs: 75
+  min_learning_rate: 1.0e-6
+  batch_size: 1
+  gradient_accumulation: 4
+  mixed_precision: false
+  gradient_clip: 1.0
+  early_stopping_patience: 100
+  max_train_batches: null
+  max_val_batches: null
+
+logging:
+  root: outputs
+  tensorboard: true
+  wandb: false

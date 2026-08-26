@@ -1,0 +1,50 @@
+stage: AD
+classification: disco3d_support_consistent_implementation_repair
+reproduction_scope: ADAPTED_SPHERICAL_KS_WORKFLOW_REPRODUCTION
+frozen_stage_t_config: configs/stage_t/optimization_convergence.yaml
+frozen_stage_t_config_sha256: f72b985d3c2425205c8e066c51eee76b513ce74d48e2cec8b26b210238f8e58f
+
+operator:
+  name: ADAPTED_VOLUMETRIC_3D_DISCO_LOCALNO
+  implementation: ADAPTED_ISOTROPIC_RADIAL_PIECEWISE_LINEAR
+  exact_3d_disco_implementation_found: false
+  domain_length: [2.0, 2.0, 2.0]
+  grid_shape: [64, 64, 64]
+  radius_cells: 3
+  basis_count: 5
+  normalization_epsilon: 1.0e-12
+  groups: 1
+  bias: true
+  boundary: computational_periodic_adaptation
+  execution_backend: DENSE_CONV3D
+
+initialization:
+  common_state: outputs/paper_reduced100/stage_k/shared_localno_initial_state.pt
+  common_tensor_state_sha256: 7e10895cb283be8532e4c036e8a526c536a632cce880c500080ea1d14fd89311
+  disco_seed: 42
+
+training:
+  epochs: 150
+  batch_size: 1
+  gradient_accumulation: 4
+  microbatches_per_epoch: 168
+  updates_per_epoch: 42
+  optimizer_updates: 6300
+  mandatory_checkpoint_epochs: [2, 10, 30, 75, 150]
+  optimizer: Adam
+  learning_rate: 1.0e-3
+  weight_decay: 1.0e-4
+  gradient_clip_norm: 1.0
+  mixed_precision: false
+  scheduler: stage_t_1200_epoch_warmup_cosine_first_150
+  scheduler_total_updates: 50400
+  scheduler_warmup_updates: 3150
+  scheduler_min_learning_rate: 1.0e-6
+  loss: PlainL2Loss_on_normalized_residual
+
+evaluation:
+  validation_pairs: 42
+  selector: validation_normalized_per_channel_relative_l2_arithmetic_average
+  rollout_start_snapshot: 169
+  gt_steps: 42
+  no_gt_steps: 100

@@ -1,0 +1,83 @@
+schema_version: paper-stage-q-residual-anchor-audit-v1
+classification: no_training_output_contract_audit
+
+contract:
+  formula: y_alpha = z + alpha * (F(z, shells) - z)
+  scalar_alpha_only: true
+  alpha_grid: [0.0, 0.125, 0.25, 0.5, 1.0]
+  candidate_alphas: [0.125, 0.25, 0.5]
+  controls:
+    persistence: 0.0
+    stage_o_direct: 1.0
+  identity_tolerance:
+    mode: dtype_epsilon_scaled
+    ulp_factor: 8
+    unit_floor: 1.0
+  forbidden_operations:
+    - channel_specific_alpha
+    - shell_specific_alpha
+    - learned_or_adaptive_alpha
+    - normalized_clipping
+    - physical_clipping
+    - residual_clipping_or_renormalization
+
+data:
+  train_snapshots: [11, 90]
+  train_transitions: 79
+  validation_snapshots: [91, 110]
+  validation_transitions: 19
+  validation_used_for_selection: false
+
+readiness:
+  engineering:
+    require_all_finite: true
+    require_rho_press_positive: true
+    allow_transform_counter_error: false
+    allow_new_nonfinite_decoder_derivative: false
+  overshoot_reduction:
+    q001_q999_ood_fraction_reduction_min: 0.75
+    rout_failure_count_reduction_min: 0.75
+  persistence_bound:
+    normalized_average_ratio_max: 1.05
+  nontrivial_dynamics:
+    median_residual_over_true_residual_min: 0.05
+    positive_residual_cosine_channels_min: 4
+    persistence_equivalence_atol: 1.0e-7
+    persistence_equivalence_rtol: 1.0e-6
+  structure:
+    gate_2_severe_count_reduction_min: 0.50
+    require_shell_or_radial_not_worse_than_persistence: true
+    allow_new_persistent_range_failure: false
+  control_channels:
+    names: [Bcc1, rho, press, vel1, vel2]
+    relative_error_worsening_threshold: 0.20
+    worsened_channel_count_max: 2
+
+selection:
+  primary: lowest_train_normalized_average
+  within_relative_fraction: 0.01
+  within_one_percent_choose_larger_alpha: true
+  final_tie_order: [0.5, 0.25, 0.125]
+  validation_may_change_selection: false
+
+limits:
+  fixed_state_applications_max: 2
+  counterfactual_rollout_steps_max: 19
+  prediction_decodes_if_rollout: 19
+  next_input_encodes_if_rollout: 19
+  local_gain_epsilons: [0.001, 0.01]
+  local_gain_epsilon_consistency_relative: 0.20
+
+frozen_provenance:
+  upstream_commit: 86a8bc7812a31b42c4f7895693cf4ac11521c066
+  dataset_sha256: cd3966bed1f617f49d775151cff87ae92eb2432a560bb82ae9355605e7aea70a
+  p3_config_sha256: 41409e803cc0f54bede7cc73a84d9986e081bb07265c84dcac2fd64a44778809
+  p3_statistics_sha256: aea6d3f91e54865deeb9b2b1142c49a633ae8b67223075273e6c0b88bf541948
+  stage_o_best_checkpoint_sha256: 756ee7f31a9780942aa0f35dce4e5584cbeaf04ed8e9777721e7765962f04e12
+  stage_k_architecture_sha256: 8b229c5c2528d66bd4e11d0b0c4af16d00e906129386f8119af1670721ba30af
+  stage_k_initial_state_sha256: 07db393f5c3e831f44bcc2d47b8132c3f9a0e72e2a258618080db487cc13cbb0
+  pair_order_sha256: 5e1e361ea75e01ffd667822d8bfe870d70c5bc69570d52cdf806e637b2df2b52
+  stage_m_gate_sha256: a829a3760a71a006f54ae18b399c569a903898d27f3ef3a72236982fd033e5f7
+  stage_p_run_manifest_sha256: 492cab5a097ee9def7d93ced99a78ae02fbeea0468bea5edbe4552f8e7aa4249
+  stage_p_mechanism_sha256: c190b8d59a32ec6d14dd3f02749cc8a4d64efbc294bbe7ab50a77c1334661047
+  stage_p_decision_sha256: 6d4085cd5e2fa156f6dd54c3e0c623c5ab68302770ab530003f95581de07f2f8

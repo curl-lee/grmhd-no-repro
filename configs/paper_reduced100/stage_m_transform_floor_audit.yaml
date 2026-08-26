@@ -1,0 +1,147 @@
+schema_version: paper-stage-m-transform-floor-audit-v1
+
+classification:
+  kind: post_hoc_transform_and_evaluation_audit
+  diagnostic_counterfactuals_only: true
+  training_allowed: false
+  stage_k_decision_frozen: C. TRAINING_COMPLETE_BUT_ROLLOUT_UNSTABLE
+  stage_l_decision_frozen: 3. MIXED_OVERALL
+
+provenance:
+  data_config: configs/data/paper_reduced100.yaml
+  experiment_config: configs/paper_reduced100/stage_k_localno_differential_plain.yaml
+  stage_g_manifest: outputs/paper_reduced100/stage_g/run_manifest.json
+  stage_k_manifest: outputs/paper_reduced100/stage_k/run_manifest.json
+  stage_l_manifest: outputs/paper_reduced100/stage_l/run_manifest.json
+  stage_l_decision: outputs/paper_reduced100/stage_l/stage_l_decision.json
+  stage_l_attribution: outputs/paper_reduced100/stage_l/collapse_attribution.json
+
+analysis:
+  validation_snapshot_indices: [91, 110]
+  validation_target_indices: [92, 110]
+  selected_gt_steps: [1, 3, 5, 10, 19]
+  selected_no_gt_steps: [25, 50, 75, 100]
+  primary_channels: [Bcc2, Bcc3, vel3]
+  control_channels: [Bcc1, rho, press, vel1, vel2]
+  radial_shell_count: 8
+  tensor_axes: [phi, theta, r]
+  no_target_oracle_after_step: 19
+
+trace:
+  real_pipeline_order:
+    - T0_raw_physical
+    - T1_forward_nonlinear
+    - T2_robust_normalized_unclipped
+    - T3_forward_softclip_canonical_normalized
+    - T4_decode_input_no_forward_hard_clamp
+    - T5_inverse_input_clamp_then_inverse_softclip
+    - T6_inverse_robust_normalization
+    - T7_inverse_nonlinear_canonical_oracle
+    - T8_evaluation_bounds_clamp_then_decode
+  note: requested T0-T8 labels are mapped to actual source order; robust normalization precedes softclip
+
+counterfactuals:
+  label: diagnostic_counterfactual
+  variants:
+    - CANONICAL_FULL
+    - NO_FINAL_INVERSE_CLAMP
+    - NO_SOFTCLIP_COUNTERFACTUAL
+    - NORMALIZER_ONLY_ROUNDTRIP
+    - NONLINEAR_ONLY_ROUNDTRIP
+    - FLOAT64_REFERENCE
+  no_final_inverse_clamp_nonfinite_policy: report_undefined_do_not_replace
+  no_softclip_semantics: bypass_forward_tanh_inverse_atanh_and_softclip_domain_clamp
+  normalizer_only_semantics: nonlinear_representation_to_z_to_denormalized_representation
+  nonlinear_only_semantics: physical_to_channel_nonlinearity_to_inverse_channel_nonlinearity
+  float64_semantics: canonical_full_numpy_float64
+
+retention_contract:
+  denominator_absolute_floor: 1.0e-30
+  undefined_value: null
+  severe_loss_threshold: 0.5
+  severe_loss_comparator: strict_less_than
+  recovery_threshold: 0.5
+  recovery_comparator: strict_greater_than
+  core_metrics:
+    - global_variance_retention
+    - shell_radial_variance_retention
+    - high_k_retention
+    - dynamic_span_retention
+  shell_radial_variance_aggregation: minimum_of_defined_shell_median_and_radial_profile_variance_retention
+  selected_step_majority_required: 3
+  selected_step_count: 5
+
+floor_source_rules:
+  labels:
+    forward_softclip: A. FORWARD_SOFTCLIP_DOMINATED
+    final_inverse_clamp: B. FINAL_INVERSE_CLAMP_DOMINATED
+    nonlinear_transform: C. NONLINEAR_TRANSFORM_DOMINATED
+    normalizer: D. NORMALIZER_NUMERICAL_OR_RANGE_DOMINATED
+    multiple: E. MULTIPLE_COMPONENTS
+    not_isolated: F. NOT_ISOLATED
+  unique_component_required_recovered_metrics: 3
+  other_component_max_recovered_metrics: 2
+  multiple_component_min_recovered_metrics_each: 2
+  float64_cannot_explain_equal_recovery: true
+  nonlinear_isolation_rule: isolated_roundtrip_itself_must_reproduce_severe_loss
+  normalizer_isolation_rule: isolated_roundtrip_itself_must_reproduce_severe_loss
+  undefined_majority_is_not_isolated: true
+
+spectral_contract:
+  semantics: stored_index_space_diagnostic_not_physical_kerr_schild_invariant
+  window: none
+  normalization: orthonormal
+  demeaned_for_gate: true
+  combined_frequency: max_absolute_cycles_per_index_across_axes
+  bands:
+    low_k: {maximum_inclusive: 0.125}
+    mid_k: {minimum_exclusive: 0.125, maximum_inclusive: 0.25}
+    high_k: {minimum_exclusive: 0.25}
+
+transport:
+  reference_domain: canonical_oracle
+  shell_variance_operator: frozen_eight_physical_r_shells
+  radial_profile_operator: mean_over_phi_theta_at_each_stored_r_center
+  persistence_transport: exactly_zero
+  denominator_absolute_floor: 1.0e-30
+  sign_zero_tolerance: 1.0e-30
+  grouped_shells:
+    inner: [1, 2]
+    middle: [3, 4, 5, 6]
+    outer: [7, 8]
+  radial_semantics: stored_coordinate_radial_diagnostic_not_physical_invariant_flux_transport
+
+candidate_gate:
+  status: proposal_for_future_runs
+  replay_label: counterfactual_gate_replay_only
+  threshold_sources:
+    severe_loss: predeclared_stage_l_0.5
+    calibration: train_only_oracle_and_persistence
+    toys: numerical_unit_tests
+  calibration_split:
+    snapshot_indices: [11, 90]
+    transition_source_indices: [11, 89]
+    validation_outcomes_forbidden: true
+    model_outcomes_forbidden: true
+  gate_0_engineering:
+    required: [finite, rho_press_positive, transform_counters, checkpoint_provenance, decoded_range, Rout, shape_device]
+  gate_1_floor_qualification:
+    legacy_oracle_detector_trigger: true
+    median_variance_retention_threshold: 0.5
+    median_shell_radial_retention_threshold: 0.5
+    median_high_k_retention_threshold: 0.5
+  gate_2_model_degradation:
+    severe_retention_threshold: 0.5
+    severe_core_categories_required: 2
+    require_global_or_shell_radial: true
+    selected_gt_steps_required: 2
+    no_single_no_gt_step_failure: true
+  gate_3_transport_skill:
+    shell_error_not_above_persistence: true
+    radial_error_not_above_persistence: true
+    at_least_one_strictly_positive_skill: true
+    sign_agreement_minimum: 0.5
+    absolute_state_retention_alone_cannot_pass: true
+
+output:
+  root: outputs/paper_reduced100/stage_m

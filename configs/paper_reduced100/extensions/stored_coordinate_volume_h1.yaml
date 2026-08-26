@@ -1,0 +1,35 @@
+extends: ../full_fno_proxy.yaml
+
+experiment_name: stage_i_stored_coordinate_volume_h1
+output_dir: outputs/paper_reduced100/stage_i/stored_coordinate_volume_h1
+checkpoint_prefix: stage_i_stored_coordinate_volume_h1
+
+loss:
+  h1:
+    enabled: true
+    weight: 0.05
+    implementation: stage_h_H3_stored_r_volume_proxy
+    metric_adaptation: stored_coordinate_volume_proxy
+    mode: stored_coordinate_volume_proxy
+    paper_reference_weight: 0.05
+    weighted_contribution: paper_reference_weight_times_raw_h1
+    diagnostic_current_upstream_h1: true
+    coordinate_source: frozen_hdf5_centers
+    phi_boundary: periodic_centered
+    theta_boundary: open_three_point_lagrange
+    r_boundary: open_nonuniform_three_point_lagrange
+    reduction: normalized_r2_sin_theta_coordinate_volume_proxy
+    covariant_GRMHD_H1: false
+    proper_Kerr_Schild_volume: unverified
+    stored_components_covariant_derivative: false
+    stored_vector_covariant_derivative: false
+    diagnostic_proxy_only: true
+    radial_coordinate: physical_r
+    pole_sin_floor: 0.0
+    pole_handling: theta_center_sin_clamp_min_0
+    volume_weight_normalization: explicit_sum_to_one
+
+reproduction_metadata:
+  reproduction_level: diagnostic_extension
+  paper_faithful_full: false
+  extension_reason: stored_spherical_coordinate_H1_adaptation_diagnosis

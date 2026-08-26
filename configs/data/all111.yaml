@@ -1,0 +1,15 @@
+base_config: ../grmhd_localno.yaml
+
+data:
+  window_name: all111
+  path: data_proc/grmhd_regrid_inner_r200_64.h5
+  snapshot_start: 0
+  snapshot_end: 111
+  train_snapshot_count: 80
+  val_snapshot_count: 10
+  test_snapshot_count: 21
+  stride: 1
+  normalizer_stats_path: outputs/stats/all111/normalizer_stats.npz
+
+logging:
+  root: outputs/experiment_round1

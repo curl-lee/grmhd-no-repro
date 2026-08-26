@@ -1,0 +1,128 @@
+extends: stage_k_localno_differential_plain.yaml
+
+experiment_name: stage_r_localno_p3_residual_plain
+output_dir: outputs/paper_reduced100/stage_r/localno_p3_residual_plain
+checkpoint_prefix: stage_r_localno_p3_residual_plain
+
+preprocessing:
+  mode: stage_n_p3
+  artifact: outputs/paper_reduced100/stage_n/prototypes/p3_combined_v1
+  stats_path: outputs/paper_reduced100/stage_n/prototypes/p3_combined_v1/normalizer.npz
+  stats_checksum: aea6d3f91e54865deeb9b2b1142c49a633ae8b67223075273e6c0b88bf541948
+  prototype_config: outputs/paper_reduced100/stage_n/prototypes/p3_combined_v1/resolved_config.json
+  prototype_config_checksum: 41409e803cc0f54bede7cc73a84d9986e081bb07265c84dcac2fd64a44778809
+  prototype_metadata: outputs/paper_reduced100/stage_n/prototypes/p3_combined_v1/normalizer.json
+  prototype_metadata_checksum: 71919bffd5a13d96a500b76fa06ea8308dc578c524893984fd4f168cd9eba0e2
+  prototype: P3
+  prototype_name: COMBINED_PROTOTYPE_V1
+  gamma: 6
+  inverse_clamp_fraction: 0.99
+  canonical_replacement: false
+  validation_used_for_fit: false
+
+model:
+  prediction_mode: normalized_residual
+
+prediction:
+  mode: normalized_residual
+  state_skip: identity
+  residual_scale: 1.0
+  learnable_scale: false
+  clipping: false
+
+loss:
+  mode: strict_plain_l2
+  target: normalized_residual
+
+evaluation:
+  rho_press_eval_clamp: false
+  legacy_detector: true
+  oracle_conditioned_gate: true
+  oracle_conditioned_gate_version: stage_m_v1
+
+provenance:
+  preprocessing:
+    path: outputs/paper_reduced100/stage_n/prototypes/p3_combined_v1/normalizer.npz
+    sha256: aea6d3f91e54865deeb9b2b1142c49a633ae8b67223075273e6c0b88bf541948
+  canonical_preprocessing:
+    path: outputs/paper_reduced100/stats/normalizer.npz
+    sha256: 1645714424d95b02de2283fc16a8ef05f3864d15f11025580af13f3e67964001
+  stage_o_frozen:
+    prototype_config:
+      path: outputs/paper_reduced100/stage_n/prototypes/p3_combined_v1/resolved_config.json
+      sha256: 41409e803cc0f54bede7cc73a84d9986e081bb07265c84dcac2fd64a44778809
+    prototype_metadata:
+      path: outputs/paper_reduced100/stage_n/prototypes/p3_combined_v1/normalizer.json
+      sha256: 71919bffd5a13d96a500b76fa06ea8308dc578c524893984fd4f168cd9eba0e2
+    prototype_manifest:
+      path: outputs/paper_reduced100/stage_n/transform_prototypes/prototype_manifest.json
+      sha256: 935ebe068b2afad03bb44dd3f5aab895fef3e91e241bfa560c462deadb447c4d
+    stage_n_config:
+      path: configs/paper_reduced100/stage_n_transform_operator_audit.yaml
+      sha256: e366d5a94b14ea70777b42ed29bdd3b8f6477b2360e70bf9ed6ea874a1e9f1ff
+    stage_n_decision:
+      path: outputs/paper_reduced100/stage_n/stage_n_decision.json
+      sha256: 9b4a8492a0a8729fa75956a1c1aaf8d0bf6540d33f1b75e9751a7742eb4b5dc5
+    stage_k_config:
+      path: configs/paper_reduced100/stage_k_localno_differential_plain.yaml
+      sha256: 8b229c5c2528d66bd4e11d0b0c4af16d00e906129386f8119af1670721ba30af
+    stage_k_initial_state_file:
+      path: outputs/paper_reduced100/stage_k/shared_localno_initial_state.pt
+      sha256: 07db393f5c3e831f44bcc2d47b8132c3f9a0e72e2a258618080db487cc13cbb0
+    pair_order:
+      path: outputs/paper_reduced100/stage_g/epoch_pair_order.json
+      sha256: 5e1e361ea75e01ffd667822d8bfe870d70c5bc69570d52cdf806e637b2df2b52
+    stage_m_gate:
+      path: outputs/paper_reduced100/stage_m/candidate_gate_config.json
+      sha256: a829a3760a71a006f54ae18b399c569a903898d27f3ef3a72236982fd033e5f7
+  stage_r_frozen:
+    stage_o_best_checkpoint:
+      path: outputs/paper_reduced100/stage_o/localno_p3_plain/best_validation_l2/paper_state_dict.pt
+      sha256: 756ee7f31a9780942aa0f35dce4e5584cbeaf04ed8e9777721e7765962f04e12
+    stage_o_training_summary:
+      path: outputs/paper_reduced100/stage_o/training_summary.json
+      sha256: a0171a8c8c41dda043df8e63c9fd2a48b1e1fe27711bc6ce86d910c45d7d8cf7
+    stage_o_validation_metrics:
+      path: outputs/paper_reduced100/stage_o/validation_metrics.json
+      sha256: b97f9735f0d405837ee3326c8548cd2bb25b848e4217bfaffd49e080affe3051
+    stage_o_gt_rollout:
+      path: outputs/paper_reduced100/stage_o/rollout_gt.json
+      sha256: e929d4bc74f69ba027edf21aff88be1210a817716af8a9e65f104ca66d47772c
+    stage_o_no_gt_rollout:
+      path: outputs/paper_reduced100/stage_o/rollout_no_gt.json
+      sha256: 3b432059439ede11b505b3f4377655f9e8d1dff4f3dac0eb44000824e57d16a3
+    stage_o_decision:
+      path: outputs/paper_reduced100/stage_o/stage_o_decision.json
+      sha256: 79fd718b7a0216f49d5a1df313ad19086e92c14ad800dfbe2215ec091930fa7f
+    stage_q_decision:
+      path: outputs/paper_reduced100/stage_q/stage_q_decision.json
+      sha256: 3851687d6757c946cd64782fe5e83373d883066ed58493ca3bdaf44c1e548587
+
+reproduction_metadata:
+  classification: adapted_residual_contract_model_pilot
+  reproduction_level: adapted_residual_contract_model_pilot
+  exact:
+    - ordered_reduced100_split
+    - frozen_stage_n_p3_transform_and_train_only_statistics
+    - stage_k_localno_architecture_and_initial_tensor_state
+    - plain_l2_loss_contract
+    - stage_g_stage_k_pair_order
+    - stage_o_optimizer_scheduler_and_epoch_budget
+  adapted:
+    - normalized_residual_target_with_identity_state_skip
+    - diagnostic_transform_prototype_used_for_authorized_stage_r_training
+    - differential_localno_without_disco_integral
+    - press_thermal_proxy
+    - spherical_kerr_schild_grid_and_stored_components
+    - spherical_r_shell_inputs
+    - resource_scaled_30_epochs
+  blocked:
+    - exact_3d_disco_backbone
+    - unverified_eint_eos_conversion
+    - cartesian_kerr_schild_conversion
+    - paper_300_snapshot_dataset
+    - paper_1200_epoch_budget
+    - coarse_fine_coupled_simulation
+  canonical_replacement: false
+  comparison_parent: stage_o_p3_direct_localno
+  one_factor_change: prediction_and_target_contract

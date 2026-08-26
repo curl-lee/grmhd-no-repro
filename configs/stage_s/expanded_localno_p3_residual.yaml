@@ -1,0 +1,128 @@
+stage: S
+classification: adapted_method_data_scarcity_audit
+comparison_parent: configs/paper_reduced100/stage_r_localno_p3_residual_plain.yaml
+
+data:
+  dataset: data_proc/grmhd_regrid_inner_r200_64_expanded.h5
+  dataset_sha256: 3582a5c4f52f4fef305578ffd5a63c51423f8583f35d137c288d5c20203b50da
+  split: artifacts/stage_s/train_val_split.json
+  small_pairs: artifacts/stage_s/small_train_pairs.txt
+  train_snapshots: [0, 169]
+  validation_snapshots: [169, 212]
+  dropped_boundary_pair: [168, 169]
+  axis_order: [phi, theta, r]
+  channels: [Bcc1, Bcc2, Bcc3, rho, press, vel1, vel2, vel3]
+
+preprocessing:
+  mode: stage_n_p3_refit_expanded_train_only
+  artifact: artifacts/stage_s/p3_normalizer_expanded
+  normalizer_sha256: c2a36edbb44732efb857165e9a710d393cec68c6ba285521cd9bcc7b783cffa6
+  mapping:
+    Bcc1: canonical
+    Bcc2: no_softclip
+    Bcc3: no_softclip
+    rho: canonical
+    press: canonical
+    vel1: canonical
+    vel2: canonical
+    vel3: no_softclip
+  gamma: 6.0
+  inverse_clamp_fraction: 0.99
+  validation_used_for_fit: false
+
+representation:
+  physical_channels: 8
+  frozen_radial_shell_channels: 8
+  input_channels: 16
+  output_channels: 8
+  shell_count: 8
+  shell_mode: spherical_r_adaptation
+
+model:
+  source: neuralop.models.LocalNO
+  architecture: localno_differential_3d
+  n_dim: 3
+  in_channels: 16
+  out_channels: 8
+  n_modes: [8, 8, 8]
+  hidden_channels: 16
+  n_layers: 4
+  default_in_shape: [64, 64, 64]
+  positional_embedding: null
+  mixed_precision: false
+  use_differential: true
+  use_disco: false
+  use_local_integral: false
+  spectral_enabled: true
+  fin_diff_kernel_size: 3
+  mix_derivatives: true
+  conv_padding_mode: periodic
+  use_channel_mlp: false
+  local_no_skip: linear
+  normalization: null
+  enforce_hermitian_symmetry: true
+  prediction_mode: normalized_residual
+
+prediction:
+  mode: normalized_residual
+  target: z_t_plus_1_minus_z_t
+  reconstruction: z_t_plus_model_residual
+  residual_scale: 1.0
+  learnable_scale: false
+  clipping: false
+
+loss:
+  name: PlainL2Loss
+  h1: false
+  roi: false
+  bounds: false
+  radial: false
+  physics: false
+
+optimizer:
+  name: Adam
+  learning_rate: 1.0e-3
+  weight_decay: 1.0e-4
+  gradient_clip_norm: 1.0
+
+scheduler:
+  name: warmup_cosine
+  min_learning_rate: 1.0e-6
+  matched_total_updates: 600
+  matched_warmup_updates: 40
+  matched_warmup_derivation: 2_stage_r_epochs_x_20_updates
+  natural_warmup_epochs: 2
+
+runtime:
+  batch_size: 1
+  gradient_accumulation: 4
+  mixed_precision: false
+  seed: 42
+  num_workers: 0
+  require_cuda: true
+  required_device_substring: RTX 5070
+
+frozen_pairing:
+  initial_state: outputs/paper_reduced100/stage_k/shared_localno_initial_state.pt
+  initial_state_file_sha256: 07db393f5c3e831f44bcc2d47b8132c3f9a0e72e2a258618080db487cc13cbb0
+  initial_tensor_state_sha256: 7e10895cb283be8532e4c036e8a526c536a632cce880c500080ea1d14fd89311
+  expected_parameter_count: 358296
+  upstream_commit: 86a8bc7812a31b42c4f7895693cf4ac11521c066
+  stage_r_config_sha256: 2f21330a8f23372f598bef7a1aa27e0ff2d455b214a76a0fc8b646dafabbf793
+
+experiments:
+  smoke:
+    epochs: 2
+  small_matched:
+    train_pairs: 79
+    optimizer_updates: 600
+    effective_microbatches: 2400
+  full_matched:
+    train_pairs: 168
+    optimizer_updates: 600
+    effective_microbatches: 2400
+  full_30epoch:
+    train_pairs: 168
+    epochs: 30
+    optimizer_updates: 1260
+    effective_microbatches: 5040

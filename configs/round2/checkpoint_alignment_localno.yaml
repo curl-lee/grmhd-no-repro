@@ -1,0 +1,15 @@
+base_config: ../pilots/localno_residual_111.yaml
+
+experiment_name: checkpoint_alignment_localno_residual_all111
+
+training:
+  epochs: 20
+  early_stopping_patience: 100
+  checkpoint_selection_metric: composite_stability
+  stability_rollout_steps: 3
+  save_epoch_checkpoints: true
+
+logging:
+  root: outputs/experiment_round2
+  tensorboard: true
+  wandb: false

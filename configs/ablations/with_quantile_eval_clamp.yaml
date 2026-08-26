@@ -1,0 +1,6 @@
+base_config: ../grmhd_localno.yaml
+experiment_name: with_quantile_eval_clamp
+priors:
+  quantile_bounds:
+    enabled: true
+  evaluation_clamp: true

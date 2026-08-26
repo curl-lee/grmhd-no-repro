@@ -1,0 +1,38 @@
+stage: X
+classification: paper_method_gap_and_coordinate_field_representation_audit
+paper:
+  title: "From Black Hole to Galaxy: Neural Operator Framework for Accretion and Feedback Dynamics"
+  arxiv: 2512.01576v1
+  pdf_sha256: fe84a42289da7e86dd8460d223e57627a86aa0b2114a64a13b83f84388441808
+raw:
+  directory: /mnt/d/GRMHD_data
+  filename_pattern: mad98.prim.?????.athdf
+  field_snapshots: [0, 25, 50, 75, 100, 125, 150, 175, 200, 211]
+  adjacent_pair_sources: [0, 25, 50, 75, 100, 125, 150, 175, 200, 210]
+regrid:
+  method: finest_leaf_nearest_cell_center
+  resolutions: [32, 64, 96, 128]
+  reference_resolution: 128
+  reference_label: HIGHER_RES_SAMPLING_REFERENCE
+  r_edge_range: [1.100000023841858, 200.0]
+  shell_count: 8
+  radial_regions: equal_width_in_log_r
+  spectral_semantics: index_grid_proxy_not_physical_kerr_schild_spectrum
+  fidelity_thresholds:
+    good_relative_difference_median_max: 0.25
+    good_cosine_median_min: 0.95
+    moderate_relative_difference_median_max: 0.50
+    moderate_cosine_median_min: 0.80
+coordinates:
+  frozen_checkpoint: artifacts/stage_t/full_long/checkpoints/epoch_0150.pt
+  radial_indices: [12, 32, 51]
+  local_pattern_half_width: 2
+  identifiability_thresholds:
+    shell_off_relative_distance_max: 1.0e-5
+    shell_on_relative_distance_min: 1.0e-3
+restrictions:
+  training: false
+  mutate_raw_data: false
+  regenerate_processed_hdf5: false
+  vector_conversion: false
+  press_to_eint_conversion: false

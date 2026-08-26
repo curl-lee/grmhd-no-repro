@@ -1,0 +1,61 @@
+experiment: round3_hybrid_fold_b
+seed: 42
+
+data:
+  path: data_proc/grmhd_regrid_inner_r200_64.h5
+  snapshot_start: 0
+  snapshot_end: 100
+  train_snapshot_count: 80
+  val_snapshot_count: 10
+  test_snapshot_count: 10
+  normalizer_stats_path: outputs/experiment_round3/fold_b_stats/normalizer_stats.npz
+  hybrid_target_stats_path: outputs/experiment_round3/fold_b_stats/hybrid_target_stats.json
+  downsample: 1
+  with_shells: true
+  n_shells: 8
+
+model:
+  type: fno
+  in_channels: 16
+  out_channels: 8
+  n_modes: [8, 8, 8]
+  hidden_channels: 16
+  n_layers: 4
+  positional_embedding: null
+  zero_init_residual_head: true
+
+training:
+  device: cuda
+  epochs: 20
+  batch_size: 1
+  gradient_accumulation: 4
+  learning_rate: 3.0e-4
+  warmup_epochs: 3
+  min_learning_rate: 1.0e-6
+  weight_decay: 1.0e-4
+  gradient_clip: 1.0
+  mixed_precision: false
+  seed: 42
+  early_stopping_patience: 8
+  strategy: uniform_history
+  recency_tau: 20
+  recent_window: [40, 80]
+
+loss:
+  target: 1.0
+  decoded: 0.25
+  rollout: 0.10
+  range: 0.02
+  calibration_max_ratio: 10.0
+
+checkpoint:
+  selection_metric: composite
+  names:
+    target: best_target.pt
+    decoded_one_step: best_decoded_one_step.pt
+    rollout3: best_rollout3.pt
+    composite: best_composite.pt
+    last: last.pt
+
+logging:
+  root: outputs/experiment_round3/hybrid_experiments

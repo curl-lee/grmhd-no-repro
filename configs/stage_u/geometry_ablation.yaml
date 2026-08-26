@@ -1,0 +1,40 @@
+stage: U
+classification: spherical_grid_operator_geometry_mismatch_audit
+frozen_stage_t_config: configs/stage_t/optimization_convergence.yaml
+frozen_stage_t_config_sha256: f72b985d3c2425205c8e066c51eee76b513ce74d48e2cec8b26b210238f8e58f
+
+audits:
+  index_fd_geometry_error_gate: [MODERATE, STRONG]
+  boundary_mismatch_gate: [THETA_ONLY, R_ONLY, THETA_AND_R]
+  padding_selector: synthetic_boundary_minimax_error
+
+pilots:
+  variants: [spectral_only, coordinate_fd, spherical_proxy_fd]
+  epochs: 150
+  scheduler_total_epochs: 1200
+  scheduler_warmup_epochs: 75
+  train_pairs: 168
+  validation_pairs: 42
+  seed: 42
+  batch_size: 1
+  gradient_accumulation: 4
+  checkpoint_epochs: [30, 75, 150]
+
+frozen:
+  target: normalized_residual
+  reconstruction: z_t_plus_model_residual
+  loss: PlainL2Loss
+  optimizer: Adam
+  learning_rate: 1.0e-3
+  weight_decay: 1.0e-4
+  gradient_clip_norm: 1.0
+  mixed_precision: false
+  hidden_channels: 16
+  n_modes: [8, 8, 8]
+  n_layers: 4
+  channel_order: [Bcc1, Bcc2, Bcc3, rho, press, vel1, vel2, vel3]
+  shell_count: 8
+
+u2_differential_only:
+  status: skipped
+  reason: pinned LocalNO has no resolved configuration switch that removes the learned spectral contribution while retaining only an equivalent differential/local-skip graph; monkey-patching a zero branch would materially change architecture semantics.

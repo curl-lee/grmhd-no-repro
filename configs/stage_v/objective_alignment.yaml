@@ -1,0 +1,67 @@
+stage: V
+classification: objective_alignment_and_temporal_distribution_shift_audit
+frozen_stage_t_config: configs/stage_t/optimization_convergence.yaml
+frozen_stage_t_config_sha256: f72b985ddaeaddcae43662a0211f043f40a45901125965cb982a421b657cd58f
+
+baseline:
+  checkpoint: artifacts/stage_t/full_long/checkpoints/epoch_0150.pt
+  epoch: 150
+  optimizer_updates: 6300
+  state_normalized_relative_l2: 0.266711
+  persistence_normalized_relative_l2: 0.310282
+  residual_relative_l2: 0.891851
+  residual_global_cosine: 0.740602
+  shell_skill: -1.67947
+  radial_skill: -0.348089
+
+gradient_audit:
+  checkpoint: shared_initial_state
+  train_only_pair_subset: [0, 7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84, 91, 98, 105, 112, 119, 126, 133, 140, 147, 154, 167]
+  selection_rule: eight_predeclared_indices_from_each_chronological_train_third
+  direction_target_fraction_single: 0.10
+  transport_target_fraction_single: 0.10
+  direction_target_fraction_combined: 0.05
+  transport_target_fraction_combined: 0.05
+  epsilon: 1.0e-12
+
+objectives:
+  plain: exact_stage_t_normalized_residual_mse
+  direction: mean_per_sample_channel_one_minus_residual_cosine
+  shell: normalized_state_frozen_8_shell_variance_delta_relative_squared_error
+  radial: normalized_state_phi_theta_mean_profile_delta_relative_squared_error
+  transport: half_shell_plus_half_radial
+  validation_weight_tuning: false
+
+pilots:
+  variants: [direction, transport, direction_transport]
+  epochs: 150
+  optimizer_updates_per_epoch: 42
+  total_optimizer_updates: 6300
+  scheduler_total_updates: 50400
+  scheduler_warmup_updates: 3150
+  formal_validation_interval_epochs: 10
+  checkpoint_epochs: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150]
+  early_stopping: false
+  mixed_precision: false
+  architecture_change: false
+  geometry_change: false
+  extra_gradient_clipping: false
+
+selection:
+  formal: validation_normalized_per_channel_state_relative_l2_arithmetic_average
+  diagnostic_only: [residual_relative_l2, residual_global_cosine, shell_skill, radial_skill]
+
+thresholds:
+  extreme_decoder_tail_absolute_normalized: 5.94
+  state_retention_multiplier: 1.05
+  plain_transport_correlation_weak_absolute: 0.30
+  plain_error_correlation_strong_absolute: 0.50
+  shift_low_max_late_over_early: 1.10
+  shift_moderate_max_late_over_early: 1.50
+  ood_coupling_moderate_absolute_spearman: 0.30
+  ood_coupling_strong_absolute_spearman: 0.60
+
+paper_full:
+  authorized: false
+  reason: known_upstream_index_grid_H1_spacing_pathology
+  status: PAPER_FULL_PILOT_NOT_AUTHORIZED

@@ -1,0 +1,84 @@
+schema_version: paper-stage-n-transform-operator-audit-v1
+
+classification:
+  kind: diagnostic_transform_and_operator_response_audit
+  no_training: true
+  prototype_used_for_model_input: false
+  canonical_replacement: false
+  stage_k_decision_frozen: C. TRAINING_COMPLETE_BUT_ROLLOUT_UNSTABLE
+  stage_l_decision_frozen: 3. MIXED_OVERALL
+  stage_m_decision_frozen: 4. MIXED_TRANSPORT_AND_PREPROCESSING_FAILURE
+
+provenance:
+  data_config: configs/data/paper_reduced100.yaml
+  manifest: outputs/paper_reduced100/manifest.json
+  canonical_normalizer: outputs/paper_reduced100/stats/normalizer.npz
+  canonical_shells: outputs/paper_reduced100/priors/shell_metadata.json
+  stage_k_config: configs/paper_reduced100/stage_k_localno_differential_plain.yaml
+  stage_k_best_checkpoint: outputs/paper_reduced100/stage_k/localno_differential_plain/best_validation_l2
+  stage_k_last_checkpoint: outputs/paper_reduced100/stage_k/localno_differential_plain/last/paper_state_dict.pt
+  stage_k_selected_states: outputs/paper_reduced100/stage_k/localno_differential_plain/selected_states.pt
+  stage_l_config: configs/paper_reduced100/stage_l_collapse_attribution.yaml
+  stage_l_decision: outputs/paper_reduced100/stage_l/stage_l_decision.json
+  stage_l_attribution: outputs/paper_reduced100/stage_l/collapse_attribution.json
+  stage_m_config: configs/paper_reduced100/stage_m_transform_floor_audit.yaml
+  stage_m_decision: outputs/paper_reduced100/stage_m/stage_m_decision.json
+  stage_m_candidate_gate: outputs/paper_reduced100/stage_m/candidate_gate_config.json
+
+split:
+  train_snapshots: [11, 91]
+  validation_snapshots: [91, 111]
+  validation_read_after_train_freeze_only: true
+
+prototype_contract:
+  classification: diagnostic_transform_prototype
+  canonical_replacement: false
+  authorized_for_training: false
+  authorized_for_checkpoint_evaluation: false
+  paper_faithful: false
+  gamma: 6.0
+  canonical_inverse_clamp_fraction: 0.99
+  bcc2_minimal_limit: float32_nextafter_gamma_toward_zero
+  readiness:
+    relative_l2_improvement_minimum: 0.50
+    core_retention_minimum: 0.80
+    core_categories_required: 3
+    control_relative_l2_degradation_maximum: 0.05
+    all_train_finite_required: true
+    no_new_exact_saturation_required: true
+  prototypes:
+    P0: CANONICAL_CONTROL
+    P1: BCC3_VEL3_NO_SOFTCLIP
+    P2A: BCC2_MINIMAL_INVERSE_CLAMP
+    P2B: BCC2_NO_SOFTCLIP
+    P3: COMBINED_PROTOTYPE_V1
+
+operator_response:
+  preprocessing: canonical_only
+  checkpoint_epoch: 22
+  epsilon: [0.001, 0.01]
+  train_states: [11, 50, 90]
+  validation_states: [91, 92, 94, 96, 100, 110]
+  shell_count: 8
+  tensor_axes: [phi, theta, r]
+  maximum_model_applications_per_probe: 2
+  model_mode: eval
+  autograd: disabled
+  evidence_thresholds:
+    state_majority_required: 5
+    weak_state_count: 3
+    contraction_gain: 1.0
+    shell_same_retention_minimum: 0.50
+    radial_phase_absolute_minimum: 0.50
+    frequency_gain_spread: 2.0
+    channel_off_diagonal_over_diagonal: 1.0
+    epsilon_consistency_relative_tolerance: 0.10
+    epsilon_consistent_basis_fraction_minimum: 0.80
+
+candidate_gate:
+  oracle_conditioned_gate_version: stage_m_v1
+  reporting_only: true
+  training_blocking_default: false
+
+output:
+  root: outputs/paper_reduced100/stage_n

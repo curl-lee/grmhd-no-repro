@@ -1,0 +1,24 @@
+extends: ../full_fno_proxy.yaml
+
+experiment_name: stage_i_unit_index_h1
+output_dir: outputs/paper_reduced100/stage_i/unit_index_h1
+checkpoint_prefix: stage_i_unit_index_h1
+
+loss:
+  h1:
+    enabled: true
+    weight: 0.05
+    implementation: stage_h_H1_unit_index
+    metric_adaptation: unit_index_spacing
+    mode: unit_index
+    paper_reference_weight: 0.05
+    weighted_contribution: paper_reference_weight_times_raw_h1
+    diagnostic_current_upstream_h1: true
+    spacings: [1.0, 1.0, 1.0]
+    boundary: periodic_wrap_all_three_axes
+    reduction: uniform_voxel_mean
+
+reproduction_metadata:
+  reproduction_level: diagnostic_extension
+  paper_faithful_full: false
+  extension_reason: isolate_unit_cube_spacing_amplification

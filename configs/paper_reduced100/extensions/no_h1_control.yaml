@@ -1,0 +1,21 @@
+extends: ../full_fno_proxy.yaml
+
+experiment_name: stage_i_no_h1
+output_dir: outputs/paper_reduced100/stage_i/no_h1
+checkpoint_prefix: stage_i_no_h1
+
+loss:
+  h1:
+    enabled: false
+    weight: 0.05
+    implementation: diagnostic_no_h1
+    metric_adaptation: selected_h1_disabled
+    mode: no_h1
+    paper_reference_weight: 0.05
+    weighted_contribution: 0.0
+    diagnostic_current_upstream_h1: true
+
+reproduction_metadata:
+  reproduction_level: diagnostic_extension
+  paper_faithful_full: false
+  extension_reason: spherical_grid_H1_adaptation_diagnosis

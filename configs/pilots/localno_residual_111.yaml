@@ -1,0 +1,17 @@
+base_config: ../data/all111.yaml
+
+experiment_name: pilot_localno_residual_111
+model:
+  type: localno_diff
+  predict_residual: true
+training:
+  epochs: 100
+  batch_size: 1
+  gradient_accumulation: 4
+  learning_rate: 1.0e-3
+  warmup_epochs: 5
+  min_learning_rate: 1.0e-6
+  weight_decay: 1.0e-4
+  gradient_clip: 1.0
+  early_stopping_patience: 20
+  mixed_precision: false

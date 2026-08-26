@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "grmhd-no-repro"
+version = "0.1.0"
+description = "Standalone neural-operator surrogate pipeline for spherical Kerr-Schild GRMHD data"
+requires-python = ">=3.10"
+dependencies = [
+  "h5py>=3.9",
+  "numpy>=1.24",
+  "PyYAML>=6",
+  "torch>=2.2",
+]
+
+[project.optional-dependencies]
+plot = ["matplotlib>=3.7"]
+test = ["pytest>=7"]
+train = ["tensorboard>=2.14", "tqdm>=4.65"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-ra"

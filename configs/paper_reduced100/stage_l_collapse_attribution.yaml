@@ -1,0 +1,115 @@
+schema_version: paper-stage-l-collapse-attribution-v1
+
+classification:
+  kind: post_hoc_attribution
+  read_only_model_evaluation: true
+  training_allowed: false
+  stage_k_decision_frozen: C. TRAINING_COMPLETE_BUT_ROLLOUT_UNSTABLE
+
+provenance:
+  stage_g_run_manifest: outputs/paper_reduced100/stage_g/run_manifest.json
+  stage_k_run_manifest: outputs/paper_reduced100/stage_k/run_manifest.json
+  stage_k_training_summary: outputs/paper_reduced100/stage_k/training_summary.json
+  stage_k_decision: outputs/paper_reduced100/stage_k/stage_k_decision.json
+  stage_k_gt_rollout: outputs/paper_reduced100/stage_k/localno_differential_plain/gt_rollout.json
+  stage_k_no_gt_rollout: outputs/paper_reduced100/stage_k/localno_differential_plain/no_gt_rollout.json
+  stage_k_summary_gt_rollout: outputs/paper_reduced100/stage_k/rollout_gt.json
+  stage_k_summary_no_gt_rollout: outputs/paper_reduced100/stage_k/rollout_no_gt.json
+  stage_k_selected_states: outputs/paper_reduced100/stage_k/localno_differential_plain/selected_states.pt
+  stage_g_pair_order: outputs/paper_reduced100/stage_g/epoch_pair_order.json
+
+analysis:
+  primary_channels: [Bcc3, vel3]
+  control_channels: [Bcc1, Bcc2, rho, press, vel1, vel2]
+  gt_initial_snapshot: 91
+  gt_transitions: 19
+  gt_selected_steps: [1, 3, 5, 10, 19]
+  no_gt_selected_steps: [25, 50, 75, 100]
+  tensor_axes: [phi, theta, r]
+  radial_shell_count: 8
+  no_oracle_after_step: 19
+
+frozen_detector:
+  implementation: grmhd.paper_stage_g_evaluation.artifact_diagnostics
+  source_path: src/grmhd/paper_stage_g_evaluation.py
+  implementation_source_sha256: 3a9ea391b663df6b58a0c75942283658ee0214669d234e2c5a9594cc5f36e95d
+  source_file_sha256: 64125810309c129ca56c326c6a6be7f60f94c706b8362b62810947587d7101e8
+  flag_suffix: possible_field_collapse
+  prediction_domain: canonical_decoded_physical_after_rho_press_evaluation_clamp
+  no_gt_reference_domain: raw_physical_snapshot_91
+  no_gt_reference_kind: initial_snapshot_91
+  per_channel_statistic: torch_std_all_spatial_voxels
+  torch_std_correction: 1
+  spatial_axes: [phi, theta, r]
+  ratio: prediction_std_over_reference_std
+  denominator_floor: 1.0e-12
+  threshold: 0.05
+  comparator: strict_less_than
+  shell_aggregation: none
+  time_aggregation: none_per_step
+  finite_guard: rollout_rejects_nonfinite_before_detector
+  normalized_inverse_clamp_fraction: 0.99
+  normalized_inverse_clamp_gamma: 6.0
+  evaluation_bound_clamp_channels: [rho, press]
+
+spectral_contract:
+  semantics: index_space_diagnostic_not_physical_kerr_schild_invariant
+  spatial_axes: [phi, theta, r]
+  remove_mean_variants: [false, true]
+  window: none
+  normalization: parseval_orthonormal
+  normalized_frequency_definition: absolute_cycles_per_index
+  bands:
+    low_k:
+      maximum_inclusive: 0.125
+    mid_k:
+      minimum_exclusive: 0.125
+      maximum_inclusive: 0.25
+    high_k:
+      minimum_exclusive: 0.25
+  parseval_relative_tolerance: 1.0e-10
+
+retention_contract:
+  ratio_denominator_absolute_floor: 1.0e-30
+  undefined_when_denominator_at_or_below_floor: true
+  always_report_absolute_numerator_and_denominator: true
+  severe_loss_threshold: 0.5
+  severe_loss_comparator: strict_less_than
+  selected_gt_step_aggregation:
+    rule: majority
+    required_steps: 3
+    total_steps: 5
+  core_evidence:
+    global_variance:
+      statistic: global_spatial_variance
+    shell_radial_variance:
+      shell_statistic: median_of_defined_eight_shell_variance_retentions
+      radial_statistic: radial_profile_variance_retention
+      per_step_rule: either_shell_or_radial_severe
+    high_k_spectral_energy:
+      statistic: demeaned_combined_index_space_high_k_energy_retention
+
+attribution_rules:
+  preprocessing_dominated:
+    preprocessing_severe_core_evidence_minimum: 2
+    model_severe_core_evidence_maximum: 1
+    oracle_detector_requirement: near_or_triggered
+  model_dominated:
+    model_severe_core_evidence_minimum: 2
+    preprocessing_severe_core_evidence_maximum: 1
+    oracle_detector_requirement: not_triggered_while_localno_triggered
+  mixed_preprocessing_and_model:
+    preprocessing_severe_core_evidence_minimum: 2
+    model_severe_core_evidence_minimum: 2
+    alternative_rule: oracle_degraded_and_localno_additionally_significantly_degraded
+  detector_specific_mismatch:
+    preprocessing_severe_core_evidence_maximum: 1
+    model_severe_core_evidence_maximum: 1
+    detector_requirement: persistently_triggered
+  inconclusive_or_engineering_failure:
+    applies_on:
+      - widespread_undefined_denominators
+      - checkpoint_or_metric_provenance_failure
+      - detector_reproduction_failure
+      - missing_required_gt_or_oracle_data
+      - contradictory_unstable_classification

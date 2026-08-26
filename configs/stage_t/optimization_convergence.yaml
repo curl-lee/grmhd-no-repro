@@ -1,0 +1,35 @@
+stage: T
+classification: optimization_convergence_and_paper_budget_audit
+frozen_stage_s_config: configs/stage_s/expanded_localno_p3_residual.yaml
+frozen_stage_s_config_sha256: cdba8328a66b79cd937a0262e6bc1123f645ba0821ba915481af1d64e551618a
+
+causal_control:
+  name: T-small-1260
+  train_pairs: 79
+  optimizer_updates: 1260
+  effective_microbatches: 5040
+  warmup_updates: 84
+  scheduler_total_updates: 1260
+
+full_long:
+  train_pairs: 168
+  total_epochs: 1200
+  warmup_epochs: 75
+  mandatory_checkpoint_epochs: [2, 10, 30, 75, 150, 300, 600, 900, 1200]
+  rollout_checkpoint_epochs: [30, 75, 150, 300, 600, 1200]
+
+evaluation:
+  validation_pairs: 42
+  validation_strata:
+    early: [169, 183]
+    middle: [183, 197]
+    late: [197, 211]
+  formal_checkpoint_selector: validation_normalized_per_channel_relative_l2_arithmetic_average
+  extreme_decoder_tail_absolute_normalized_threshold: 5.94
+  catastrophic_inverse_tail_definition: physical_average_relative_l2_greater_than_10x_persistence
+  matched_data_neutral_relative_band: 0.02
+  temporal_shift_sensitivity_thresholds:
+    low_max_late_over_early: 1.10
+    moderate_max_late_over_early: 1.50
+  objective_metric_decoupling_rule: any_consecutive_checkpoint_state_l2_improves_while_shell_or_radial_skill_degrades
+  overfit_relative_degradation_threshold: 0.10

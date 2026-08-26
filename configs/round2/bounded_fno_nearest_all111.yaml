@@ -1,0 +1,38 @@
+base_config: ../pilots/fno_residual_111.yaml
+
+experiment_name: bounded_fno_nearest_all111
+
+data:
+  selected_regrid_method: nearest_leaf
+
+model:
+  type: fno
+  predict_residual: true
+  zero_init_residual_head: true
+  bounded_residual: true
+  residual_scale_source: train_abs_quantile
+  residual_scale_quantile: 0.999
+  residual_scale_multiplier: 1.0
+  residual_scale_min: 1.0e-6
+  residual_scale_samples_per_channel: 200000
+  residual_scale_stats_path: outputs/experiment_round2/fold_stats/fold_b/residual_scale.json
+
+training:
+  epochs: 20
+  batch_size: 1
+  gradient_accumulation: 4
+  learning_rate: 3.0e-4
+  warmup_epochs: 3
+  min_learning_rate: 1.0e-6
+  weight_decay: 1.0e-4
+  gradient_clip: 1.0
+  mixed_precision: false
+  early_stopping_patience: 100
+  checkpoint_selection_metric: composite_stability
+  stability_rollout_steps: 3
+  save_epoch_checkpoints: true
+
+logging:
+  root: outputs/experiment_round2
+  tensorboard: true
+  wandb: false

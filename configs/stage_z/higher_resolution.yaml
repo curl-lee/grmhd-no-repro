@@ -1,0 +1,114 @@
+stage: Z
+classification: higher_resolution_adapted_spherical_ks_reproduction_and_regrid_loss_test
+reproduction_scope: ADAPTED_SPHERICAL_KS_WORKFLOW_REPRODUCTION
+exact_reproduction_blocked: true
+
+raw:
+  directory: /mnt/d/GRMHD_data
+  audit: artifacts/stage_s/expanded_data_audit.json
+  snapshot_count: 212
+  filename_pattern: mad98.prim.?????.athdf
+
+data:
+  resolutions:
+    64: data_proc/grmhd_regrid_inner_r200_64_expanded.h5
+    96: data_proc/grmhd_regrid_inner_r200_96_expanded.h5
+    128: data_proc/grmhd_regrid_inner_r200_128_expanded.h5
+  axis_order: N,C,Nphi,Ntheta,Nr
+  channels: [Bcc1, Bcc2, Bcc3, rho, press, vel1, vel2, vel3]
+  train_snapshots: [0, 169]
+  validation_snapshots: [169, 212]
+  train_pairs: 168
+  validation_pairs: 42
+  dropped_boundary_pair: [168, 169]
+
+regrid:
+  method: nearest_leaf
+  method_description: finest-covering-leaf nearest-cell-centre
+  conservative: false
+  interpolation: false
+  divergence_preserving: false
+  r_edge_range: [1.100000023841858, 200.0]
+  radial_spacing: geometric
+  theta_spacing: linear
+  phi_spacing: linear_periodic
+  z64_regression_snapshots: [0, 50, 100, 150, 211]
+  stage_x_field_snapshots: [0, 25, 50, 75, 100, 125, 150, 175, 200, 211]
+  stage_x_pair_sources: [0, 25, 50, 75, 100, 125, 150, 175, 200, 210]
+  reference_resolution: 128
+  reference_semantics: HIGHER_RES_SAMPLING_REFERENCE
+  information_gain_relative_threshold: 0.20
+
+preprocessing:
+  family: P3
+  policies:
+    Bcc1: canonical
+    Bcc2: no_softclip
+    Bcc3: no_softclip
+    rho: canonical
+    press: canonical
+    vel1: canonical
+    vel2: canonical
+    vel3: no_softclip
+  gamma: 6.0
+  inverse_clamp_fraction: 0.99
+  fit_snapshots: [0, 169]
+  validation_used_for_fit: false
+
+model:
+  source: neuralop.models.LocalNO
+  architecture: adapted_3d_differential_localno
+  in_channels: 16
+  out_channels: 8
+  hidden_channels: 16
+  n_modes: [8, 8, 8]
+  n_layers: 4
+  spectral_enabled: true
+  use_differential: true
+  use_disco: false
+  use_local_integral: false
+  fin_diff_kernel_size: 3
+  mix_derivatives: true
+  conv_padding_mode: periodic
+  positional_embedding: null
+  mixed_precision: false
+  parameter_count: 358296
+  shared_initial_state: outputs/paper_reduced100/stage_k/shared_localno_initial_state.pt
+  shared_initial_tensor_sha256: 7e10895cb283be8532e4c036e8a526c536a632cce880c500080ea1d14fd89311
+
+training:
+  epochs: 150
+  batch_size: 1
+  gradient_accumulation: 4
+  microbatches_per_epoch: 168
+  optimizer_updates_per_epoch: 42
+  optimizer_updates: 6300
+  optimizer: Adam
+  learning_rate: 1.0e-3
+  weight_decay: 1.0e-4
+  gradient_clip_norm: 1.0
+  mixed_precision: false
+  loss: PlainL2Loss_on_normalized_residual
+  seed: 42
+  scheduler: stage_t_1200_epoch_warmup_cosine_prefix
+  scheduler_total_epochs: 1200
+  scheduler_warmup_epochs: 75
+  scheduler_total_updates: 50400
+  scheduler_warmup_updates: 3150
+  checkpoint_epochs: [2, 10, 30, 75, 150]
+  formal_selector: validation_normalized_per_channel_relative_l2_arithmetic_average
+
+frozen:
+  upstream_commit: 86a8bc7812a31b42c4f7895693cf4ac11521c066
+  stage_t_config: configs/stage_t/optimization_convergence.yaml
+  stage_t_epoch150: artifacts/stage_t/full_long/checkpoints/epoch_0150.pt
+  split: artifacts/stage_s/train_val_split.json
+  pair_order_seed: 42
+  raw_snapshot_set: true
+  temporal_split: true
+  channel_semantics: true
+  model_architecture: true
+  loss: true
+  residual_contract: true
+  optimizer: true
+  pair_order: true

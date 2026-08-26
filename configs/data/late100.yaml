@@ -1,0 +1,15 @@
+base_config: ../grmhd_localno.yaml
+
+data:
+  window_name: late100
+  path: data_proc/grmhd_regrid_inner_r200_64.h5
+  snapshot_start: -100
+  snapshot_end: null
+  train_snapshot_count: 70
+  val_snapshot_count: 10
+  test_snapshot_count: 20
+  stride: 1
+  normalizer_stats_path: outputs/stats/late100/normalizer_stats.npz
+
+logging:
+  root: outputs/experiment_round1

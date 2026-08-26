@@ -1,0 +1,65 @@
+stage: AE
+classification: spherical_coordinate_aware_disco3d_geometry_intervention
+reproduction_scope: ADAPTED_SPHERICAL_KS_WORKFLOW_REPRODUCTION
+
+frozen_stage_ad_config: configs/stage_ad/disco3d_localno.yaml
+frozen_stage_ad_config_sha256: d0afa85e3eec1623c7f0e318b483f394fbc0bf39b7b3cf3f20cf4b340020f7a2
+frozen_stage_t_config: configs/stage_t/optimization_convergence.yaml
+frozen_stage_t_config_sha256: f72b985d3c2425205c8e066c51eee76b513ce74d48e2cec8b26b210238f8e58f
+frozen_stage_s_config: configs/stage_s/expanded_localno_p3_residual.yaml
+frozen_stage_s_config_sha256: cdba8328a66b79cd937a0262e6bc1123f645ba0821ba915481af1d64e551618a
+
+data:
+  dataset: data_proc/grmhd_regrid_inner_r200_64_expanded.h5
+  dataset_sha256: 3582a5c4f52f4fef305578ffd5a63c51423f8583f35d137c288d5c20203b50da
+  coordinate_group: coords
+  axis_order: [phi, theta, r]
+
+operator:
+  name: SPHERICAL_AWARE_DISCO3D
+  geometry_model: EUCLIDEAN_SPHERICAL_COORDINATE_PROXY
+  quadrature: SPHERICAL_COORDINATE_VOLUME_PROXY
+  kerr_schild_covariant_geometry: false
+  vector_component_transformation: false
+  radius_multiplier: 3
+  basis_count: 5
+  candidate_radius_indices: 3
+  candidate_stencil_shape: [7, 7, 7]
+  phi_boundary: PERIODIC
+  theta_boundary: TRUNCATED_RENORMALIZED
+  r_boundary: TRUNCATED_RENORMALIZED
+  pole_topology_exact: false
+  normalization_epsilon: 1.0e-12
+  groups: 1
+  bias: true
+  execution_backend: SHIFT_WINDOW_EINSUM
+
+initialization:
+  common_state: outputs/paper_reduced100/stage_k/shared_localno_initial_state.pt
+  common_tensor_state_sha256: 7e10895cb283be8532e4c036e8a526c536a632cce880c500080ea1d14fd89311
+  disco_seed: 42
+  stage_ad_initialization_artifact: artifacts/stage_ad/training/disco3d_localno/initialization_hashes.json
+  stage_ad_initialization_artifact_sha256: 212af4d96224a3253ec60ffb38bf2feb15ff6f4409d149d4e881e1f8edd9a477
+
+training:
+  epochs: 300
+  batch_size: 1
+  gradient_accumulation: 4
+  microbatches_per_epoch: 168
+  updates_per_epoch: 42
+  optimizer_updates: 12600
+  mandatory_checkpoint_epochs: [2, 10, 30, 75, 150, 300]
+  optimizer: Adam
+  learning_rate: 1.0e-3
+  weight_decay: 1.0e-4
+  gradient_clip_norm: 1.0
+  mixed_precision: false
+  scheduler: stage_t_1200_epoch_warmup_cosine_first_300
+  loss: PlainL2Loss_on_normalized_residual
+
+evaluation:
+  validation_pairs: 42
+  selector: validation_normalized_per_channel_relative_l2_arithmetic_average
+  rollout_start_snapshot: 169
+  gt_steps: 42
+  no_gt_steps: 100

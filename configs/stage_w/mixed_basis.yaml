@@ -1,0 +1,92 @@
+stage: W
+classification: mixed_basis_non_euclidean_spectral_operator_audit
+frozen_stage_t_config: configs/stage_t/optimization_convergence.yaml
+frozen_stage_t_config_sha256: f72b985d3c2425205c8e066c51eee76b513ce74d48e2cec8b26b210238f8e58f
+
+baseline:
+  checkpoint: artifacts/stage_t/full_long/checkpoints/epoch_0150.pt
+  epoch: 150
+  state_l2: 0.266711
+  residual_l2: 0.891851
+  cosine: 0.740602
+  shell_skill: -1.67947
+  radial_skill: -0.348089
+  first10x: 1
+
+spectral:
+  logical_axes: [phi, theta, log_r]
+  basis: [real_fourier, orthonormal_dct_ii, orthonormal_dct_ii]
+  inverse: [irfft, orthonormal_idct_ii, orthonormal_idct_ii]
+  requested_modes: [8, 8, 8]
+  stored_complex_modes: [5, 8, 8]
+  stage_t_stored_complex_modes: [8, 8, 5]
+  fft_norm: ortho
+  parameter_count_delta_limit: 0.10
+  spherical_harmonics: false
+  kerr_schild_covariant: false
+
+transform_tests:
+  float32_roundtrip_relative_l2_max: 1.0e-6
+  float64_roundtrip_relative_l2_max: 1.0e-10
+  parseval_relative_error_max: 1.0e-6
+  mode_localization_energy_fraction_min: 0.999999
+  phi_shift_relative_error_max: 1.0e-6
+  boundary_wrap_ratio_max: 0.20
+
+pilots:
+  variants: [mixed_basis, mixed_basis_boundary]
+  epochs: 150
+  scheduler_total_epochs: 1200
+  scheduler_warmup_epochs: 75
+  train_pairs: 168
+  validation_pairs: 42
+  seed: 42
+  batch_size: 1
+  gradient_accumulation: 4
+  checkpoint_epochs: [2, 10, 30, 75, 150]
+  early_stopping: false
+  mixed_precision: false
+
+frozen:
+  preprocessing: stage_t_p3
+  target: normalized_residual
+  reconstruction: z_t_plus_model_residual
+  loss: PlainL2Loss
+  optimizer: Adam
+  learning_rate: 1.0e-3
+  weight_decay: 1.0e-4
+  gradient_clip_norm: 1.0
+  hidden_channels: 16
+  n_modes: [8, 8, 8]
+  n_layers: 4
+  positional_embedding: null
+  extra_geometry_channels: false
+  channel_order: [Bcc1, Bcc2, Bcc3, rho, press, vel1, vel2, vel3]
+  shell_count: 8
+
+variants:
+  mixed_basis:
+    spectral_basis: [rFFT_phi, DCT-II_theta, DCT-II_log_r]
+    fd_boundary: [circular_phi, circular_theta, circular_r]
+  mixed_basis_boundary:
+    spectral_basis: [rFFT_phi, DCT-II_theta, DCT-II_log_r]
+    fd_boundary: [circular_phi, replicate_theta, replicate_r]
+
+evaluation:
+  formal_selector: validation_normalized_per_channel_state_relative_l2_arithmetic_average
+  selected_rollout_steps: [1, 2, 3, 5, 10, 19, 25, 42, 50, 75, 100]
+  boundary_zone_widths: [2, 4]
+  validation_strata:
+    early: [169, 183]
+    middle: [183, 197]
+    late: [197, 211]
+
+gates:
+  state_l2_max: 0.280047
+  residual_l2_max: 1.0
+  cosine_min: 0.7
+  shell_minimum_improvement: 0.10
+  radial_minimum_improvement: 0.10
+  rollout_minimum_first10x_exclusive: 1
+  rollout_strong_first10x_exclusive: 3
+  boundary_benefit_relative_reduction_min: 0.10
