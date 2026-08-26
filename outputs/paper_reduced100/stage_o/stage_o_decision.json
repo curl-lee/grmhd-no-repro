@@ -1,0 +1,435 @@
+{
+  "choice": "C",
+  "core_comparison_answers": [
+    {
+      "answer": "yes",
+      "evidence": {
+        "Bcc2": 3.338493509627357e-07,
+        "Bcc3": 2.9926897563323865e-07,
+        "vel3": 7.303524960640005e-08
+      },
+      "evidence_status": "observed",
+      "question": "Did P3 lower the Bcc2/Bcc3/vel3 oracle floor?"
+    },
+    {
+      "answer": "not_stably",
+      "evidence": "stage_m_v1 Gate 2 failed for Bcc2 and Bcc3; vel3 passed, while decoded ranges exploded",
+      "evidence_status": "observed",
+      "question": "Did P3 LocalNO reduce model-added variance degradation?"
+    },
+    {
+      "answer": "no",
+      "evidence": "Gate 3 failed for all three target channels with negative median shell and radial persistence-relative skill",
+      "evidence_status": "observed",
+      "question": "Did P3 LocalNO improve shell/radial transport?"
+    },
+    {
+      "answer": "yes_but_not_stability",
+      "evidence": "target-channel collapse flags disappeared, but ripple/stripe flags and a more severe decoded-range explosion replaced them",
+      "evidence_status": "observed",
+      "question": "Did P3 LocalNO reduce legacy collapse flags?"
+    },
+    {
+      "answer": "yes",
+      "evidence": "legacy flags did not identify collapse, whereas Gate 0 exposed range/Rout failure and Gates 2/3 separated model degradation from the recovered floor",
+      "evidence_status": "observed",
+      "question": "Did stage_m_v1 differ from the legacy detector?"
+    },
+    {
+      "answer": "no",
+      "evidence": 5.808710339948136,
+      "evidence_status": "observed",
+      "question": "Did P3 LocalNO beat P3 persistence?"
+    },
+    {
+      "answer": "floor recovery was transform-side; stable skill did not follow and model behavior dominated failure",
+      "evidence_status": "inference",
+      "question": "Was the Stage K to Stage O difference caused by transform floor or model behavior?",
+      "unsupported": "a causal mechanism inside the operator is not proven by this pilot"
+    },
+    {
+      "answer": "supported_as_persistent",
+      "evidence": "all target channels failed Gate 3 and the physical feedback trajectory expanded to the float32 range",
+      "evidence_status": "inference",
+      "question": "Does the LocalNO mixed operator-response failure remain?",
+      "unsupported": "the experiment does not isolate a unique causal operator defect"
+    }
+  ],
+  "decision": "P3_PILOT_COMPLETE_BUT_ROLLOUT_UNSTABLE",
+  "engineering_evidence": {
+    "formal_epochs": 30,
+    "gt_rollout_finite_positive": true,
+    "microbatches": 2370,
+    "no_gt_rollout_finite_positive": true,
+    "nonfinite_training": 0,
+    "optimizer_updates": 600,
+    "preflight_passed": true,
+    "smoke_passed": true,
+    "strict_reload": true,
+    "transform_counters": {
+      "input_encode": 100,
+      "oracle_decode": 19,
+      "prediction_decode": 100,
+      "target_encode": 19
+    }
+  },
+  "historical_status_unchanged": {
+    "Stage K": "C. TRAINING_COMPLETE_BUT_ROLLOUT_UNSTABLE",
+    "Stage L": "3. MIXED_OVERALL",
+    "Stage M": "4. MIXED_TRANSPORT_AND_PREPROCESSING_FAILURE",
+    "Stage N": "P3 ready; mixed operator-response failure"
+  },
+  "legacy_stage_m_v1_difference": "legacy collapse/ripple/stripe flags are state-shape heuristics; stage_m_v1 separates the recovered P3 floor from model-added degradation/transport, while Gate 0 independently exposes persistent decoded-range/Rout failure",
+  "model_added_degradation_evidence": {
+    "persistent_decoded_range_explosion": true,
+    "selected_physical_ranges": {
+      "1": {
+        "Bcc1": {
+          "maximum": 2.089942019337422e+22,
+          "minimum": -2.089942019337422e+22
+        },
+        "Bcc2": {
+          "maximum": 0.6975175142288208,
+          "minimum": -0.2578344941139221
+        },
+        "Bcc3": {
+          "maximum": 2.9313042163848877,
+          "minimum": -4.196778297424316
+        },
+        "press": {
+          "maximum": 0.01892666704952717,
+          "minimum": 2.0342165285569536e-08
+        },
+        "rho": {
+          "maximum": 1.2092770338058472,
+          "minimum": 3.665635176730575e-06
+        },
+        "vel1": {
+          "maximum": 3.1266329288482666,
+          "minimum": -2.7056705951690674
+        },
+        "vel2": {
+          "maximum": 0.03573155030608177,
+          "minimum": -0.03573150932788849
+        },
+        "vel3": {
+          "maximum": 1.5560671091079712,
+          "minimum": -0.030578982084989548
+        }
+      },
+      "10": {
+        "Bcc1": {
+          "maximum": 2.089942019337422e+22,
+          "minimum": -2.089942019337422e+22
+        },
+        "Bcc2": {
+          "maximum": 65.88981628417969,
+          "minimum": -135.4805450439453
+        },
+        "Bcc3": {
+          "maximum": 2439.836181640625,
+          "minimum": -8090.85009765625
+        },
+        "press": {
+          "maximum": 0.01892666704952717,
+          "minimum": 2.0342165285569536e-08
+        },
+        "rho": {
+          "maximum": 1.2092770338058472,
+          "minimum": 3.665635176730575e-06
+        },
+        "vel1": {
+          "maximum": 3.1266329288482666,
+          "minimum": -2.7056705951690674
+        },
+        "vel2": {
+          "maximum": 0.03573155030608177,
+          "minimum": -0.03573150932788849
+        },
+        "vel3": {
+          "maximum": 3.900561571121216,
+          "minimum": -0.17986902594566345
+        }
+      },
+      "100": {
+        "Bcc1": {
+          "maximum": 2.089942019337422e+22,
+          "minimum": -2.089942019337422e+22
+        },
+        "Bcc2": {
+          "maximum": 3.4028234663852886e+38,
+          "minimum": -3.4028234663852886e+38
+        },
+        "Bcc3": {
+          "maximum": 3.4028234663852886e+38,
+          "minimum": -3.4028234663852886e+38
+        },
+        "press": {
+          "maximum": 0.01892666704952717,
+          "minimum": 2.0342165285569536e-08
+        },
+        "rho": {
+          "maximum": 1.2092770338058472,
+          "minimum": 3.665635176730575e-06
+        },
+        "vel1": {
+          "maximum": 3.1266329288482666,
+          "minimum": -2.7056705951690674
+        },
+        "vel2": {
+          "maximum": 0.03573155030608177,
+          "minimum": -0.03573150932788849
+        },
+        "vel3": {
+          "maximum": 20416.611328125,
+          "minimum": -697.8306884765625
+        }
+      },
+      "19": {
+        "Bcc1": {
+          "maximum": 2.089942019337422e+22,
+          "minimum": -2.089942019337422e+22
+        },
+        "Bcc2": {
+          "maximum": 6.810292412697071e+34,
+          "minimum": -5.3887649544618e+36
+        },
+        "Bcc3": {
+          "maximum": 3.4028234663852886e+38,
+          "minimum": -3.4028234663852886e+38
+        },
+        "press": {
+          "maximum": 0.01892666704952717,
+          "minimum": 2.0342165285569536e-08
+        },
+        "rho": {
+          "maximum": 1.2092770338058472,
+          "minimum": 3.665635176730575e-06
+        },
+        "vel1": {
+          "maximum": 3.1266329288482666,
+          "minimum": -2.7056705951690674
+        },
+        "vel2": {
+          "maximum": 0.03573155030608177,
+          "minimum": -0.03573150932788849
+        },
+        "vel3": {
+          "maximum": 28.836877822875977,
+          "minimum": -0.864642858505249
+        }
+      },
+      "25": {
+        "Bcc1": {
+          "maximum": 2.089942019337422e+22,
+          "minimum": -2.089942019337422e+22
+        },
+        "Bcc2": {
+          "maximum": 3.4028234663852886e+38,
+          "minimum": -3.4028234663852886e+38
+        },
+        "Bcc3": {
+          "maximum": 3.4028234663852886e+38,
+          "minimum": -3.4028234663852886e+38
+        },
+        "press": {
+          "maximum": 0.01892666704952717,
+          "minimum": 2.0342165285569536e-08
+        },
+        "rho": {
+          "maximum": 1.2092770338058472,
+          "minimum": 3.665635176730575e-06
+        },
+        "vel1": {
+          "maximum": 3.1266329288482666,
+          "minimum": -2.7056705951690674
+        },
+        "vel2": {
+          "maximum": 0.03573155030608177,
+          "minimum": -0.03573150932788849
+        },
+        "vel3": {
+          "maximum": 93.4686508178711,
+          "minimum": -3.8866913318634033
+        }
+      },
+      "3": {
+        "Bcc1": {
+          "maximum": 2.089942019337422e+22,
+          "minimum": -2.089942019337422e+22
+        },
+        "Bcc2": {
+          "maximum": 0.661692202091217,
+          "minimum": -0.15715216100215912
+        },
+        "Bcc3": {
+          "maximum": 4.748187065124512,
+          "minimum": -7.235844612121582
+        },
+        "press": {
+          "maximum": 0.01892666704952717,
+          "minimum": 2.0342165285569536e-08
+        },
+        "rho": {
+          "maximum": 1.2092770338058472,
+          "minimum": 3.665635176730575e-06
+        },
+        "vel1": {
+          "maximum": 3.1266329288482666,
+          "minimum": -1.813124656677246
+        },
+        "vel2": {
+          "maximum": 0.03573155030608177,
+          "minimum": -0.03573150932788849
+        },
+        "vel3": {
+          "maximum": 1.6364045143127441,
+          "minimum": -0.043173421174287796
+        }
+      },
+      "5": {
+        "Bcc1": {
+          "maximum": 2.089942019337422e+22,
+          "minimum": -2.089942019337422e+22
+        },
+        "Bcc2": {
+          "maximum": 1.1261581182479858,
+          "minimum": -0.3402332365512848
+        },
+        "Bcc3": {
+          "maximum": 29.396791458129883,
+          "minimum": -8.327520370483398
+        },
+        "press": {
+          "maximum": 0.01892666704952717,
+          "minimum": 2.0342165285569536e-08
+        },
+        "rho": {
+          "maximum": 1.2092770338058472,
+          "minimum": 3.665635176730575e-06
+        },
+        "vel1": {
+          "maximum": 3.1266329288482666,
+          "minimum": -2.7056705951690674
+        },
+        "vel2": {
+          "maximum": 0.03573155030608177,
+          "minimum": -0.03573150932788849
+        },
+        "vel3": {
+          "maximum": 1.917186975479126,
+          "minimum": -0.0531059168279171
+        }
+      },
+      "50": {
+        "Bcc1": {
+          "maximum": 2.089942019337422e+22,
+          "minimum": -2.089942019337422e+22
+        },
+        "Bcc2": {
+          "maximum": 3.4028234663852886e+38,
+          "minimum": -3.4028234663852886e+38
+        },
+        "Bcc3": {
+          "maximum": 3.4028234663852886e+38,
+          "minimum": -3.4028234663852886e+38
+        },
+        "press": {
+          "maximum": 0.01892666704952717,
+          "minimum": 2.0342165285569536e-08
+        },
+        "rho": {
+          "maximum": 1.2092770338058472,
+          "minimum": 3.665635176730575e-06
+        },
+        "vel1": {
+          "maximum": 3.1266329288482666,
+          "minimum": -2.7056705951690674
+        },
+        "vel2": {
+          "maximum": 0.03573155030608177,
+          "minimum": -0.03573150932788849
+        },
+        "vel3": {
+          "maximum": 2202.85498046875,
+          "minimum": -64.68672943115234
+        }
+      },
+      "75": {
+        "Bcc1": {
+          "maximum": 2.089942019337422e+22,
+          "minimum": -2.089942019337422e+22
+        },
+        "Bcc2": {
+          "maximum": 3.4028234663852886e+38,
+          "minimum": -3.4028234663852886e+38
+        },
+        "Bcc3": {
+          "maximum": 3.4028234663852886e+38,
+          "minimum": -3.4028234663852886e+38
+        },
+        "press": {
+          "maximum": 0.01892666704952717,
+          "minimum": 2.0342165285569536e-08
+        },
+        "rho": {
+          "maximum": 1.2092770338058472,
+          "minimum": 3.665635176730575e-06
+        },
+        "vel1": {
+          "maximum": 3.1266329288482666,
+          "minimum": -2.7056705951690674
+        },
+        "vel2": {
+          "maximum": 0.03573155030608177,
+          "minimum": -0.03573150932788849
+        },
+        "vel3": {
+          "maximum": 19405.392578125,
+          "minimum": -453.3589782714844
+        }
+      }
+    },
+    "stage_o_model_to_own_oracle_average": 1.9629117099022847e+20,
+    "step100_evaluation_clamp_fraction": 0.9998378753662109,
+    "step19_normalized_average": 28.002526683484117,
+    "validation_prediction_above_rout_fraction": 1.0
+  },
+  "next_authorized_action": "propose_only: diagnose P3/LocalNO extreme-range feedback and operator response; do not start a new model or ablation",
+  "oracle_floor_evidence": {
+    "p3_floor_significantly_reduced": true,
+    "target_channel_p3_over_canonical": {
+      "Bcc2": 3.338493509627357e-07,
+      "Bcc3": 2.9926897563323865e-07,
+      "vel3": 7.303524960640005e-08
+    }
+  },
+  "persistence_evidence": {
+    "model_beats_p3_persistence_one_step_average": false,
+    "stage_o_model_over_p3_persistence": 5.808710339948136
+  },
+  "schema_version": "paper-stage-o-decision-v1",
+  "shell_radial_transport_evidence": {
+    "Bcc2": {
+      "passed": false,
+      "radial_sign_agreement": 0.390625,
+      "radial_skill": -1.215795971738495,
+      "shell_sign_agreement": 0.375,
+      "shell_skill": -0.8333420681851329
+    },
+    "Bcc3": {
+      "passed": false,
+      "radial_sign_agreement": 0.390625,
+      "radial_skill": -108.19270811242282,
+      "shell_sign_agreement": 0.375,
+      "shell_skill": -1.2119988399554327
+    },
+    "vel3": {
+      "passed": false,
+      "radial_sign_agreement": 0.5625,
+      "radial_skill": -5.410366555575041,
+      "shell_sign_agreement": 0.75,
+      "shell_skill": -12.181731869364947
+    }
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "conservative": false,
+  "diagnostic_resolutions": [
+    32,
+    64,
+    96,
+    128
+  ],
+  "divergence_preserving": false,
+  "field_loss_by_region_64": {
+    "inner": 0.14971942552350298,
+    "middle": 0.08266151386917865,
+    "outer": 0.08918616544353217
+  },
+  "grid_layout_static": true,
+  "median_64_field_relative_l2": 0.16064605730643788,
+  "median_64_increment_cosine": 0.8715487138500086,
+  "median_64_increment_relative_difference": 0.5034285651131418,
+  "production64_exactly_reproduced": true,
+  "raw_directory": "/mnt/d/GRMHD_data",
+  "raw_metadata": {
+    "actual_leaf_cell_count": 2844160,
+    "coordinate_spacing_by_level": {
+      "0": {
+        "dphi": [
+          0.3926987648010254,
+          0.3926992416381836
+        ],
+        "dr": [
+          17.274246215820312,
+          91.6907958984375
+        ],
+        "dtheta": [
+          0.09817469120025635,
+          0.0981748104095459
+        ]
+      },
+      "1": {
+        "dphi": [
+          0.1963491439819336,
+          0.1963496208190918
+        ],
+        "dr": [
+          0.044597625732421875,
+          46.75634765625
+        ],
+        "dtheta": [
+          0.0490872859954834,
+          0.0490875244140625
+        ]
+      },
+      "2": {
+        "dphi": [
+          0.0981745719909668,
+          0.098175048828125
+        ],
+        "dr": [
+          0.022077202796936035,
+          23.6104736328125
+        ],
+        "dtheta": [
+          0.02454352378845215,
+          0.02454376220703125
+        ]
+      },
+      "3": {
+        "dphi": [
+          0.0490870475769043,
+          0.0490875244140625
+        ],
+        "dr": [
+          0.36278533935546875,
+          11.8638916015625
+        ],
+        "dtheta": [
+          0.012271642684936523,
+          0.012271881103515625
+        ]
+      }
+    },
+    "coordinates": "kerr-schild",
+    "finest_effective_resolution_x1_x2_x3": [
+      704,
+      256,
+      128
+    ],
+    "leaf_blocks_by_level": {
+      "0": 4,
+      "1": 96,
+      "2": 896,
+      "3": 1024
+    },
+    "leaf_cells_by_level": {
+      "0": 5632,
+      "1": 135168,
+      "2": 1261568,
+      "3": 1441792
+    },
+    "max_level": 3,
+    "mesh_block_size_x1_x2_x3": [
+      22,
+      4,
+      16
+    ],
+    "num_mesh_blocks": 2020,
+    "phi_bounds": [
+      0.0,
+      6.2831854820251465
+    ],
+    "r_bounds": [
+      1.100000023841858,
+      1200.0
+    ],
+    "root_grid_size_x1_x2_x3": [
+      88,
+      32,
+      16
+    ],
+    "theta_bounds": [
+      0.0,
+      3.1415927410125732
+    ]
+  },
+  "reference_resolution": 128,
+  "reference_semantics": "HIGHER_RES_SAMPLING_REFERENCE",
+  "sampling_rule": "finest-leaf nearest-cell-center",
+  "schema_version": "stage-x-raw-amr-audit-v1",
+  "selected_paths": {
+    "0": "/mnt/d/GRMHD_data/mad98.prim.00000.athdf",
+    "1": "/mnt/d/GRMHD_data/mad98.prim.00001.athdf",
+    "100": "/mnt/d/GRMHD_data/mad98.prim.00100.athdf",
+    "101": "/mnt/d/GRMHD_data/mad98.prim.00101.athdf",
+    "125": "/mnt/d/GRMHD_data/mad98.prim.00125.athdf",
+    "126": "/mnt/d/GRMHD_data/mad98.prim.00126.athdf",
+    "150": "/mnt/d/GRMHD_data/mad98.prim.00150.athdf",
+    "151": "/mnt/d/GRMHD_data/mad98.prim.00151.athdf",
+    "175": "/mnt/d/GRMHD_data/mad98.prim.00175.athdf",
+    "176": "/mnt/d/GRMHD_data/mad98.prim.00176.athdf",
+    "200": "/mnt/d/GRMHD_data/mad98.prim.00200.athdf",
+    "201": "/mnt/d/GRMHD_data/mad98.prim.00201.athdf",
+    "210": "/mnt/d/GRMHD_data/mad98.prim.00210.athdf",
+    "211": "/mnt/d/GRMHD_data/mad98.prim.00211.athdf",
+    "25": "/mnt/d/GRMHD_data/mad98.prim.00025.athdf",
+    "26": "/mnt/d/GRMHD_data/mad98.prim.00026.athdf",
+    "50": "/mnt/d/GRMHD_data/mad98.prim.00050.athdf",
+    "51": "/mnt/d/GRMHD_data/mad98.prim.00051.athdf",
+    "75": "/mnt/d/GRMHD_data/mad98.prim.00075.athdf",
+    "76": "/mnt/d/GRMHD_data/mad98.prim.00076.athdf"
+  },
+  "source_grid_signature": "438534dadda3395bfac3365cc2b0a02bef3c05f7804c9f8a497afa68feab4769",
+  "strict_divb_audit_not_authorized": true,
+  "temporal_increment_loss_by_region_64": {
+    "inner": 0.44360202273396504,
+    "middle": 0.3644246358208748,
+    "outer": 0.42273226636403505
+  },
+  "temporal_increment_regrid_fidelity": "POOR"
+}

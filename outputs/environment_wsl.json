@@ -1,0 +1,96 @@
+{
+  "captured_at_utc": "2026-07-16T03:30:42.969816+00:00",
+  "python": {
+    "version": "3.11.15 (main, Jun 11 2026, 15:20:16) [GCC 14.3.0]",
+    "executable": "/home/curl/miniconda3/envs/grmhd-no/bin/python",
+    "implementation": "CPython"
+  },
+  "platform": {
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "uname_s": "Linux",
+    "uname_a": "Linux curl 6.18.33.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun 18 21:54:43 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux",
+    "hostname": "curl",
+    "username": "curl",
+    "project_path": "/home/curl/projects/grmhd-no-repro",
+    "is_wsl": true,
+    "wsl_distro_name": "Ubuntu-22.04",
+    "os_release": {
+      "PRETTY_NAME": "Ubuntu 24.04.4 LTS",
+      "NAME": "Ubuntu",
+      "VERSION_ID": "24.04",
+      "VERSION": "24.04.4 LTS (Noble Numbat)",
+      "VERSION_CODENAME": "noble",
+      "ID": "ubuntu",
+      "ID_LIKE": "debian",
+      "HOME_URL": "https://www.ubuntu.com/",
+      "SUPPORT_URL": "https://help.ubuntu.com/",
+      "BUG_REPORT_URL": "https://bugs.launchpad.net/ubuntu/",
+      "PRIVACY_POLICY_URL": "https://www.ubuntu.com/legal/terms-and-policies/privacy-policy",
+      "UBUNTU_CODENAME": "noble",
+      "LOGO": "ubuntu-logo"
+    }
+  },
+  "git": {
+    "root": "/home/curl/projects/grmhd-no-repro",
+    "branch": "codex/wsl-cleanup-111-snapshots",
+    "commit": "1a795fd906f4da74fe55ef2e7ada5647de2a35c6"
+  },
+  "packages": {
+    "torch": {
+      "version": "2.12.1+cu130",
+      "file": "/home/curl/miniconda3/envs/grmhd-no/lib/python3.11/site-packages/torch/__init__.py",
+      "cuda_build": "13.0",
+      "cuda_available": true,
+      "cudnn_version": 92000,
+      "gpu_count": 1,
+      "gpus": [
+        {
+          "index": 0,
+          "name": "NVIDIA GeForce RTX 5070",
+          "capability": [
+            12,
+            0
+          ]
+        }
+      ]
+    },
+    "neuralop": {
+      "version": "2.0.0",
+      "file": "/home/curl/projects/grmhd-no-repro/external/neuraloperator/neuralop/__init__.py"
+    },
+    "numpy": {
+      "version": "2.4.6",
+      "file": "/home/curl/miniconda3/envs/grmhd-no/lib/python3.11/site-packages/numpy/__init__.py"
+    },
+    "h5py": {
+      "version": "3.16.0",
+      "file": "/home/curl/miniconda3/envs/grmhd-no/lib/python3.11/site-packages/h5py/__init__.py"
+    },
+    "scipy": {
+      "version": "1.17.1",
+      "file": "/home/curl/miniconda3/envs/grmhd-no/lib/python3.11/site-packages/scipy/__init__.py"
+    },
+    "torch_harmonics": {
+      "version": "0.8.0",
+      "file": "/home/curl/projects/grmhd-no-repro/external/torch-harmonics/torch_harmonics/__init__.py"
+    },
+    "tensorly": {
+      "version": "0.9.0",
+      "file": "/home/curl/miniconda3/envs/grmhd-no/lib/python3.11/site-packages/tensorly/__init__.py"
+    },
+    "yaml": {
+      "version": "6.0.3",
+      "file": "/home/curl/miniconda3/envs/grmhd-no/lib/python3.11/site-packages/yaml/__init__.py"
+    },
+    "matplotlib": {
+      "version": "3.11.0",
+      "file": "/home/curl/miniconda3/envs/grmhd-no/lib/python3.11/site-packages/matplotlib/__init__.py"
+    }
+  },
+  "neuraloperator": {
+    "source_dir": "/home/curl/projects/grmhd-no-repro/external/neuraloperator",
+    "commit": "86a8bc7812a31b42c4f7895693cf4ac11521c066"
+  },
+  "nvidia_smi": "Thu Jul 16 11:30:43 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 590.57                 Driver Version: 591.86         CUDA Version: 13.1     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA GeForce RTX 5070        On  |   00000000:01:00.0  On |                  N/A |\n|  0%   48C    P8             23W /  250W |     941MiB /  12227MiB |      2%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|  No running processes found                                                             |\n+-----------------------------------------------------------------------------------------+",
+  "nvidia_driver": "591.86"
+}

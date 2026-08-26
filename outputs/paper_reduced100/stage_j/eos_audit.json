@@ -1,0 +1,64 @@
+{
+  "schema_version": "paper-stage-j-eos-audit-v1",
+  "decision": {
+    "conversion_authorized": false,
+    "eint_status": "BLOCKED_UNVERIFIED_EOS",
+    "eos": null,
+    "gamma": null,
+    "thermal_channel": "press"
+  },
+  "evidence_classes": {
+    "current_raw_metadata": {
+      "eos_gamma_fields_present": false,
+      "matching_run_id_present": false,
+      "pressure_variable": "press",
+      "snapshot_count": 111,
+      "variable_names": [
+        "rho",
+        "press",
+        "vel1",
+        "vel2",
+        "vel3",
+        "Bcc1",
+        "Bcc2",
+        "Bcc3"
+      ]
+    },
+    "exact_matching_run_config": {
+      "found": false,
+      "status": "REQUIRES_AUTHOR_DATA"
+    },
+    "inferred_code_convention": {
+      "athena_public_commit": "9c266692b9423743d8e23509b3ab266a232a92d2",
+      "matching_current_run_not_verified": true,
+      "source": "/home/curl/athena-public-version/src/eos/adiabatic_mhd_gr.cpp",
+      "source_sha256": "cb248d8d3a33c288abd198d887cac5d43c0716f7bcb6c5e97f455749d58efcc3",
+      "statement": "This public implementation reads hydro/gamma at runtime and uses gamma/(gamma-1) in gas enthalpy; it does not identify the EOS or Gamma of the audited raw run."
+    },
+    "paper_statement": {
+      "grmhd_appendix_a_thermal_name": "P",
+      "grmhd_appendix_c_training_name": "eint",
+      "grmhd_gamma_stated": false,
+      "newtonian_gamma_is_not_applicable_provenance": true
+    },
+    "unrelated_athena_sample_config": {
+      "applicable_to_current_run": false,
+      "gamma": 1.4444444444444444,
+      "path": "/home/curl/athena-public-version/inputs/mhd_gr/athinput.fm_torus",
+      "rejection_reasons": [
+        "sample spin a=0.5 does not establish the audited run spin",
+        "sample root grid is 64^3 rather than audited RootGridSize [88,32,16]",
+        "sample outer radius is approximately 35 rather than 1200",
+        "no run ID or content-hash relationship links the sample to the 111 snapshots"
+      ],
+      "sha256": "672e82615a53057c75eede91a0b4be344d97ab881da3ca61349110c12c518d68"
+    }
+  },
+  "verification_gate": {
+    "eos_form_explicit": false,
+    "gamma_numeric_explicit": false,
+    "matching_run_config": false,
+    "pressure_eint_definition_explicit": false,
+    "units_and_normalization_explicit": false
+  }
+}

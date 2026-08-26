@@ -1,0 +1,88 @@
+{
+  "detector_contract_sha256": "2e0d4df70e9f074f410ea29ad806d03fa44e9b24aa95650e3305d291d996511b",
+  "maximum_std_ratio_delta_cpu_vs_recorded_cuda": 6.389100104531309e-08,
+  "recorded_device": "cuda",
+  "recorded_no_gt_rollout_sha256": "e2ad3c8174f95a4aa1a3dfdb7b8f81730194d4018363090da234b62e0c38000d",
+  "reference_domain": "raw_physical",
+  "reference_snapshot": 91,
+  "reproduction_device": "cpu",
+  "schema_version": "paper-stage-l-detector-reproduction-v1",
+  "selected_states_sha256": "441a1d8348b240cb5df16063ee71de1ba375d97b64e79010ec88330191fbea66",
+  "status": "passed",
+  "steps": {
+    "100": {
+      "exact_all_flag_match": true,
+      "exact_collapse_flag_match": true,
+      "recorded_all_flags": [
+        "Bcc3:possible_field_collapse",
+        "vel3:possible_field_collapse"
+      ],
+      "recorded_collapse_flags": [
+        "Bcc3:possible_field_collapse",
+        "vel3:possible_field_collapse"
+      ],
+      "reproduced_all_flags": [
+        "Bcc3:possible_field_collapse",
+        "vel3:possible_field_collapse"
+      ],
+      "reproduced_collapse_flags": [
+        "Bcc3:possible_field_collapse",
+        "vel3:possible_field_collapse"
+      ]
+    },
+    "25": {
+      "exact_all_flag_match": true,
+      "exact_collapse_flag_match": true,
+      "recorded_all_flags": [
+        "Bcc1:possible_high_frequency_ripple",
+        "Bcc3:possible_field_collapse"
+      ],
+      "recorded_collapse_flags": [
+        "Bcc3:possible_field_collapse"
+      ],
+      "reproduced_all_flags": [
+        "Bcc1:possible_high_frequency_ripple",
+        "Bcc3:possible_field_collapse"
+      ],
+      "reproduced_collapse_flags": [
+        "Bcc3:possible_field_collapse"
+      ]
+    },
+    "50": {
+      "exact_all_flag_match": true,
+      "exact_collapse_flag_match": true,
+      "recorded_all_flags": [
+        "Bcc3:possible_field_collapse"
+      ],
+      "recorded_collapse_flags": [
+        "Bcc3:possible_field_collapse"
+      ],
+      "reproduced_all_flags": [
+        "Bcc3:possible_field_collapse"
+      ],
+      "reproduced_collapse_flags": [
+        "Bcc3:possible_field_collapse"
+      ]
+    },
+    "75": {
+      "exact_all_flag_match": true,
+      "exact_collapse_flag_match": true,
+      "recorded_all_flags": [
+        "Bcc3:possible_field_collapse",
+        "vel3:possible_field_collapse"
+      ],
+      "recorded_collapse_flags": [
+        "Bcc3:possible_field_collapse",
+        "vel3:possible_field_collapse"
+      ],
+      "reproduced_all_flags": [
+        "Bcc3:possible_field_collapse",
+        "vel3:possible_field_collapse"
+      ],
+      "reproduced_collapse_flags": [
+        "Bcc3:possible_field_collapse",
+        "vel3:possible_field_collapse"
+      ]
+    }
+  }
+}

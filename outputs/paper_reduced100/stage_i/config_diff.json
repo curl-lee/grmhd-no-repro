@@ -1,0 +1,467 @@
+{
+  "allowed_difference_patterns": [
+    "checkpoint_prefix",
+    "experiment_name",
+    "loss.h1.*",
+    "output_dir",
+    "reproduction_metadata.extension_reason",
+    "reproduction_metadata.paper_faithful_full",
+    "reproduction_metadata.reproduction_level"
+  ],
+  "checks": {
+    "current_upstream_h1_is_detached_diagnostic": true,
+    "epoch_order_exact": true,
+    "epoch_zero_outputs_bitwise_equal": true,
+    "initial_states_exact": true,
+    "no_optimizer_created": true,
+    "no_optimizer_step": true,
+    "no_scheduler_step": true,
+    "no_training_executed": true,
+    "no_unexpected_config_differences": true,
+    "non_h1_components_exact": true,
+    "pair_order_hash_exact": true,
+    "parameter_counts_exact": true,
+    "shared_state_hash_exact": true,
+    "stored_coordinate_selected_implementation": true,
+    "stored_coordinate_training_not_executed": true,
+    "stored_current_and_unit_diagnostics_detached": true,
+    "train_validation_pairs_exact": true,
+    "unit_index_selected_implementation": true,
+    "unit_index_spacing_ratio_4096": true
+  },
+  "config_paths": {
+    "full": "configs/paper_reduced100/full_fno_proxy.yaml",
+    "no_h1": "configs/paper_reduced100/extensions/no_h1_control.yaml",
+    "stored_coordinate_volume_proxy": "configs/paper_reduced100/extensions/stored_coordinate_volume_h1.yaml",
+    "unit_index": "configs/paper_reduced100/extensions/unit_index_h1.yaml"
+  },
+  "config_sha256": {
+    "full": "ecea96e13088774e227219d76814e6976a39ee4bac1fa209bf5c69672b47b53f",
+    "no_h1": "2e8e2ebb611842214c60fe207222ffb401f25b229172c76beab68e205e2278c6",
+    "stored_coordinate_volume_proxy": "4b3f46adcc7cbf1e0d72f83a068a67ebdb9c5461005f1a36c59d00f67a7e1eb6",
+    "unit_index": "d9b82811e07c9f89e8d0f9ff9ba8ded795cbc3e478a4ef90926b2ca23fe5371b"
+  },
+  "differences_from_full": {
+    "no_h1": [
+      {
+        "full": "full_fno_proxy",
+        "path": "checkpoint_prefix",
+        "plain": "stage_i_no_h1"
+      },
+      {
+        "full": "paper_reduced100_full_fno_proxy",
+        "path": "experiment_name",
+        "plain": "stage_i_no_h1"
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.diagnostic_current_upstream_h1",
+        "plain": true
+      },
+      {
+        "full": true,
+        "path": "loss.h1.enabled",
+        "plain": false
+      },
+      {
+        "full": "pinned_upstream_H1Loss_d3",
+        "path": "loss.h1.implementation",
+        "plain": "diagnostic_no_h1"
+      },
+      {
+        "full": "computational_grid",
+        "path": "loss.h1.metric_adaptation",
+        "plain": "selected_h1_disabled"
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.mode",
+        "plain": "no_h1"
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.paper_reference_weight",
+        "plain": 0.05
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.weighted_contribution",
+        "plain": 0.0
+      },
+      {
+        "full": "outputs/paper_reduced100/full_fno_proxy",
+        "path": "output_dir",
+        "plain": "outputs/paper_reduced100/stage_i/no_h1"
+      },
+      {
+        "full": "<missing>",
+        "path": "reproduction_metadata.extension_reason",
+        "plain": "spherical_grid_H1_adaptation_diagnosis"
+      },
+      {
+        "full": "<missing>",
+        "path": "reproduction_metadata.paper_faithful_full",
+        "plain": false
+      },
+      {
+        "full": "<missing>",
+        "path": "reproduction_metadata.reproduction_level",
+        "plain": "diagnostic_extension"
+      }
+    ],
+    "stored_coordinate_volume_proxy": [
+      {
+        "full": "full_fno_proxy",
+        "path": "checkpoint_prefix",
+        "plain": "stage_i_stored_coordinate_volume_h1"
+      },
+      {
+        "full": "paper_reduced100_full_fno_proxy",
+        "path": "experiment_name",
+        "plain": "stage_i_stored_coordinate_volume_h1"
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.coordinate_source",
+        "plain": "frozen_hdf5_centers"
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.covariant_GRMHD_H1",
+        "plain": false
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.diagnostic_current_upstream_h1",
+        "plain": true
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.diagnostic_proxy_only",
+        "plain": true
+      },
+      {
+        "full": "pinned_upstream_H1Loss_d3",
+        "path": "loss.h1.implementation",
+        "plain": "stage_h_H3_stored_r_volume_proxy"
+      },
+      {
+        "full": "computational_grid",
+        "path": "loss.h1.metric_adaptation",
+        "plain": "stored_coordinate_volume_proxy"
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.mode",
+        "plain": "stored_coordinate_volume_proxy"
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.paper_reference_weight",
+        "plain": 0.05
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.phi_boundary",
+        "plain": "periodic_centered"
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.pole_handling",
+        "plain": "theta_center_sin_clamp_min_0"
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.pole_sin_floor",
+        "plain": 0.0
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.proper_Kerr_Schild_volume",
+        "plain": "unverified"
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.r_boundary",
+        "plain": "open_nonuniform_three_point_lagrange"
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.radial_coordinate",
+        "plain": "physical_r"
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.reduction",
+        "plain": "normalized_r2_sin_theta_coordinate_volume_proxy"
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.stored_components_covariant_derivative",
+        "plain": false
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.stored_vector_covariant_derivative",
+        "plain": false
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.theta_boundary",
+        "plain": "open_three_point_lagrange"
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.volume_weight_normalization",
+        "plain": "explicit_sum_to_one"
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.weighted_contribution",
+        "plain": "paper_reference_weight_times_raw_h1"
+      },
+      {
+        "full": "outputs/paper_reduced100/full_fno_proxy",
+        "path": "output_dir",
+        "plain": "outputs/paper_reduced100/stage_i/stored_coordinate_volume_h1"
+      },
+      {
+        "full": "<missing>",
+        "path": "reproduction_metadata.extension_reason",
+        "plain": "stored_spherical_coordinate_H1_adaptation_diagnosis"
+      },
+      {
+        "full": "<missing>",
+        "path": "reproduction_metadata.paper_faithful_full",
+        "plain": false
+      },
+      {
+        "full": "<missing>",
+        "path": "reproduction_metadata.reproduction_level",
+        "plain": "diagnostic_extension"
+      }
+    ],
+    "unit_index": [
+      {
+        "full": "full_fno_proxy",
+        "path": "checkpoint_prefix",
+        "plain": "stage_i_unit_index_h1"
+      },
+      {
+        "full": "paper_reduced100_full_fno_proxy",
+        "path": "experiment_name",
+        "plain": "stage_i_unit_index_h1"
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.boundary",
+        "plain": "periodic_wrap_all_three_axes"
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.diagnostic_current_upstream_h1",
+        "plain": true
+      },
+      {
+        "full": "pinned_upstream_H1Loss_d3",
+        "path": "loss.h1.implementation",
+        "plain": "stage_h_H1_unit_index"
+      },
+      {
+        "full": "computational_grid",
+        "path": "loss.h1.metric_adaptation",
+        "plain": "unit_index_spacing"
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.mode",
+        "plain": "unit_index"
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.paper_reference_weight",
+        "plain": 0.05
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.reduction",
+        "plain": "uniform_voxel_mean"
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.spacings",
+        "plain": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "full": "<missing>",
+        "path": "loss.h1.weighted_contribution",
+        "plain": "paper_reference_weight_times_raw_h1"
+      },
+      {
+        "full": "outputs/paper_reduced100/full_fno_proxy",
+        "path": "output_dir",
+        "plain": "outputs/paper_reduced100/stage_i/unit_index_h1"
+      },
+      {
+        "full": "<missing>",
+        "path": "reproduction_metadata.extension_reason",
+        "plain": "isolate_unit_cube_spacing_amplification"
+      },
+      {
+        "full": "<missing>",
+        "path": "reproduction_metadata.paper_faithful_full",
+        "plain": false
+      },
+      {
+        "full": "<missing>",
+        "path": "reproduction_metadata.reproduction_level",
+        "plain": "diagnostic_extension"
+      }
+    ]
+  },
+  "frozen_pairing": {
+    "batch_size": 1,
+    "epochs": 30,
+    "gradient_accumulation": 4,
+    "pair_order_file_sha256": "5e1e361ea75e01ffd667822d8bfe870d70c5bc69570d52cdf806e637b2df2b52",
+    "seed": 42,
+    "shared_initial_state_tensor_sha256": "02d83278d5e74a27c83130e99b488ca18eae5477dad9732a4552b694056b6cb1",
+    "train_pairs": 79,
+    "validation_pairs": 19,
+    "validation_shuffle": false
+  },
+  "models": {
+    "full": {
+      "parameter_count": 331832,
+      "raw_epoch_zero_output_bitwise_equal": true,
+      "raw_epoch_zero_output_sha256": "3d8e66be956c6d86ffa737c234059391af8895d8b0dfe5156d570be8ce7765ce",
+      "strict_shared_state_load": true,
+      "tensor_state_sha256": "02d83278d5e74a27c83130e99b488ca18eae5477dad9732a4552b694056b6cb1"
+    },
+    "no_h1": {
+      "parameter_count": 331832,
+      "raw_epoch_zero_output_bitwise_equal": true,
+      "raw_epoch_zero_output_sha256": "3d8e66be956c6d86ffa737c234059391af8895d8b0dfe5156d570be8ce7765ce",
+      "strict_shared_state_load": true,
+      "tensor_state_sha256": "02d83278d5e74a27c83130e99b488ca18eae5477dad9732a4552b694056b6cb1"
+    },
+    "stored_coordinate_volume_proxy": {
+      "parameter_count": 331832,
+      "raw_epoch_zero_output_bitwise_equal": true,
+      "raw_epoch_zero_output_sha256": "3d8e66be956c6d86ffa737c234059391af8895d8b0dfe5156d570be8ce7765ce",
+      "strict_shared_state_load": true,
+      "tensor_state_sha256": "02d83278d5e74a27c83130e99b488ca18eae5477dad9732a4552b694056b6cb1"
+    },
+    "unit_index": {
+      "parameter_count": 331832,
+      "raw_epoch_zero_output_bitwise_equal": true,
+      "raw_epoch_zero_output_sha256": "3d8e66be956c6d86ffa737c234059391af8895d8b0dfe5156d570be8ce7765ce",
+      "strict_shared_state_load": true,
+      "tensor_state_sha256": "02d83278d5e74a27c83130e99b488ca18eae5477dad9732a4552b694056b6cb1"
+    }
+  },
+  "non_h1_component_parity": {
+    "no_h1": {
+      "base_fidelity_raw": true,
+      "base_fidelity_weighted": true,
+      "bounds_press_raw": true,
+      "bounds_rho_raw": true,
+      "bounds_weighted": true,
+      "dissipation_raw": true,
+      "dissipation_weighted": true,
+      "envelope_press_raw": true,
+      "envelope_rho_raw": true,
+      "envelope_weighted": true,
+      "roi_ramp": true,
+      "roi_raw": true,
+      "roi_weighted": true
+    },
+    "stored_coordinate_volume_proxy": {
+      "base_fidelity_raw": true,
+      "base_fidelity_weighted": true,
+      "bounds_press_raw": true,
+      "bounds_rho_raw": true,
+      "bounds_weighted": true,
+      "dissipation_raw": true,
+      "dissipation_weighted": true,
+      "envelope_press_raw": true,
+      "envelope_rho_raw": true,
+      "envelope_weighted": true,
+      "roi_ramp": true,
+      "roi_raw": true,
+      "roi_weighted": true
+    },
+    "unit_index": {
+      "base_fidelity_raw": true,
+      "base_fidelity_weighted": true,
+      "bounds_press_raw": true,
+      "bounds_rho_raw": true,
+      "bounds_weighted": true,
+      "dissipation_raw": true,
+      "dissipation_weighted": true,
+      "envelope_press_raw": true,
+      "envelope_rho_raw": true,
+      "envelope_weighted": true,
+      "roi_ramp": true,
+      "roi_raw": true,
+      "roi_weighted": true
+    }
+  },
+  "schema_version": "paper-stage-i-config-pairing-audit-v1",
+  "status": "passed",
+  "stored_coordinate_h1": {
+    "current_and_unit_diagnostics_detached_only": true,
+    "current_upstream_raw_h1": 2651.081787109375,
+    "metadata": {
+      "boundary": "phi_periodic_theta_radial_one_sided",
+      "coordinate_gradient_only_not_covariant": true,
+      "coordinate_source": "frozen_hdf5_centers",
+      "covariant_GRMHD_H1": false,
+      "diagnostic_proxy_only": true,
+      "enabled": true,
+      "extension_reason": "stored_spherical_coordinate_H1_adaptation_diagnosis",
+      "includes_l2": false,
+      "mode": "stored_coordinate_volume_proxy",
+      "paper_reference_weight": 0.05,
+      "phi_boundary": "periodic_centered",
+      "pole_handling": "theta_center_sin_clamp_min_0",
+      "pole_sin_floor": 0.0,
+      "proper_Kerr_Schild_volume": "unverified",
+      "r_boundary": "open_nonuniform_three_point_lagrange",
+      "radial_coordinate": "physical_r",
+      "reduction": "normalized_r2_sin_theta_coordinate_volume_proxy",
+      "shell_attribution": "derivative_density_assigned_to_evaluation_cell",
+      "squared": true,
+      "stencil": "centered_or_three_point_coordinate_lagrange",
+      "stored_components_covariant_derivative": false,
+      "stored_vector_covariant_derivative": false,
+      "tensor_axes": [
+        "phi",
+        "theta",
+        "r"
+      ],
+      "theta_boundary": "open_three_point_lagrange",
+      "volume_weight_normalization": "explicit_sum_to_one"
+    },
+    "selected_implementation": "H3_stored_r",
+    "selected_raw_h1": 4.531569004058838,
+    "unit_index_raw_h1": 0.6472368240356445
+  },
+  "unexpected_differences": {
+    "no_h1": [],
+    "stored_coordinate_volume_proxy": [],
+    "unit_index": []
+  },
+  "unit_index_h1": {
+    "current_to_selected_raw_ratio": 4095.99951171875,
+    "current_upstream_detached_diagnostic_only": true,
+    "current_upstream_raw_h1": 2651.081787109375,
+    "expected_ratio": 4096.0,
+    "selected_implementation": "H1_unit_index",
+    "selected_raw_h1": 0.6472368240356445
+  }
+}

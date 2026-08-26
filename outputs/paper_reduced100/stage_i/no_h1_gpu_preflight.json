@@ -1,0 +1,144 @@
+{
+  "environment": {
+    "capability": [
+      12,
+      0
+    ],
+    "cuda_available": true,
+    "device_count": 1,
+    "device_name": "NVIDIA GeForce RTX 5070",
+    "nvidia_smi": "Thu Jul 30 18:10:25 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 590.57                 Driver Version: 591.86         CUDA Version: 13.1     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA GeForce RTX 5070        On  |   00000000:01:00.0 Off |                  N/A |\n|  0%   59C    P1             48W /  250W |    1947MiB /  12227MiB |     15%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|    0   N/A  N/A           13674      C   /python3.11                           N/A      |\n+-----------------------------------------------------------------------------------------+\n",
+    "torch_cuda_version": "13.0",
+    "torch_version": "2.12.1+cu130"
+  },
+  "extensions": [
+    {
+      "config": "configs/paper_reduced100/extensions/no_h1_control.yaml",
+      "device": {
+        "input": "cuda",
+        "loss": "cuda",
+        "model": "cuda",
+        "output": "cuda"
+      },
+      "forward_finite": true,
+      "gradient": {
+        "base_parameter_norm": 4.488808631896973,
+        "base_prediction_norm": 0.023291315883398056,
+        "component_sum_relative_residual": 1.1300799997115973e-05,
+        "other_prior_parameter_norm": 0.06555375456809998,
+        "selected_h1_parameter_norm": 0.0,
+        "selected_h1_prediction_norm": 0.0,
+        "simulated_clip_scale": 0.22267672419548035,
+        "simulated_clipping_triggered": true,
+        "total_parameter_norm_after_simulated_clip": 1.0,
+        "total_parameter_norm_before_clip": 4.490815162658691
+      },
+      "input_sha256": "c50cf0ff5849ce44997af439e5625627d857bf3df59bb4f160941408af71cac0",
+      "loss": {
+        "base": 32.783912658691406,
+        "bounds": 0.0,
+        "diagnostic_current_upstream_h1_raw": 11064.154296875,
+        "dissipation": 0.0,
+        "envelope": 0.021064434200525284,
+        "roi": 0.0,
+        "selected_h1_raw": -0.0,
+        "selected_h1_weighted": -0.0,
+        "total": 32.80497741699219
+      },
+      "loss_components_finite": true,
+      "memory_bytes": {
+        "device_total": 12820480000,
+        "peak_allocated": 770999296,
+        "peak_reserved": 977272832
+      },
+      "mode": "no_h1",
+      "mode_checks": {
+        "selected_h1_parameter_gradient_exact_zero": true,
+        "selected_h1_prediction_gradient_exact_zero": true,
+        "selected_h1_raw_exact_zero": true,
+        "selected_h1_weighted_exact_zero": true
+      },
+      "model_state_unchanged": true,
+      "non_h1_component_parity": {
+        "base_fidelity_raw": true,
+        "base_fidelity_weighted": true,
+        "bounds_press_raw": true,
+        "bounds_rho_raw": true,
+        "bounds_weighted": true,
+        "dissipation_raw": true,
+        "dissipation_weighted": true,
+        "envelope_press_raw": true,
+        "envelope_rho_raw": true,
+        "envelope_weighted": true,
+        "roi_ramp": true,
+        "roi_raw": true,
+        "roi_weighted": true
+      },
+      "output_sha256": "9096b00036d719b73d52c6dfea0c42f7b4116e0197d6a3a99f7a7cf625ddc1ec",
+      "parameter_count": 331832,
+      "parameter_gradients_finite": true,
+      "parameter_gradients_present_for_all": true,
+      "ratios": {
+        "base_selected_h1_parameter_gradient_cosine": 0.0,
+        "selected_h1_to_base_parameter_gradient": 0.0,
+        "selected_h1_to_base_prediction_gradient": 0.0,
+        "selected_h1_to_base_value": -0.0
+      },
+      "safety": {
+        "batch_size": 1,
+        "checkpoint_write": false,
+        "gradient_clip_simulation_only": true,
+        "mixed_precision": false,
+        "model_train_mode": true,
+        "optimizer_created": false,
+        "optimizer_step": false,
+        "scheduler_step": false
+      },
+      "shape": {
+        "input": [
+          1,
+          16,
+          64,
+          64,
+          64
+        ],
+        "output": [
+          1,
+          8,
+          64,
+          64,
+          64
+        ]
+      },
+      "shared_state_hash_after": "02d83278d5e74a27c83130e99b488ca18eae5477dad9732a4552b694056b6cb1",
+      "shared_state_hash_before": "02d83278d5e74a27c83130e99b488ca18eae5477dad9732a4552b694056b6cb1",
+      "status": "passed",
+      "timing_seconds": {
+        "backward": 0.010525724000217451,
+        "component_gradients": 0.26290772599986667,
+        "forward": 0.376056687000073,
+        "loss": 0.12902677500005666,
+        "total": 0.8071171040000991
+      }
+    }
+  ],
+  "frozen_pairing": {
+    "batch_size": 1,
+    "mixed_precision": false,
+    "parameter_count": 331832,
+    "seed": 42,
+    "shared_state_tensor_sha256": "02d83278d5e74a27c83130e99b488ca18eae5477dad9732a4552b694056b6cb1"
+  },
+  "safety": {
+    "all_three_passed_before_training": false,
+    "checkpoint_write": false,
+    "cpu_fallback": false,
+    "optimizer_created": false,
+    "optimizer_step": false,
+    "scheduler_step": false,
+    "single_no_h1_preflight": true,
+    "training_started": false
+  },
+  "schema_version": "paper-stage-i-gpu-preflight-v1",
+  "status": "passed"
+}

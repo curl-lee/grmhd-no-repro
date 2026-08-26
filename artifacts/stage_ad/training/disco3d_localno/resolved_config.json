@@ -1,0 +1,238 @@
+{
+  "contract_sha256": "78180745f3fda114c3df5cdaee276d9bbdbb9ea2237f658bb3ef5b244894810a",
+  "data": {
+    "axis_order": [
+      "phi",
+      "theta",
+      "r"
+    ],
+    "channels": [
+      "Bcc1",
+      "Bcc2",
+      "Bcc3",
+      "rho",
+      "press",
+      "vel1",
+      "vel2",
+      "vel3"
+    ],
+    "dataset": "data_proc/grmhd_regrid_inner_r200_64_expanded.h5",
+    "dataset_sha256": "3582a5c4f52f4fef305578ffd5a63c51423f8583f35d137c288d5c20203b50da",
+    "dropped_boundary_pair": [
+      168,
+      169
+    ],
+    "small_pairs": "artifacts/stage_s/small_train_pairs.txt",
+    "split": "artifacts/stage_s/train_val_split.json",
+    "train_snapshots": [
+      0,
+      169
+    ],
+    "validation_snapshots": [
+      169,
+      212
+    ]
+  },
+  "environment": {
+    "cuda": "13.0",
+    "device": "NVIDIA GeForce RTX 5070",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "project_commit": "39dde155093436685c20c4f1d97269a02ae1189d",
+    "python": "3.11.15 (main, Jun 11 2026, 15:20:16) [GCC 14.3.0]",
+    "torch": "2.12.1+cu130",
+    "upstream_commit": "86a8bc7812a31b42c4f7895693cf4ac11521c066"
+  },
+  "evaluation": {
+    "gt_steps": 42,
+    "no_gt_steps": 100,
+    "rollout_start_snapshot": 169,
+    "selector": "validation_normalized_per_channel_relative_l2_arithmetic_average",
+    "validation_pairs": 42
+  },
+  "initialization": {
+    "common_initialization_match": true,
+    "common_tensor_state_sha256": "7e10895cb283be8532e4c036e8a526c536a632cce880c500080ea1d14fd89311",
+    "disco_parameter_names": [
+      "local_no_blocks.local_convs.0.weight",
+      "local_no_blocks.local_convs.0.bias",
+      "local_no_blocks.local_convs.1.weight",
+      "local_no_blocks.local_convs.1.bias",
+      "local_no_blocks.local_convs.2.weight",
+      "local_no_blocks.local_convs.2.bias",
+      "local_no_blocks.local_convs.3.weight",
+      "local_no_blocks.local_convs.3.bias"
+    ],
+    "disco_parameter_state_sha256": "e92dd73e57596cac2f7ba5a5f987dc14a21d6f7e07036df77139a1e6c771025b",
+    "disco_seed": 42,
+    "full_initial_state_sha256": "2b659460817bb28c9c1b8da3a06cd1bb0eb6b39155b0cbef8eede470e32f0788"
+  },
+  "loss": {
+    "bounds": false,
+    "h1": false,
+    "name": "PlainL2Loss",
+    "physics": false,
+    "radial": false,
+    "roi": false
+  },
+  "model_common": {
+    "architecture": "localno_differential_3d",
+    "conv_padding_mode": "periodic",
+    "default_in_shape": [
+      64,
+      64,
+      64
+    ],
+    "enforce_hermitian_symmetry": true,
+    "fin_diff_kernel_size": 3,
+    "hidden_channels": 16,
+    "in_channels": 16,
+    "local_no_skip": "linear",
+    "mix_derivatives": true,
+    "mixed_precision": false,
+    "n_dim": 3,
+    "n_layers": 4,
+    "n_modes": [
+      8,
+      8,
+      8
+    ],
+    "normalization": null,
+    "out_channels": 8,
+    "positional_embedding": null,
+    "prediction_mode": "normalized_residual",
+    "source": "neuralop.models.LocalNO",
+    "spectral_enabled": true,
+    "use_channel_mlp": false,
+    "use_differential": true,
+    "use_disco": false,
+    "use_local_integral": false
+  },
+  "operator": {
+    "basis_count": 5,
+    "bias": true,
+    "boundary": "computational_periodic_adaptation",
+    "domain_length": [
+      2.0,
+      2.0,
+      2.0
+    ],
+    "exact_3d_disco_implementation_found": false,
+    "execution_backend": "DENSE_CONV3D",
+    "grid_shape": [
+      64,
+      64,
+      64
+    ],
+    "groups": 1,
+    "implementation": "ADAPTED_ISOTROPIC_RADIAL_PIECEWISE_LINEAR",
+    "name": "ADAPTED_VOLUMETRIC_3D_DISCO_LOCALNO",
+    "normalization_epsilon": 1e-12,
+    "radius_cells": 3
+  },
+  "pair_order": "identical_to_Stage-T_first_150_natural_epoch_orders_seed_42",
+  "parameter_audit": {
+    "disco3d_parameters": 5184,
+    "layers": [
+      {
+        "bias_shape": [
+          16
+        ],
+        "layer": 0,
+        "weight_shape": [
+          16,
+          16,
+          5
+        ]
+      },
+      {
+        "bias_shape": [
+          16
+        ],
+        "layer": 1,
+        "weight_shape": [
+          16,
+          16,
+          5
+        ]
+      },
+      {
+        "bias_shape": [
+          16
+        ],
+        "layer": 2,
+        "weight_shape": [
+          16,
+          16,
+          5
+        ]
+      },
+      {
+        "bias_shape": [
+          16
+        ],
+        "layer": 3,
+        "weight_shape": [
+          16,
+          16,
+          5
+        ]
+      }
+    ],
+    "relative_increase": 0.014468484158349521,
+    "stage_t_parameters": 358296,
+    "total_parameters": 363480
+  },
+  "prediction": {
+    "clipping": false,
+    "learnable_scale": false,
+    "mode": "normalized_residual",
+    "reconstruction": "z_t_plus_model_residual",
+    "residual_scale": 1.0,
+    "target": "z_t_plus_1_minus_z_t"
+  },
+  "preprocessing": {
+    "artifact": "artifacts/stage_s/p3_normalizer_expanded",
+    "gamma": 6.0,
+    "inverse_clamp_fraction": 0.99,
+    "mapping": {
+      "Bcc1": "canonical",
+      "Bcc2": "no_softclip",
+      "Bcc3": "no_softclip",
+      "press": "canonical",
+      "rho": "canonical",
+      "vel1": "canonical",
+      "vel2": "canonical",
+      "vel3": "no_softclip"
+    },
+    "mode": "stage_n_p3_refit_expanded_train_only",
+    "normalizer_sha256": "c2a36edbb44732efb857165e9a710d393cec68c6ba285521cd9bcc7b783cffa6",
+    "validation_used_for_fit": false
+  },
+  "reproduction_scope": "ADAPTED_SPHERICAL_KS_WORKFLOW_REPRODUCTION",
+  "schema_version": "stage-ad-resolved-config-v1",
+  "training": {
+    "batch_size": 1,
+    "epochs": 150,
+    "gradient_accumulation": 4,
+    "gradient_clip_norm": 1.0,
+    "learning_rate": 0.001,
+    "loss": "PlainL2Loss_on_normalized_residual",
+    "mandatory_checkpoint_epochs": [
+      2,
+      10,
+      30,
+      75,
+      150
+    ],
+    "microbatches_per_epoch": 168,
+    "mixed_precision": false,
+    "optimizer": "Adam",
+    "optimizer_updates": 6300,
+    "scheduler": "stage_t_1200_epoch_warmup_cosine_first_150",
+    "scheduler_min_learning_rate": 1e-06,
+    "scheduler_total_updates": 50400,
+    "scheduler_warmup_updates": 3150,
+    "updates_per_epoch": 42,
+    "weight_decay": 0.0001
+  }
+}

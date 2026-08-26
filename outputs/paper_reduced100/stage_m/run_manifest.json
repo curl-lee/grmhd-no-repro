@@ -1,0 +1,173 @@
+{
+  "calibration_artifact_sha256": "7e65a4ee0fdde17d43741333c851cd7372170741519e8acbd8f8a10f3874a1a9",
+  "candidate_gate_decision": "I. CANDIDATE_GATE_READY_FOR_FUTURE_RUNS",
+  "channel_floor_decisions": {
+    "Bcc2": "E. MULTIPLE_COMPONENTS",
+    "Bcc3": "A. FORWARD_SOFTCLIP_DOMINATED",
+    "vel3": "A. FORWARD_SOFTCLIP_DOMINATED"
+  },
+  "classification": "post_hoc_transform_and_evaluation_audit",
+  "localno_transport_decision": "4. MIXED_TRANSPORT_AND_PREPROCESSING_FAILURE",
+  "metadata": {
+    "calibration_split": {
+      "model_outcomes_forbidden": true,
+      "snapshot_indices": [
+        11,
+        90
+      ],
+      "transition_source_indices": [
+        11,
+        89
+      ],
+      "validation_outcomes_forbidden": true
+    },
+    "channel_parameter_sha256": "917dc105eb8e1a2c2e4401e249b2e31aab595152d35f2471df263a7c426c6ddb",
+    "checkpoint_hashes": {
+      "fno_full": "a18e8711aae8071218959d34d217bb52b51a1fcc23f4e11bdcc5713dbff111e2",
+      "fno_plain": "923b233de1d0abfda97f99fda9142dc437dc91f5dbbc3f19e0e5d28f5e862f1b",
+      "localno_plain": "f69008f91da80a4a7a6374adc253bbcdf37f58f0d142ea80f2b3f399e1f02a9f"
+    },
+    "classification": "post_hoc_transform_and_evaluation_audit",
+    "counterfactual_classification": "diagnostic_counterfactual",
+    "data_checksum": "cd3966bed1f617f49d775151cff87ae92eb2432a560bb82ae9355605e7aea70a",
+    "metric_definitions": {
+      "radial_profile": "mean over phi/theta at every stored r center",
+      "retention": "diagnostic metric divided by raw metric; null at denominator floor",
+      "shells": "frozen eight physical-r shells",
+      "spectrum": "orthonormal combined demeaned stored-index-space diagnostic",
+      "variance": "population variance over one channel and phi/theta/r"
+    },
+    "no_backward": true,
+    "no_optimizer_or_scheduler": true,
+    "no_training": true,
+    "normalizer_checksum": "1645714424d95b02de2283fc16a8ef05f3864d15f11025580af13f3e67964001",
+    "preprocessing_checksum": "1645714424d95b02de2283fc16a8ef05f3864d15f11025580af13f3e67964001",
+    "project_commit": "db89af9e98c5b074746b82eaff954d2440c8049a",
+    "selected_state_hashes": {
+      "fno_full": "60eeda64167b0ab33ce544ac011ff13bab0f4f4887a4eae4d664436b351e9077",
+      "fno_plain": "2a82cb6015fa9316ceeaa7c433423d8cee4ccbd0910884f244f8ea0217b97c7c",
+      "localno_plain": "441a1d8348b240cb5df16063ee71de1ba375d97b64e79010ec88330191fbea66"
+    },
+    "shell_metadata_checksum": "99580fc2c62431f46e6702972660b060aa1294920e5f9530b45b43ce08c190b7",
+    "software": {
+      "numpy": "2.4.6",
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "python": "3.11.15 (main, Jun 11 2026, 15:20:16) [GCC 14.3.0]",
+      "torch": "2.12.1+cu130"
+    },
+    "stage_k_decision": "C. TRAINING_COMPLETE_BUT_ROLLOUT_UNSTABLE",
+    "stage_l_attribution_sha256": "cb173caf676df312d3f3eaf6cd46ea63f408144476adeb7a8131fcb733596ddf",
+    "stage_l_config_sha256": "8f9c170be023da938ce6b6d1414ebc459965467080ea397a85fe98998ff34983",
+    "stage_l_decision": "3. MIXED_OVERALL",
+    "stage_l_decision_sha256": "867c8e155f843e9f5bbdd52de5280f515138fc5e6b29a743e8d7c3d6cca83595",
+    "stage_m_config_sha256": "91a360fe9087f413fccaeaa6cf56874e980773aa7f584b3bf5b2917e8a677206",
+    "transform_source_hashes": {
+      "canonical_decode_numpy": "2fff67f47d8164f54182b47e640d45c14c31334a1a1e2e4644ebbdb61b05138d",
+      "canonical_decode_tensor": "46dcc98cb836ea11b65f6f12611418385361d347b830a563d1640321da7160dd",
+      "canonical_encode_numpy": "3dc7e29cc1f106eef0d0a27feaff6d15add7a8ba60074aff239204979c361a59",
+      "canonical_encode_tensor": "3ebe6e7a4e56f4dd861ec7ff01370111357756fde4d73ce7f8a8491aba6c2a08",
+      "evaluation_bounds_clamp": "b6f468543e48e9190c3cf4467efd872b14815e169dcc89026e87c1edd8c28b32",
+      "forward_nonlinear_numpy": "1ee1736939d306635ee75c5ab384004d2b1169c85eede8d0ce83408637ffc625",
+      "prediction_decode": "350fec673fbfc12949e7f25750033f4493ef8d04291e2b141b3a6205fd7ff035",
+      "source_file_paper_bounds": "cda59d934fb5045ef263f43e10c97fb157557615472e6c0a760c7cfaf2b6d9eb",
+      "source_file_paper_data_processor": "debd4aa06e179676fadfcd964b8978a5a58b1949e5feaea71559dc3707b02bb2",
+      "source_file_paper_preprocessing": "ce72b6f56d5cd773c8bb17ddbf302a2ec793e85996a75ea9965f1a517134547d"
+    },
+    "undefined_count": 0
+  },
+  "provenance_gate": {
+    "checks": {
+      "data": {
+        "actual_sha256": "cd3966bed1f617f49d775151cff87ae92eb2432a560bb82ae9355605e7aea70a",
+        "expected_sha256": "cd3966bed1f617f49d775151cff87ae92eb2432a560bb82ae9355605e7aea70a",
+        "match": true,
+        "path": "data_proc/grmhd_regrid_inner_r200_64.h5"
+      },
+      "detector_source_file": {
+        "actual_sha256": "64125810309c129ca56c326c6a6be7f60f94c706b8362b62810947587d7101e8",
+        "expected_sha256": "64125810309c129ca56c326c6a6be7f60f94c706b8362b62810947587d7101e8",
+        "match": true,
+        "path": "src/grmhd/paper_stage_g_evaluation.py"
+      },
+      "fno_full_checkpoint": {
+        "actual_sha256": "a18e8711aae8071218959d34d217bb52b51a1fcc23f4e11bdcc5713dbff111e2",
+        "expected_sha256": "a18e8711aae8071218959d34d217bb52b51a1fcc23f4e11bdcc5713dbff111e2",
+        "match": true,
+        "path": "outputs/paper_reduced100/stage_g/pilot30_full_fno/best_validation_l2/paper_state_dict.pt"
+      },
+      "fno_plain_checkpoint": {
+        "actual_sha256": "923b233de1d0abfda97f99fda9142dc437dc91f5dbbc3f19e0e5d28f5e862f1b",
+        "expected_sha256": "923b233de1d0abfda97f99fda9142dc437dc91f5dbbc3f19e0e5d28f5e862f1b",
+        "match": true,
+        "path": "outputs/paper_reduced100/stage_g/pilot30_plain_l2/best_validation_l2/paper_state_dict.pt"
+      },
+      "localno_plain_checkpoint": {
+        "actual_sha256": "f69008f91da80a4a7a6374adc253bbcdf37f58f0d142ea80f2b3f399e1f02a9f",
+        "expected_sha256": "f69008f91da80a4a7a6374adc253bbcdf37f58f0d142ea80f2b3f399e1f02a9f",
+        "match": true,
+        "path": "outputs/paper_reduced100/stage_k/localno_differential_plain/best_validation_l2/paper_state_dict.pt"
+      },
+      "localno_selected_states": {
+        "actual_sha256": "441a1d8348b240cb5df16063ee71de1ba375d97b64e79010ec88330191fbea66",
+        "expected_sha256": "441a1d8348b240cb5df16063ee71de1ba375d97b64e79010ec88330191fbea66",
+        "match": true,
+        "path": "outputs/paper_reduced100/stage_k/localno_differential_plain/selected_states.pt"
+      },
+      "preprocessing": {
+        "actual_sha256": "1645714424d95b02de2283fc16a8ef05f3864d15f11025580af13f3e67964001",
+        "expected_sha256": "1645714424d95b02de2283fc16a8ef05f3864d15f11025580af13f3e67964001",
+        "match": true,
+        "path": "outputs/paper_reduced100/stats/normalizer.npz"
+      },
+      "shell_metadata": {
+        "actual_sha256": "99580fc2c62431f46e6702972660b060aa1294920e5f9530b45b43ce08c190b7",
+        "expected_sha256": "99580fc2c62431f46e6702972660b060aa1294920e5f9530b45b43ce08c190b7",
+        "match": true,
+        "path": "outputs/paper_reduced100/priors/shell_metadata.json"
+      },
+      "stage_l_attribution": {
+        "actual_sha256": "cb173caf676df312d3f3eaf6cd46ea63f408144476adeb7a8131fcb733596ddf",
+        "expected_sha256": "cb173caf676df312d3f3eaf6cd46ea63f408144476adeb7a8131fcb733596ddf",
+        "match": true,
+        "path": "outputs/paper_reduced100/stage_l/collapse_attribution.json"
+      },
+      "stage_l_config": {
+        "actual_sha256": "8f9c170be023da938ce6b6d1414ebc459965467080ea397a85fe98998ff34983",
+        "expected_sha256": "8f9c170be023da938ce6b6d1414ebc459965467080ea397a85fe98998ff34983",
+        "match": true,
+        "path": "configs/paper_reduced100/stage_l_collapse_attribution.yaml"
+      },
+      "stage_l_decision": {
+        "actual_sha256": "867c8e155f843e9f5bbdd52de5280f515138fc5e6b29a743e8d7c3d6cca83595",
+        "expected_sha256": "867c8e155f843e9f5bbdd52de5280f515138fc5e6b29a743e8d7c3d6cca83595",
+        "match": true,
+        "path": "outputs/paper_reduced100/stage_l/stage_l_decision.json"
+      },
+      "stage_m_config": {
+        "actual_sha256": "91a360fe9087f413fccaeaa6cf56874e980773aa7f584b3bf5b2917e8a677206",
+        "expected_sha256": "91a360fe9087f413fccaeaa6cf56874e980773aa7f584b3bf5b2917e8a677206",
+        "match": true,
+        "path": "configs/paper_reduced100/stage_m_transform_floor_audit.yaml"
+      }
+    },
+    "stage_k_decision": "C. TRAINING_COMPLETE_BUT_ROLLOUT_UNSTABLE",
+    "stage_l_decision": "3. MIXED_OVERALL",
+    "upstream_commit": "86a8bc7812a31b42c4f7895693cf4ac11521c066"
+  },
+  "schema_version": "paper-stage-m-run-manifest-v1",
+  "scope_completed": [
+    "provenance_gate",
+    "transform_source_audit",
+    "transform_stage_trace",
+    "diagnostic_counterfactual_roundtrips",
+    "channel_floor_source_decisions",
+    "oracle_conditioned_variance_transport",
+    "oracle_conditioned_shell_radial_transport",
+    "model_added_degradation",
+    "no_gt_floor_corrected_diagnostics",
+    "candidate_gate_replay",
+    "stage_m_final_decision"
+  ],
+  "scope_not_started": [],
+  "status": "stage_m_complete"
+}

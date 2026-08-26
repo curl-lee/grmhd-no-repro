@@ -1,0 +1,93 @@
+# Stage AB WSL GPU bridge audit
+
+DXG_DEVICE_STATUS=PRESENT
+LD_LIBRARY_PATH=
+Library presence is not treated as proof that the GPU bridge works.
+
+# GPU bridge evidence
+
+## dev_dxg
+
+$ ls -l /dev/dxg
+returncode: 0
+stdout:
+crw-rw-rw- 1 root root 10, 258 Aug 17 15:22 /dev/dxg
+stderr:
+
+
+## wsl_libraries
+
+$ ls -la /usr/lib/wsl/lib/
+returncode: 0
+stdout:
+total 399796
+drwxr-xr-x 1 root root        80 Aug 17 15:22 .
+drwxr-xr-x 4 root root      4096 Jul  7 15:53 ..
+-r-xr-xr-x 4 root root    175360 Feb 17 23:59 libcuda.so
+-r-xr-xr-x 4 root root    175360 Feb 17 23:59 libcuda.so.1
+-r-xr-xr-x 4 root root    175360 Feb 17 23:59 libcuda.so.1.1
+-r-xr-xr-x 1 root root  11294472 Dec 31  2025 libcudadebugger.so.1
+-r-xr-xr-x 1 root root    801840 Oct 20  2023 libd3d12.so
+-r-xr-xr-x 1 root root   6880344 Oct 20  2023 libd3d12core.so
+-r-xr-xr-x 1 root root    942048 Mar 31  2024 libdxcore.so
+-r-xr-xr-x 2 root root  18475776 Dec 31  2025 libnvcuvid.so
+-r-xr-xr-x 2 root root  18475776 Dec 31  2025 libnvcuvid.so.1
+-r-xr-xr-x 1 root root 154232352 Dec 31  2025 libnvdxdlkernels.so
+-r-xr-xr-x 2 root root    264328 Dec 31  2025 libnvidia-encode.so
+-r-xr-xr-x 2 root root    264328 Dec 31  2025 libnvidia-encode.so.1
+-r-xr-xr-x 2 root root  89659688 Feb 17 23:59 libnvidia-gpucomp.so
+lrwxrwxrwx 1 root root        20 Aug 17 15:22 libnvidia-gpucomp.so.590.57 -> libnvidia-gpucomp.so
+-r-xr-xr-x 1 root root    266928 Dec 31  2025 libnvidia-ml.so.1
+-r-xr-xr-x 2 root root   4594744 Feb 17 23:59 libnvidia-ngx.so.1
+-r-xr-xr-x 2 root root     67608 Dec 31  2025 libnvidia-opticalflow.so
+-r-xr-xr-x 2 root root     67608 Dec 31  2025 libnvidia-opticalflow.so.1
+-r-xr-xr-x 1 root root     10056 Dec 31  2025 libnvoptix.so.1
+lrwxrwxrwx 1 root root        15 Aug 17 15:22 libnvoptix_loader.so.1 -> libnvoptix.so.1
+-r-xr-xr-x 2 root root  96610904 Feb 17 23:59 libnvwgf2umx.so
+-r-xr-xr-x 2 root root   5072000 Feb 17 23:59 nvidia-ngx-updater
+-r-xr-xr-x 2 root root    845304 Feb 17 23:59 nvidia-smi
+stderr:
+
+
+## dynamic_linker_cache
+
+$ ldconfig -p
+returncode: 0
+stdout:
+	libnvidia-opticalflow.so.1 (libc6,x86-64) => /usr/lib/wsl/lib/libnvidia-opticalflow.so.1
+	libnvidia-ngx.so.1 (libc6,x86-64) => /usr/lib/wsl/lib/libnvidia-ngx.so.1
+	libnvidia-ml.so.1 (libc6,x86-64) => /usr/lib/wsl/lib/libnvidia-ml.so.1
+	libnvidia-gpucomp.so.590.57 (libc6,x86-64) => /usr/lib/wsl/lib/libnvidia-gpucomp.so.590.57
+	libnvidia-encode.so.1 (libc6,x86-64) => /usr/lib/wsl/lib/libnvidia-encode.so.1
+	libicudata.so.74 (libc6,x86-64) => /lib/x86_64-linux-gnu/libicudata.so.74
+	libcudadebugger.so.1 (libc6,x86-64) => /usr/lib/wsl/lib/libcudadebugger.so.1
+	libcuda.so.1 (libc6,x86-64) => /usr/lib/wsl/lib/libcuda.so.1
+stderr:
+
+
+## wsl_nvidia_smi
+
+$ nvidia-smi
+returncode: 0
+stdout:
+Mon Aug 17 18:27:41 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 590.57                 Driver Version: 591.86         CUDA Version: 13.1     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 5070        On  |   00000000:01:00.0 Off |                  N/A |
+| 30%   44C    P0             36W /  250W |    1632MiB /  12227MiB |      4%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+stderr:

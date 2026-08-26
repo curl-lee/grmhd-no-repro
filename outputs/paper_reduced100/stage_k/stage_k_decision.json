@@ -1,0 +1,62 @@
+{
+  "choice": "C",
+  "classification": "adapted_method_reproduction",
+  "decision": "TRAINING_COMPLETE_BUT_ROLLOUT_UNSTABLE",
+  "engineering_gates": {
+    "beats_persistence_one_step_average": false,
+    "decoded_range_above_frozen_rout": false,
+    "formal_checkpoints_reload": true,
+    "formal_counts_passed": true,
+    "gt_rollout_finite_positive": true,
+    "no_gt_rollout_finite_positive": true,
+    "no_training_nonfinite": true,
+    "persistent_frozen_collapse_flags_25_50_75_100": true,
+    "preflight_passed": true,
+    "smoke_counts_and_reload_passed": true,
+    "transform_counters_exact": true
+  },
+  "evidence": {
+    "gt_step19_average": 1.0366210856023867,
+    "gt_step19_model_over_persistence": 1.3114135508142049,
+    "localno_over_persistence": 3.301233358768483,
+    "localno_validation_average": 0.6242245820085112,
+    "no_gt_above_rout_any": false,
+    "persistence_validation_average": 0.18908829342539318,
+    "preprocessing_floor_warning_channels": [
+      "Bcc3",
+      "vel3"
+    ],
+    "step50_100_artifact_count": 3.0
+  },
+  "interpretation": "Training, checkpoint, validation, and transform-count engineering gates passed, and decoded ranges stayed finite and positive. The frozen artifact detector nevertheless marked field collapse at every selected no-GT step 25/50/75/100, so the explicit Stage K C rule takes precedence.",
+  "not_claimed": [
+    "3D_DISCO_reproduction",
+    "exact_paper_reproduction",
+    "physical_correctness_from_finite_rollout"
+  ],
+  "persistent_collapse_flags": {
+    "100": [
+      "Bcc3:possible_field_collapse",
+      "vel3:possible_field_collapse"
+    ],
+    "25": [
+      "Bcc3:possible_field_collapse"
+    ],
+    "50": [
+      "Bcc3:possible_field_collapse"
+    ],
+    "75": [
+      "Bcc3:possible_field_collapse",
+      "vel3:possible_field_collapse"
+    ]
+  },
+  "provenance": {
+    "dataset_sha256": "cd3966bed1f617f49d775151cff87ae92eb2432a560bb82ae9355605e7aea70a",
+    "initial_state_sha256": "7e10895cb283be8532e4c036e8a526c536a632cce880c500080ea1d14fd89311",
+    "pair_order_sha256": "5e1e361ea75e01ffd667822d8bfe870d70c5bc69570d52cdf806e637b2df2b52",
+    "preprocessing_sha256": "1645714424d95b02de2283fc16a8ef05f3864d15f11025580af13f3e67964001",
+    "project_commit": "4f9d9074436eba89117d07a5aa7e37f52541195f",
+    "upstream_commit": "86a8bc7812a31b42c4f7895693cf4ac11521c066"
+  },
+  "schema_version": "paper-stage-k-decision-v1"
+}

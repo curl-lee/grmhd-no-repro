@@ -1,0 +1,30 @@
+{
+  "schema_version": "paper-stage-n-decision-v1",
+  "scope": "transform_prototype_oracle_validation_and_localno_operator_response",
+  "no_training": true,
+  "transform_channel_decisions": {
+    "Bcc2": "A. PROTOTYPE_READY",
+    "Bcc3": "A. PROTOTYPE_READY",
+    "vel3": "A. PROTOTYPE_READY"
+  },
+  "bcc2_candidate_frozen_from_train_only": "P2B. BCC2_NO_SOFTCLIP",
+  "combined_prototype_decision": "1. COMBINED_PROTOTYPE_READY_FOR_SHORT_PILOT",
+  "combined_prototype_authorized_for_training_in_stage_n": false,
+  "localno_operator_decision": "4. MIXED_OPERATOR_RESPONSE_FAILURE",
+  "operator_mechanisms": {
+    "LOW_VARIANCE_ATTRACTOR": "supported",
+    "SHELL_RADIAL_TRANSPORT_BIAS": "supported",
+    "FREQUENCY_SELECTIVE_FAILURE": "inconclusive",
+    "CHANNEL_COUPLING_FAILURE": "inconclusive"
+  },
+  "candidate_gate_integration": "I. REPORTING_INTERFACE_READY",
+  "candidate_gate_version": "stage_m_v1",
+  "candidate_gate_reporting_only": true,
+  "historical_status_unchanged": {
+    "Stage K": "C. TRAINING_COMPLETE_BUT_ROLLOUT_UNSTABLE",
+    "Stage L": "3. MIXED_OVERALL",
+    "Stage M": "4. MIXED_TRANSPORT_AND_PREPROCESSING_FAILURE"
+  },
+  "next_authorized_action": "propose_only: P3, isolated train-only statistics, same Stage K architecture and pair order, 2-epoch smoke then at most a paired 30-epoch pilot with legacy and stage_m_v1 gate reporting",
+  "automatic_next_run_started": false
+}

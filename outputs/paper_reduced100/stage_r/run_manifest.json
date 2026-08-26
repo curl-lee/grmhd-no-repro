@@ -1,0 +1,379 @@
+{
+  "checksums": {
+    "dataset": "cd3966bed1f617f49d775151cff87ae92eb2432a560bb82ae9355605e7aea70a",
+    "manifest": "f6f3497717b577db25ff96f58daa5b98debe5300c329e30b543805d11d21b9d6",
+    "p3_config": "41409e803cc0f54bede7cc73a84d9986e081bb07265c84dcac2fd64a44778809",
+    "p3_statistics": "aea6d3f91e54865deeb9b2b1142c49a633ae8b67223075273e6c0b88bf541948",
+    "pair_order": "5e1e361ea75e01ffd667822d8bfe870d70c5bc69570d52cdf806e637b2df2b52",
+    "residual_target_audit": "14b4edd446048a888638af0ef3dc2710ddf7182b2ef2ba4f544495bf46f09010",
+    "shells": "99580fc2c62431f46e6702972660b060aa1294920e5f9530b45b43ce08c190b7",
+    "stage_k_architecture": "8b229c5c2528d66bd4e11d0b0c4af16d00e906129386f8119af1670721ba30af",
+    "stage_k_initial_state_file": "07db393f5c3e831f44bcc2d47b8132c3f9a0e72e2a258618080db487cc13cbb0",
+    "stage_m_gate": "a829a3760a71a006f54ae18b399c569a903898d27f3ef3a72236982fd033e5f7",
+    "stage_o_best_checkpoint": "756ee7f31a9780942aa0f35dce4e5584cbeaf04ed8e9777721e7765962f04e12",
+    "stage_o_decision": "79fd718b7a0216f49d5a1df313ad19086e92c14ad800dfbe2215ec091930fa7f",
+    "stage_o_gt_rollout": "e929d4bc74f69ba027edf21aff88be1210a817716af8a9e65f104ca66d47772c",
+    "stage_o_no_gt_rollout": "3b432059439ede11b505b3f4377655f9e8d1dff4f3dac0eb44000824e57d16a3",
+    "stage_o_training_summary": "a0171a8c8c41dda043df8e63c9fd2a48b1e1fe27711bc6ce86d910c45d7d8cf7",
+    "stage_o_validation_metrics": "b97f9735f0d405837ee3326c8548cd2bb25b848e4217bfaffd49e080affe3051",
+    "stage_q_decision": "3851687d6757c946cd64782fe5e83373d883066ed58493ca3bdaf44c1e548587",
+    "stage_r_config": "2f21330a8f23372f598bef7a1aa27e0ff2d455b214a76a0fc8b646dafabbf793"
+  },
+  "classification": "adapted_residual_contract_model_pilot",
+  "contract": {
+    "clipping": false,
+    "learnable_scale": false,
+    "mode": "normalized_residual",
+    "residual_scale": 1.0,
+    "state_skip": "identity"
+  },
+  "data": {
+    "channels": [
+      "Bcc1",
+      "Bcc2",
+      "Bcc3",
+      "rho",
+      "press",
+      "vel1",
+      "vel2",
+      "vel3"
+    ],
+    "shape": [
+      111,
+      8,
+      64,
+      64,
+      64
+    ]
+  },
+  "data_split": {
+    "dropped_transition": [
+      90,
+      91
+    ],
+    "test": null,
+    "train_pairs": 79,
+    "train_snapshots": [
+      11,
+      91
+    ],
+    "validation_pairs": 19,
+    "validation_snapshots": [
+      91,
+      111
+    ]
+  },
+  "environment": {
+    "numpy": "2.4.6",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.11.15 (main, Jun 11 2026, 15:20:16) [GCC 14.3.0]",
+    "torch": "2.12.1+cu130",
+    "torch_cuda": "13.0"
+  },
+  "evaluation": {
+    "legacy_detector": true,
+    "oracle_aware": true,
+    "oracle_conditioned_gate": true,
+    "oracle_conditioned_gate_version": "stage_m_v1",
+    "report_model_to_oracle": true,
+    "report_model_to_raw": true,
+    "report_normalized": true,
+    "report_oracle_floor": true,
+    "rho_press_eval_clamp": false
+  },
+  "historical_status_unchanged": {
+    "Stage K": "C. TRAINING_COMPLETE_BUT_ROLLOUT_UNSTABLE",
+    "Stage L": "3. MIXED_OVERALL",
+    "Stage M": "4. MIXED_TRANSPORT_AND_PREPROCESSING_FAILURE",
+    "Stage N": "P3 ready; mixed operator-response failure",
+    "Stage O": "C. P3_PILOT_COMPLETE_BUT_ROLLOUT_UNSTABLE",
+    "Stage P": "6. MIXED_CLOSED_LOOP_FAILURE",
+    "Stage Q": "D. NO_VALID_ANCHOR_CANDIDATE"
+  },
+  "loss": {
+    "bounds": {
+      "training_penalty_enabled": false
+    },
+    "contract_version": "paper-stage-e-loss-contract-v1",
+    "diagnostic_extensions_enabled": false,
+    "dissipation": {
+      "enabled": false
+    },
+    "envelope": {
+      "enabled": false
+    },
+    "h1": {
+      "enabled": false
+    },
+    "implementation_version": "paper-plain-l2-v1",
+    "mode": "strict_plain_l2",
+    "name": "PlainL2Loss",
+    "roi": {
+      "enabled": false
+    },
+    "target": "normalized_residual",
+    "unit_channel_weights": true
+  },
+  "pairing": {
+    "epochs_covered": 30,
+    "initial_state_file_sha256": "07db393f5c3e831f44bcc2d47b8132c3f9a0e72e2a258618080db487cc13cbb0",
+    "initial_state_tensor_sha256": "7e10895cb283be8532e4c036e8a526c536a632cce880c500080ea1d14fd89311",
+    "pair_order_sha256": "5e1e361ea75e01ffd667822d8bfe870d70c5bc69570d52cdf806e637b2df2b52",
+    "pairs_per_epoch": 79,
+    "parameter_count": 358296,
+    "parameters": [
+      {
+        "name": "local_no_blocks.convs.0.bias",
+        "numel": 16,
+        "shape": [
+          16,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "name": "local_no_blocks.convs.0.weight.tensor",
+        "numel": 81920,
+        "shape": [
+          16,
+          16,
+          8,
+          8,
+          5
+        ]
+      },
+      {
+        "name": "local_no_blocks.convs.1.bias",
+        "numel": 16,
+        "shape": [
+          16,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "name": "local_no_blocks.convs.1.weight.tensor",
+        "numel": 81920,
+        "shape": [
+          16,
+          16,
+          8,
+          8,
+          5
+        ]
+      },
+      {
+        "name": "local_no_blocks.convs.2.bias",
+        "numel": 16,
+        "shape": [
+          16,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "name": "local_no_blocks.convs.2.weight.tensor",
+        "numel": 81920,
+        "shape": [
+          16,
+          16,
+          8,
+          8,
+          5
+        ]
+      },
+      {
+        "name": "local_no_blocks.convs.3.bias",
+        "numel": 16,
+        "shape": [
+          16,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "name": "local_no_blocks.convs.3.weight.tensor",
+        "numel": 81920,
+        "shape": [
+          16,
+          16,
+          8,
+          8,
+          5
+        ]
+      },
+      {
+        "name": "local_no_blocks.local_no_skips.0.conv.weight",
+        "numel": 256,
+        "shape": [
+          16,
+          16,
+          1
+        ]
+      },
+      {
+        "name": "local_no_blocks.local_no_skips.1.conv.weight",
+        "numel": 256,
+        "shape": [
+          16,
+          16,
+          1
+        ]
+      },
+      {
+        "name": "local_no_blocks.local_no_skips.2.conv.weight",
+        "numel": 256,
+        "shape": [
+          16,
+          16,
+          1
+        ]
+      },
+      {
+        "name": "local_no_blocks.local_no_skips.3.conv.weight",
+        "numel": 256,
+        "shape": [
+          16,
+          16,
+          1
+        ]
+      },
+      {
+        "name": "local_no_blocks.differential.0.weight",
+        "numel": 6912,
+        "shape": [
+          16,
+          16,
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "name": "local_no_blocks.differential.1.weight",
+        "numel": 6912,
+        "shape": [
+          16,
+          16,
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "name": "local_no_blocks.differential.2.weight",
+        "numel": 6912,
+        "shape": [
+          16,
+          16,
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "name": "local_no_blocks.differential.3.weight",
+        "numel": 6912,
+        "shape": [
+          16,
+          16,
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "name": "lifting.fcs.0.weight",
+        "numel": 512,
+        "shape": [
+          32,
+          16,
+          1
+        ]
+      },
+      {
+        "name": "lifting.fcs.0.bias",
+        "numel": 32,
+        "shape": [
+          32
+        ]
+      },
+      {
+        "name": "lifting.fcs.1.weight",
+        "numel": 512,
+        "shape": [
+          16,
+          32,
+          1
+        ]
+      },
+      {
+        "name": "lifting.fcs.1.bias",
+        "numel": 16,
+        "shape": [
+          16
+        ]
+      },
+      {
+        "name": "projection.fcs.0.weight",
+        "numel": 512,
+        "shape": [
+          32,
+          16,
+          1
+        ]
+      },
+      {
+        "name": "projection.fcs.0.bias",
+        "numel": 32,
+        "shape": [
+          32
+        ]
+      },
+      {
+        "name": "projection.fcs.1.weight",
+        "numel": 256,
+        "shape": [
+          8,
+          32,
+          1
+        ]
+      },
+      {
+        "name": "projection.fcs.1.bias",
+        "numel": 8,
+        "shape": [
+          8
+        ]
+      }
+    ],
+    "strict_load": true
+  },
+  "project": {
+    "branch": "codex/stage-r-residual-localno-pilot",
+    "commit": "1316b75107e7dc86b896af43ebb4a57a8ee99a5b",
+    "stage_q_base": "8bc4ca4"
+  },
+  "schema_version": "paper-stage-r-run-manifest-v1",
+  "status": "provenance_contract_and_residual_audit_passed",
+  "training_contract": {
+    "batch_size": 1,
+    "cosine_min_learning_rate": 1e-06,
+    "early_stopping": false,
+    "epochs": 30,
+    "expected_microbatches": 2370,
+    "expected_optimizer_updates": 600,
+    "gradient_accumulation": 4,
+    "gradient_clip_norm": 1.0,
+    "learning_rate": 0.001,
+    "mixed_precision": false,
+    "optimizer": "Adam",
+    "warmup_epochs": 2,
+    "weight_decay": 0.0001
+  },
+  "upstream_commit": "86a8bc7812a31b42c4f7895693cf4ac11521c066"
+}

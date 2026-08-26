@@ -1,0 +1,26 @@
+{
+  "DXG_DEVICE_STATUS": "PRESENT",
+  "GPU_FAILURE_LAYER": "RESOLVED",
+  "GPU_SCIENTIFIC_GATE": "PASS",
+  "WSL_INTEROP_STATUS": "PASS",
+  "cpu_fallback": false,
+  "environment_mutation_attempted": false,
+  "failure_components": [],
+  "host_gpu_visibility": "VISIBLE",
+  "recovery_classification": "R7_RESOLVED",
+  "schema_version": "stage-ab-gpu-gate-v1",
+  "torch": {
+    "capability": [
+      12,
+      0
+    ],
+    "compiled_cuda": "13.0",
+    "cuda_available": true,
+    "device_count": 1,
+    "device_name": "NVIDIA GeForce RTX 5070",
+    "python_executable": "/home/curl/miniconda3/envs/grmhd-no/bin/python",
+    "torch_version": "2.12.1+cu130"
+  },
+  "training_authorized": true,
+  "wsl_nvidia_smi_pass": true
+}

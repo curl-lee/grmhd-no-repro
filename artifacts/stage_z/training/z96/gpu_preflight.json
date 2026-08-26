@@ -1,0 +1,19 @@
+{
+  "cpu_fallback": false,
+  "cuda_available": false,
+  "device_count": 0,
+  "forward_finite": null,
+  "gradients_finite": null,
+  "loss_finite": null,
+  "nvidia_smi_returncode": 255,
+  "nvidia_smi_stderr": "",
+  "nvidia_smi_stdout": "Failed to initialize NVML: GPU access blocked by the operating system\nFailed to properly shut down NVML: GPU access blocked by the operating system",
+  "reason": "WSL/operating system blocked CUDA device access; no CPU fallback authorized",
+  "reproduction_scope": "ADAPTED_SPHERICAL_KS_WORKFLOW_REPRODUCTION",
+  "resolution": 96,
+  "schema_version": "stage-z-gpu-preflight-v1",
+  "status": "blocked_gpu_unavailable",
+  "torch_cuda_version": "13.0",
+  "torch_version": "2.12.1+cu130",
+  "training_resource_feasible": false
+}

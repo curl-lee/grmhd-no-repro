@@ -1,0 +1,199 @@
+{
+  "classification": "adapted_method_data_scarcity_audit",
+  "comparison_parent": "configs/paper_reduced100/stage_r_localno_p3_residual_plain.yaml",
+  "data": {
+    "axis_order": [
+      "phi",
+      "theta",
+      "r"
+    ],
+    "channels": [
+      "Bcc1",
+      "Bcc2",
+      "Bcc3",
+      "rho",
+      "press",
+      "vel1",
+      "vel2",
+      "vel3"
+    ],
+    "dataset": "data_proc/grmhd_regrid_inner_r200_64_expanded.h5",
+    "dataset_sha256": "3582a5c4f52f4fef305578ffd5a63c51423f8583f35d137c288d5c20203b50da",
+    "dropped_boundary_pair": [
+      168,
+      169
+    ],
+    "small_pairs": "artifacts/stage_s/small_train_pairs.txt",
+    "split": "artifacts/stage_s/train_val_split.json",
+    "train_snapshots": [
+      0,
+      169
+    ],
+    "validation_snapshots": [
+      169,
+      212
+    ]
+  },
+  "experiments": {
+    "full_30epoch": {
+      "effective_microbatches": 5040,
+      "epochs": 30,
+      "optimizer_updates": 1260,
+      "train_pairs": 168
+    },
+    "full_matched": {
+      "effective_microbatches": 2400,
+      "optimizer_updates": 600,
+      "train_pairs": 168
+    },
+    "small_matched": {
+      "effective_microbatches": 2400,
+      "optimizer_updates": 600,
+      "train_pairs": 79
+    },
+    "smoke": {
+      "epochs": 2
+    }
+  },
+  "frozen_pairing": {
+    "expected_parameter_count": 358296,
+    "initial_state": "outputs/paper_reduced100/stage_k/shared_localno_initial_state.pt",
+    "initial_state_file_sha256": "07db393f5c3e831f44bcc2d47b8132c3f9a0e72e2a258618080db487cc13cbb0",
+    "initial_tensor_state_sha256": "7e10895cb283be8532e4c036e8a526c536a632cce880c500080ea1d14fd89311",
+    "stage_r_config_sha256": "2f21330a8f23372f598bef7a1aa27e0ff2d455b214a76a0fc8b646dafabbf793",
+    "upstream_commit": "86a8bc7812a31b42c4f7895693cf4ac11521c066"
+  },
+  "loss": {
+    "bounds": false,
+    "h1": false,
+    "name": "PlainL2Loss",
+    "physics": false,
+    "radial": false,
+    "roi": false
+  },
+  "model": {
+    "architecture": "localno_differential_3d",
+    "conv_padding_mode": "periodic",
+    "default_in_shape": [
+      64,
+      64,
+      64
+    ],
+    "enforce_hermitian_symmetry": true,
+    "fin_diff_kernel_size": 3,
+    "hidden_channels": 16,
+    "in_channels": 16,
+    "local_no_skip": "linear",
+    "mix_derivatives": true,
+    "mixed_precision": false,
+    "n_dim": 3,
+    "n_layers": 4,
+    "n_modes": [
+      8,
+      8,
+      8
+    ],
+    "normalization": null,
+    "out_channels": 8,
+    "positional_embedding": null,
+    "prediction_mode": "normalized_residual",
+    "source": "neuralop.models.LocalNO",
+    "spectral_enabled": true,
+    "use_channel_mlp": false,
+    "use_differential": true,
+    "use_disco": false,
+    "use_local_integral": false
+  },
+  "optimizer": {
+    "gradient_clip_norm": 1.0,
+    "learning_rate": 0.001,
+    "name": "Adam",
+    "weight_decay": 0.0001
+  },
+  "prediction": {
+    "clipping": false,
+    "learnable_scale": false,
+    "mode": "normalized_residual",
+    "reconstruction": "z_t_plus_model_residual",
+    "residual_scale": 1.0,
+    "target": "z_t_plus_1_minus_z_t"
+  },
+  "preprocessing": {
+    "artifact": "artifacts/stage_s/p3_normalizer_expanded",
+    "gamma": 6.0,
+    "inverse_clamp_fraction": 0.99,
+    "mapping": {
+      "Bcc1": "canonical",
+      "Bcc2": "no_softclip",
+      "Bcc3": "no_softclip",
+      "press": "canonical",
+      "rho": "canonical",
+      "vel1": "canonical",
+      "vel2": "canonical",
+      "vel3": "no_softclip"
+    },
+    "mode": "stage_n_p3_refit_expanded_train_only",
+    "normalizer_sha256": "c2a36edbb44732efb857165e9a710d393cec68c6ba285521cd9bcc7b783cffa6",
+    "validation_used_for_fit": false
+  },
+  "provenance": {
+    "config_sha256": "cdba8328a66b79cd937a0262e6bc1123f645ba0821ba915481af1d64e551618a",
+    "dataset_sha256": "3582a5c4f52f4fef305578ffd5a63c51423f8583f35d137c288d5c20203b50da",
+    "normalizer_sha256": "c2a36edbb44732efb857165e9a710d393cec68c6ba285521cd9bcc7b783cffa6",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "project_commit": "39dde155093436685c20c4f1d97269a02ae1189d",
+    "project_worktree_dirty": true,
+    "python": "3.11.15 (main, Jun 11 2026, 15:20:16) [GCC 14.3.0]",
+    "small_pairs_sha256": "980d3f551334c77c9916dc786af6152e917a75bc0abb7e77e8c94f575ac276d0",
+    "split_sha256": "4a909a4294a36d50b7effab093d711b28d5da650b9942f29658d97f5a1a36160",
+    "upstream_commit": "86a8bc7812a31b42c4f7895693cf4ac11521c066"
+  },
+  "representation": {
+    "frozen_radial_shell_channels": 8,
+    "input_channels": 16,
+    "output_channels": 8,
+    "physical_channels": 8,
+    "shell_count": 8,
+    "shell_mode": "spherical_r_adaptation"
+  },
+  "resolved_experiment": {
+    "checkpoint_selection": "validation_normalized_arithmetic_average_relative_l2",
+    "device": "NVIDIA GeForce RTX 5070",
+    "effective_samples_seen": 158,
+    "gradient_accumulation": 4,
+    "initial_tensor_state_sha256": "7e10895cb283be8532e4c036e8a526c536a632cce880c500080ea1d14fd89311",
+    "microbatches": 158,
+    "mixed_precision": false,
+    "name": "smoke_small",
+    "no_hyperparameter_search": true,
+    "optimizer_updates": 40,
+    "order_sha256": "4be293c5b92810212a227c1e1dda587ef1168e8ee5c53e4acb7a0ee16bb9fa13",
+    "output_dir": "/home/curl/projects/grmhd-no-repro/artifacts/stage_s/smoke_small",
+    "parameter_count": 358296,
+    "population_epochs_equivalent": 2.0,
+    "torch": "2.12.1+cu130",
+    "torch_cuda": "13.0",
+    "train_pair_count": 79,
+    "validation_interval_updates": null,
+    "validation_pair_count": 42,
+    "warmup_updates": 40
+  },
+  "runtime": {
+    "batch_size": 1,
+    "gradient_accumulation": 4,
+    "mixed_precision": false,
+    "num_workers": 0,
+    "require_cuda": true,
+    "required_device_substring": "RTX 5070",
+    "seed": 42
+  },
+  "scheduler": {
+    "matched_total_updates": 600,
+    "matched_warmup_derivation": "2_stage_r_epochs_x_20_updates",
+    "matched_warmup_updates": 40,
+    "min_learning_rate": 1e-06,
+    "name": "warmup_cosine",
+    "natural_warmup_epochs": 2
+  },
+  "stage": "S"
+}

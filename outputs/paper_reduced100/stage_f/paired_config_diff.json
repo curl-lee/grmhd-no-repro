@@ -1,0 +1,247 @@
+{
+  "allowed_difference_patterns": [
+    "checkpoint_prefix",
+    "experiment_name",
+    "loss.*",
+    "output_dir"
+  ],
+  "allowed_differences": [
+    {
+      "full": "full_fno_proxy",
+      "path": "checkpoint_prefix",
+      "plain": "plain_l2_fno"
+    },
+    {
+      "full": "paper_reduced100_full_fno_proxy",
+      "path": "experiment_name",
+      "plain": "paper_reduced100_plain_l2_fno"
+    },
+    {
+      "full": {
+        "density_weight": 1.0,
+        "magnetic_weight": 1.2,
+        "pressure_weight": 1.0,
+        "velocity_weight": 1.0
+      },
+      "path": "loss.base",
+      "plain": "<missing>"
+    },
+    {
+      "full": "outputs/paper_reduced100/priors/physical_bounds.json",
+      "path": "loss.bounds.artifact",
+      "plain": "<missing>"
+    },
+    {
+      "full": true,
+      "path": "loss.bounds.enabled",
+      "plain": "<missing>"
+    },
+    {
+      "full": 0.05,
+      "path": "loss.bounds.press_lower_weight",
+      "plain": "<missing>"
+    },
+    {
+      "full": 0.05,
+      "path": "loss.bounds.rho_lower_weight",
+      "plain": "<missing>"
+    },
+    {
+      "full": "<missing>",
+      "path": "loss.bounds.training_penalty_enabled",
+      "plain": false
+    },
+    {
+      "full": 0,
+      "path": "loss.bounds.upper_weights",
+      "plain": "<missing>"
+    },
+    {
+      "full": "<missing>",
+      "path": "loss.diagnostic_extensions_enabled",
+      "plain": false
+    },
+    {
+      "full": 0.0005,
+      "path": "loss.dissipation.alpha",
+      "plain": "<missing>"
+    },
+    {
+      "full": "outputs/paper_reduced100/priors/dissipative_reference.json",
+      "path": "loss.dissipation.artifact",
+      "plain": "<missing>"
+    },
+    {
+      "full": true,
+      "path": "loss.dissipation.enabled",
+      "plain": false
+    },
+    {
+      "full": "outputs/paper_reduced100/priors/residual_envelope.json",
+      "path": "loss.envelope.artifact",
+      "plain": "<missing>"
+    },
+    {
+      "full": 1.5,
+      "path": "loss.envelope.delta_press",
+      "plain": "<missing>"
+    },
+    {
+      "full": 1.5,
+      "path": "loss.envelope.delta_rho",
+      "plain": "<missing>"
+    },
+    {
+      "full": true,
+      "path": "loss.envelope.enabled",
+      "plain": false
+    },
+    {
+      "full": 0.05,
+      "path": "loss.envelope.weight_press",
+      "plain": "<missing>"
+    },
+    {
+      "full": 0.05,
+      "path": "loss.envelope.weight_rho",
+      "plain": "<missing>"
+    },
+    {
+      "full": true,
+      "path": "loss.h1.enabled",
+      "plain": false
+    },
+    {
+      "full": "pinned_upstream_H1Loss_d3",
+      "path": "loss.h1.implementation",
+      "plain": "<missing>"
+    },
+    {
+      "full": "computational_grid",
+      "path": "loss.h1.metric_adaptation",
+      "plain": "<missing>"
+    },
+    {
+      "full": 0.05,
+      "path": "loss.h1.weight",
+      "plain": "<missing>"
+    },
+    {
+      "full": "paper-composite-loss-v1",
+      "path": "loss.implementation_version",
+      "plain": "paper-plain-l2-v1"
+    },
+    {
+      "full": "PaperCompositeLoss",
+      "path": "loss.name",
+      "plain": "PlainL2Loss"
+    },
+    {
+      "full": true,
+      "path": "loss.roi.enabled",
+      "plain": false
+    },
+    {
+      "full": 8,
+      "path": "loss.roi.kappa",
+      "plain": "<missing>"
+    },
+    {
+      "full": "canonical_oracle_physical_target",
+      "path": "loss.roi.mask_source",
+      "plain": "<missing>"
+    },
+    {
+      "full": 375,
+      "path": "loss.roi.ramp_epochs",
+      "plain": "<missing>"
+    },
+    {
+      "full": 0.2,
+      "path": "loss.roi.top_fraction",
+      "plain": "<missing>"
+    },
+    {
+      "full": "<missing>",
+      "path": "loss.unit_channel_weights",
+      "plain": true
+    },
+    {
+      "full": "outputs/paper_reduced100/full_fno_proxy",
+      "path": "output_dir",
+      "plain": "outputs/paper_reduced100/plain_l2_fno"
+    }
+  ],
+  "checksums": {
+    "artifacts": {
+      "bounds": {
+        "path": "outputs/paper_reduced100/priors/physical_bounds.json",
+        "sha256": "3ac9a148f2ab1b4735925c683438a4eec7194e19bb2d4f2eed40b0a2b383d38e"
+      },
+      "dissipation": {
+        "path": "outputs/paper_reduced100/priors/dissipative_reference.json",
+        "sha256": "95725b031d13f93d76bd97d6cf468926797d367973e227d9259c309f22575192"
+      },
+      "envelope": {
+        "path": "outputs/paper_reduced100/priors/residual_envelope.json",
+        "sha256": "3354b711f30f58b784869a5df4f33a55b63884a68b9b70f5f251aebc9203dd46"
+      },
+      "radial": {
+        "path": "outputs/paper_reduced100/priors/radial_selected.json",
+        "sha256": "75e29fdbe0ac38f1cb1bae6b8e9678c10af14508d2b240cf4b738ea12d7b885d"
+      },
+      "roi": {
+        "path": "outputs/paper_reduced100/priors/velocity_roi.json",
+        "sha256": "6993051ffddbd7c51c87d951bc8fa082d54d981fe64347b33bcd41d97b5ea060"
+      },
+      "shells": {
+        "path": "outputs/paper_reduced100/priors/shell_metadata.json",
+        "sha256": "99580fc2c62431f46e6702972660b060aa1294920e5f9530b45b43ce08c190b7"
+      }
+    },
+    "dataset": {
+      "path": "data_proc/grmhd_regrid_inner_r200_64.h5",
+      "sha256": "cd3966bed1f617f49d775151cff87ae92eb2432a560bb82ae9355605e7aea70a"
+    },
+    "loss_contract_document": {
+      "path": "docs/PAPER_LOSS_CONTRACT.md",
+      "sha256": "6c6d7feb277f898909c3ac34098f65dbdbad5dd81283b09243d64b484f44e7a7"
+    },
+    "manifest": {
+      "path": "outputs/paper_reduced100/manifest.json",
+      "sha256": "f6f3497717b577db25ff96f58daa5b98debe5300c329e30b543805d11d21b9d6"
+    },
+    "oracle_baseline": {
+      "path": "outputs/paper_reduced100/oracle_metric_baseline.json",
+      "semantics_version": "paper-reference-semantics-v1",
+      "sha256": "de0dff910c5ddbe237ea17bcfeffb8831dc705e2a37e0da3c2bc8c51952347e4"
+    },
+    "oracle_reference_semantics_version": "paper-reference-semantics-v1",
+    "preprocessing": {
+      "path": "outputs/paper_reduced100/stats/normalizer.npz",
+      "sha256": "1645714424d95b02de2283fc16a8ef05f3864d15f11025580af13f3e67964001"
+    },
+    "stage_e_loss_contract": {
+      "path": "outputs/paper_reduced100/losses/loss_contract.json",
+      "schema_version": "paper-stage-e-loss-contract-v1",
+      "sha256": "5ca5e5df00490e286550887002f15372883f4dbe591fd31a4a340634d4146aac"
+    },
+    "upstream": {
+      "commit": "86a8bc7812a31b42c4f7895693cf4ac11521c066",
+      "path": "external/neuraloperator"
+    },
+    "validation_not_used_for_fit": true
+  },
+  "model_initialization": {
+    "counts_equal": true,
+    "full_parameter_count": 331832,
+    "full_tensor_state_sha256": "02d83278d5e74a27c83130e99b488ca18eae5477dad9732a4552b694056b6cb1",
+    "plain_parameter_count": 331832,
+    "plain_tensor_state_sha256": "02d83278d5e74a27c83130e99b488ca18eae5477dad9732a4552b694056b6cb1",
+    "seed": 42,
+    "state_identical": true
+  },
+  "schema_version": "paper-stage-f-paired-config-audit-v1",
+  "status": "passed",
+  "unexpected_differences": []
+}

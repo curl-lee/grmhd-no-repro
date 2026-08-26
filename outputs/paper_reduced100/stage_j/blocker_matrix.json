@@ -1,0 +1,235 @@
+{
+  "schema_version": "paper-stage-j-blocker-matrix-v1",
+  "allowed_statuses": [
+    "AVAILABLE_VERIFIED",
+    "AVAILABLE_UNVERIFIED",
+    "IMPLEMENTABLE_LOCALLY",
+    "REQUIRES_AUTHOR_DATA",
+    "REQUIRES_NEW_SIMULATION",
+    "PAPER_AMBIGUOUS",
+    "BLOCKED"
+  ],
+  "overall_status": "BLOCKED",
+  "components": [
+    {
+      "component": "3D DISCO layer",
+      "paper_requirement": "Equidistant discrete-continuous convolution specialized to volumetric input",
+      "status": "BLOCKED",
+      "current_state": "Pinned upstream implements arbitrary/equidistant 2D DISCO only and rejects enabled DISCO when dimension is not 2",
+      "evidence": "local_no_block.py dimensional guard and hard-coded EquidistantDiscreteContinuousConv2d; no Conv3d class in any local ref",
+      "missing_information": "Reference 3D basis, support, boundary rules, hyperparameters, and verified outputs",
+      "local_feasibility": "A generic pure-PyTorch conv3d prototype is technically possible but would not be uniquely paper faithful",
+      "external_dependency": "Author/upstream 3D implementation or an implementation-level specification",
+      "next_gate": "Obtain reference code/specification before implementing the paper path"
+    },
+    {
+      "component": "LocalNO architecture",
+      "paper_requirement": "3D LocalNO combining spectral, localized integral, and differential kernels",
+      "status": "AVAILABLE_UNVERIFIED",
+      "current_state": "Upstream LocalNO runs in 3D only with DISCO disabled; prior local experiments used this differential-only proxy",
+      "evidence": "models/local_no.py plus src/grmhd/models.py localno_diff construction",
+      "missing_information": "Paper width, layer count, modes, 3D DISCO configuration, and wrapper code",
+      "local_feasibility": "Generic architecture plumbing exists; paper backbone does not",
+      "external_dependency": "3D DISCO reference and paper model configuration",
+      "next_gate": "Resolve 3D DISCO and exact architecture metadata"
+    },
+    {
+      "component": "Cartesian Kerr-Schild grid",
+      "paper_requirement": "64^3 Cartesian Kerr-Schild GRMHD snapshots",
+      "status": "REQUIRES_AUTHOR_DATA",
+      "current_state": "Local raw data are spherical Kerr-Schild AMR and processed axes are phi,theta,r",
+      "evidence": "ATHDF Coordinates=kerr-schild with spherical radial/angular extents; processed axis_order=N,C,Nphi,Ntheta,Nr",
+      "missing_information": "Exact Cartesian KS convention, target domain/spacing, and paper grid manifest",
+      "local_feasibility": "Point coordinates could be mapped only after conventions are fixed; this would not recover author cell averages",
+      "external_dependency": "Author Cartesian data/export or exact simulation provenance",
+      "next_gate": "Obtain Cartesian grid definition and source data"
+    },
+    {
+      "component": "Cartesian vector components",
+      "paper_requirement": "Bx,By,Bz and vx,vy,vz in the paper Cartesian representation",
+      "status": "REQUIRES_AUTHOR_DATA",
+      "current_state": "Bcc1:3 and vel1:3 remain stored spherical-coordinate components",
+      "evidence": "Raw variable names plus regrid warning that components are not transformed",
+      "missing_information": "Covariant/contravariant/orthonormal basis convention, primitive velocity definition, metric/tetrad, and spin",
+      "local_feasibility": "A Jacobian transform is possible only after component semantics are verified",
+      "external_dependency": "Matching run code/config or direct Cartesian component export",
+      "next_gate": "Verify basis and metric conventions"
+    },
+    {
+      "component": "density",
+      "paper_requirement": "Positive mass-density field rho/dens",
+      "status": "AVAILABLE_VERIFIED",
+      "current_state": "Raw rho exists in all 111 snapshots and remains positive in the audited trajectory",
+      "evidence": "VariableNames and full 111-snapshot data audit",
+      "missing_information": "Paper code units and exact dataset identity",
+      "local_feasibility": "Usable for the reduced adaptation",
+      "external_dependency": "Paper manifest for exact numerical comparability",
+      "next_gate": "Retain rho semantics and provenance"
+    },
+    {
+      "component": "eint",
+      "paper_requirement": "Internal-energy training channel",
+      "status": "BLOCKED",
+      "current_state": "Local primitive field is press; no eint dataset exists",
+      "evidence": "All ATHDF VariableNames and all processed channel lists",
+      "missing_information": "Run-specific EOS, Gamma, pressure definition, and units",
+      "local_feasibility": "Conversion is forbidden without all thermal provenance",
+      "external_dependency": "Matching input/config or author eint data",
+      "next_gate": "Verify EOS/Gamma before any separate conversion artifact"
+    },
+    {
+      "component": "EOS/Gamma",
+      "paper_requirement": "Verified mapping between pressure and internal energy in the GRMHD run",
+      "status": "REQUIRES_AUTHOR_DATA",
+      "current_state": "No Gamma or EOS metadata exists in the local raw/processed files and no exact run config was found",
+      "evidence": "623-file provenance inventory; public Athena fm_torus input is numerically unrelated",
+      "missing_information": "EOS form, exact Gamma, units, compile/runtime choices, and run identity",
+      "local_feasibility": "Auditable once exact provenance is supplied",
+      "external_dependency": "Author/run configuration",
+      "next_gate": "Acquire and uniquely match the run config"
+    },
+    {
+      "component": "300 snapshots",
+      "paper_requirement": "Ndata=300 fine-level snapshots",
+      "status": "REQUIRES_AUTHOR_DATA",
+      "current_state": "Only 111 contiguous local snapshots exist",
+      "evidence": "Complete-content inventory of mad98.prim.00000 through 00110",
+      "missing_information": "Remaining 189 states and author dataset manifest",
+      "local_feasibility": "Cannot manufacture missing physical states",
+      "external_dependency": "Author data, or exact simulation provenance before a rerun",
+      "next_gate": "Acquire the dataset/manifest"
+    },
+    {
+      "component": "last 250",
+      "paper_requirement": "Train/evaluate using the final 250 of 300 snapshots",
+      "status": "BLOCKED",
+      "current_state": "The full local sequence has fewer than 250 snapshots and its relation to the paper trajectory is unknown",
+      "evidence": "Stage J raw_snapshot_count=111 and no author manifest",
+      "missing_information": "Paper indices 50 through 299 and their ordering",
+      "local_feasibility": "Protocol logic exists but lacks input states",
+      "external_dependency": "300-snapshot dataset",
+      "next_gate": "Resolve 300-snapshot provenance"
+    },
+    {
+      "component": "temporal cadence",
+      "paper_requirement": "Snapshots saved every DeltaT=T/Ndata",
+      "status": "AVAILABLE_UNVERIFIED",
+      "current_state": "Local cadence is approximately constant near 10 code-time units",
+      "evidence": "111 raw Time attributes: strictly increasing, min/max dt 9.998864/10.000659",
+      "missing_information": "Paper T, code units, exact output times, and mapping to local files",
+      "local_feasibility": "Current cadence is reproducible for reduced experiments only",
+      "external_dependency": "Paper manifest/run config",
+      "next_gate": "Compare exact author time list"
+    },
+    {
+      "component": "train/validation split",
+      "paper_requirement": "80/20 split of the last 250 snapshots",
+      "status": "IMPLEMENTABLE_LOCALLY",
+      "current_state": "Reduced100 implements an ordered 80/20 analogue with 79/19 within-split pairs",
+      "evidence": "PaperReduced100Protocol and frozen Stage G pairing tests",
+      "missing_information": "Exact paper boundary transition policy and 250 input states",
+      "local_feasibility": "Straightforward after the full ordered manifest is available",
+      "external_dependency": "Last-250 data",
+      "next_gate": "Freeze author indices and transition policy"
+    },
+    {
+      "component": "regridding",
+      "paper_requirement": "Paper Cartesian 64^3 cell representation",
+      "status": "AVAILABLE_VERIFIED",
+      "current_state": "Current nearest-leaf cell-centre spherical regrid is implemented, hashed, and explicitly lossy",
+      "evidence": "build_regrid_from_athdf.py metadata and regrid ablation outputs",
+      "missing_information": "Author export/regrid method and target Cartesian cell geometry",
+      "local_feasibility": "Diagnostic interpolation comparisons are local; exact paper regrid is not established",
+      "external_dependency": "Paper data/export definition",
+      "next_gate": "Do not reuse current regrid as exact Cartesian data"
+    },
+    {
+      "component": "divergence preservation",
+      "paper_requirement": "Magnetic non-monopole constraint and CT-compatible boundary exchange",
+      "status": "REQUIRES_NEW_SIMULATION",
+      "current_state": "Current cell-centre nearest regrid does not preserve div B to machine precision",
+      "evidence": "HDF5 metadata and absence of face-centered B, vector potential, or EMF fields",
+      "missing_information": "Face areas/fields or vector potential and CT staggering",
+      "local_feasibility": "A diagnostic divergence proxy is possible; exact preservation cannot be reconstructed from cell centres alone",
+      "external_dependency": "Simulation/export with face fields, vector potential, or CT/EMF data",
+      "next_gate": "Acquire staggered magnetic data or rerun/export"
+    },
+    {
+      "component": "conservative interpolation",
+      "paper_requirement": "Physically consistent coarse/fine and representation transfer",
+      "status": "IMPLEMENTABLE_LOCALLY",
+      "current_state": "Current nearest/trilinear/bin-average diagnostics are explicitly non-conservative",
+      "evidence": "Regrid metadata and representative-method comparison",
+      "missing_information": "Metric cell volumes, conserved variables, face fluxes, and target cell intersections",
+      "local_feasibility": "Scalar finite-volume overlap transfer can be implemented after geometry and conserved fields are defined",
+      "external_dependency": "Magnetic constraint data for a full GRMHD transfer",
+      "next_gate": "Specify conserved state and exact source/target volumes"
+    },
+    {
+      "component": "radial shell embedding",
+      "paper_requirement": "Eight one-hot shells from Cartesian index distance to the grid center",
+      "status": "IMPLEMENTABLE_LOCALLY",
+      "current_state": "Reduced path has verified spherical-r adapted shells, not Cartesian index shells",
+      "evidence": "Paper appendix formula and frozen Stage D shell metadata",
+      "missing_information": "Exact paper Cartesian grid center/domain handling",
+      "local_feasibility": "Literal shell construction is simple after the Cartesian grid is fixed",
+      "external_dependency": "Cartesian grid metadata",
+      "next_gate": "Build only alongside verified Cartesian representation"
+    },
+    {
+      "component": "coarse/fine coupling",
+      "paper_requirement": "NO fine rollout coupled dynamically into a direct coarse simulation",
+      "status": "PAPER_AMBIGUOUS",
+      "current_state": "Local engineering state/time/ghost-zone contract and toy tests are ready; no coupled solver or paired coarse/fine data exists locally",
+      "evidence": "Paper Appendix E gives a high-level HDF5/time interpolation and CT description but no complete API; src/grmhd/coupling_contract.py passes nine toy tests",
+      "missing_information": "Tensor/grid maps, resolution ratio, ghost width, clocks, ownership, synchronization, and failure rules",
+      "local_feasibility": "The labeled local engineering contract is implemented and tested without claiming literal paper equivalence",
+      "external_dependency": "Coarse/fine AthenaK data and solver hooks for validation",
+      "next_gate": "Validate the contract against author data and solver hooks"
+    },
+    {
+      "component": "boundary exchange",
+      "paper_requirement": "Interpolate two NO HDF5 states, overwrite inner hydro boundary, and replace magnetic EMF consistently with CT",
+      "status": "PAPER_AMBIGUOUS",
+      "current_state": "Ghost-zone-only hydro tensor exchange is tested; CT/EMF integration remains undefined",
+      "evidence": "Paper Appendix E equations 14-25 plus local boundary mask and temporal interpolation tests",
+      "missing_information": "Boundary extent, ghost layout, interpolation clock, face/edge staggering, merge precedence, and corner rules",
+      "local_feasibility": "Hydro ghost-zone software semantics are contract-ready; unverified magnetic overwrite is rejected by default",
+      "external_dependency": "AthenaK boundary/CT implementation and paired states",
+      "next_gate": "Validate hydro exchange and define magnetic CT/EMF ownership with solver data"
+    },
+    {
+      "component": "coarse/fine data",
+      "paper_requirement": "Matched fine NO output and coarse direct-simulation states at exchange times",
+      "status": "REQUIRES_AUTHOR_DATA",
+      "current_state": "No verified paired resolution, boundary, flux, or EMF dataset was found",
+      "evidence": "Dataset and project provenance scan",
+      "missing_information": "Matched coarse/fine manifests, grids, time ratios, and interface fields",
+      "local_feasibility": "Toy tensors only; scientific validation impossible",
+      "external_dependency": "Author data or new coupled simulation",
+      "next_gate": "Acquire paired interface data"
+    },
+    {
+      "component": "rollout protocol",
+      "paper_requirement": "Autoregressive fine-level evolution and long-horizon statistical assessment",
+      "status": "IMPLEMENTABLE_LOCALLY",
+      "current_state": "Canonical decode/encode physical autoregression and 100-step diagnostics are frozen for reduced100",
+      "evidence": "Stage G/I rollout code, transform-count checks, and saved evaluations",
+      "missing_information": "Paper initial state list, horizon mapping, and exact Cartesian operator",
+      "local_feasibility": "Control flow is reusable after representation/backbone changes",
+      "external_dependency": "Paper data and model for direct comparison",
+      "next_gate": "Retain transform semantics; replace only verified representation/model"
+    },
+    {
+      "component": "paper evaluation metrics",
+      "paper_requirement": "Normalized-domain per-channel/average relative L2 plus qualitative long-rollout morphology and observables",
+      "status": "AVAILABLE_VERIFIED",
+      "current_state": "Table-2-style normalized relative L2 and richer oracle/rollout diagnostics are implemented",
+      "evidence": "Paper Appendix C/D and Stage G/I evaluation artifacts",
+      "missing_information": "Author preprocessing/data for numerical comparability and quantitative artifact thresholds",
+      "local_feasibility": "Metric formulas are reusable; qualitative paper claims cannot be converted into unstated thresholds",
+      "external_dependency": "Author predictions/checkpoints for exact replication",
+      "next_gate": "Keep reduced and paper results explicitly non-comparable"
+    }
+  ]
+}

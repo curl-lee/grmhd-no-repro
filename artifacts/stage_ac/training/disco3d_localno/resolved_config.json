@@ -1,0 +1,91 @@
+{
+  "dataset": {
+    "axis_order": [
+      "phi",
+      "theta",
+      "r"
+    ],
+    "channels": [
+      "Bcc1",
+      "Bcc2",
+      "Bcc3",
+      "rho",
+      "press",
+      "vel1",
+      "vel2",
+      "vel3"
+    ],
+    "dataset": "data_proc/grmhd_regrid_inner_r200_64_expanded.h5",
+    "dataset_sha256": "3582a5c4f52f4fef305578ffd5a63c51423f8583f35d137c288d5c20203b50da",
+    "dropped_boundary_pair": [
+      168,
+      169
+    ],
+    "small_pairs": "artifacts/stage_s/small_train_pairs.txt",
+    "split": "artifacts/stage_s/train_val_split.json",
+    "train_snapshots": [
+      0,
+      169
+    ],
+    "validation_snapshots": [
+      169,
+      212
+    ]
+  },
+  "model_common": {
+    "architecture": "localno_differential_3d",
+    "conv_padding_mode": "periodic",
+    "default_in_shape": [
+      64,
+      64,
+      64
+    ],
+    "enforce_hermitian_symmetry": true,
+    "fin_diff_kernel_size": 3,
+    "hidden_channels": 16,
+    "in_channels": 16,
+    "local_no_skip": "linear",
+    "mix_derivatives": true,
+    "mixed_precision": false,
+    "n_dim": 3,
+    "n_layers": 4,
+    "n_modes": [
+      8,
+      8,
+      8
+    ],
+    "normalization": null,
+    "out_channels": 8,
+    "positional_embedding": null,
+    "prediction_mode": "normalized_residual",
+    "source": "neuralop.models.LocalNO",
+    "spectral_enabled": true,
+    "use_channel_mlp": false,
+    "use_differential": true,
+    "use_disco": false,
+    "use_local_integral": false
+  },
+  "optimizer_updates": 0,
+  "preprocessing": {
+    "artifact": "artifacts/stage_s/p3_normalizer_expanded",
+    "gamma": 6.0,
+    "inverse_clamp_fraction": 0.99,
+    "mapping": {
+      "Bcc1": "canonical",
+      "Bcc2": "no_softclip",
+      "Bcc3": "no_softclip",
+      "press": "canonical",
+      "rho": "canonical",
+      "vel1": "canonical",
+      "vel2": "canonical",
+      "vel3": "no_softclip"
+    },
+    "mode": "stage_n_p3_refit_expanded_train_only",
+    "normalizer_sha256": "c2a36edbb44732efb857165e9a710d393cec68c6ba285521cd9bcc7b783cffa6",
+    "validation_used_for_fit": false
+  },
+  "reason": "K=5 one-cell-cutoff point-sampled radial basis has three zero-support hats",
+  "reproduction_scope": "ADAPTED_SPHERICAL_KS_WORKFLOW_REPRODUCTION",
+  "status": "BLOCKED_BEFORE_MODEL_CONSTRUCTION",
+  "training_started": false
+}

@@ -1,0 +1,21 @@
+required item,status,source,exact/inferred,blocks reproduction
+paper training data,NOT_FOUND,arXiv source; NeurIPS/OpenReview; author pages/repositories; repository/data-host searches,exact search result,true
+paper preprocessing code,NOT_FOUND,official paper assets contain no code locator,exact search result,true
+paper model code,NOT_FOUND,official paper assets and author public repositories,exact search result,true
+3D DISCO implementation,NOT_FOUND,paper; author fork; pinned upstream and its local history,exact search result,true
+coarse/fine coupling,FOUND_PARTIAL,"paper Appendix E, main.tex:755-815",paper-explicit but implementation-incomplete,true
+paper BH spin,FOUND_VERIFIED,"paper Appendix A.2, main.tex:357",exact paper statement: a=0.9,false
+current-raw BH spin,AMBIGUOUS,ATHDF has no spin; filename is not evidence; similar public MAD98 archive lacks checksum binding,unknown,true
+coordinate mapping,FOUND_PARTIAL,ATHDF Coordinates=kerr-schild; numeric axes; public Athena source not bound to run,x1/x2/x3 axis mapping exact; metric implementation provenance incomplete,true
+magnetic vector convention,FOUND_PARTIAL,ATHDF Bcc names; public Athena outputs/KS source; unrelated MAD98 conversion script,software-family convention only,true
+velocity convention,FOUND_PARTIAL,ATHDF vel names; public Athena primitive/KS source; unrelated MAD98 conversion script,software-family convention only,true
+current-raw EOS,NOT_FOUND,212 ATHDF headers; local configs/history; no matching input deck,unknown,true
+current-raw Gamma,NOT_FOUND,212 ATHDF headers; no matching input/build record,unknown,true
+paper press/eint definition,AMBIGUOUS,paper Appendix A.2/B says P; C/model figures say eint,contradictory paper statements,true
+Cartesian vector transform,NOT_FOUND,requires current spin/source/basis and verified target convention,not authorized,true
+paper spatial domain,NOT_FOUND,paper gives L^3 and 64^3 but no numeric Cartesian cube bounds,unknown,true
+paper remap method,NOT_FOUND,paper/source do not state AMR-to-Cartesian remap,unknown,true
+paper time cadence,FOUND_PARTIAL,paper main.tex:179 gives DeltaT=T/Ndata; no numeric T/cadence,symbolic only,true
+snapshot protocol,FOUND_VERIFIED,"paper main.tex:179,226",300 generated; last 250; 80/20,false
+training configuration,FOUND_PARTIAL,"paper Appendix C, main.tex:373-605",loss/schedule explicit; exact 3D backbone shape/config absent,true
+current raw spatial information,FOUND_VERIFIED,212 AMR ATHDF; Stage-S manifest and Stage-X raw AMR audit,"leaf-cell fields available; only Bcc, no face-field export",false

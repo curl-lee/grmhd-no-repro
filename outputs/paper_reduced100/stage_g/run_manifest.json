@@ -1,0 +1,133 @@
+{
+  "checksums": {
+    "dataset": "cd3966bed1f617f49d775151cff87ae92eb2432a560bb82ae9355605e7aea70a",
+    "full_config": "ecea96e13088774e227219d76814e6976a39ee4bac1fa209bf5c69672b47b53f",
+    "manifest": "f6f3497717b577db25ff96f58daa5b98debe5300c329e30b543805d11d21b9d6",
+    "pair_order_file": "5e1e361ea75e01ffd667822d8bfe870d70c5bc69570d52cdf806e637b2df2b52",
+    "plain_config": "bd8318440fef2fc7fdb49eae8796964429005f74ab03ca6c306548ad1f25ef44",
+    "preprocessing": "1645714424d95b02de2283fc16a8ef05f3864d15f11025580af13f3e67964001",
+    "stage_d_artifacts": {
+      "bounds": "3ac9a148f2ab1b4735925c683438a4eec7194e19bb2d4f2eed40b0a2b383d38e",
+      "dissipation": "95725b031d13f93d76bd97d6cf468926797d367973e227d9259c309f22575192",
+      "envelope": "3354b711f30f58b784869a5df4f33a55b63884a68b9b70f5f251aebc9203dd46",
+      "radial": "75e29fdbe0ac38f1cb1bae6b8e9678c10af14508d2b240cf4b738ea12d7b885d",
+      "roi": "6993051ffddbd7c51c87d951bc8fa082d54d981fe64347b33bcd41d97b5ea060",
+      "shells": "99580fc2c62431f46e6702972660b060aa1294920e5f9530b45b43ce08c190b7"
+    },
+    "stage_e_loss_contract": "5ca5e5df00490e286550887002f15372883f4dbe591fd31a4a340634d4146aac"
+  },
+  "environment": {
+    "executable": "/home/curl/miniconda3/envs/grmhd-no/bin/python",
+    "gpu_capability": [
+      12,
+      0
+    ],
+    "gpu_name": "NVIDIA GeForce RTX 5070",
+    "numpy": "2.4.6",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.11.15 (main, Jun 11 2026, 15:20:16) [GCC 14.3.0]",
+    "torch": "2.12.1+cu130",
+    "torch_cuda": "13.0"
+  },
+  "gpu_preflight": {
+    "backward_seconds": 0.23039799300022423,
+    "forward_seconds": 0.2585002430005261,
+    "loss_seconds": 0.14875403299993195,
+    "peak_allocated_bytes": 672342528,
+    "peak_reserved_bytes": 876609536,
+    "status": "passed"
+  },
+  "model": {
+    "hidden_channels": 16,
+    "in_channels": 16,
+    "mixed_precision": false,
+    "n_layers": 4,
+    "n_modes": [
+      8,
+      8,
+      8
+    ],
+    "out_channels": 8,
+    "parameter_count": 331832,
+    "positional_embedding": null,
+    "source": "neuralop.models.FNO"
+  },
+  "paired_config_audit": {
+    "allowed_difference_patterns": [
+      "checkpoint_prefix",
+      "experiment_name",
+      "loss.*",
+      "output_dir"
+    ],
+    "status": "passed",
+    "unexpected_difference_count": 0
+  },
+  "project_branch": "codex/paper-faithful-reduced-reproduction",
+  "project_dirty_during_preparation": false,
+  "project_git_commit": "4686c2e73a3c150c5ac1f96fbe2ca38204f605e3",
+  "protocol": {
+    "coordinates": {
+      "stored_components_not_cartesian": true,
+      "system": "spherical_kerr_schild",
+      "tensor_axes": [
+        "phi",
+        "theta",
+        "r"
+      ]
+    },
+    "dropped_transition": [
+      90,
+      91
+    ],
+    "name": "paper_reduced100_press_spherical_ks",
+    "radial_mode": "appendix_literal_press_proxy",
+    "thermal": {
+      "channel": "press",
+      "eos_conversion": "disabled_unverified_gamma",
+      "paper_adaptation": true
+    },
+    "train_pairs": 79,
+    "train_snapshots": [
+      11,
+      91
+    ],
+    "validation_pairs": 19,
+    "validation_shuffle": false,
+    "validation_snapshots": [
+      91,
+      111
+    ]
+  },
+  "run": {
+    "batch_size": 1,
+    "checkpoint_selection_metric": "validation normalized per-channel relative L2 arithmetic average",
+    "cosine_min_lr": 1e-06,
+    "early_stopping": "disabled",
+    "early_stopping_reason": "paper patience=100 exceeds the 30-epoch pilot",
+    "epochs": 30,
+    "eval_interval": 1,
+    "final_accumulation_count": 3,
+    "gradient_accumulation": 4,
+    "gradient_clip_norm": 1.0,
+    "learning_rate": 0.001,
+    "microbatches_per_epoch": 79,
+    "mixed_precision": false,
+    "optimizer_steps_per_epoch": 20,
+    "optimizer_steps_total": 600,
+    "seed": 42,
+    "warmup_epochs": 2,
+    "weight_decay": 0.0001
+  },
+  "schema_version": "paper-stage-g-run-manifest-v1",
+  "shared_initial_state": {
+    "full_epoch0_state_sha256": "02d83278d5e74a27c83130e99b488ca18eae5477dad9732a4552b694056b6cb1",
+    "full_plain_raw_output_bitwise_equal": true,
+    "full_plain_raw_output_strict_close": true,
+    "path": "outputs/paper_reduced100/stage_g/shared_initial_state.pt",
+    "plain_epoch0_state_sha256": "02d83278d5e74a27c83130e99b488ca18eae5477dad9732a4552b694056b6cb1",
+    "tensor_state_sha256": "02d83278d5e74a27c83130e99b488ca18eae5477dad9732a4552b694056b6cb1"
+  },
+  "status": "ready",
+  "upstream_commit": "86a8bc7812a31b42c4f7895693cf4ac11521c066",
+  "upstream_worktree_clean": true
+}

@@ -1,0 +1,62 @@
+{
+  "audit_date": "2026-08-17",
+  "decision": {
+    "AUTHORIZE_NEXT_STAGE": "adapted_workflow_reproduction_only",
+    "EXACT_REPRODUCTION_BLOCKED": true,
+    "PRIMARY_DECISION": "F",
+    "PRIMARY_DECISION_LABEL": "EXACT_REPRODUCTION_BLOCKED_BY_MISSING_ASSETS"
+  },
+  "gates": {
+    "R1_DATA": {
+      "reason": "No official Cartesian-KS/eint paper data; current raw lacks a complete spin/vector/EOS provenance chain.",
+      "status": "FAIL"
+    },
+    "R2_OPERATOR": {
+      "reason": "No exact volumetric 3D DISCO code and critical 3D basis/support/boundary/per-layer choices remain unknown.",
+      "status": "FAIL"
+    },
+    "R3_PREPROCESSING": {
+      "reason": "Paper Cartesian domain bounds and AMR/remap method are not published.",
+      "status": "FAIL"
+    },
+    "R4_TRAINING": {
+      "reason": "Optimization/loss are detailed, but exact volumetric LocalNO architecture parameters and executable configuration are absent.",
+      "status": "FAIL"
+    },
+    "R5_COUPLING": {
+      "reason": "Appendix E is partial and does not define an executable B-to-EMF/CT interface or complete boundary/data contract.",
+      "status": "FAIL"
+    }
+  },
+  "provenance": {
+    "BH_SPIN_PROVENANCE": "INCOMPLETE",
+    "BH_SPIN_VALUE_CURRENT_RAW": "UNKNOWN",
+    "BH_SPIN_VALUE_PAPER": 0.9,
+    "CARTESIAN_VECTOR_CONVERSION_AUTHORIZED": false,
+    "COORDINATE_MAPPING_PROVENANCE": "INCOMPLETE",
+    "EOS_PROVENANCE": "INCOMPLETE",
+    "EXACT_3D_DISCO_IMPLEMENTATION_FOUND": false,
+    "OFFICIAL_PAPER_CODE_FOUND": false,
+    "OFFICIAL_PAPER_DATA_FOUND": false,
+    "PAPER_COARSE_FINE_CONTRACT": "PARTIAL",
+    "PRESS_TO_EINT_CONVERSION_AUTHORIZED": false,
+    "VECTOR_TRANSFORM_PROVENANCE": "INCOMPLETE"
+  },
+  "raw_salvage_conditions": {
+    "CURRENT_RAW_DATA_SALVAGEABLE": false,
+    "S1_coordinate_mapping_complete": false,
+    "S2_vector_basis_transform_complete": false,
+    "S3_thermal_conversion_complete": false,
+    "S4_sufficient_raw_spatial_information": true
+  },
+  "restrictions_observed": {
+    "NO_MODEL_TRAINING": true,
+    "NO_PROCESSED_MUTATION": true,
+    "NO_RAW_MUTATION": true,
+    "NO_SPECULATIVE_3D_DISCO": true,
+    "NO_SPECULATIVE_EOS_CONVERSION": true,
+    "NO_SPECULATIVE_VECTOR_TRANSFORM": true
+  },
+  "schema_version": 1,
+  "stage": "Y"
+}

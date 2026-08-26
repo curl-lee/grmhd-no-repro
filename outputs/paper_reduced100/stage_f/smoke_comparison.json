@@ -1,0 +1,89 @@
+{
+  "controlled_identity": {
+    "epochs_equal": true,
+    "initial_state_hash_equal": true,
+    "parameter_count_equal": true,
+    "protocol_checksum_equal": true,
+    "train_batches_equal": true
+  },
+  "engineering_smoke_only": true,
+  "interpretation": "The two-epoch smoke validates controlled pipeline execution only; it cannot establish that Full is better or worse than Plain.",
+  "runs": [
+    {
+      "best_checkpoint_reload": true,
+      "clipping_fraction": 1.0,
+      "device": "cpu",
+      "disabled_loss_components": [],
+      "enabled_loss_components": [
+        "base",
+        "h1",
+        "roi",
+        "bounds",
+        "envelope",
+        "dissipation"
+      ],
+      "epochs": 2,
+      "h1_gradient_ratio_max": 8.646244609551902,
+      "h1_value_ratio_max": 21.6084041595459,
+      "initial_state_hash": "00dde6be92d4037f4abfc671cdd2153cfe98901148442903006e745ff3b86b43",
+      "last_checkpoint_reload": true,
+      "mode": "full",
+      "model_parameter_count": 331832,
+      "model_to_oracle_global_relative_l2": 0.9372144042255971,
+      "model_to_raw_global_relative_l2": 0.9551811966889182,
+      "oracle_floor_global_relative_l2": 0.5043941588408832,
+      "peak_allocated_mib": 0.0,
+      "peak_reserved_mib": 0.0,
+      "protocol_checksum": "f6f3497717b577db25ff96f58daa5b98debe5300c329e30b543805d11d21b9d6",
+      "rollout3_finite": true,
+      "rollout3_no_double_transform": true,
+      "rollout3_rho_press_positive": true,
+      "runtime_seconds": 4.795029431999865,
+      "samples_per_second": 0.834197173703628,
+      "status": "passed_with_h1_warning",
+      "total_wall_seconds": 7.388119223000103,
+      "train_batches": 4,
+      "validation_normalized_global_relative_l2": 1.0183352276751305
+    },
+    {
+      "best_checkpoint_reload": true,
+      "clipping_fraction": 1.0,
+      "device": "cpu",
+      "disabled_loss_components": [
+        "h1",
+        "roi",
+        "bounds_training_penalty",
+        "radial_envelope",
+        "dissipation"
+      ],
+      "enabled_loss_components": [
+        "plain_l2"
+      ],
+      "epochs": 2,
+      "h1_gradient_ratio_max": null,
+      "h1_value_ratio_max": null,
+      "initial_state_hash": "00dde6be92d4037f4abfc671cdd2153cfe98901148442903006e745ff3b86b43",
+      "last_checkpoint_reload": true,
+      "mode": "plain",
+      "model_parameter_count": 331832,
+      "model_to_oracle_global_relative_l2": 0.9371735405808291,
+      "model_to_raw_global_relative_l2": 0.9551236805699226,
+      "oracle_floor_global_relative_l2": 0.5043941588408832,
+      "peak_allocated_mib": 0.0,
+      "peak_reserved_mib": 0.0,
+      "protocol_checksum": "f6f3497717b577db25ff96f58daa5b98debe5300c329e30b543805d11d21b9d6",
+      "rollout3_finite": true,
+      "rollout3_no_double_transform": true,
+      "rollout3_rho_press_positive": true,
+      "runtime_seconds": 2.992628899999545,
+      "samples_per_second": 1.3366174469546184,
+      "status": "passed",
+      "total_wall_seconds": 5.482059537000168,
+      "train_batches": 4,
+      "validation_normalized_global_relative_l2": 1.0156894920263964
+    }
+  ],
+  "schema_version": "paper-stage-f-smoke-comparison-v1",
+  "scientific_comparison": false,
+  "status": "passed"
+}

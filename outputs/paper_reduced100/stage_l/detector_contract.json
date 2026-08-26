@@ -1,0 +1,52 @@
+{
+  "call_path": {
+    "caller": "scripts/evaluate_paper_stage_g.py:evaluate_rollout",
+    "no_gt_reference": "raw_physical_initial_snapshot_91",
+    "prediction": "physical_prediction_from_decode_prediction_apply_evaluation_clamp_true",
+    "reference_input": "raw_physical_initial_snapshot_91",
+    "stage_k_summary": "scripts/summarize_paper_stage_k.py"
+  },
+  "contract_sha256": "2e0d4df70e9f074f410ea29ad806d03fa44e9b24aa95650e3305d291d996511b",
+  "detector_config_sha256": "864f62987b4a36fcfeef88bb03da33598de94b8b9e8b5b2e210d81fd8c207930",
+  "formula": {
+    "flag": "ratio < 0.05",
+    "prediction_std": "torch.std(prediction[0, channel])",
+    "ratio": "prediction_std / max(reference_std, 1e-12)",
+    "reference_std": "torch.std(reference[0, channel])"
+  },
+  "function": "grmhd.paper_stage_g_evaluation.artifact_diagnostics",
+  "function_source_sha256": "3a9ea391b663df6b58a0c75942283658ee0214669d234e2c5a9594cc5f36e95d",
+  "input_contract": {
+    "comparator": "strict_less_than",
+    "denominator_floor": 1e-12,
+    "evaluation_bound_clamp_channels": [
+      "rho",
+      "press"
+    ],
+    "finite_guard": "rollout_rejects_nonfinite_before_detector",
+    "flag_suffix": "possible_field_collapse",
+    "implementation": "grmhd.paper_stage_g_evaluation.artifact_diagnostics",
+    "implementation_source_sha256": "3a9ea391b663df6b58a0c75942283658ee0214669d234e2c5a9594cc5f36e95d",
+    "no_gt_reference_domain": "raw_physical_snapshot_91",
+    "no_gt_reference_kind": "initial_snapshot_91",
+    "normalized_inverse_clamp_fraction": 0.99,
+    "normalized_inverse_clamp_gamma": 6.0,
+    "per_channel_statistic": "torch_std_all_spatial_voxels",
+    "prediction_domain": "canonical_decoded_physical_after_rho_press_evaluation_clamp",
+    "ratio": "prediction_std_over_reference_std",
+    "shell_aggregation": "none",
+    "source_file_sha256": "64125810309c129ca56c326c6a6be7f60f94c706b8362b62810947587d7101e8",
+    "source_path": "src/grmhd/paper_stage_g_evaluation.py",
+    "spatial_axes": [
+      "phi",
+      "theta",
+      "r"
+    ],
+    "threshold": 0.05,
+    "time_aggregation": "none_per_step",
+    "torch_std_correction": 1
+  },
+  "schema_version": "paper-stage-l-detector-contract-v1",
+  "source_file_sha256": "64125810309c129ca56c326c6a6be7f60f94c706b8362b62810947587d7101e8",
+  "source_path": "src/grmhd/paper_stage_g_evaluation.py"
+}

@@ -1,0 +1,74 @@
+{
+  "decision": "6. MIXED_CLOSED_LOOP_FAILURE",
+  "frozen_thresholds_selected_before_audit": true,
+  "mechanisms": {
+    "M1": {
+      "name": "NORMALIZED_MODEL_OVERSHOOT",
+      "predicates": {
+        "normalized_direct_growth_gt_2": true,
+        "normalized_ood_precedes_or_equals_Rout": true,
+        "teacher_forced_majority_outside_train_minmax": true,
+        "train_projection_median_range_reduction_gt_50pct": true
+      },
+      "status": "supported"
+    },
+    "M2": {
+      "name": "P3_DECODE_TAIL_AMPLIFICATION",
+      "predicates": {
+        "decoder_derivative_gt_10x_train_q999": true,
+        "normalized_direct_step19_norm_lt_physical_loop": false,
+        "physical_to_normalized_tail_amplification_gt_1e6": true,
+        "train_projection_median_range_reduction_gt_50pct": true
+      },
+      "status": "supported"
+    },
+    "M3": {
+      "name": "ROUNDTRIP_CLAMP_FEEDBACK",
+      "predicates": {
+        "median_J_G_over_J_F_gt_2": false,
+        "median_actual_output_feedback_relative_l2_gt_0_1": true,
+        "repeated_H_accumulates": false,
+        "sensitivity_precedes_or_coincides_with_any_clamp": true
+      },
+      "status": "weakly_supported"
+    },
+    "M4": {
+      "name": "RECURRENT_OPERATOR_GAIN",
+      "predicates": {
+        "growth_without_decoder": true,
+        "median_J_F_gain_gt_1": false,
+        "multiple_consistent_J_F_directions_gt_1": false,
+        "normalized_direct_growth_gt_2": true
+      },
+      "status": "weakly_supported"
+    },
+    "M5": {
+      "name": "CROSS_CHANNEL_FEEDBACK",
+      "predicates": {
+        "at_least_weak_driver_identified": true,
+        "primary_driver_identified": true,
+        "stable_non_diagonal_gain": false
+      },
+      "status": "supported"
+    }
+  },
+  "schema_version": "paper-stage-p-mechanism-evidence-v1",
+  "summary_values": {
+    "local_gain_epsilon_consistent_rows": 0,
+    "local_gain_inference": "inconclusive_under_frozen_20pct_epsilon_consistency",
+    "local_gain_rows": 120,
+    "median_J_F_gain": null,
+    "median_J_G_over_J_F": null,
+    "normalized_direct_growth_step19_over_step1": 19.13808421699027,
+    "normalized_direct_norm_step19": 789368.375,
+    "physical_loop_output_norm_step19": 721782.8125,
+    "primary_drivers": [
+      "Bcc2",
+      "Bcc3",
+      "vel3"
+    ],
+    "projection_median_total_range_reduction": 1.0,
+    "teacher_ood_majority": true,
+    "weak_drivers": []
+  }
+}

@@ -1,0 +1,696 @@
+{
+  "choice": "C",
+  "decision": "RESIDUAL_PILOT_COMPLETE_BUT_ROLLOUT_UNSTABLE",
+  "engineering_evidence": {
+    "direct_residual_contract_mix": false,
+    "epochs": 30,
+    "gt_rollout_finite_positive": true,
+    "loss_equivalence": true,
+    "microbatches": 2370,
+    "no_gt_rollout_finite_positive": true,
+    "optimizer_updates": 600,
+    "preflight_passed": true,
+    "smoke_passed": true,
+    "strict_best_last_reload": true,
+    "training_nonfinite": 0,
+    "transform_counters": {
+      "input_encode": 100,
+      "oracle_decode": 19,
+      "prediction_decode": 100,
+      "target_encode": 19
+    }
+  },
+  "historical_status_unchanged": {
+    "Stage K": "C. TRAINING_COMPLETE_BUT_ROLLOUT_UNSTABLE",
+    "Stage L": "3. MIXED_OVERALL",
+    "Stage M": "4. MIXED_TRANSPORT_AND_PREPROCESSING_FAILURE",
+    "Stage N": "P3 ready; mixed operator-response failure",
+    "Stage O": "C. P3_PILOT_COMPLETE_BUT_ROLLOUT_UNSTABLE",
+    "Stage P": "6. MIXED_CLOSED_LOOP_FAILURE",
+    "Stage Q": "D. NO_VALID_ANCHOR_CANDIDATE"
+  },
+  "instability_evidence": {
+    "range_explosion_by_gt_step": 3,
+    "selected_gt_physical_ranges": {
+      "1": {
+        "Bcc1": {
+          "maximum": 393.1115417480469,
+          "minimum": -1980.201416015625
+        },
+        "Bcc2": {
+          "maximum": 0.09075557440519333,
+          "minimum": -0.3909911513328552
+        },
+        "Bcc3": {
+          "maximum": 2.6426188945770264,
+          "minimum": -2.762270212173462
+        },
+        "press": {
+          "maximum": 2.0803420543670654,
+          "minimum": 6.880805614173369e-08
+        },
+        "rho": {
+          "maximum": 36.97336959838867,
+          "minimum": 2.979458940899349e-06
+        },
+        "vel1": {
+          "maximum": 1.5793343782424927,
+          "minimum": -0.10444502532482147
+        },
+        "vel2": {
+          "maximum": 0.03573155030608177,
+          "minimum": -0.03573150932788849
+        },
+        "vel3": {
+          "maximum": 1.498930811882019,
+          "minimum": -0.04391146078705788
+        }
+      },
+      "10": {
+        "Bcc1": {
+          "maximum": 2.089942019337422e+22,
+          "minimum": -2.089942019337422e+22
+        },
+        "Bcc2": {
+          "maximum": 0.05329037457704544,
+          "minimum": -301.33526611328125
+        },
+        "Bcc3": {
+          "maximum": 18.716800689697266,
+          "minimum": -28.594852447509766
+        },
+        "press": {
+          "maximum": 1292139837259776.0,
+          "minimum": 1.1754943508222875e-38
+        },
+        "rho": {
+          "maximum": 2142828977192960.0,
+          "minimum": 1.1754943508222875e-38
+        },
+        "vel1": {
+          "maximum": 3.1266329288482666,
+          "minimum": -2.7056705951690674
+        },
+        "vel2": {
+          "maximum": 0.03573155030608177,
+          "minimum": -0.03573150932788849
+        },
+        "vel3": {
+          "maximum": 1.5962873697280884,
+          "minimum": -0.2611965537071228
+        }
+      },
+      "19": {
+        "Bcc1": {
+          "maximum": 2.089942019337422e+22,
+          "minimum": -2.089942019337422e+22
+        },
+        "Bcc2": {
+          "maximum": 0.04948967322707176,
+          "minimum": -2523874.25
+        },
+        "Bcc3": {
+          "maximum": 843.9942016601562,
+          "minimum": -1773.2874755859375
+        },
+        "press": {
+          "maximum": 1292139837259776.0,
+          "minimum": 1.1754943508222875e-38
+        },
+        "rho": {
+          "maximum": 2142828977192960.0,
+          "minimum": 1.1754943508222875e-38
+        },
+        "vel1": {
+          "maximum": 3.1266329288482666,
+          "minimum": -2.7056705951690674
+        },
+        "vel2": {
+          "maximum": 0.03573155030608177,
+          "minimum": -0.03573150932788849
+        },
+        "vel3": {
+          "maximum": 1.7314823865890503,
+          "minimum": -0.5019344687461853
+        }
+      },
+      "3": {
+        "Bcc1": {
+          "maximum": 22539.751953125,
+          "minimum": -5353140.0
+        },
+        "Bcc2": {
+          "maximum": 0.068674735724926,
+          "minimum": -2.04953932762146
+        },
+        "Bcc3": {
+          "maximum": 3.4077887535095215,
+          "minimum": -3.986722230911255
+        },
+        "press": {
+          "maximum": 1923.2203369140625,
+          "minimum": 1.0325279298228907e-08
+        },
+        "rho": {
+          "maximum": 2010238.5,
+          "minimum": 1.1754943508222875e-38
+        },
+        "vel1": {
+          "maximum": 3.1266329288482666,
+          "minimum": -0.39980506896972656
+        },
+        "vel2": {
+          "maximum": 0.03573155030608177,
+          "minimum": -0.03573150932788849
+        },
+        "vel3": {
+          "maximum": 1.5184372663497925,
+          "minimum": -0.07466911524534225
+        }
+      },
+      "5": {
+        "Bcc1": {
+          "maximum": 5459092992.0,
+          "minimum": -2.089942019337422e+22
+        },
+        "Bcc2": {
+          "maximum": 0.05559946969151497,
+          "minimum": -10.855761528015137
+        },
+        "Bcc3": {
+          "maximum": 4.760390758514404,
+          "minimum": -6.1550774574279785
+        },
+        "press": {
+          "maximum": 1292139837259776.0,
+          "minimum": 1.750733169547658e-10
+        },
+        "rho": {
+          "maximum": 2142828977192960.0,
+          "minimum": 1.1754943508222875e-38
+        },
+        "vel1": {
+          "maximum": 3.1266329288482666,
+          "minimum": -0.898017406463623
+        },
+        "vel2": {
+          "maximum": 0.03573155030608177,
+          "minimum": -0.03573150932788849
+        },
+        "vel3": {
+          "maximum": 1.5388320684432983,
+          "minimum": -0.1586657166481018
+        }
+      }
+    },
+    "stage_m_v1": {
+      "Bcc2": {
+        "enabled": true,
+        "gate_0_engineering_validity": {
+          "checks": {
+            "Rout": false,
+            "checkpoint_provenance": true,
+            "decoded_range": false,
+            "finite": true,
+            "rho_press_positive": true,
+            "shape_device": true,
+            "transform_counters": true
+          },
+          "passed": false
+        },
+        "gate_1_floor_qualification": {
+          "floor_limited": false,
+          "metrics": {
+            "median_high_k_retention": 1.0000000032396805,
+            "median_shell_radial_retention": 0.9999999989356602,
+            "median_variance_retention": 1.0000000003330385,
+            "oracle_legacy_detector_triggered": false
+          }
+        },
+        "gate_2_model_added_degradation": {
+          "failed": false,
+          "failure_steps": [],
+          "required_steps": 2
+        },
+        "gate_3_transport_skill": {
+          "passed": false,
+          "radial_sign_agreement": 0.25,
+          "radial_skill": -13.721597186558345,
+          "shell_sign_agreement": 0.375,
+          "shell_skill": -19.748242755903934
+        },
+        "legacy_detector": {
+          "flags": [
+            "Bcc2:possible_stripe_anisotropy",
+            "Bcc2:possible_stripe_anisotropy",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_stripe_anisotropy",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_stripe_anisotropy",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_stripe_anisotropy",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_stripe_anisotropy",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_stripe_anisotropy",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_stripe_anisotropy",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_stripe_anisotropy",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_stripe_anisotropy",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_stripe_anisotropy",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_stripe_anisotropy",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_stripe_anisotropy",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_stripe_anisotropy",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_stripe_anisotropy",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_stripe_anisotropy",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_stripe_anisotropy",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_stripe_anisotropy",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_stripe_anisotropy",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_stripe_anisotropy",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple",
+            "Bcc2:possible_high_frequency_ripple"
+          ]
+        },
+        "oracle_conditioned_gate_version": "stage_m_v1",
+        "reporting_only": true,
+        "training_blocking": false
+      },
+      "Bcc3": {
+        "enabled": true,
+        "gate_0_engineering_validity": {
+          "checks": {
+            "Rout": false,
+            "checkpoint_provenance": true,
+            "decoded_range": false,
+            "finite": true,
+            "rho_press_positive": true,
+            "shape_device": true,
+            "transform_counters": true
+          },
+          "passed": false
+        },
+        "gate_1_floor_qualification": {
+          "floor_limited": false,
+          "metrics": {
+            "median_high_k_retention": 1.000000002623627,
+            "median_shell_radial_retention": 0.9999999994451654,
+            "median_variance_retention": 1.0000000029921847,
+            "oracle_legacy_detector_triggered": false
+          }
+        },
+        "gate_2_model_added_degradation": {
+          "failed": true,
+          "failure_steps": [
+            3,
+            5
+          ],
+          "required_steps": 2
+        },
+        "gate_3_transport_skill": {
+          "passed": false,
+          "radial_sign_agreement": 0.46875,
+          "radial_skill": -6.460108556611735,
+          "shell_sign_agreement": 0.625,
+          "shell_skill": -1.8826713845048975
+        },
+        "legacy_detector": {
+          "flags": [
+            "Bcc3:possible_stripe_anisotropy",
+            "Bcc3:possible_stripe_anisotropy",
+            "Bcc3:possible_stripe_anisotropy",
+            "Bcc3:possible_stripe_anisotropy",
+            "Bcc3:possible_stripe_anisotropy",
+            "Bcc3:possible_stripe_anisotropy",
+            "Bcc3:possible_stripe_anisotropy",
+            "Bcc3:possible_stripe_anisotropy",
+            "Bcc3:possible_stripe_anisotropy",
+            "Bcc3:possible_stripe_anisotropy",
+            "Bcc3:possible_stripe_anisotropy",
+            "Bcc3:possible_stripe_anisotropy",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_stripe_anisotropy",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_stripe_anisotropy",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_stripe_anisotropy",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_stripe_anisotropy",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_stripe_anisotropy",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_stripe_anisotropy",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_stripe_anisotropy",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_stripe_anisotropy",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple",
+            "Bcc3:possible_high_frequency_ripple"
+          ]
+        },
+        "oracle_conditioned_gate_version": "stage_m_v1",
+        "reporting_only": true,
+        "training_blocking": false
+      },
+      "vel3": {
+        "enabled": true,
+        "gate_0_engineering_validity": {
+          "checks": {
+            "Rout": false,
+            "checkpoint_provenance": true,
+            "decoded_range": false,
+            "finite": true,
+            "rho_press_positive": true,
+            "shape_device": true,
+            "transform_counters": true
+          },
+          "passed": false
+        },
+        "gate_1_floor_qualification": {
+          "floor_limited": false,
+          "metrics": {
+            "median_high_k_retention": 1.0000000001631233,
+            "median_shell_radial_retention": 0.9999999999020721,
+            "median_variance_retention": 1.000000000005612,
+            "oracle_legacy_detector_triggered": false
+          }
+        },
+        "gate_2_model_added_degradation": {
+          "failed": false,
+          "failure_steps": [],
+          "required_steps": 2
+        },
+        "gate_3_transport_skill": {
+          "passed": false,
+          "radial_sign_agreement": 0.53125,
+          "radial_skill": -7.913691328061686,
+          "shell_sign_agreement": 0.625,
+          "shell_skill": -7.343446934298738
+        },
+        "legacy_detector": {
+          "flags": [
+            "vel3:possible_stripe_anisotropy",
+            "vel3:possible_stripe_anisotropy",
+            "vel3:possible_stripe_anisotropy",
+            "vel3:possible_stripe_anisotropy",
+            "vel3:possible_stripe_anisotropy",
+            "vel3:possible_stripe_anisotropy",
+            "vel3:possible_stripe_anisotropy",
+            "vel3:possible_stripe_anisotropy",
+            "vel3:possible_stripe_anisotropy",
+            "vel3:possible_stripe_anisotropy",
+            "vel3:possible_stripe_anisotropy",
+            "vel3:possible_stripe_anisotropy",
+            "vel3:possible_stripe_anisotropy",
+            "vel3:possible_stripe_anisotropy",
+            "vel3:possible_stripe_anisotropy",
+            "vel3:possible_stripe_anisotropy",
+            "vel3:possible_stripe_anisotropy",
+            "vel3:possible_stripe_anisotropy",
+            "vel3:possible_stripe_anisotropy",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple",
+            "vel3:possible_high_frequency_ripple"
+          ]
+        },
+        "oracle_conditioned_gate_version": "stage_m_v1",
+        "reporting_only": true,
+        "training_blocking": false
+      }
+    },
+    "step100_artifact_flags": [
+      "Bcc1:possible_high_frequency_ripple",
+      "Bcc2:possible_high_frequency_ripple",
+      "Bcc3:possible_high_frequency_ripple",
+      "rho:possible_high_frequency_ripple",
+      "press:possible_high_frequency_ripple",
+      "vel1:possible_high_frequency_ripple",
+      "vel2:possible_high_frequency_ripple",
+      "vel3:possible_high_frequency_ripple"
+    ],
+    "step100_prediction_norm": 1878179.5
+  },
+  "interpretation": "Residual targeting substantially reduces Stage O normalized overshoot and keeps the 100-step normalized norm far smaller, but it remains worse than zero-residual P3 persistence, residual direction reverses after step 1, every validation pair is above Rout, and decoded physical ranges explode by step 3. This is scientific/closed-loop instability, not a residual-contract engineering failure.",
+  "next_authorized_action": "propose_only: diagnose why unscaled normalized residuals enter P3 inverse tails and why residual transport direction reverses; no new training is authorized",
+  "schema_version": "paper-stage-r-decision-v1",
+  "skill_evidence": {
+    "residual_cosine_mean": 0.1319212204975863,
+    "residual_relative_l2_average": 1.4137913915648586,
+    "selected_gt_residual_cosines": {
+      "1": 0.758703083652658,
+      "10": -0.4329300144615634,
+      "19": -0.6022933385827527,
+      "3": -0.3100921539746526,
+      "5": -0.3372014041711504
+    },
+    "stage_r_over_persistence_one_step": 1.246344436629901,
+    "stage_r_over_stage_o_one_step": 0.21456474220421,
+    "validation_above_rout_fraction": 1.0,
+    "zero_residual_relative_l2": 1.0
+  }
+}

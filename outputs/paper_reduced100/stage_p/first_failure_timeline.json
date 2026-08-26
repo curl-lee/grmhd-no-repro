@@ -1,0 +1,602 @@
+{
+  "all_channel_first_steps": {
+    "clamp_occupancy_gt_0_1": 1,
+    "clamp_occupancy_gt_0_5": 8,
+    "clamp_occupancy_positive": 1,
+    "decode_sensitivity_above_train_q999": 1,
+    "decoded_above_rout": 1,
+    "field_collapse": 3,
+    "gate_2_failed": 1,
+    "gate_3_failed": 1,
+    "normalized_outside_min_max": 1,
+    "normalized_outside_q001_q999": 1,
+    "ripple": 1,
+    "shell_radial_transport_severe": 1,
+    "stripe": 1
+  },
+  "answers": {
+    "Bcc2_vs_Bcc3": "tie",
+    "decode_sensitivity_precedes_or_equals_any_channel_clamp": true,
+    "earliest_target_channels": [
+      "Bcc2",
+      "Bcc3",
+      "vel3"
+    ],
+    "failure_present_on_first_prediction": true,
+    "normalized_ood_precedes_or_equals_physical_rout": true,
+    "normalized_ood_to_physical_rout_relation": "coincident",
+    "target_decode_sensitivity_to_any_channel_clamp_relation": "coincident",
+    "target_decode_sensitivity_to_target_clamp_relation": "second_absent",
+    "vel3_driver_status_deferred_to_driver_matrix": true
+  },
+  "events": [
+    {
+      "channel": "Bcc1",
+      "event": "normalized_outside_q001_q999",
+      "first_step": 1
+    },
+    {
+      "channel": "Bcc1",
+      "event": "normalized_outside_min_max",
+      "first_step": 1
+    },
+    {
+      "channel": "Bcc1",
+      "event": "decode_sensitivity_above_train_q999",
+      "first_step": 1
+    },
+    {
+      "channel": "Bcc1",
+      "event": "decoded_above_rout",
+      "first_step": 1
+    },
+    {
+      "channel": "Bcc1",
+      "event": "clamp_occupancy_positive",
+      "first_step": 1
+    },
+    {
+      "channel": "Bcc1",
+      "event": "clamp_occupancy_gt_0_1",
+      "first_step": 7
+    },
+    {
+      "channel": "Bcc1",
+      "event": "clamp_occupancy_gt_0_5",
+      "first_step": 13
+    },
+    {
+      "channel": "Bcc1",
+      "event": "gate_2_failed",
+      "first_step": null
+    },
+    {
+      "channel": "Bcc1",
+      "event": "gate_3_failed",
+      "first_step": null
+    },
+    {
+      "channel": "Bcc1",
+      "event": "ripple",
+      "first_step": 1
+    },
+    {
+      "channel": "Bcc1",
+      "event": "stripe",
+      "first_step": 3
+    },
+    {
+      "channel": "Bcc1",
+      "event": "field_collapse",
+      "first_step": null
+    },
+    {
+      "channel": "Bcc1",
+      "event": "shell_radial_transport_severe",
+      "first_step": null
+    },
+    {
+      "channel": "Bcc2",
+      "event": "normalized_outside_q001_q999",
+      "first_step": 1
+    },
+    {
+      "channel": "Bcc2",
+      "event": "normalized_outside_min_max",
+      "first_step": 1
+    },
+    {
+      "channel": "Bcc2",
+      "event": "decode_sensitivity_above_train_q999",
+      "first_step": 1
+    },
+    {
+      "channel": "Bcc2",
+      "event": "decoded_above_rout",
+      "first_step": 1
+    },
+    {
+      "channel": "Bcc2",
+      "event": "clamp_occupancy_positive",
+      "first_step": null
+    },
+    {
+      "channel": "Bcc2",
+      "event": "clamp_occupancy_gt_0_1",
+      "first_step": null
+    },
+    {
+      "channel": "Bcc2",
+      "event": "clamp_occupancy_gt_0_5",
+      "first_step": null
+    },
+    {
+      "channel": "Bcc2",
+      "event": "gate_2_failed",
+      "first_step": 1
+    },
+    {
+      "channel": "Bcc2",
+      "event": "gate_3_failed",
+      "first_step": 1
+    },
+    {
+      "channel": "Bcc2",
+      "event": "ripple",
+      "first_step": 7
+    },
+    {
+      "channel": "Bcc2",
+      "event": "stripe",
+      "first_step": 3
+    },
+    {
+      "channel": "Bcc2",
+      "event": "field_collapse",
+      "first_step": null
+    },
+    {
+      "channel": "Bcc2",
+      "event": "shell_radial_transport_severe",
+      "first_step": 1
+    },
+    {
+      "channel": "Bcc3",
+      "event": "normalized_outside_q001_q999",
+      "first_step": 1
+    },
+    {
+      "channel": "Bcc3",
+      "event": "normalized_outside_min_max",
+      "first_step": 1
+    },
+    {
+      "channel": "Bcc3",
+      "event": "decode_sensitivity_above_train_q999",
+      "first_step": 1
+    },
+    {
+      "channel": "Bcc3",
+      "event": "decoded_above_rout",
+      "first_step": 1
+    },
+    {
+      "channel": "Bcc3",
+      "event": "clamp_occupancy_positive",
+      "first_step": null
+    },
+    {
+      "channel": "Bcc3",
+      "event": "clamp_occupancy_gt_0_1",
+      "first_step": null
+    },
+    {
+      "channel": "Bcc3",
+      "event": "clamp_occupancy_gt_0_5",
+      "first_step": null
+    },
+    {
+      "channel": "Bcc3",
+      "event": "gate_2_failed",
+      "first_step": 2
+    },
+    {
+      "channel": "Bcc3",
+      "event": "gate_3_failed",
+      "first_step": 1
+    },
+    {
+      "channel": "Bcc3",
+      "event": "ripple",
+      "first_step": 5
+    },
+    {
+      "channel": "Bcc3",
+      "event": "stripe",
+      "first_step": 4
+    },
+    {
+      "channel": "Bcc3",
+      "event": "field_collapse",
+      "first_step": null
+    },
+    {
+      "channel": "Bcc3",
+      "event": "shell_radial_transport_severe",
+      "first_step": 2
+    },
+    {
+      "channel": "rho",
+      "event": "normalized_outside_q001_q999",
+      "first_step": 1
+    },
+    {
+      "channel": "rho",
+      "event": "normalized_outside_min_max",
+      "first_step": 1
+    },
+    {
+      "channel": "rho",
+      "event": "decode_sensitivity_above_train_q999",
+      "first_step": 1
+    },
+    {
+      "channel": "rho",
+      "event": "decoded_above_rout",
+      "first_step": 1
+    },
+    {
+      "channel": "rho",
+      "event": "clamp_occupancy_positive",
+      "first_step": 1
+    },
+    {
+      "channel": "rho",
+      "event": "clamp_occupancy_gt_0_1",
+      "first_step": 1
+    },
+    {
+      "channel": "rho",
+      "event": "clamp_occupancy_gt_0_5",
+      "first_step": 8
+    },
+    {
+      "channel": "rho",
+      "event": "gate_2_failed",
+      "first_step": null
+    },
+    {
+      "channel": "rho",
+      "event": "gate_3_failed",
+      "first_step": null
+    },
+    {
+      "channel": "rho",
+      "event": "ripple",
+      "first_step": 20
+    },
+    {
+      "channel": "rho",
+      "event": "stripe",
+      "first_step": null
+    },
+    {
+      "channel": "rho",
+      "event": "field_collapse",
+      "first_step": null
+    },
+    {
+      "channel": "rho",
+      "event": "shell_radial_transport_severe",
+      "first_step": null
+    },
+    {
+      "channel": "press",
+      "event": "normalized_outside_q001_q999",
+      "first_step": 1
+    },
+    {
+      "channel": "press",
+      "event": "normalized_outside_min_max",
+      "first_step": 1
+    },
+    {
+      "channel": "press",
+      "event": "decode_sensitivity_above_train_q999",
+      "first_step": 1
+    },
+    {
+      "channel": "press",
+      "event": "decoded_above_rout",
+      "first_step": 1
+    },
+    {
+      "channel": "press",
+      "event": "clamp_occupancy_positive",
+      "first_step": 1
+    },
+    {
+      "channel": "press",
+      "event": "clamp_occupancy_gt_0_1",
+      "first_step": 1
+    },
+    {
+      "channel": "press",
+      "event": "clamp_occupancy_gt_0_5",
+      "first_step": 9
+    },
+    {
+      "channel": "press",
+      "event": "gate_2_failed",
+      "first_step": null
+    },
+    {
+      "channel": "press",
+      "event": "gate_3_failed",
+      "first_step": null
+    },
+    {
+      "channel": "press",
+      "event": "ripple",
+      "first_step": 22
+    },
+    {
+      "channel": "press",
+      "event": "stripe",
+      "first_step": null
+    },
+    {
+      "channel": "press",
+      "event": "field_collapse",
+      "first_step": 3
+    },
+    {
+      "channel": "press",
+      "event": "shell_radial_transport_severe",
+      "first_step": null
+    },
+    {
+      "channel": "vel1",
+      "event": "normalized_outside_q001_q999",
+      "first_step": 1
+    },
+    {
+      "channel": "vel1",
+      "event": "normalized_outside_min_max",
+      "first_step": 1
+    },
+    {
+      "channel": "vel1",
+      "event": "decode_sensitivity_above_train_q999",
+      "first_step": 1
+    },
+    {
+      "channel": "vel1",
+      "event": "decoded_above_rout",
+      "first_step": 1
+    },
+    {
+      "channel": "vel1",
+      "event": "clamp_occupancy_positive",
+      "first_step": 1
+    },
+    {
+      "channel": "vel1",
+      "event": "clamp_occupancy_gt_0_1",
+      "first_step": 8
+    },
+    {
+      "channel": "vel1",
+      "event": "clamp_occupancy_gt_0_5",
+      "first_step": 13
+    },
+    {
+      "channel": "vel1",
+      "event": "gate_2_failed",
+      "first_step": null
+    },
+    {
+      "channel": "vel1",
+      "event": "gate_3_failed",
+      "first_step": null
+    },
+    {
+      "channel": "vel1",
+      "event": "ripple",
+      "first_step": 1
+    },
+    {
+      "channel": "vel1",
+      "event": "stripe",
+      "first_step": 1
+    },
+    {
+      "channel": "vel1",
+      "event": "field_collapse",
+      "first_step": null
+    },
+    {
+      "channel": "vel1",
+      "event": "shell_radial_transport_severe",
+      "first_step": null
+    },
+    {
+      "channel": "vel2",
+      "event": "normalized_outside_q001_q999",
+      "first_step": 1
+    },
+    {
+      "channel": "vel2",
+      "event": "normalized_outside_min_max",
+      "first_step": 1
+    },
+    {
+      "channel": "vel2",
+      "event": "decode_sensitivity_above_train_q999",
+      "first_step": 1
+    },
+    {
+      "channel": "vel2",
+      "event": "decoded_above_rout",
+      "first_step": 1
+    },
+    {
+      "channel": "vel2",
+      "event": "clamp_occupancy_positive",
+      "first_step": 1
+    },
+    {
+      "channel": "vel2",
+      "event": "clamp_occupancy_gt_0_1",
+      "first_step": 5
+    },
+    {
+      "channel": "vel2",
+      "event": "clamp_occupancy_gt_0_5",
+      "first_step": 12
+    },
+    {
+      "channel": "vel2",
+      "event": "gate_2_failed",
+      "first_step": null
+    },
+    {
+      "channel": "vel2",
+      "event": "gate_3_failed",
+      "first_step": null
+    },
+    {
+      "channel": "vel2",
+      "event": "ripple",
+      "first_step": 4
+    },
+    {
+      "channel": "vel2",
+      "event": "stripe",
+      "first_step": 1
+    },
+    {
+      "channel": "vel2",
+      "event": "field_collapse",
+      "first_step": null
+    },
+    {
+      "channel": "vel2",
+      "event": "shell_radial_transport_severe",
+      "first_step": null
+    },
+    {
+      "channel": "vel3",
+      "event": "normalized_outside_q001_q999",
+      "first_step": 1
+    },
+    {
+      "channel": "vel3",
+      "event": "normalized_outside_min_max",
+      "first_step": 1
+    },
+    {
+      "channel": "vel3",
+      "event": "decode_sensitivity_above_train_q999",
+      "first_step": null
+    },
+    {
+      "channel": "vel3",
+      "event": "decoded_above_rout",
+      "first_step": 1
+    },
+    {
+      "channel": "vel3",
+      "event": "clamp_occupancy_positive",
+      "first_step": null
+    },
+    {
+      "channel": "vel3",
+      "event": "clamp_occupancy_gt_0_1",
+      "first_step": null
+    },
+    {
+      "channel": "vel3",
+      "event": "clamp_occupancy_gt_0_5",
+      "first_step": null
+    },
+    {
+      "channel": "vel3",
+      "event": "gate_2_failed",
+      "first_step": null
+    },
+    {
+      "channel": "vel3",
+      "event": "gate_3_failed",
+      "first_step": 1
+    },
+    {
+      "channel": "vel3",
+      "event": "ripple",
+      "first_step": 4
+    },
+    {
+      "channel": "vel3",
+      "event": "stripe",
+      "first_step": 1
+    },
+    {
+      "channel": "vel3",
+      "event": "field_collapse",
+      "first_step": null
+    },
+    {
+      "channel": "vel3",
+      "event": "shell_radial_transport_severe",
+      "first_step": null
+    }
+  ],
+  "schema_version": "paper-stage-p-first-failure-timeline-v1",
+  "target_channel_first_steps": {
+    "Bcc2": {
+      "clamp_occupancy_gt_0_1": null,
+      "clamp_occupancy_gt_0_5": null,
+      "clamp_occupancy_positive": null,
+      "decode_sensitivity_above_train_q999": 1,
+      "decoded_above_rout": 1,
+      "field_collapse": null,
+      "gate_2_failed": 1,
+      "gate_3_failed": 1,
+      "normalized_outside_min_max": 1,
+      "normalized_outside_q001_q999": 1,
+      "ripple": 7,
+      "shell_radial_transport_severe": 1,
+      "stripe": 3
+    },
+    "Bcc3": {
+      "clamp_occupancy_gt_0_1": null,
+      "clamp_occupancy_gt_0_5": null,
+      "clamp_occupancy_positive": null,
+      "decode_sensitivity_above_train_q999": 1,
+      "decoded_above_rout": 1,
+      "field_collapse": null,
+      "gate_2_failed": 2,
+      "gate_3_failed": 1,
+      "normalized_outside_min_max": 1,
+      "normalized_outside_q001_q999": 1,
+      "ripple": 5,
+      "shell_radial_transport_severe": 2,
+      "stripe": 4
+    },
+    "vel3": {
+      "clamp_occupancy_gt_0_1": null,
+      "clamp_occupancy_gt_0_5": null,
+      "clamp_occupancy_positive": null,
+      "decode_sensitivity_above_train_q999": null,
+      "decoded_above_rout": 1,
+      "field_collapse": null,
+      "gate_2_failed": null,
+      "gate_3_failed": 1,
+      "normalized_outside_min_max": 1,
+      "normalized_outside_q001_q999": 1,
+      "ripple": 4,
+      "shell_radial_transport_severe": null,
+      "stripe": 1
+    }
+  }
+}

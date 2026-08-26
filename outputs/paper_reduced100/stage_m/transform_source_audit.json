@@ -1,0 +1,219 @@
+{
+  "channel_parameters": {
+    "Bcc1": {
+      "epsilon": 0.001,
+      "gamma": 6.0,
+      "inverse_clamp_fraction": 0.99,
+      "median": 0.0,
+      "scale": 1.5944754780403187,
+      "transform": "signed_log"
+    },
+    "Bcc2": {
+      "epsilon": 0.001,
+      "gamma": 6.0,
+      "inverse_clamp_fraction": 0.99,
+      "median": -0.05816211598100435,
+      "scale": 0.11531757221491401,
+      "transform": "signed_log"
+    },
+    "Bcc3": {
+      "epsilon": 0.01,
+      "gamma": 6.0,
+      "inverse_clamp_fraction": 0.99,
+      "median": 2.194520015629771e-12,
+      "scale": 0.0118065025107101,
+      "transform": "signed_log"
+    },
+    "press": {
+      "epsilon": 1e-10,
+      "gamma": 6.0,
+      "inverse_clamp_fraction": 0.99,
+      "median": -4.102144878779961,
+      "scale": 1.2099217817928347,
+      "transform": "positive_log"
+    },
+    "rho": {
+      "epsilon": 1e-08,
+      "gamma": 6.0,
+      "inverse_clamp_fraction": 0.99,
+      "median": -3.0340544840542885,
+      "scale": 1.1564950194973698,
+      "transform": "positive_log"
+    },
+    "vel1": {
+      "epsilon": 0.0,
+      "gamma": 6.0,
+      "inverse_clamp_fraction": 0.99,
+      "median": 0.2104811668395996,
+      "scale": 0.1836377545237541,
+      "transform": "linear"
+    },
+    "vel2": {
+      "epsilon": 0.0,
+      "gamma": 6.0,
+      "inverse_clamp_fraction": 0.99,
+      "median": 2.1003897288096596e-08,
+      "scale": 0.0022501084100687873,
+      "transform": "linear"
+    },
+    "vel3": {
+      "epsilon": 0.0,
+      "gamma": 6.0,
+      "inverse_clamp_fraction": 0.99,
+      "median": 0.004371623508632183,
+      "scale": 0.006249537981890898,
+      "transform": "linear"
+    }
+  },
+  "metadata": {
+    "calibration_split": {
+      "model_outcomes_forbidden": true,
+      "snapshot_indices": [
+        11,
+        90
+      ],
+      "transition_source_indices": [
+        11,
+        89
+      ],
+      "validation_outcomes_forbidden": true
+    },
+    "channel_parameter_sha256": "917dc105eb8e1a2c2e4401e249b2e31aab595152d35f2471df263a7c426c6ddb",
+    "checkpoint_hashes": {
+      "fno_full": "a18e8711aae8071218959d34d217bb52b51a1fcc23f4e11bdcc5713dbff111e2",
+      "fno_plain": "923b233de1d0abfda97f99fda9142dc437dc91f5dbbc3f19e0e5d28f5e862f1b",
+      "localno_plain": "f69008f91da80a4a7a6374adc253bbcdf37f58f0d142ea80f2b3f399e1f02a9f"
+    },
+    "classification": "post_hoc_transform_and_evaluation_audit",
+    "counterfactual_classification": "diagnostic_counterfactual",
+    "data_checksum": "cd3966bed1f617f49d775151cff87ae92eb2432a560bb82ae9355605e7aea70a",
+    "metric_definitions": {
+      "radial_profile": "mean over phi/theta at every stored r center",
+      "retention": "diagnostic metric divided by raw metric; null at denominator floor",
+      "shells": "frozen eight physical-r shells",
+      "spectrum": "orthonormal combined demeaned stored-index-space diagnostic",
+      "variance": "population variance over one channel and phi/theta/r"
+    },
+    "no_backward": true,
+    "no_optimizer_or_scheduler": true,
+    "no_training": true,
+    "normalizer_checksum": "1645714424d95b02de2283fc16a8ef05f3864d15f11025580af13f3e67964001",
+    "preprocessing_checksum": "1645714424d95b02de2283fc16a8ef05f3864d15f11025580af13f3e67964001",
+    "project_commit": "db89af9e98c5b074746b82eaff954d2440c8049a",
+    "selected_state_hashes": {
+      "fno_full": "60eeda64167b0ab33ce544ac011ff13bab0f4f4887a4eae4d664436b351e9077",
+      "fno_plain": "2a82cb6015fa9316ceeaa7c433423d8cee4ccbd0910884f244f8ea0217b97c7c",
+      "localno_plain": "441a1d8348b240cb5df16063ee71de1ba375d97b64e79010ec88330191fbea66"
+    },
+    "shell_metadata_checksum": "99580fc2c62431f46e6702972660b060aa1294920e5f9530b45b43ce08c190b7",
+    "software": {
+      "numpy": "2.4.6",
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "python": "3.11.15 (main, Jun 11 2026, 15:20:16) [GCC 14.3.0]",
+      "torch": "2.12.1+cu130"
+    },
+    "stage_k_decision": "C. TRAINING_COMPLETE_BUT_ROLLOUT_UNSTABLE",
+    "stage_l_attribution_sha256": "cb173caf676df312d3f3eaf6cd46ea63f408144476adeb7a8131fcb733596ddf",
+    "stage_l_config_sha256": "8f9c170be023da938ce6b6d1414ebc459965467080ea397a85fe98998ff34983",
+    "stage_l_decision": "3. MIXED_OVERALL",
+    "stage_l_decision_sha256": "867c8e155f843e9f5bbdd52de5280f515138fc5e6b29a743e8d7c3d6cca83595",
+    "stage_m_config_sha256": "91a360fe9087f413fccaeaa6cf56874e980773aa7f584b3bf5b2917e8a677206",
+    "transform_source_hashes": {
+      "canonical_decode_numpy": "2fff67f47d8164f54182b47e640d45c14c31334a1a1e2e4644ebbdb61b05138d",
+      "canonical_decode_tensor": "46dcc98cb836ea11b65f6f12611418385361d347b830a563d1640321da7160dd",
+      "canonical_encode_numpy": "3dc7e29cc1f106eef0d0a27feaff6d15add7a8ba60074aff239204979c361a59",
+      "canonical_encode_tensor": "3ebe6e7a4e56f4dd861ec7ff01370111357756fde4d73ce7f8a8491aba6c2a08",
+      "evaluation_bounds_clamp": "b6f468543e48e9190c3cf4467efd872b14815e169dcc89026e87c1edd8c28b32",
+      "forward_nonlinear_numpy": "1ee1736939d306635ee75c5ab384004d2b1169c85eede8d0ce83408637ffc625",
+      "prediction_decode": "350fec673fbfc12949e7f25750033f4493ef8d04291e2b141b3a6205fd7ff035",
+      "source_file_paper_bounds": "cda59d934fb5045ef263f43e10c97fb157557615472e6c0a760c7cfaf2b6d9eb",
+      "source_file_paper_data_processor": "debd4aa06e179676fadfcd964b8978a5a58b1949e5feaea71559dc3707b02bb2",
+      "source_file_paper_preprocessing": "ce72b6f56d5cd773c8bb17ddbf302a2ec793e85996a75ea9965f1a517134547d"
+    },
+    "undefined_count": 0
+  },
+  "resolved_transform_config_sha256": "24062a5a928f6f58f7de04b0bcd850680e2b0f49483de03f46988cbeeb34e02d",
+  "rows": [
+    {
+      "channel_parameters": "transform, epsilon",
+      "frozen": true,
+      "function": "PaperPreprocessor._transform_values_inplace / encode_tensor",
+      "input_domain": "raw physical",
+      "invertible": true,
+      "lossy": false,
+      "output_domain": "signed-log, positive-log, or linear representation",
+      "stage": "forward nonlinear"
+    },
+    {
+      "channel_parameters": "train-only median and MAD scale",
+      "frozen": true,
+      "function": "(transformed-median)/scale",
+      "input_domain": "nonlinear representation",
+      "invertible": true,
+      "lossy": false,
+      "output_domain": "unbounded robust z",
+      "stage": "robust normalization"
+    },
+    {
+      "channel_parameters": "gamma=6",
+      "frozen": true,
+      "function": "gamma*tanh(z/gamma)",
+      "input_domain": "unbounded robust z",
+      "invertible": "mathematically for abs(output)<gamma",
+      "lossy": "numerical saturation possible",
+      "output_domain": "bounded canonical normalized",
+      "stage": "forward softclip"
+    },
+    {
+      "channel_parameters": "inverse_clamp_fraction=0.99",
+      "frozen": true,
+      "function": "clamp(encoded,-0.99*gamma,0.99*gamma)",
+      "input_domain": "canonical normalized",
+      "invertible": false,
+      "lossy": true,
+      "output_domain": "clamped normalized",
+      "stage": "inverse input clamp"
+    },
+    {
+      "channel_parameters": "gamma=6",
+      "frozen": true,
+      "function": "gamma*atanh(encoded/gamma)",
+      "input_domain": "clamped normalized",
+      "invertible": true,
+      "lossy": false,
+      "output_domain": "robust z",
+      "stage": "inverse softclip"
+    },
+    {
+      "channel_parameters": "median and scale",
+      "frozen": true,
+      "function": "z*scale+median",
+      "input_domain": "robust z",
+      "invertible": true,
+      "lossy": false,
+      "output_domain": "nonlinear representation",
+      "stage": "inverse robust normalization"
+    },
+    {
+      "channel_parameters": "transform, epsilon, output dtype max",
+      "frozen": true,
+      "function": "PaperPreprocessor.decode_tensor",
+      "input_domain": "nonlinear representation",
+      "invertible": "before dtype guard",
+      "lossy": "only if dtype guard hits",
+      "output_domain": "physical",
+      "stage": "inverse nonlinearity and dtype guard"
+    },
+    {
+      "channel_parameters": "train-only rho/press bounds",
+      "frozen": true,
+      "function": "PaperPhysicalBounds.clamp_normalized",
+      "input_domain": "model normalized prediction",
+      "invertible": false,
+      "lossy": true,
+      "output_domain": "rho/press bounded normalized prediction",
+      "stage": "evaluation-only bounds clamp"
+    }
+  ],
+  "schema_version": "paper-stage-m-transform-source-audit-v1"
+}

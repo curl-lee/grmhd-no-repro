@@ -1,0 +1,156 @@
+{
+  "schema_version": "paper-physical-bounds-v1",
+  "provenance": {
+    "source_hdf5_checksum": "cd3966bed1f617f49d775151cff87ae92eb2432a560bb82ae9355605e7aea70a",
+    "preprocessing_stats_checksum": "1645714424d95b02de2283fc16a8ef05f3864d15f11025580af13f3e67964001",
+    "training_indices": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90
+    ],
+    "protocol_name": "paper_reduced100_press_spherical_ks",
+    "thermal_channel": "press",
+    "paper_adaptation": true,
+    "eos_conversion": "disabled_unverified_gamma",
+    "coordinate_system": "spherical Kerr-Schild: phi,theta,r",
+    "stored_components_not_cartesian": true,
+    "validation_not_used_for_fit": true
+  },
+  "quantiles": {
+    "qlow": 0.001,
+    "qhigh": 0.999,
+    "margin": 0.05
+  },
+  "raw_physical_quantiles": {
+    "rho": [
+      3.85856310458621e-06,
+      1.151692090153694
+    ],
+    "press": [
+      2.1412802198028658e-08,
+      0.018025395425036547
+    ]
+  },
+  "raw_physical_bounds": {
+    "rho": [
+      3.6656349493568996e-06,
+      1.2092766946613787
+    ],
+    "press": [
+      2.0342162088127223e-08,
+      0.018926665196288377
+    ]
+  },
+  "transformed_bounds": {
+    "rho": [
+      -5.43466762768648,
+      0.08252568676466489
+    ],
+    "press": [
+      -7.68947317246663,
+      -1.7229258979747561
+    ]
+  },
+  "normalized_bounds": {
+    "rho": [
+      -1.996732264162866,
+      2.5271588850352056
+    ],
+    "press": [
+      -2.7450445085259547,
+      1.898917058743745
+    ]
+  },
+  "penalty_parameters": {
+    "lambda_low_rho": 0.05,
+    "lambda_low_press": 0.05,
+    "lambda_high_rho": 0.0,
+    "lambda_high_press": 0.0,
+    "combined_into_total_paper_loss": false
+  },
+  "evaluation_clamp": {
+    "channels": [
+      "rho",
+      "press"
+    ],
+    "magnetic_and_velocity_channels_unchanged": true,
+    "returns_unclamped_tensor_and_hit_mask": true
+  }
+}

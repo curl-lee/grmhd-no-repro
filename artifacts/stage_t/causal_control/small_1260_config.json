@@ -1,0 +1,89 @@
+{
+  "DATASET_FROZEN": true,
+  "MODEL_FROZEN": true,
+  "PREPROCESSING_FROZEN": true,
+  "SPLIT_FROZEN": true,
+  "checksums": {
+    "artifacts/stage_s/p3_normalizer_expanded/normalizer.npz": "c2a36edbb44732efb857165e9a710d393cec68c6ba285521cd9bcc7b783cffa6",
+    "artifacts/stage_s/small_train_pairs.txt": "980d3f551334c77c9916dc786af6152e917a75bc0abb7e77e8c94f575ac276d0",
+    "artifacts/stage_s/train_val_split.json": "4a909a4294a36d50b7effab093d711b28d5da650b9942f29658d97f5a1a36160",
+    "data_proc/grmhd_regrid_inner_r200_64_expanded.h5": "3582a5c4f52f4fef305578ffd5a63c51423f8583f35d137c288d5c20203b50da",
+    "outputs/paper_reduced100/stage_k/shared_localno_initial_state.pt": "07db393f5c3e831f44bcc2d47b8132c3f9a0e72e2a258618080db487cc13cbb0"
+  },
+  "device": "NVIDIA GeForce RTX 5070",
+  "disabled": [
+    "H1",
+    "physics_loss",
+    "rollout_stabilization"
+  ],
+  "dropped_boundary_pair": [
+    168,
+    169
+  ],
+  "effective_microbatches": 5040,
+  "experiment": "T-small-1260",
+  "initial_tensor_state_sha256": "7e10895cb283be8532e4c036e8a526c536a632cce880c500080ea1d14fd89311",
+  "loss": "PlainL2Loss_on_normalized_residual",
+  "mixed_precision": false,
+  "model_resolved_config": {
+    "architecture": "localno_differential_3d",
+    "conv_padding_mode": "periodic",
+    "default_in_shape": [
+      64,
+      64,
+      64
+    ],
+    "enforce_hermitian_symmetry": true,
+    "fin_diff_kernel_size": 3,
+    "hidden_channels": 16,
+    "in_channels": 16,
+    "local_no_skip": "linear",
+    "mix_derivatives": true,
+    "mixed_precision": false,
+    "n_dim": 3,
+    "n_layers": 4,
+    "n_modes": [
+      8,
+      8,
+      8
+    ],
+    "normalization": null,
+    "out_channels": 8,
+    "positional_embedding": null,
+    "prediction_mode": "normalized_residual",
+    "source": "neuralop.models.LocalNO",
+    "spectral_enabled": true,
+    "use_channel_mlp": false,
+    "use_differential": true,
+    "use_disco": false,
+    "use_local_integral": false
+  },
+  "optimizer": {
+    "gradient_clip_norm": 1.0,
+    "learning_rate": 0.001,
+    "name": "Adam",
+    "weight_decay": 0.0001
+  },
+  "optimizer_updates": 1260,
+  "order_sha256": "ecce16e3aead869fb6768e50cd910dbec790c69a3a6aa5f9066fd1a03f5b5d9e",
+  "parameter_count": 358296,
+  "project_commit": "39dde155093436685c20c4f1d97269a02ae1189d",
+  "scheduler_total_updates": 1260,
+  "shell_definition": {
+    "frozen_radial_shell_channels": 8,
+    "input_channels": 16,
+    "output_channels": 8,
+    "physical_channels": 8,
+    "shell_count": 8,
+    "shell_mode": "spherical_r_adaptation"
+  },
+  "small_pair_count": 79,
+  "torch": "2.12.1+cu130",
+  "torch_cuda": "13.0",
+  "total_updates": 1260,
+  "train_pair_count": 168,
+  "train_pairs": 79,
+  "upstream_commit": "86a8bc7812a31b42c4f7895693cf4ac11521c066",
+  "validation_pair_count": 42,
+  "warmup_updates": 84
+}

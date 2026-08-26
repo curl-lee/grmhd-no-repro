@@ -1,0 +1,573 @@
+{
+  "checksums": {
+    "config_diff": "b00f0bf5bc5c6d6efa197f09026736e6d4295af739b347c08a6ab0affa185ba4",
+    "dataset": {
+      "path": "data_proc/grmhd_regrid_inner_r200_64.h5",
+      "sha256": "cd3966bed1f617f49d775151cff87ae92eb2432a560bb82ae9355605e7aea70a"
+    },
+    "extension_comparison": "86195d2c73d0ea54669eeaadc841aba797428b612974f109e8498cb904693598",
+    "full_config": "ecea96e13088774e227219d76814e6976a39ee4bac1fa209bf5c69672b47b53f",
+    "no_h1_config": "2e8e2ebb611842214c60fe207222ffb401f25b229172c76beab68e205e2278c6",
+    "pair_order_file": "5e1e361ea75e01ffd667822d8bfe870d70c5bc69570d52cdf806e637b2df2b52",
+    "preprocessing": {
+      "path": "outputs/paper_reduced100/stats/normalizer.npz",
+      "sha256": "1645714424d95b02de2283fc16a8ef05f3864d15f11025580af13f3e67964001"
+    },
+    "shared_initial_state_file": "b332b3f7c66a964d264488a27aebae1b0f803fded74291bcdfb881ac4a2e1a82",
+    "shared_initial_state_tensor": "02d83278d5e74a27c83130e99b488ca18eae5477dad9732a4552b694056b6cb1",
+    "stage_d_artifacts": {
+      "bounds": {
+        "path": "outputs/paper_reduced100/priors/physical_bounds.json",
+        "sha256": "3ac9a148f2ab1b4735925c683438a4eec7194e19bb2d4f2eed40b0a2b383d38e"
+      },
+      "dissipation": {
+        "path": "outputs/paper_reduced100/priors/dissipative_reference.json",
+        "sha256": "95725b031d13f93d76bd97d6cf468926797d367973e227d9259c309f22575192"
+      },
+      "envelope": {
+        "path": "outputs/paper_reduced100/priors/residual_envelope.json",
+        "sha256": "3354b711f30f58b784869a5df4f33a55b63884a68b9b70f5f251aebc9203dd46"
+      },
+      "radial": {
+        "path": "outputs/paper_reduced100/priors/radial_selected.json",
+        "sha256": "75e29fdbe0ac38f1cb1bae6b8e9678c10af14508d2b240cf4b738ea12d7b885d"
+      },
+      "roi": {
+        "path": "outputs/paper_reduced100/priors/velocity_roi.json",
+        "sha256": "6993051ffddbd7c51c87d951bc8fa082d54d981fe64347b33bcd41d97b5ea060"
+      },
+      "shells": {
+        "path": "outputs/paper_reduced100/priors/shell_metadata.json",
+        "sha256": "99580fc2c62431f46e6702972660b060aa1294920e5f9530b45b43ce08c190b7"
+      }
+    },
+    "stage_e_loss_contract": {
+      "path": "outputs/paper_reduced100/losses/loss_contract.json",
+      "schema_version": "paper-stage-e-loss-contract-v1",
+      "sha256": "5ca5e5df00490e286550887002f15372883f4dbe591fd31a4a340634d4146aac"
+    },
+    "stage_h_frozen_inputs": "b9ce6ebf051ce6fbb87329a1dec54a675dde6bd3236f504e06c90a55f45e24ed",
+    "stage_i_decision": "c07d116735456c762de641b42db9bc95ae42d8f2035dff53d35a26dd1f86c1ae",
+    "stored_coordinate_config": "4b3f46adcc7cbf1e0d72f83a068a67ebdb9c5461005f1a36c59d00f67a7e1eb6",
+    "stored_coordinate_preflight": "479d71124510b52f7a5be13cf55782e4b7e1bcf8fd1022791112675579262b65",
+    "unit_index_comparison": "bc5732700a6ee0b14d4b0947ddbede5efb75052f8054862fa0064de476d6b2af",
+    "unit_index_config": "d9b82811e07c9f89e8d0f9ff9ba8ded795cbc3e478a4ef90926b2ca23fe5371b",
+    "unit_index_preflight": "cfe67a410a4efd2c0eee6a749348297c97c234493f33c8d02d959465e244c816"
+  },
+  "environment": {
+    "executable": "/home/curl/miniconda3/envs/grmhd-no/bin/python",
+    "gpu": "NVIDIA GeForce RTX 5070",
+    "gpu_capability": [
+      12,
+      0
+    ],
+    "numpy": "2.4.6",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.11.15 (main, Jun 11 2026, 15:20:16) [GCC 14.3.0]",
+    "torch": "2.12.1+cu130",
+    "torch_cuda": "13.0"
+  },
+  "evaluation_protocol": {
+    "checkpoint_selection": "validation normalized arithmetic-average relative L2",
+    "frozen_scoring_source": "src/grmhd/paper_stage_g_evaluation.py",
+    "gt_rollout_steps": 19,
+    "no_gt_rollout_steps": 100,
+    "selected_steps": [
+      1,
+      5,
+      10,
+      19,
+      25,
+      50,
+      75,
+      100
+    ],
+    "validation_pairs": 19
+  },
+  "final_decision": {
+    "choice": "D",
+    "extension_better_category_counts_vs_full": {
+      "no_h1": 5,
+      "stored_coordinate": 5,
+      "unit_index": 5
+    },
+    "extension_better_category_counts_vs_plain": {
+      "no_h1": 1,
+      "stored_coordinate": 0,
+      "unit_index": 1
+    },
+    "h1_adaptation_conclusion": "Stage I extensions diagnose adaptation mismatch and do not replace Stage G Full.",
+    "name": "No extension rescues Full",
+    "paper_ablation_conclusion": "Do not start further training automatically; review this decision first.",
+    "paper_main_path": "Stage G Full with current upstream H1 weight 0.05 remains frozen",
+    "recommended_next_direction": "Improve upstream-to-paper geometry/operator fidelity before interpreting more loss ablations.",
+    "run_c_gate": {
+      "gt_finite_positive": true,
+      "microbatches_exact": true,
+      "no_gt_finite_positive": true,
+      "nonfinite_zero": true,
+      "optimizer_updates_exact": true,
+      "strict_reload": true,
+      "training_complete": true,
+      "validation_finite_positive": true
+    },
+    "schema_version": "paper-stage-i-final-decision-v1",
+    "stored_better_than_full_categories": [
+      "polar_morphology",
+      "magnetic_texture",
+      "radial_statistics",
+      "outer_shell_statistics",
+      "model_only_saturation"
+    ],
+    "stored_better_than_plain_categories": []
+  },
+  "model": {
+    "hidden_channels": 16,
+    "in_channels": 16,
+    "mixed_precision": false,
+    "n_layers": 4,
+    "n_modes": [
+      8,
+      8,
+      8
+    ],
+    "out_channels": 8,
+    "parameter_count": 331832,
+    "positional_embedding": null,
+    "source": "neuralop.models.FNO"
+  },
+  "partial_decision": {
+    "choice": "A",
+    "final_stage_i_decision": false,
+    "gate": {
+      "frozen_scoring_reproduced": true,
+      "gt19_finite_positive": true,
+      "no_gt100_finite_positive": true,
+      "stored_coordinate_not_executed": true,
+      "strict_reload": true,
+      "training_complete": true,
+      "validation_finite_positive": true
+    },
+    "meaning": "unit-index passed; stored-coordinate remains the next separately authorized action"
+  },
+  "project_branch": "codex/paper-faithful-reduced-reproduction",
+  "project_commit": "a4093a831c329f3332d2ca3268877cc49fddb82b",
+  "runs": {
+    "no_h1": {
+      "best_epoch": 25,
+      "best_validation_average": 0.4828240411753495,
+      "best_validation_global": 0.3864974195988429,
+      "experiment": "stage_i_no_h1",
+      "file_sha256": {
+        "best_validation_l2/manifest.pt": "1201e63323636422c1ff3d98e9784eae00b39773d55f7435a92469af9a465b28",
+        "best_validation_l2/optimizer.pt": "144336d1f84fe059a954f2c436d107d6cabeedaf65ceb270218998ea6dee37c4",
+        "best_validation_l2/paper_grmhd_metadata.json": "687e67a50d4e37625564118a6822e37b6eb8cbdfcb660b4fbe3eb344bb5787c5",
+        "best_validation_l2/paper_metadata.pkl": "7340d5df6df5f2a3e254840e5ef44fa2c735c4b3af45c7fa939521f4722093a8",
+        "best_validation_l2/paper_state_dict.pt": "25c2d3850a358d1cc9d025ab5c5a5c98a1e5cb4a9fb857c8771924b61cb224b7",
+        "best_validation_l2/scheduler.pt": "142d0fe5d84dfe283042744143373b222cd24ac8432ce34c64574230fe7ae422",
+        "evaluation_summary.json": "afbfb751ceec47be1e2a04d89b0090f49158094f5dff6c9c1bc9c1bbc150accb",
+        "gt_rollout.json": "e5ead9646ad2cc26f54d25b3fe4262af160163492578ffdfcd5a3a0ab4b505ab",
+        "last/manifest.pt": "1b2198015cb8ff67ddd3ed28e06635294212316f2c344364e5c7fc362df239c3",
+        "last/optimizer.pt": "476c682513c4a4a0634853395e5325e2bbe164db9834588daa3ae414d6e978e3",
+        "last/paper_grmhd_metadata.json": "ba87e84fed5bc313771e8a14a6c1f44567ab4023e44d1c11609e51d7a418ef53",
+        "last/paper_metadata.pkl": "7340d5df6df5f2a3e254840e5ef44fa2c735c4b3af45c7fa939521f4722093a8",
+        "last/paper_state_dict.pt": "5a2cba35ad4457697d92372ae2bd22f4cc7e58bb38c266676ebd42ac952d4b5e",
+        "last/scheduler.pt": "665575ab94754602b9c3d35819df94058f5343ff98b25c41fe98d7ef287fe78c",
+        "metrics.json": "c1eced89c21d2c8edc8f26f7cec3c21ce024be812c35fd1f7e2328a53ae7924e",
+        "no_gt_rollout.json": "e302840241b3c179d614bba01faf099d598a66387cdd283257a56367db617fd9"
+      },
+      "status": "completed_and_frozen",
+      "strict_reload": {
+        "best_validation_l2": {
+          "epoch": 25,
+          "metadata_validated": true,
+          "model_strict_reload": true
+        },
+        "last": {
+          "epoch": 30,
+          "metadata_validated": true,
+          "model_strict_reload": true
+        }
+      }
+    },
+    "stored_coordinate_volume_proxy": {
+      "best_epoch": 25,
+      "best_validation_average": 0.4442715609344455,
+      "best_validation_global": 0.3625434899471909,
+      "classification": {
+        "comparison_parent": "stage_g_paper_adapted_full",
+        "extension_reason": "stored_spherical_coordinate_H1_adaptation_diagnosis",
+        "paired_controls": [
+          "stage_g_full",
+          "stage_g_plain",
+          "stage_i_no_h1",
+          "stage_i_unit_index_h1"
+        ],
+        "paper_faithful_full": false,
+        "reproduction_level": "diagnostic_extension"
+      },
+      "config": "configs/paper_reduced100/extensions/stored_coordinate_volume_h1.yaml",
+      "diagnostic_current_upstream_h1_trained": false,
+      "diagnostic_unit_index_h1_trained": false,
+      "experiment": "stage_i_stored_coordinate_volume_h1",
+      "file_sha256": {
+        "best_validation_l2/manifest.pt": "1201e63323636422c1ff3d98e9784eae00b39773d55f7435a92469af9a465b28",
+        "best_validation_l2/optimizer.pt": "1ff95ab576c472c916ac3162f6602f242f0a7cbde8e2a10927bd5652449969c2",
+        "best_validation_l2/paper_grmhd_metadata.json": "58c18545020d6a11f7d75e5ed7f418cdb8030a00ef3a89e8c7e7b88333b2a6af",
+        "best_validation_l2/paper_metadata.pkl": "7340d5df6df5f2a3e254840e5ef44fa2c735c4b3af45c7fa939521f4722093a8",
+        "best_validation_l2/paper_state_dict.pt": "0ea78db31a84d2ae35110d5ed6c3f6c459653b4fae0403945e8eeb39e82fd0a4",
+        "best_validation_l2/scheduler.pt": "142d0fe5d84dfe283042744143373b222cd24ac8432ce34c64574230fe7ae422",
+        "evaluation_summary.json": "d1ee35ebee64dcf103dc207405026d2451b051ad1e7f3761b67dd6ceec912cf2",
+        "gt_rollout.json": "0f411e06cefceb7a448a4dd56bb417c3dee4c451a4c080d13c5a0e704353d174",
+        "last/manifest.pt": "1b2198015cb8ff67ddd3ed28e06635294212316f2c344364e5c7fc362df239c3",
+        "last/optimizer.pt": "932ffcf6051d6e0001168704fd782b9a42e7e5670f5cd2a4cd98cfd8083884ba",
+        "last/paper_grmhd_metadata.json": "abfb9a4c6de06a2833d52c743533957bf96481b088d185d58f6332121a724a92",
+        "last/paper_metadata.pkl": "7340d5df6df5f2a3e254840e5ef44fa2c735c4b3af45c7fa939521f4722093a8",
+        "last/paper_state_dict.pt": "43c6052090415f91077e88ab1a60f52c73080110e95fd9e73c0214546319bc5e",
+        "last/scheduler.pt": "665575ab94754602b9c3d35819df94058f5343ff98b25c41fe98d7ef287fe78c",
+        "metrics.json": "eccb68a2755d58b4dc34f8068ac23dd596eee6534d3e9cdd8b4f66cb38488fa3",
+        "no_gt_rollout.json": "8aac72db9852d927b8315c35432bb3ae4625ebd2892e76ff9c6fcbebdc0b7fde"
+      },
+      "nonfinite_count": 0,
+      "optimizer_updates": 600,
+      "output_directory_exists": false,
+      "preflight": "outputs/paper_reduced100/stage_i/stored_coordinate_preflight.json",
+      "runtime_seconds": 593.7330916379997,
+      "selected_h1_definition": {
+        "coordinate_combined_sha256": "68b3cd5f9f7c852007fb3b619013620ba77b8c97e5c0a4f2aeb1463986b54a11",
+        "coordinate_sha256": {
+          "phi": "f13d8c02e999bec4f41eec95aada9d354d4c3999d117b236b785bd7953fa658d",
+          "r": "da8b8c3718deaf07d93ea3fd1479a3444a280e54d89b69878547ecd9b1dea199",
+          "theta": "08268dda41e5196e0e1358fba84178d50e8bec67e501de0053e1301a2abf72a4"
+        },
+        "coordinate_source": "frozen_hdf5_centers",
+        "covariant_GRMHD_H1": false,
+        "diagnostic_proxy_only": true,
+        "mode": "stored_coordinate_volume_proxy",
+        "phi_boundary": "periodic_centered",
+        "proper_Kerr_Schild_volume": "unverified",
+        "r_boundary": "open_nonuniform_three_point_lagrange",
+        "radial_coordinate": "physical_r",
+        "reduction": "normalized_r2_sin_theta_coordinate_volume_proxy",
+        "stencil": "centered_or_three_point_coordinate_lagrange",
+        "stored_vector_covariant_derivative": false,
+        "theta_boundary": "open_three_point_lagrange",
+        "volume_proxy": {
+          "finite": true,
+          "formula": "r2_sin_theta_dphi_dtheta_dr",
+          "nonnegative": true,
+          "normalization": "explicit_sum_to_one",
+          "normalization_sum": 1.0,
+          "pole_handling": "theta_center_sin_clamp_min_0",
+          "pole_sin_floor": 0.0,
+          "weight_sha256": "64ca16b6bb0fa9c1379b97eac21cbe39779b154df4be3b42cc91fe8b7ffbe17d"
+        },
+        "weight": 0.05
+      },
+      "status": "completed_and_evaluated",
+      "strict_reload": {
+        "best": {
+          "epoch": 25,
+          "metadata_validated": true,
+          "optimizer_reload": true,
+          "path": "/home/curl/projects/grmhd-no-repro/outputs/paper_reduced100/stage_i/stored_coordinate_volume_h1/best_validation_l2",
+          "prediction_parity": true,
+          "prediction_sha256": "54364872f9de807e73c5c5cbe5f4bdeef8ecbf7d174390ca8357cacd7230ea4c",
+          "roi_ramp": 0.06666666666666667,
+          "scheduler_reload": true,
+          "stage_g": {
+            "gradient_clip_norm": 1.0,
+            "h1_weight": 0.05,
+            "optimizer_step": 500,
+            "pair_order_sha256": "5e1e361ea75e01ffd667822d8bfe870d70c5bc69570d52cdf806e637b2df2b52",
+            "resource_scaled_training": true,
+            "shared_initial_state_sha256": "02d83278d5e74a27c83130e99b488ca18eae5477dad9732a4552b694056b6cb1"
+          },
+          "stage_i": {
+            "comparison_parent": "stage_g_paper_adapted_full",
+            "diagnostic_current_upstream_h1_trained": false,
+            "diagnostic_h1_mode": "stored_coordinate_volume_proxy",
+            "extension_reason": "stored_spherical_coordinate_H1_adaptation_diagnosis",
+            "non_h1_loss_contract": {
+              "base": {
+                "density_weight": 1.0,
+                "magnetic_weight": 1.2,
+                "pressure_weight": 1.0,
+                "velocity_weight": 1.0
+              },
+              "bounds": {
+                "artifact": "outputs/paper_reduced100/priors/physical_bounds.json",
+                "enabled": true,
+                "press_lower_weight": 0.05,
+                "rho_lower_weight": 0.05,
+                "upper_weights": 0
+              },
+              "dissipation": {
+                "alpha": 0.0005,
+                "artifact": "outputs/paper_reduced100/priors/dissipative_reference.json",
+                "enabled": true
+              },
+              "envelope": {
+                "artifact": "outputs/paper_reduced100/priors/residual_envelope.json",
+                "delta_press": 1.5,
+                "delta_rho": 1.5,
+                "enabled": true,
+                "weight_press": 0.05,
+                "weight_rho": 0.05
+              },
+              "roi": {
+                "enabled": true,
+                "kappa": 8,
+                "mask_source": "canonical_oracle_physical_target",
+                "ramp_epochs": 375,
+                "top_fraction": 0.2
+              }
+            },
+            "paper_faithful_full": false,
+            "reproduction_level": "diagnostic_extension",
+            "selected_h1_definition": {
+              "coordinate_combined_sha256": "68b3cd5f9f7c852007fb3b619013620ba77b8c97e5c0a4f2aeb1463986b54a11",
+              "coordinate_sha256": {
+                "phi": "f13d8c02e999bec4f41eec95aada9d354d4c3999d117b236b785bd7953fa658d",
+                "r": "da8b8c3718deaf07d93ea3fd1479a3444a280e54d89b69878547ecd9b1dea199",
+                "theta": "08268dda41e5196e0e1358fba84178d50e8bec67e501de0053e1301a2abf72a4"
+              },
+              "coordinate_source": "frozen_hdf5_centers",
+              "covariant_GRMHD_H1": false,
+              "diagnostic_proxy_only": true,
+              "mode": "stored_coordinate_volume_proxy",
+              "phi_boundary": "periodic_centered",
+              "proper_Kerr_Schild_volume": "unverified",
+              "r_boundary": "open_nonuniform_three_point_lagrange",
+              "radial_coordinate": "physical_r",
+              "reduction": "normalized_r2_sin_theta_coordinate_volume_proxy",
+              "stencil": "centered_or_three_point_coordinate_lagrange",
+              "stored_vector_covariant_derivative": false,
+              "theta_boundary": "open_three_point_lagrange",
+              "volume_proxy": {
+                "finite": true,
+                "formula": "r2_sin_theta_dphi_dtheta_dr",
+                "nonnegative": true,
+                "normalization": "explicit_sum_to_one",
+                "normalization_sum": 1.0,
+                "pole_handling": "theta_center_sin_clamp_min_0",
+                "pole_sin_floor": 0.0,
+                "weight_sha256": "64ca16b6bb0fa9c1379b97eac21cbe39779b154df4be3b42cc91fe8b7ffbe17d"
+              },
+              "weight": 0.05
+            },
+            "selected_h1_training_coefficient": 0.05,
+            "stage_g_parent_config": "configs/paper_reduced100/full_fno_proxy.yaml"
+          },
+          "strict_model_reload": true
+        },
+        "last": {
+          "epoch": 30,
+          "metadata_validated": true,
+          "optimizer_reload": true,
+          "path": "/home/curl/projects/grmhd-no-repro/outputs/paper_reduced100/stage_i/stored_coordinate_volume_h1/last",
+          "prediction_parity": true,
+          "prediction_sha256": "c816b5108d9d2c643b3fa3a8b979cfaa271b901f6b992c5608f6767475bc49f8",
+          "roi_ramp": 0.08,
+          "scheduler_reload": true,
+          "stage_g": {
+            "gradient_clip_norm": 1.0,
+            "h1_weight": 0.05,
+            "optimizer_step": 600,
+            "pair_order_sha256": "5e1e361ea75e01ffd667822d8bfe870d70c5bc69570d52cdf806e637b2df2b52",
+            "resource_scaled_training": true,
+            "shared_initial_state_sha256": "02d83278d5e74a27c83130e99b488ca18eae5477dad9732a4552b694056b6cb1"
+          },
+          "stage_i": {
+            "comparison_parent": "stage_g_paper_adapted_full",
+            "diagnostic_current_upstream_h1_trained": false,
+            "diagnostic_h1_mode": "stored_coordinate_volume_proxy",
+            "extension_reason": "stored_spherical_coordinate_H1_adaptation_diagnosis",
+            "non_h1_loss_contract": {
+              "base": {
+                "density_weight": 1.0,
+                "magnetic_weight": 1.2,
+                "pressure_weight": 1.0,
+                "velocity_weight": 1.0
+              },
+              "bounds": {
+                "artifact": "outputs/paper_reduced100/priors/physical_bounds.json",
+                "enabled": true,
+                "press_lower_weight": 0.05,
+                "rho_lower_weight": 0.05,
+                "upper_weights": 0
+              },
+              "dissipation": {
+                "alpha": 0.0005,
+                "artifact": "outputs/paper_reduced100/priors/dissipative_reference.json",
+                "enabled": true
+              },
+              "envelope": {
+                "artifact": "outputs/paper_reduced100/priors/residual_envelope.json",
+                "delta_press": 1.5,
+                "delta_rho": 1.5,
+                "enabled": true,
+                "weight_press": 0.05,
+                "weight_rho": 0.05
+              },
+              "roi": {
+                "enabled": true,
+                "kappa": 8,
+                "mask_source": "canonical_oracle_physical_target",
+                "ramp_epochs": 375,
+                "top_fraction": 0.2
+              }
+            },
+            "paper_faithful_full": false,
+            "reproduction_level": "diagnostic_extension",
+            "selected_h1_definition": {
+              "coordinate_combined_sha256": "68b3cd5f9f7c852007fb3b619013620ba77b8c97e5c0a4f2aeb1463986b54a11",
+              "coordinate_sha256": {
+                "phi": "f13d8c02e999bec4f41eec95aada9d354d4c3999d117b236b785bd7953fa658d",
+                "r": "da8b8c3718deaf07d93ea3fd1479a3444a280e54d89b69878547ecd9b1dea199",
+                "theta": "08268dda41e5196e0e1358fba84178d50e8bec67e501de0053e1301a2abf72a4"
+              },
+              "coordinate_source": "frozen_hdf5_centers",
+              "covariant_GRMHD_H1": false,
+              "diagnostic_proxy_only": true,
+              "mode": "stored_coordinate_volume_proxy",
+              "phi_boundary": "periodic_centered",
+              "proper_Kerr_Schild_volume": "unverified",
+              "r_boundary": "open_nonuniform_three_point_lagrange",
+              "radial_coordinate": "physical_r",
+              "reduction": "normalized_r2_sin_theta_coordinate_volume_proxy",
+              "stencil": "centered_or_three_point_coordinate_lagrange",
+              "stored_vector_covariant_derivative": false,
+              "theta_boundary": "open_three_point_lagrange",
+              "volume_proxy": {
+                "finite": true,
+                "formula": "r2_sin_theta_dphi_dtheta_dr",
+                "nonnegative": true,
+                "normalization": "explicit_sum_to_one",
+                "normalization_sum": 1.0,
+                "pole_handling": "theta_center_sin_clamp_min_0",
+                "pole_sin_floor": 0.0,
+                "weight_sha256": "64ca16b6bb0fa9c1379b97eac21cbe39779b154df4be3b42cc91fe8b7ffbe17d"
+              },
+              "weight": 0.05
+            },
+            "selected_h1_training_coefficient": 0.05,
+            "stage_g_parent_config": "configs/paper_reduced100/full_fno_proxy.yaml"
+          },
+          "strict_model_reload": true
+        }
+      }
+    },
+    "unit_index": {
+      "best_epoch": 27,
+      "best_validation_average": 0.4824851856323197,
+      "best_validation_global": 0.38546929081929604,
+      "classification": {
+        "comparison_parent": "stage_g_paper_adapted_full",
+        "extension_reason": "isolate_unit_cube_spacing_amplification",
+        "paired_controls": [
+          "stage_g_full",
+          "stage_g_plain",
+          "stage_i_no_h1"
+        ],
+        "paper_faithful_full": false,
+        "reproduction_level": "diagnostic_extension"
+      },
+      "config": "configs/paper_reduced100/extensions/unit_index_h1.yaml",
+      "diagnostic_current_upstream_h1_trained": false,
+      "experiment": "stage_i_unit_index_h1",
+      "file_sha256": {
+        "best_validation_l2/manifest.pt": "55525ff9d53000369f9578219590e851c0e8d8a9214f4ba31b6d2e6a721e8f58",
+        "best_validation_l2/optimizer.pt": "1ee5c37b37be7ce8fc7c547a18b9616cb08fa9e56cebad76bd336ce647c30f2d",
+        "best_validation_l2/paper_grmhd_metadata.json": "dd8bae827220db117b844d5862a02810dea7ff244dd0ab513f68ceba99d3938d",
+        "best_validation_l2/paper_metadata.pkl": "7340d5df6df5f2a3e254840e5ef44fa2c735c4b3af45c7fa939521f4722093a8",
+        "best_validation_l2/paper_state_dict.pt": "dadf2030ac98c4e2132fa4dfe1fbe5d80321176f9d8521cd729472841f60f3ce",
+        "best_validation_l2/scheduler.pt": "3882ae18a590b9f6e58c79ffb98a4599781d1e731c3d548f83e27b0af0f03481",
+        "evaluation_summary.json": "c8c0e247eb878e4abfabae78d46a9f803c87f70abe4fec759ee71f1e46d8e2a4",
+        "gt_rollout.json": "643b1f682e013d3e57ec97b9053c12ebfd061919d4556d282da5f060dd899490",
+        "last/manifest.pt": "1b2198015cb8ff67ddd3ed28e06635294212316f2c344364e5c7fc362df239c3",
+        "last/optimizer.pt": "6e902a937ead82d1386e7166bebcb2cdde0c104b6307c7e66b9537f9dafdbb44",
+        "last/paper_grmhd_metadata.json": "c3f03c35534609cc26b709999e07746f511fb5f7f3bd44fc4e57352f3173a3b8",
+        "last/paper_metadata.pkl": "7340d5df6df5f2a3e254840e5ef44fa2c735c4b3af45c7fa939521f4722093a8",
+        "last/paper_state_dict.pt": "71f5c7332fbf9a5a0153c4b6585f64c9767bb25568bdc1305b6927a68d1d363b",
+        "last/scheduler.pt": "665575ab94754602b9c3d35819df94058f5343ff98b25c41fe98d7ef287fe78c",
+        "metrics.json": "df879884e0004f0b4bbcdef0f523019c6e7a585fa06c8d34cb9a3ae46c3e11ad",
+        "no_gt_rollout.json": "6a6e936a7addffcf322441679d7decad7482156366ed389bc1712a31e490f2fe"
+      },
+      "nonfinite_count": 0,
+      "optimizer_updates": 600,
+      "preflight": "outputs/paper_reduced100/stage_i/unit_index_preflight.json",
+      "runtime_seconds": 333.37410729500016,
+      "selected_h1_definition": {
+        "boundary": "periodic_wrap_all_three_axes",
+        "mode": "unit_index",
+        "physical_r_spacing": false,
+        "reduction": "uniform_voxel_mean",
+        "shell_weighting": false,
+        "spacings": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "spherical_metric_factors": false,
+        "stencil": "second_order_centered",
+        "volume_weighting": false,
+        "weight": 0.05
+      },
+      "status": "completed_and_evaluated",
+      "strict_reload": {
+        "best_validation_l2": {
+          "epoch": 27,
+          "metadata_validated": true,
+          "model_strict_reload": true
+        },
+        "last": {
+          "epoch": 30,
+          "metadata_validated": true,
+          "model_strict_reload": true
+        }
+      }
+    }
+  },
+  "schema_version": "paper-stage-i-run-manifest-v3",
+  "split": {
+    "dropped_transition": [
+      90,
+      91
+    ],
+    "pair_order_epochs": 30,
+    "train_pairs": 79,
+    "validation_pairs": 19,
+    "validation_shuffle": false
+  },
+  "status": "stage_i_completed",
+  "training": {
+    "batch_size": 1,
+    "early_stopping": false,
+    "epochs": 30,
+    "final_accumulation_count": 3,
+    "gradient_accumulation": 4,
+    "gradient_clip_norm": 1.0,
+    "microbatches_per_epoch": 79,
+    "microbatches_total": 2370,
+    "mixed_precision": false,
+    "optimizer": {
+      "learning_rate": 0.001,
+      "name": "Adam",
+      "weight_decay": 0.0001
+    },
+    "optimizer_steps_per_epoch": 20,
+    "optimizer_steps_total": 600,
+    "scheduler": {
+      "actual_default_epochs": 30,
+      "actual_default_warmup_epochs": 2,
+      "min_learning_rate": 1e-06,
+      "name": "warmup_cosine",
+      "paper_epochs": 1200,
+      "paper_warmup_epochs": 75,
+      "resource_scaled_training": true
+    },
+    "seed": 42
+  },
+  "upstream_commit": "86a8bc7812a31b42c4f7895693cf4ac11521c066"
+}

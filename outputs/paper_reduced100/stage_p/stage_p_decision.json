@@ -1,0 +1,29 @@
+{
+  "classification": "post_hoc_closed_loop_failure_attribution",
+  "decision": "6. MIXED_CLOSED_LOOP_FAILURE",
+  "engineering": {
+    "no_backward": true,
+    "no_checkpoint_write": true,
+    "no_optimizer": true,
+    "no_scheduler": true,
+    "no_training": true,
+    "strict_stage_o_model_reload": true
+  },
+  "frozen_history": {
+    "Stage K": "C. TRAINING_COMPLETE_BUT_ROLLOUT_UNSTABLE",
+    "Stage L": "3. MIXED_OVERALL",
+    "Stage M": "4. MIXED_TRANSPORT_AND_PREPROCESSING_FAILURE",
+    "Stage N": "P3 ready; mixed operator-response failure",
+    "Stage O": "C. P3_PILOT_COMPLETE_BUT_ROLLOUT_UNSTABLE"
+  },
+  "mechanism_status": {
+    "M1": "supported",
+    "M2": "supported",
+    "M3": "weakly_supported",
+    "M4": "weakly_supported",
+    "M5": "supported"
+  },
+  "next_authorized_action": "proposal_only; follow the decision-specific Stage P rule and change one factor at a time",
+  "schema_version": "paper-stage-p-decision-v1",
+  "stage_o_decision_changed": false
+}

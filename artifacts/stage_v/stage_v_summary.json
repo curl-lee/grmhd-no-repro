@@ -1,0 +1,133 @@
+{
+  "AUTHORIZE_NEXT_STAGE": "non_euclidean_spectral_operator_design",
+  "DISTRIBUTION_SHIFT_ERROR_COUPLING": "MODERATE",
+  "NORMALIZED_DYNAMICS_FAILURE_SEPARATE_FROM_DECODER_PHYSICAL_TAIL_AMPLIFICATION": true,
+  "OBJECTIVE_GRADIENT_CONFLICT": "WEAK",
+  "PAPER_FULL_PILOT": "PAPER_FULL_PILOT_NOT_AUTHORIZED",
+  "PLAIN_L2_TRANSPORT_MISALIGNMENT": false,
+  "PRIMARY_DECISION": "C",
+  "SHIFT_FINDING": "LOW",
+  "controlled_pairing": {
+    "all_variants_match_stage_t_first_150_epoch_order": true,
+    "initial_tensor_state_sha256": "7e10895cb283be8532e4c036e8a526c536a632cce880c500080ea1d14fd89311",
+    "pair_order_sha256": "e8f20d8ff8ea67160d9655f6bc0e9fc41eedf2f3b2737e48075ea5cdbae94bb7",
+    "parameter_count": 358296
+  },
+  "decision_thresholds_predeclared_in_src_grmhd_stage_v_analysis": {
+    "meaningful_transport_skill_improvement": 0.1,
+    "strong_rollout_delay_after_step": 3
+  },
+  "first_10x_step": {
+    "direction": 1,
+    "direction_transport": 1,
+    "stage_t_plain": 1,
+    "transport": 1
+  },
+  "late_validation_degradation_synchronized_with_train_derived_ood": true,
+  "least_plain_transport_aligned_channels": [
+    "vel3",
+    "Bcc3",
+    "press",
+    "rho",
+    "Bcc2"
+  ],
+  "per_channel_plain_transport_correlation_strength": {
+    "Bcc2": 0.6570780325743457,
+    "Bcc3": 0.3965642978688923,
+    "press": 0.5373956729600519,
+    "rho": 0.5680252815817195,
+    "vel3": 0.2850660400291711
+  },
+  "per_channel_plain_transport_gradient_cosine_median": {
+    "Bcc2": 0.7482111155986786,
+    "Bcc3": 0.6125743687152863,
+    "press": 0.8567542433738708,
+    "rho": 0.9053705036640167,
+    "vel3": 0.9411982297897339
+  },
+  "physical_tail_amplification_ratio_physical_over_normalized": {
+    "direction:press": 1191465547941884.5,
+    "direction:rho": 6.578349685980496e+22,
+    "direction_transport:press": 385060723666021.3,
+    "direction_transport:rho": 15182247066182.07,
+    "stage_t_plain:press": 16420.10517253926,
+    "stage_t_plain:rho": 89.99409379689178,
+    "transport:press": 74648999.18656604,
+    "transport:rho": 974370401.0179496
+  },
+  "plain_validation_spearman": {
+    "radial_error": 0.46924884531237343,
+    "residual_cosine_error": 0.5326148610323312,
+    "residual_relative_l2": 0.7009966777408637,
+    "shell_error": 0.6470302244550684,
+    "state_relative_l2": 0.9382545984928289
+  },
+  "schema_version": "stage-v-summary-v1",
+  "stage_t_late_over_early_state_error": 1.545780087634221,
+  "strongest_transport_gradient_conflict_channels": [
+    "Bcc3",
+    "Bcc2",
+    "press",
+    "rho",
+    "vel3"
+  ],
+  "training": {
+    "direction": {
+      "all_finite": true,
+      "clipping_fraction_mean": 0.9977777777777779,
+      "optimizer_updates": 6300,
+      "peak_allocated_mib": 562.81787109375,
+      "runtime_seconds": 1704.4898374089971
+    },
+    "direction_transport": {
+      "all_finite": true,
+      "clipping_fraction_mean": 0.9984126984126984,
+      "optimizer_updates": 6300,
+      "peak_allocated_mib": 562.8193359375,
+      "runtime_seconds": 2048.042872229009
+    },
+    "stage_t_plain": {
+      "all_finite": true,
+      "clipping_fraction_mean": 0.9963492063492062,
+      "optimizer_updates": 6300,
+      "peak_allocated_mib": 562.81591796875,
+      "runtime_seconds": 1675.6262465409964
+    },
+    "transport": {
+      "all_finite": true,
+      "clipping_fraction_mean": 0.9984126984126984,
+      "optimizer_updates": 6300,
+      "peak_allocated_mib": 562.81884765625,
+      "runtime_seconds": 1946.6753273100048
+    }
+  },
+  "transport_improvement_channel_order": [
+    "press",
+    "vel3",
+    "Bcc3",
+    "Bcc2",
+    "rho"
+  ],
+  "transport_improvements": {
+    "Bcc2": {
+      "direction_transport": -10.376186430455594,
+      "transport": -77.168189724075
+    },
+    "Bcc3": {
+      "direction_transport": -1.2295150176756746,
+      "transport": -7.767359307830393
+    },
+    "press": {
+      "direction_transport": -618438206557792.6,
+      "transport": 186044.70712767847
+    },
+    "rho": {
+      "direction_transport": -8553433.841334041,
+      "transport": -5193673.997422747
+    },
+    "vel3": {
+      "direction_transport": -1.8853146648589638,
+      "transport": 0.2502700654047092
+    }
+  }
+}

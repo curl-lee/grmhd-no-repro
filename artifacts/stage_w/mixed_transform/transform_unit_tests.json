@@ -1,0 +1,34 @@
+{
+  "LOG_R_GRID_UNIFORM": true,
+  "all_core_tests_passed": true,
+  "baseline_parameter_count": 358296,
+  "mode_localization_energy_fraction": {
+    "log_r": 1.0,
+    "phi": 1.0,
+    "product": 1.0,
+    "theta": 1.0
+  },
+  "nonperiodic_outer_wrap_ratio_vs_fft": 0.09990184009075165,
+  "parameter_count": 358296,
+  "parameter_count_relative_delta": 0.0,
+  "parseval_relative_energy_error": 0.0,
+  "phi_shift_relative_l2": 4.0848192384146387e-07,
+  "roundtrip_relative_l2": {
+    "float32": 2.1685042383978725e-07,
+    "float64": 4.4326091239102716e-16
+  },
+  "schema_version": "stage-w-transform-tests-v1",
+  "tests": {
+    "E1_float32_roundtrip": true,
+    "E1_float64_roundtrip": true,
+    "E2_parseval": true,
+    "E3_mode_localization": true,
+    "E4_phi_periodic_shift": true,
+    "E5_theta_boundary": true,
+    "E6_radial_boundary": true,
+    "parameter_count_delta_below_10_percent": true,
+    "w1_w2_common_initial_tensor_hash": true
+  },
+  "w1_initial_tensor_sha256": "a31974d5cc76eec0cfc847af7b4f8f8207e3bbccd1d7ae07df46ba77d4e20ac7",
+  "w2_initial_tensor_sha256": "a31974d5cc76eec0cfc847af7b4f8f8207e3bbccd1d7ae07df46ba77d4e20ac7"
+}

@@ -1,0 +1,11 @@
+# Stage T Decision
+
+PRIMARY_DECISION = B
+PRIMARY_DECISION_LABEL = OPTIMIZATION_IMPROVES_STATE_NOT_DYNAMICS
+SECONDARY_DATA_FINDING = NEUTRAL
+DATA_EFFECT_AT_1260 = NEUTRAL
+OBJECTIVE_METRIC_DECOUPLING = true
+TEMPORAL_SHIFT_SENSITIVITY = STRONG
+AUTHORIZE_STAGE_U = true
+
+Optimization budget has been sufficiently tested; the next controlled variable should be spherical-grid/operator geometry.

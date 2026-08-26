@@ -1,0 +1,91 @@
+{
+  "MIXED_BASIS_IS_NOT_KERR_SCHILD_COVARIANT": true,
+  "MIXED_BASIS_IS_NOT_SPHERICAL_HARMONICS": true,
+  "axis_order": [
+    "phi",
+    "theta",
+    "r"
+  ],
+  "dataset": "data_proc/grmhd_regrid_inner_r200_64_expanded.h5",
+  "dataset_sha256": "3582a5c4f52f4fef305578ffd5a63c51423f8583f35d137c288d5c20203b50da",
+  "hdf5_metadata": {
+    "channels": [
+      "Bcc1",
+      "Bcc2",
+      "Bcc3",
+      "rho",
+      "press",
+      "vel1",
+      "vel2",
+      "vel3"
+    ],
+    "method": "nearest_leaf",
+    "not_conservative": true,
+    "not_divergence_preserving": true,
+    "r_range_edges": [
+      1.100000023841858,
+      200.0
+    ],
+    "shape": [
+      212,
+      8,
+      64,
+      64,
+      64
+    ]
+  },
+  "log_r": {
+    "LOG_R_GRID_UNIFORM": true,
+    "center_ratio_max": 1.0846929884027328,
+    "center_ratio_min": 1.084692988402732,
+    "dct_collocation_note": "Stored log-r centers are uniformly spaced; DCT-II uses the equivalent midpoint-index cosine grid over inferred log-r faces.",
+    "definition": "(log(r)-log(r_min))/(log(r_max)-log(r_min)) on stored centers",
+    "delta_xi_max": 0.01587301587301604,
+    "delta_xi_mean": 0.015873015873015872,
+    "delta_xi_min": 0.015873015873015706,
+    "delta_xi_std": 6.284955871587271e-17,
+    "delta_xi_std_over_mean": 3.959522199099981e-15,
+    "inferred_face_bounds": [
+      1.100000023841858,
+      200.0
+    ],
+    "maximum_absolute_deviation_from_uniform": 1.6653345369377348e-16,
+    "r_max_center": 192.03331509030292,
+    "r_min_center": 1.1456345721309733,
+    "xi_max": 1.0,
+    "xi_min": 0.0
+  },
+  "phi": {
+    "center_max": 6.234098095446825,
+    "center_min": 0.04908738657832146,
+    "full_2pi": true,
+    "inferred_face_bounds": [
+      1.3659809394717115e-09,
+      6.283185308545567
+    ],
+    "periodic_seam_policy": "cell centers exclude seam; inferred faces are 0 and 2pi; circular phi operator",
+    "spacing": 0.09817477315664291,
+    "uniform": true
+  },
+  "schema_version": "stage-w-coordinate-basis-v1",
+  "snapshot_shape": [
+    212,
+    8,
+    64,
+    64,
+    64
+  ],
+  "theta": {
+    "center_max": 3.1170490477234125,
+    "center_min": 0.02454369328916073,
+    "contains_exact_pole_centers": false,
+    "inferred_face_bounds": [
+      0.0,
+      3.1415927410125732
+    ],
+    "poles_are_inferred_faces": true,
+    "spacing_max": 0.04908738657832146,
+    "spacing_min": 0.04908738657832146,
+    "uniform": true
+  }
+}

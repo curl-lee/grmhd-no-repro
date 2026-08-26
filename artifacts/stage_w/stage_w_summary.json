@@ -1,0 +1,208 @@
+{
+  "AUTHORIZE_NEXT_STAGE": "paper_method_gap_and_coordinate_representation_audit",
+  "LOG_R_GRID_UNIFORM": true,
+  "NONPERIODIC_BASIS_BOUNDARY_BENEFIT": false,
+  "PRIMARY_DECISION": "D",
+  "SPECTRAL_GEOMETRY_HYPOTHESIS_SUPPORTED": "false",
+  "boundary_error_relative_reductions": {
+    "mixed_basis": {
+      "r": -0.05054052500764339,
+      "theta": 0.04837246383028604
+    },
+    "mixed_basis_boundary": {
+      "r": -0.09410489303080638,
+      "theta": 0.03221413398563944
+    }
+  },
+  "controlled_pairing": {
+    "common_initial_hash": true,
+    "initial_model_state_sha256": "a31974d5cc76eec0cfc847af7b4f8f8207e3bbccd1d7ae07df46ba77d4e20ac7",
+    "parameter_count": 358296,
+    "parameter_count_relative_delta": 0.0,
+    "stage_t_first_150_order_match": true
+  },
+  "high_retained_mode_energy_fraction": {
+    "mixed_basis": {
+      "log_r": 0.28300615534445206,
+      "phi": 0.7200704177373755,
+      "theta": 0.2869413318243387
+    },
+    "mixed_basis_boundary": {
+      "log_r": 0.28250049397913707,
+      "phi": 0.7028125590950164,
+      "theta": 0.28067544976074
+    },
+    "stage_t": {
+      "log_r": 0.37789122831082167,
+      "phi": 0.7266780803508824,
+      "theta": 0.26228562249226844
+    }
+  },
+  "largest_shell_improvements": [
+    {
+      "delta_skill": 706.7319231054714,
+      "region": "outer",
+      "shell": 7,
+      "variant": "mixed_basis_boundary"
+    },
+    {
+      "delta_skill": 10.377377436789402,
+      "region": "outer",
+      "shell": 7,
+      "variant": "mixed_basis"
+    },
+    {
+      "delta_skill": 1.2436775349606266,
+      "region": "inner",
+      "shell": 2,
+      "variant": "mixed_basis"
+    },
+    {
+      "delta_skill": 1.2090218480855346,
+      "region": "inner",
+      "shell": 2,
+      "variant": "mixed_basis_boundary"
+    },
+    {
+      "delta_skill": 0.7175449838482348,
+      "region": "inner",
+      "shell": 1,
+      "variant": "mixed_basis_boundary"
+    }
+  ],
+  "late_over_early_state_l2": {
+    "mixed_basis": 1.4040022775056307,
+    "mixed_basis_boundary": 1.4009068765100339,
+    "stage_t": 1.545780087634221
+  },
+  "physical_tail": {
+    "mixed_basis": {
+      "press": {
+        "decoder_tail_fraction": "4.54130626860119e-07",
+        "physical_l2": 20264427408986.105
+      },
+      "rho": {
+        "decoder_tail_fraction": "9.08261253720238e-08",
+        "physical_l2": 1.5323803243625495e+21
+      }
+    },
+    "mixed_basis_boundary": {
+      "press": {
+        "decoder_tail_fraction": "9.08261253720238e-08",
+        "physical_l2": 9062450791192.49
+      },
+      "rho": {
+        "decoder_tail_fraction": "0.0",
+        "physical_l2": 5064362896.139693
+      }
+    },
+    "stage_t": {
+      "press": {
+        "decoder_tail_fraction": "0.0",
+        "physical_l2": 2362.2280680027666
+      },
+      "rho": {
+        "decoder_tail_fraction": "0.0",
+        "physical_l2": 13.97939120824721
+      }
+    }
+  },
+  "radial_region_median_skill_improvements": {
+    "mixed_basis": {
+      "inner": -0.8034145953129657,
+      "middle": -0.6135687918143423,
+      "outer": -57.97066074251691
+    },
+    "mixed_basis_boundary": {
+      "inner": 0.3105215201525233,
+      "middle": -1.2685555808780924,
+      "outer": -38.95062188873736
+    }
+  },
+  "regional_lowpass_energy_fraction": {
+    "mixed_basis": {
+      "inner": 0.939200253541091,
+      "middle": 0.04573562214063878,
+      "outer": 0.01506412431827018
+    },
+    "mixed_basis_boundary": {
+      "inner": 0.9399894911833381,
+      "middle": 0.04462766065737712,
+      "outer": 0.015382848159284758
+    },
+    "stage_t": {
+      "inner": 0.8625612626046921,
+      "middle": 0.03487979103231518,
+      "outer": 0.1025589463629927
+    }
+  },
+  "schema_version": "stage-w-summary-v1",
+  "spectral_reconstruction_boundary_relative_reductions": {
+    "mixed_basis": {
+      "r": 0.11065627722395688,
+      "theta": -0.18938059095982407
+    },
+    "mixed_basis_boundary": {
+      "r": 0.08195506836747646,
+      "theta": -0.11478939320739756
+    }
+  },
+  "training": {
+    "mixed_basis": {
+      "all_finite": true,
+      "clipping_fraction_mean": 0.9952380952380954,
+      "completed_epoch": 150,
+      "initial_model_state_sha256": "a31974d5cc76eec0cfc847af7b4f8f8207e3bbccd1d7ae07df46ba77d4e20ac7",
+      "microbatches": 25200,
+      "optimizer_updates": 6300,
+      "peak_allocated_mib": 1049.00146484375,
+      "peak_reserved_mib": 1202.0,
+      "runtime_seconds": 2701.215803281011
+    },
+    "mixed_basis_boundary": {
+      "all_finite": true,
+      "clipping_fraction_mean": 0.9917460317460317,
+      "completed_epoch": 150,
+      "initial_model_state_sha256": "a31974d5cc76eec0cfc847af7b4f8f8207e3bbccd1d7ae07df46ba77d4e20ac7",
+      "microbatches": 25200,
+      "optimizer_updates": 6300,
+      "peak_allocated_mib": 1149.54833984375,
+      "peak_reserved_mib": 1316.0,
+      "runtime_seconds": 2825.9315834349945
+    }
+  },
+  "transform_tests": {
+    "LOG_R_GRID_UNIFORM": true,
+    "all_core_tests_passed": true,
+    "baseline_parameter_count": 358296,
+    "mode_localization_energy_fraction": {
+      "log_r": 1.0,
+      "phi": 1.0,
+      "product": 1.0,
+      "theta": 1.0
+    },
+    "nonperiodic_outer_wrap_ratio_vs_fft": 0.09990184009075165,
+    "parameter_count": 358296,
+    "parameter_count_relative_delta": 0.0,
+    "parseval_relative_energy_error": 0.0,
+    "phi_shift_relative_l2": 4.0848192384146387e-07,
+    "roundtrip_relative_l2": {
+      "float32": 2.1685042383978725e-07,
+      "float64": 4.4326091239102716e-16
+    },
+    "schema_version": "stage-w-transform-tests-v1",
+    "tests": {
+      "E1_float32_roundtrip": true,
+      "E1_float64_roundtrip": true,
+      "E2_parseval": true,
+      "E3_mode_localization": true,
+      "E4_phi_periodic_shift": true,
+      "E5_theta_boundary": true,
+      "E6_radial_boundary": true,
+      "parameter_count_delta_below_10_percent": true,
+      "w1_w2_common_initial_tensor_hash": true
+    },
+    "w1_initial_tensor_sha256": "a31974d5cc76eec0cfc847af7b4f8f8207e3bbccd1d7ae07df46ba77d4e20ac7",
+    "w2_initial_tensor_sha256": "a31974d5cc76eec0cfc847af7b4f8f8207e3bbccd1d7ae07df46ba77d4e20ac7"
+  }
+}

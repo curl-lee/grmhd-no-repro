@@ -1,0 +1,313 @@
+# Stage AA GPU environment audit
+
+captured_from: /home/curl/projects/grmhd-no-repro
+platform: Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39
+LD_LIBRARY_PATH=
+CONDA_DEFAULT_ENV=grmhd-no
+
+## uname
+
+$ uname -a
+returncode: 0
+stdout:
+Linux curl 6.18.33.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun 18 21:54:43 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+stderr:
+
+
+## os_release
+
+$ cat /etc/os-release
+returncode: 0
+stdout:
+PRETTY_NAME="Ubuntu 24.04.4 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.4 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+stderr:
+
+
+## nvidia_smi_wsl
+
+$ nvidia-smi
+returncode: 255
+stdout:
+Failed to initialize NVML: GPU access blocked by the operating system
+Failed to properly shut down NVML: GPU access blocked by the operating system
+stderr:
+
+
+## dev_dxg
+
+$ ls -l /dev/dxg
+returncode: 2
+stdout:
+
+stderr:
+ls: cannot access '/dev/dxg': No such file or directory
+
+## wsl_libraries
+
+$ ls -la /usr/lib/wsl/lib/
+returncode: 0
+stdout:
+total 399796
+drwxr-xr-x 1 nobody nogroup        80 Aug 17 15:22 .
+drwxr-xr-x 4 nobody nogroup      4096 Jul  7 15:53 ..
+-r-xr-xr-x 4 nobody nogroup    175360 Feb 17 23:59 libcuda.so
+-r-xr-xr-x 4 nobody nogroup    175360 Feb 17 23:59 libcuda.so.1
+-r-xr-xr-x 4 nobody nogroup    175360 Feb 17 23:59 libcuda.so.1.1
+-r-xr-xr-x 1 nobody nogroup  11294472 Dec 31  2025 libcudadebugger.so.1
+-r-xr-xr-x 1 nobody nogroup    801840 Oct 20  2023 libd3d12.so
+-r-xr-xr-x 1 nobody nogroup   6880344 Oct 20  2023 libd3d12core.so
+-r-xr-xr-x 1 nobody nogroup    942048 Mar 31  2024 libdxcore.so
+-r-xr-xr-x 2 nobody nogroup  18475776 Dec 31  2025 libnvcuvid.so
+-r-xr-xr-x 2 nobody nogroup  18475776 Dec 31  2025 libnvcuvid.so.1
+-r-xr-xr-x 1 nobody nogroup 154232352 Dec 31  2025 libnvdxdlkernels.so
+-r-xr-xr-x 2 nobody nogroup    264328 Dec 31  2025 libnvidia-encode.so
+-r-xr-xr-x 2 nobody nogroup    264328 Dec 31  2025 libnvidia-encode.so.1
+-r-xr-xr-x 2 nobody nogroup  89659688 Feb 17 23:59 libnvidia-gpucomp.so
+lrwxrwxrwx 1 nobody nogroup        20 Aug 17 15:22 libnvidia-gpucomp.so.590.57 -> libnvidia-gpucomp.so
+-r-xr-xr-x 1 nobody nogroup    266928 Dec 31  2025 libnvidia-ml.so.1
+-r-xr-xr-x 2 nobody nogroup   4594744 Feb 17 23:59 libnvidia-ngx.so.1
+-r-xr-xr-x 2 nobody nogroup     67608 Dec 31  2025 libnvidia-opticalflow.so
+-r-xr-xr-x 2 nobody nogroup     67608 Dec 31  2025 libnvidia-opticalflow.so.1
+-r-xr-xr-x 1 nobody nogroup     10056 Dec 31  2025 libnvoptix.so.1
+lrwxrwxrwx 1 nobody nogroup        15 Aug 17 15:22 libnvoptix_loader.so.1 -> libnvoptix.so.1
+-r-xr-xr-x 2 nobody nogroup  96610904 Feb 17 23:59 libnvwgf2umx.so
+-r-xr-xr-x 2 nobody nogroup   5072000 Feb 17 23:59 nvidia-ngx-updater
+-r-xr-xr-x 2 nobody nogroup    845304 Feb 17 23:59 nvidia-smi
+stderr:
+
+
+## which_python
+
+$ which python
+returncode: 0
+stdout:
+/home/curl/miniconda3/envs/grmhd-no/bin/python
+stderr:
+
+
+## python_version
+
+$ /home/curl/miniconda3/envs/grmhd-no/bin/python --version
+returncode: 0
+stdout:
+Python 3.11.15
+stderr:
+
+
+## torch_packages
+
+$ conda list -n grmhd-no
+returncode: 0
+stdout:
+# packages in environment at /home/curl/miniconda3/envs/grmhd-no:
+#
+# Name                     Version          Build            Channel
+_libgcc_mutex              0.1              main
+_openmp_mutex              5.1              52_gnu
+absl-py                    2.5.0            pypi_0           pypi
+annotated-types            0.7.0            pypi_0           pypi
+asttokens                  3.0.1            pypi_0           pypi
+bzip2                      1.0.8            h5eee18b_6
+ca-certificates            2026.5.14        h06a4308_0
+certifi                    2026.6.17        pypi_0           pypi
+charset-normalizer         3.4.9            pypi_0           pypi
+click                      8.4.2            pypi_0           pypi
+comm                       0.2.3            pypi_0           pypi
+configmypy                 0.2.0            pypi_0           pypi
+contourpy                  1.3.3            pypi_0           pypi
+cuda-bindings              13.0.3           pypi_0           pypi
+cuda-pathfinder            1.2.2            pypi_0           pypi
+cuda-toolkit               13.0.2           pypi_0           pypi
+cycler                     0.12.1           pypi_0           pypi
+debugpy                    1.8.21           pypi_0           pypi
+decorator                  5.3.1            pypi_0           pypi
+einops                     0.8.2            pypi_0           pypi
+executing                  2.2.1            pypi_0           pypi
+filelock                   3.29.0           pypi_0           pypi
+fonttools                  4.63.0           pypi_0           pypi
+fsspec                     2026.4.0         pypi_0           pypi
+gitdb                      4.0.12           pypi_0           pypi
+gitpython                  3.1.51           pypi_0           pypi
+grmhd-no-repro             0.1.0            pypi_0           pypi
+grpcio                     1.82.0           pypi_0           pypi
+h5py                       3.16.0           pypi_0           pypi
+idna                       3.18             pypi_0           pypi
+iniconfig                  2.3.0            pypi_0           pypi
+ipykernel                  7.3.0            pypi_0           pypi
+ipython                    9.15.0           pypi_0           pypi
+ipython-pygments-lexers    1.1.1            pypi_0           pypi
+jedi                       0.20.0           pypi_0           pypi
+jinja2                     3.1.6            pypi_0           pypi
+jupyter-client             8.9.1            pypi_0           pypi
+jupyter-core               5.9.1            pypi_0           pypi
+kiwisolver                 1.5.0            pypi_0           pypi
+ld_impl_linux-64           2.44             h9e0c5a2_3
+libexpat                   2.8.2            h7354ed3_1
+libffi                     3.4.8            h06d3fd0_3
+libgcc                     15.2.0           h69a1729_8
+libgcc-ng                  15.2.0           h166f726_8
+libnsl                     2.0.0            h5eee18b_0
+libstdcxx                  15.2.0           h39759b7_8
+libuuid                    1.41.5           h5eee18b_0
+libxcb                     1.17.0           h9b100fa_0
+libzlib                    1.3.2            h47b2149_0
+markdown                   3.10.2           pypi_0           pypi
+markupsafe                 3.0.3            pypi_0           pypi
+matplotlib                 3.11.0           pypi_0           pypi
+matplotlib-inline          0.2.2            pypi_0           pypi
+mpmath                     1.3.0            pypi_0           pypi
+ncurses                    6.5              h7934f7d_0
+nest-asyncio2              1.7.2            pypi_0           pypi
+networkx                   3.6.1            pypi_0           pypi
+neuraloperator             2.0.0            pypi_0           pypi
+numpy                      2.4.6            pypi_0           pypi
+nvidia-cublas              13.1.1.3         pypi_0           pypi
+nvidia-cuda-cupti          13.0.85          pypi_0           pypi
+nvidia-cuda-nvrtc          13.0.88          pypi_0           pypi
+nvidia-cuda-runtime        13.0.96          pypi_0           pypi
+nvidia-cudnn-cu13          9.20.0.48        pypi_0           pypi
+nvidia-cufft               12.0.0.61        pypi_0           pypi
+nvidia-cufile              1.15.1.6         pypi_0           pypi
+nvidia-curand              10.4.0.35        pypi_0           pypi
+nvidia-cusolver            12.0.4.66        pypi_0           pypi
+nvidia-cusparse            12.6.3.3         pypi_0           pypi
+nvidia-cusparselt-cu13     0.8.1            pypi_0           pypi
+nvidia-nccl-cu13           2.29.7           pypi_0           pypi
+nvidia-nvjitlink           13.0.88          pypi_0           pypi
+nvidia-nvshmem-cu13        3.4.5            pypi_0           pypi
+nvidia-nvtx                13.0.85          pypi_0           pypi
+openssl                    3.5.7            h1b28b03_0
+opt-einsum                 3.4.0            pypi_0           pypi
+packaging                  26.0             py311h06a4308_0
+pandas                     3.0.3            pypi_0           pypi
+parso                      0.8.7            pypi_0           pypi
+pexpect                    4.9.0            pypi_0           pypi
+pillow                     12.3.0           pypi_0           pypi
+pip                        26.1.2           pyhc872135_0
+platformdirs               4.10.0           pypi_0           pypi
+pluggy                     1.6.0            pypi_0           pypi
+prompt-toolkit             3.0.52           pypi_0           pypi
+protobuf                   7.35.1           pypi_0           pypi
+psutil                     7.2.2            pypi_0           pypi
+pthread-stubs              0.3              h0ce48e5_1
+ptyprocess                 0.7.0            pypi_0           pypi
+pure-eval                  0.2.3            pypi_0           pypi
+pydantic                   2.13.4           pypi_0           pypi
+pydantic-core              2.46.4           pypi_0           pypi
+pygments                   2.20.0           pypi_0           pypi
+pyparsing                  3.3.2            pypi_0           pypi
+pytest                     9.1.1            pypi_0           pypi
+pytest-mock                3.15.1           pypi_0           pypi
+python                     3.11.15          h17756b0_1
+python-dateutil            2.9.0.post0      pypi_0           pypi
+pyyaml                     6.0.3            pypi_0           pypi
+pyzmq                      27.1.0           pypi_0           pypi
+readline                   8.3              hc2a1206_0
+requests                   2.34.2           pypi_0           pypi
+ruamel-yaml                0.19.1           pypi_0           pypi
+scipy                      1.17.1           pypi_0           pypi
+sentry-sdk                 2.65.0           pypi_0           pypi
+setuptools                 70.2.0           pypi_0           pypi
+six                        1.17.0           pypi_0           pypi
+smmap                      5.0.3            pypi_0           pypi
+sqlite                     3.53.2           h795bf6d_0
+stack-data                 0.6.3            pypi_0           pypi
+sympy                      1.14.0           pypi_0           pypi
+tensorboard                2.21.0           pypi_0           pypi
+tensorboard-data-server    0.7.2            pypi_0           pypi
+tensorly                   0.9.0            pypi_0           pypi
+tensorly-torch             0.5.0            pypi_0           pypi
+tk                         8.6.15           h54e0aa7_0
+torch                      2.12.1+cu130     pypi_0           pypi
+torch-harmonics            0.8.0            pypi_0           pypi
+torchvision                0.27.1+cu130     pypi_0           pypi
+tornado                    6.5.7            pypi_0           pypi
+tqdm                       4.68.3           pypi_0           pypi
+traitlets                  5.15.1           pypi_0           pypi
+triton                     3.7.1            pypi_0           pypi
+typing-extensions          4.16.0           pypi_0           pypi
+typing-inspection          0.4.2            pypi_0           pypi
+tzdata                     2026b            he532380_0
+urllib3                    2.7.0            pypi_0           pypi
+wandb                      0.28.0           pypi_0           pypi
+wcwidth                    0.8.2            pypi_0           pypi
+werkzeug                   3.1.8            pypi_0           pypi
+wheel                      0.47.0           py311h06a4308_0
+xorg-libx11                1.8.12           h9b100fa_1
+xorg-libxau                1.0.12           h9b100fa_0
+xorg-libxdmcp              1.1.5            h9b100fa_0
+xorg-xorgproto             2024.1           h47b2149_2
+xz                         5.8.2            h448239c_0
+zencfg                     0.7.0            pypi_0           pypi
+zlib                       1.3.2            h47b2149_0
+stderr:
+
+
+## nvidia_smi_windows
+
+$ /mnt/c/Windows/System32/nvidia-smi.exe
+returncode: 1
+stdout:
+
+stderr:
+<3>WSL (33 - ) ERROR: UtilBindVsockAnyPort:309: socket failed 1
+
+## PyTorch probe
+
+{
+  "capability": null,
+  "compiled_cuda": "13.0",
+  "cuda_available": false,
+  "device": null,
+  "device_count": 0,
+  "python_executable": "/home/curl/miniconda3/envs/grmhd-no/bin/python",
+  "python_version": "3.11.15 (main, Jun 11 2026, 15:20:16) [GCC 14.3.0]",
+  "torch_version": "2.12.1+cu130"
+}
+
+## Classification
+
+{
+  "GPU_FAILURE_LAYER": "WSL_GPU_BRIDGE",
+  "GPU_SCIENTIFIC_GATE": "FAIL",
+  "WSL_GPU_BRIDGE_FAILURE": true,
+  "conda_environment": "grmhd-no",
+  "cpu_fallback": false,
+  "dev_dxg_exists": false,
+  "driver_change_attempted": false,
+  "host_gpu_visibility": "UNKNOWN",
+  "host_visibility_note": "Windows nvidia-smi.exe could not be executed because WSL interop returned UtilBindVsockAnyPort; host driver state is not independently proven from this instance.",
+  "ld_library_path": "",
+  "package_reinstall_attempted": false,
+  "project_code_modified_for_gpu_recovery": false,
+  "reproduction_scope": "ADAPTED_SPHERICAL_KS_WORKFLOW_REPRODUCTION",
+  "schema_version": "stage-aa-gpu-gate-v1",
+  "torch": {
+    "capability": null,
+    "compiled_cuda": "13.0",
+    "cuda_available": false,
+    "device": null,
+    "device_count": 0,
+    "python_executable": "/home/curl/miniconda3/envs/grmhd-no/bin/python",
+    "python_version": "3.11.15 (main, Jun 11 2026, 15:20:16) [GCC 14.3.0]",
+    "torch_version": "2.12.1+cu130"
+  },
+  "training_authorized": false,
+  "windows_nvidia_smi_pass": false,
+  "wsl_nvidia_smi_pass": false,
+  "wsl_stub_libcuda_exists": true
+}
+
+No driver, CUDA package, PyTorch package, project code, or model setting was changed.

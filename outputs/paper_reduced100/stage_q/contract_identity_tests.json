@@ -1,0 +1,53 @@
+{
+  "affine_max_abs_errors": {
+    "0.0": 0.0,
+    "0.125": 7.62939453125e-06,
+    "0.25": 7.62939453125e-06,
+    "0.5": 9.5367431640625e-07,
+    "1.0": 0.0
+  },
+  "fixed_point_max_abs_errors": {
+    "0.0": 0.0,
+    "0.125": 0.0,
+    "0.25": 0.0,
+    "0.5": 0.0,
+    "1.0": 0.0
+  },
+  "frozen_float_tolerance": {
+    "dtype": "torch.float32",
+    "dtype_epsilon": 1.1920928955078125e-07,
+    "mode": "dtype_epsilon_scaled",
+    "ulp_factor": 8.0,
+    "unit_floor": 1.0
+  },
+  "parameter_buffer_sha256_after": "071a764bf985bfdc674c48024bfc43b4e7906ef4d3c41ac6ff2523e2926354c1",
+  "parameter_buffer_sha256_before": "071a764bf985bfdc674c48024bfc43b4e7906ef4d3c41ac6ff2523e2926354c1",
+  "passed": true,
+  "residual_norms": {
+    "0.0": 0.0,
+    "0.125": 308.11189724665087,
+    "0.25": 616.2237928680673,
+    "0.5": 1232.4475839459603,
+    "1.0": 2464.895168234527
+  },
+  "residual_scaling_max_abs_errors": {
+    "0.0": 0.0,
+    "0.125": 3.814697265625e-06,
+    "0.25": 3.814697265625e-06,
+    "0.5": 3.814697265625e-06,
+    "1.0": 0.0
+  },
+  "results": {
+    "Q1_endpoint_identity": true,
+    "Q2_affine_identity": true,
+    "Q3_fixed_point_preservation": true,
+    "Q4_residual_scaling": true,
+    "Q5_pairwise_alpha_ordering": true,
+    "Q6_shell_invariance": true,
+    "Q7_no_hidden_clamp_or_transform": true,
+    "Q8_no_parameter_or_buffer_mutation": true
+  },
+  "schema_version": "paper-stage-q-contract-identity-tests-v1",
+  "shell_sha256_after": "3ac1e38e33056cd952c4a4a29d2c39ad9388d48f67ae6a8d954677e08ce462f3",
+  "shell_sha256_before": "3ac1e38e33056cd952c4a4a29d2c39ad9388d48f67ae6a8d954677e08ce462f3"
+}

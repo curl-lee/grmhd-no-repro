@@ -1,0 +1,247 @@
+{
+  "alpha_grid": [
+    0.0,
+    0.125,
+    0.25,
+    0.5,
+    1.0
+  ],
+  "candidate_alpha": null,
+  "data_sha256": "cd3966bed1f617f49d775151cff87ae92eb2432a560bb82ae9355605e7aea70a",
+  "eligible_alphas": [],
+  "p3_statistics_sha256": "aea6d3f91e54865deeb9b2b1142c49a633ae8b67223075273e6c0b88bf541948",
+  "pair_order_sha256": "5e1e361ea75e01ffd667822d8bfe870d70c5bc69570d52cdf806e637b2df2b52",
+  "readiness": {
+    "0.125": {
+      "diagnostics": {
+        "candidate_over_persistence": 1.077242294426994,
+        "gate_2_reduction": 0.36363636363636365,
+        "positive_residual_cosine_channels": 6,
+        "q_ood_reduction": 0.9242005527043032,
+        "rout_failure_reduction": 0.0,
+        "worsened_control_channels": []
+      },
+      "group_pass": {
+        "A": true,
+        "B": false,
+        "C": false,
+        "D": true,
+        "E": false,
+        "F": true
+      },
+      "groups": {
+        "A": {
+          "all_finite": true,
+          "new_nonfinite_decoder_derivatives_zero": true,
+          "rho_press_positive": true,
+          "transform_counter_errors_zero": true
+        },
+        "B": {
+          "q_ood_reduction": true,
+          "rout_failure_reduction": false
+        },
+        "C": {
+          "candidate_over_persistence": false
+        },
+        "D": {
+          "different_from_persistence": true,
+          "positive_residual_cosine_channels": true,
+          "residual_magnitude": true
+        },
+        "E": {
+          "gate_2_reduction": false,
+          "no_new_persistent_range_failure": true,
+          "shell_or_radial_not_worse_than_persistence": false
+        },
+        "F": {
+          "control_channel_worsening_count": true
+        }
+      },
+      "passed": false
+    },
+    "0.25": {
+      "diagnostics": {
+        "candidate_over_persistence": 1.2966115775120406,
+        "gate_2_reduction": 0.36363636363636365,
+        "positive_residual_cosine_channels": 6,
+        "q_ood_reduction": 0.7978681405448085,
+        "rout_failure_reduction": 0.0,
+        "worsened_control_channels": []
+      },
+      "group_pass": {
+        "A": true,
+        "B": false,
+        "C": false,
+        "D": true,
+        "E": false,
+        "F": true
+      },
+      "groups": {
+        "A": {
+          "all_finite": true,
+          "new_nonfinite_decoder_derivatives_zero": true,
+          "rho_press_positive": true,
+          "transform_counter_errors_zero": true
+        },
+        "B": {
+          "q_ood_reduction": true,
+          "rout_failure_reduction": false
+        },
+        "C": {
+          "candidate_over_persistence": false
+        },
+        "D": {
+          "different_from_persistence": true,
+          "positive_residual_cosine_channels": true,
+          "residual_magnitude": true
+        },
+        "E": {
+          "gate_2_reduction": false,
+          "no_new_persistent_range_failure": true,
+          "shell_or_radial_not_worse_than_persistence": false
+        },
+        "F": {
+          "control_channel_worsening_count": true
+        }
+      },
+      "passed": false
+    },
+    "0.5": {
+      "diagnostics": {
+        "candidate_over_persistence": 1.8932868135827183,
+        "gate_2_reduction": 0.2727272727272727,
+        "positive_residual_cosine_channels": 6,
+        "q_ood_reduction": 0.7019344650611923,
+        "rout_failure_reduction": 0.0,
+        "worsened_control_channels": []
+      },
+      "group_pass": {
+        "A": true,
+        "B": false,
+        "C": false,
+        "D": true,
+        "E": false,
+        "F": true
+      },
+      "groups": {
+        "A": {
+          "all_finite": true,
+          "new_nonfinite_decoder_derivatives_zero": true,
+          "rho_press_positive": true,
+          "transform_counter_errors_zero": true
+        },
+        "B": {
+          "q_ood_reduction": false,
+          "rout_failure_reduction": false
+        },
+        "C": {
+          "candidate_over_persistence": false
+        },
+        "D": {
+          "different_from_persistence": true,
+          "positive_residual_cosine_channels": true,
+          "residual_magnitude": true
+        },
+        "E": {
+          "gate_2_reduction": false,
+          "no_new_persistent_range_failure": true,
+          "shell_or_radial_not_worse_than_persistence": false
+        },
+        "F": {
+          "control_channel_worsening_count": true
+        }
+      },
+      "passed": false
+    }
+  },
+  "reason": "no_intermediate_alpha_passed_all_train_only_readiness_groups",
+  "schema_version": "paper-stage-q-alpha-selection-v1",
+  "selection_artifact_sha256": "c4b2cd506e9589a26655221aa949c8b5b87bd2d1a2bff775af7bffa4efb118f7",
+  "selection_rule_sha256": "a6b689dbd7cdd60dd0c64fdbd036b9f3732ed52af8ee3ebf6832aa2d3bc0755b",
+  "selection_split": "train_only_snapshots_11_90",
+  "stage_q_config_sha256": "a6b689dbd7cdd60dd0c64fdbd036b9f3732ed52af8ee3ebf6832aa2d3bc0755b",
+  "train_pair_count": 79,
+  "train_source_indices": [
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89
+  ],
+  "validation_indices_read_before_selection": [],
+  "validation_used": false
+}

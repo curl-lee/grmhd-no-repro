@@ -1,0 +1,288 @@
+experiment_name: stage_r_localno_p3_residual_plain
+output_dir: /home/curl/projects/grmhd-no-repro/outputs/paper_reduced100/stage_r/localno_p3_residual_plain
+checkpoint_prefix: stage_r_localno_p3_residual_plain
+protocol:
+  name: paper_reduced100_press_spherical_ks
+  dataset: data_proc/grmhd_regrid_inner_r200_64.h5
+  source_snapshots:
+  - 11
+  - 111
+  train_snapshots:
+  - 11
+  - 91
+  validation_snapshots:
+  - 91
+  - 111
+  dropped_transition:
+  - 90
+  - 91
+  test_split: null
+thermal:
+  channel: press
+  paper_adaptation: true
+  eos_conversion: disabled_unverified_gamma
+coordinates:
+  system: spherical_kerr_schild
+  tensor_axes:
+  - phi
+  - theta
+  - r
+  stored_components_not_cartesian: true
+preprocessing:
+  mode: stage_n_p3
+  gamma: 6
+  inverse_clamp_fraction: 0.99
+  stats_path: outputs/paper_reduced100/stage_n/prototypes/p3_combined_v1/normalizer.npz
+  stats_checksum: aea6d3f91e54865deeb9b2b1142c49a633ae8b67223075273e6c0b88bf541948
+  artifact: outputs/paper_reduced100/stage_n/prototypes/p3_combined_v1
+  prototype_config: outputs/paper_reduced100/stage_n/prototypes/p3_combined_v1/resolved_config.json
+  prototype_config_checksum: 41409e803cc0f54bede7cc73a84d9986e081bb07265c84dcac2fd64a44778809
+  prototype_metadata: outputs/paper_reduced100/stage_n/prototypes/p3_combined_v1/normalizer.json
+  prototype_metadata_checksum: 71919bffd5a13d96a500b76fa06ea8308dc578c524893984fd4f168cd9eba0e2
+  prototype: P3
+  prototype_name: COMBINED_PROTOTYPE_V1
+  canonical_replacement: false
+  validation_used_for_fit: false
+representation:
+  shells:
+    enabled: true
+    count: 8
+    mode: spherical_r_adaptation
+  radial:
+    selected_mode: appendix_literal_press_proxy
+    artifact: outputs/paper_reduced100/priors/radial_selected.json
+    exact_cartesian_paper_radius: false
+evaluation:
+  oracle_aware: true
+  rho_press_eval_clamp: false
+  report_normalized: true
+  report_model_to_oracle: true
+  report_model_to_raw: true
+  report_oracle_floor: true
+  legacy_detector: true
+  oracle_conditioned_gate: true
+  oracle_conditioned_gate_version: stage_m_v1
+model:
+  source: neuralop.models.LocalNO
+  architecture: localno_differential_3d
+  n_dim: 3
+  in_channels: 16
+  out_channels: 8
+  n_modes:
+  - 8
+  - 8
+  - 8
+  hidden_channels: 16
+  n_layers: 4
+  default_in_shape:
+  - 64
+  - 64
+  - 64
+  positional_embedding: null
+  mixed_precision: false
+  use_differential: true
+  use_disco: false
+  use_local_integral: false
+  spectral_enabled: true
+  fin_diff_kernel_size: 3
+  mix_derivatives: true
+  conv_padding_mode: periodic
+  use_channel_mlp: false
+  local_no_skip: linear
+  normalization: null
+  enforce_hermitian_symmetry: true
+  prediction_mode: normalized_residual
+optimizer:
+  name: Adam
+  learning_rate: 0.001
+  weight_decay: 0.0001
+scheduler:
+  name: warmup_cosine
+  paper_epochs: 1200
+  actual_default_epochs: 30
+  paper_warmup_epochs: 75
+  actual_default_warmup_epochs: 2
+  min_learning_rate: 1.0e-06
+  resource_scaled_training: true
+runtime:
+  batch_size: 1
+  gradient_accumulation: 4
+  gradient_clip_norm: 1.0
+  seed: 42
+  num_workers: 0
+  pin_memory: true
+  wandb: false
+loss:
+  name: PlainL2Loss
+  contract_version: paper-stage-e-loss-contract-v1
+  implementation_version: paper-plain-l2-v1
+  unit_channel_weights: true
+  h1:
+    enabled: false
+  roi:
+    enabled: false
+  bounds:
+    training_penalty_enabled: false
+  envelope:
+    enabled: false
+  dissipation:
+    enabled: false
+  diagnostic_extensions_enabled: false
+  mode: strict_plain_l2
+  target: normalized_residual
+provenance:
+  upstream:
+    path: external/neuraloperator
+    commit: 86a8bc7812a31b42c4f7895693cf4ac11521c066
+  dataset:
+    path: data_proc/grmhd_regrid_inner_r200_64.h5
+    sha256: cd3966bed1f617f49d775151cff87ae92eb2432a560bb82ae9355605e7aea70a
+  manifest:
+    path: outputs/paper_reduced100/manifest.json
+    sha256: f6f3497717b577db25ff96f58daa5b98debe5300c329e30b543805d11d21b9d6
+  preprocessing:
+    path: outputs/paper_reduced100/stage_n/prototypes/p3_combined_v1/normalizer.npz
+    sha256: aea6d3f91e54865deeb9b2b1142c49a633ae8b67223075273e6c0b88bf541948
+  artifacts:
+    radial:
+      path: outputs/paper_reduced100/priors/radial_selected.json
+      sha256: 75e29fdbe0ac38f1cb1bae6b8e9678c10af14508d2b240cf4b738ea12d7b885d
+    bounds:
+      path: outputs/paper_reduced100/priors/physical_bounds.json
+      sha256: 3ac9a148f2ab1b4735925c683438a4eec7194e19bb2d4f2eed40b0a2b383d38e
+    roi:
+      path: outputs/paper_reduced100/priors/velocity_roi.json
+      sha256: 6993051ffddbd7c51c87d951bc8fa082d54d981fe64347b33bcd41d97b5ea060
+    envelope:
+      path: outputs/paper_reduced100/priors/residual_envelope.json
+      sha256: 3354b711f30f58b784869a5df4f33a55b63884a68b9b70f5f251aebc9203dd46
+    dissipation:
+      path: outputs/paper_reduced100/priors/dissipative_reference.json
+      sha256: 95725b031d13f93d76bd97d6cf468926797d367973e227d9259c309f22575192
+    shells:
+      path: outputs/paper_reduced100/priors/shell_metadata.json
+      sha256: 99580fc2c62431f46e6702972660b060aa1294920e5f9530b45b43ce08c190b7
+  stage_e_loss_contract:
+    path: outputs/paper_reduced100/losses/loss_contract.json
+    sha256: 5ca5e5df00490e286550887002f15372883f4dbe591fd31a4a340634d4146aac
+    schema_version: paper-stage-e-loss-contract-v1
+  oracle_baseline:
+    path: outputs/paper_reduced100/oracle_metric_baseline.json
+    sha256: de0dff910c5ddbe237ea17bcfeffb8831dc705e2a37e0da3c2bc8c51952347e4
+    semantics_version: paper-reference-semantics-v1
+  loss_contract_document:
+    path: docs/PAPER_LOSS_CONTRACT.md
+    sha256: 6c6d7feb277f898909c3ac34098f65dbdbad5dd81283b09243d64b484f44e7a7
+  oracle_reference_semantics_version: paper-reference-semantics-v1
+  validation_not_used_for_fit: true
+  canonical_preprocessing:
+    path: outputs/paper_reduced100/stats/normalizer.npz
+    sha256: 1645714424d95b02de2283fc16a8ef05f3864d15f11025580af13f3e67964001
+  stage_o_frozen:
+    prototype_config:
+      path: outputs/paper_reduced100/stage_n/prototypes/p3_combined_v1/resolved_config.json
+      sha256: 41409e803cc0f54bede7cc73a84d9986e081bb07265c84dcac2fd64a44778809
+    prototype_metadata:
+      path: outputs/paper_reduced100/stage_n/prototypes/p3_combined_v1/normalizer.json
+      sha256: 71919bffd5a13d96a500b76fa06ea8308dc578c524893984fd4f168cd9eba0e2
+    prototype_manifest:
+      path: outputs/paper_reduced100/stage_n/transform_prototypes/prototype_manifest.json
+      sha256: 935ebe068b2afad03bb44dd3f5aab895fef3e91e241bfa560c462deadb447c4d
+    stage_n_config:
+      path: configs/paper_reduced100/stage_n_transform_operator_audit.yaml
+      sha256: e366d5a94b14ea70777b42ed29bdd3b8f6477b2360e70bf9ed6ea874a1e9f1ff
+    stage_n_decision:
+      path: outputs/paper_reduced100/stage_n/stage_n_decision.json
+      sha256: 9b4a8492a0a8729fa75956a1c1aaf8d0bf6540d33f1b75e9751a7742eb4b5dc5
+    stage_k_config:
+      path: configs/paper_reduced100/stage_k_localno_differential_plain.yaml
+      sha256: 8b229c5c2528d66bd4e11d0b0c4af16d00e906129386f8119af1670721ba30af
+    stage_k_initial_state_file:
+      path: outputs/paper_reduced100/stage_k/shared_localno_initial_state.pt
+      sha256: 07db393f5c3e831f44bcc2d47b8132c3f9a0e72e2a258618080db487cc13cbb0
+    pair_order:
+      path: outputs/paper_reduced100/stage_g/epoch_pair_order.json
+      sha256: 5e1e361ea75e01ffd667822d8bfe870d70c5bc69570d52cdf806e637b2df2b52
+    stage_m_gate:
+      path: outputs/paper_reduced100/stage_m/candidate_gate_config.json
+      sha256: a829a3760a71a006f54ae18b399c569a903898d27f3ef3a72236982fd033e5f7
+  stage_r_frozen:
+    stage_o_best_checkpoint:
+      path: outputs/paper_reduced100/stage_o/localno_p3_plain/best_validation_l2/paper_state_dict.pt
+      sha256: 756ee7f31a9780942aa0f35dce4e5584cbeaf04ed8e9777721e7765962f04e12
+    stage_o_training_summary:
+      path: outputs/paper_reduced100/stage_o/training_summary.json
+      sha256: a0171a8c8c41dda043df8e63c9fd2a48b1e1fe27711bc6ce86d910c45d7d8cf7
+    stage_o_validation_metrics:
+      path: outputs/paper_reduced100/stage_o/validation_metrics.json
+      sha256: b97f9735f0d405837ee3326c8548cd2bb25b848e4217bfaffd49e080affe3051
+    stage_o_gt_rollout:
+      path: outputs/paper_reduced100/stage_o/rollout_gt.json
+      sha256: e929d4bc74f69ba027edf21aff88be1210a817716af8a9e65f104ca66d47772c
+    stage_o_no_gt_rollout:
+      path: outputs/paper_reduced100/stage_o/rollout_no_gt.json
+      sha256: 3b432059439ede11b505b3f4377655f9e8d1dff4f3dac0eb44000824e57d16a3
+    stage_o_decision:
+      path: outputs/paper_reduced100/stage_o/stage_o_decision.json
+      sha256: 79fd718b7a0216f49d5a1df313ad19086e92c14ad800dfbe2215ec091930fa7f
+    stage_q_decision:
+      path: outputs/paper_reduced100/stage_q/stage_q_decision.json
+      sha256: 3851687d6757c946cd64782fe5e83373d883066ed58493ca3bdaf44c1e548587
+reproduction_metadata:
+  classification: adapted_residual_contract_model_pilot
+  reproduction_level: adapted_residual_contract_model_pilot
+  exact:
+  - ordered_reduced100_split
+  - frozen_stage_n_p3_transform_and_train_only_statistics
+  - stage_k_localno_architecture_and_initial_tensor_state
+  - plain_l2_loss_contract
+  - stage_g_stage_k_pair_order
+  - stage_o_optimizer_scheduler_and_epoch_budget
+  adapted:
+  - normalized_residual_target_with_identity_state_skip
+  - diagnostic_transform_prototype_used_for_authorized_stage_r_training
+  - differential_localno_without_disco_integral
+  - press_thermal_proxy
+  - spherical_kerr_schild_grid_and_stored_components
+  - spherical_r_shell_inputs
+  - resource_scaled_30_epochs
+  blocked:
+  - exact_3d_disco_backbone
+  - unverified_eint_eos_conversion
+  - cartesian_kerr_schild_conversion
+  - paper_300_snapshot_dataset
+  - paper_1200_epoch_budget
+  - coarse_fine_coupled_simulation
+  canonical_replacement: false
+  comparison_parent: stage_o_p3_direct_localno
+  one_factor_change: prediction_and_target_contract
+prediction:
+  mode: normalized_residual
+  state_skip: identity
+  residual_scale: 1.0
+  learnable_scale: false
+  clipping: false
+resolved_runtime:
+  epochs: 30
+  max_train_batches: 1000000000
+  max_validation_batches: 1000000000
+  gradient_accumulation: 4
+  warmup_epochs: 2
+  device: cuda
+  smoke: false
+  stage_g_pilot: false
+  stage_k: true
+  stage_k_engineering_smoke: false
+  stage_o: false
+  stage_o_engineering_smoke: false
+  stage_r: true
+  stage_r_engineering_smoke: false
+  prediction_mode: normalized_residual
+  formal_pilot: true
+  model_architecture: localno_differential_3d
+  stage_i_diagnostic: false
+  diagnostic_h1_mode: null
+  initial_state: /home/curl/projects/grmhd-no-repro/outputs/paper_reduced100/stage_k/shared_localno_initial_state.pt
+  shared_initial_state_sha256: 7e10895cb283be8532e4c036e8a526c536a632cce880c500080ea1d14fd89311
+  pair_order: /home/curl/projects/grmhd-no-repro/outputs/paper_reduced100/stage_g/epoch_pair_order.json
+  pair_order_sha256: 5e1e361ea75e01ffd667822d8bfe870d70c5bc69570d52cdf806e637b2df2b52

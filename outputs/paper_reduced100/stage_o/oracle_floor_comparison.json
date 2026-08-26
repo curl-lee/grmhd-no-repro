@@ -1,0 +1,67 @@
+{
+  "interpretation": "P3 sharply lowers Bcc2/Bcc3/vel3 floor; vel2 remains canonical-floor limited.",
+  "rows": [
+    {
+      "canonical_floor": 9.09742990194711e-07,
+      "channel": "Bcc1",
+      "p3_floor": 7.039665287182059e-07,
+      "p3_over_canonical": 0.7738081373592524,
+      "targeted_by_p3": false
+    },
+    {
+      "canonical_floor": 0.9187001429962726,
+      "channel": "Bcc2",
+      "p3_floor": 3.0670744646867807e-07,
+      "p3_over_canonical": 3.338493509627357e-07,
+      "targeted_by_p3": true
+    },
+    {
+      "canonical_floor": 0.9993537835756451,
+      "channel": "Bcc3",
+      "p3_floor": 2.990755831058846e-07,
+      "p3_over_canonical": 2.9926897563323865e-07,
+      "targeted_by_p3": true
+    },
+    {
+      "canonical_floor": 1.4811659907546002e-06,
+      "channel": "rho",
+      "p3_floor": 1.4184203194238466e-06,
+      "p3_over_canonical": 0.9576376505250522,
+      "targeted_by_p3": false
+    },
+    {
+      "canonical_floor": 1.5550826097238291e-06,
+      "channel": "press",
+      "p3_floor": 1.1056845413913002e-06,
+      "p3_over_canonical": 0.711013379274855,
+      "targeted_by_p3": false
+    },
+    {
+      "canonical_floor": 0.0023018270526343624,
+      "channel": "vel1",
+      "p3_floor": 0.002301833765517567,
+      "p3_over_canonical": 1.0000029163282258,
+      "targeted_by_p3": false
+    },
+    {
+      "canonical_floor": 0.5668102639892199,
+      "channel": "vel2",
+      "p3_floor": 0.5668103043715379,
+      "p3_over_canonical": 1.0000000712448602,
+      "targeted_by_p3": false
+    },
+    {
+      "canonical_floor": 0.8511265950257523,
+      "channel": "vel3",
+      "p3_floor": 6.216224331435119e-08,
+      "p3_over_canonical": 7.303524960640005e-08,
+      "targeted_by_p3": true
+    }
+  ],
+  "schema_version": "paper-stage-o-oracle-floor-comparison-v1",
+  "target_channels": [
+    "Bcc2",
+    "Bcc3",
+    "vel3"
+  ]
+}

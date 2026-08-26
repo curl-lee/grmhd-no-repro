@@ -1,0 +1,86 @@
+{
+  "allowed_differences": [
+    "experiment_name",
+    "output_dir",
+    "extension metadata (including checkpoint_prefix)",
+    "loss.h1.*"
+  ],
+  "diagnostic_config": "configs/paper_reduced100/extensions/no_h1_control.yaml",
+  "diagnostic_config_sha256": "2e8e2ebb611842214c60fe207222ffb401f25b229172c76beab68e205e2278c6",
+  "differences": [
+    {
+      "full": "full_fno_proxy",
+      "path": "checkpoint_prefix",
+      "plain": "stage_i_no_h1"
+    },
+    {
+      "full": "paper_reduced100_full_fno_proxy",
+      "path": "experiment_name",
+      "plain": "stage_i_no_h1"
+    },
+    {
+      "full": "<missing>",
+      "path": "loss.h1.diagnostic_current_upstream_h1",
+      "plain": true
+    },
+    {
+      "full": true,
+      "path": "loss.h1.enabled",
+      "plain": false
+    },
+    {
+      "full": "pinned_upstream_H1Loss_d3",
+      "path": "loss.h1.implementation",
+      "plain": "diagnostic_no_h1"
+    },
+    {
+      "full": "computational_grid",
+      "path": "loss.h1.metric_adaptation",
+      "plain": "selected_h1_disabled"
+    },
+    {
+      "full": "<missing>",
+      "path": "loss.h1.mode",
+      "plain": "no_h1"
+    },
+    {
+      "full": "<missing>",
+      "path": "loss.h1.paper_reference_weight",
+      "plain": 0.05
+    },
+    {
+      "full": "<missing>",
+      "path": "loss.h1.weighted_contribution",
+      "plain": 0.0
+    },
+    {
+      "full": "outputs/paper_reduced100/full_fno_proxy",
+      "path": "output_dir",
+      "plain": "outputs/paper_reduced100/stage_i/no_h1"
+    },
+    {
+      "full": "<missing>",
+      "path": "reproduction_metadata.extension_reason",
+      "plain": "spherical_grid_H1_adaptation_diagnosis"
+    },
+    {
+      "full": "<missing>",
+      "path": "reproduction_metadata.paper_faithful_full",
+      "plain": false
+    },
+    {
+      "full": "<missing>",
+      "path": "reproduction_metadata.reproduction_level",
+      "plain": "diagnostic_extension"
+    }
+  ],
+  "no_h1_is_plain_l2": false,
+  "non_h1_fields_exact": true,
+  "non_h1_training_objective_differences": [],
+  "reference_config": "configs/paper_reduced100/full_fno_proxy.yaml",
+  "reference_config_sha256": "ecea96e13088774e227219d76814e6976a39ee4bac1fa209bf5c69672b47b53f",
+  "schema_version": "paper-stage-i-no-h1-config-diff-v1",
+  "selected_h1_training_coefficient": 0.0,
+  "status": "passed",
+  "unexpected_differences": []
+}

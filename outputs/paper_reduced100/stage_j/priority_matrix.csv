@@ -1,0 +1,10 @@
+rank,component,scientific_impact,implementation_cost,external_dependency,uncertainty,prerequisite_count,estimated_calendar_time,next_gate
+1,author dataset and run provenance,5,2,5,4,0,1-6 weeks or author-dependent,"obtain 300-state manifest/files and content-linked run/build config"
+2,EOS/component/coordinate verification,5,2,5,4,1,2-5 days after provenance receipt,"verify Gamma EOS units spin velocity/B basis and Cartesian convention"
+3,reference 3D DISCO implementation/specification,5,3,4,4,0,1-4 weeks or author/upstream-dependent,"obtain code or implementation-level 3D basis/support/boundary/config"
+4,Cartesian/face-field export or conversion,5,4,4,4,2,2-6 weeks,"produce a separately versioned dataset only after geometry and component gates pass"
+5,conservative/divergence-preserving transfer,4,5,4,4,3,4-12 weeks,"validate scalar integrals and CT-compatible magnetic flux on reference data"
+6,coarse/fine coupling interface contract,4,2,2,3,0,completed in Stage J,"retain toy-tested contract and label paper formulas ambiguous"
+7,paired coarse/fine coupling validation data,5,5,5,5,4,author-dependent,"acquire matched grids clocks ghost/face fields fluxes and EMFs"
+8,paper-grid shells and exact data protocol,3,2,3,2,2,2-5 days after dataset gate,"freeze Cartesian shell centers and ordered last-250 split"
+9,final operator integration and training,5,5,4,4,6,multiple months after prerequisites,"begin only after data geometry EOS operator and coupling gates"

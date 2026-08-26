@@ -1,0 +1,23 @@
+{
+  "candidate_alpha": null,
+  "classification": "no_training_output_contract_audit",
+  "decision": "D. NO_VALID_ANCHOR_CANDIDATE",
+  "evidence": {
+    "candidate_exists": false,
+    "contract_tests_passed": true,
+    "reason": "no_intermediate_alpha_passed_all_train_only_readiness_groups",
+    "selection_used_validation": false
+  },
+  "frozen_history": {
+    "Stage K": "C. TRAINING_COMPLETE_BUT_ROLLOUT_UNSTABLE",
+    "Stage L": "3. MIXED_OVERALL",
+    "Stage M": "4. MIXED_TRANSPORT_AND_PREPROCESSING_FAILURE",
+    "Stage N": "P3 ready; mixed operator-response failure",
+    "Stage O": "C. P3_PILOT_COMPLETE_BUT_ROLLOUT_UNSTABLE",
+    "Stage P": "6. MIXED_CLOSED_LOOP_FAILURE"
+  },
+  "historical_status_changed": false,
+  "next_action_proposal_only": true,
+  "no_training": true,
+  "schema_version": "paper-stage-q-decision-v1"
+}

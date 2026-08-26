@@ -1,0 +1,92 @@
+{
+  "all_basis_normalizable": false,
+  "basis": [
+    {
+      "Z_k": 3.0517578125e-05,
+      "center": 0.0,
+      "hat_width": 0.0078125,
+      "index": 0,
+      "nonzero_stencil_entries": 1,
+      "normalizable": true,
+      "normalized_quadrature_integral": 0.999999967232001,
+      "raw_sum": 1.0
+    },
+    {
+      "Z_k": 0.0,
+      "center": 0.0078125,
+      "hat_width": 0.0078125,
+      "index": 1,
+      "nonzero_stencil_entries": 0,
+      "normalizable": false,
+      "normalized_quadrature_integral": 0.0,
+      "raw_sum": 0.0
+    },
+    {
+      "Z_k": 0.0,
+      "center": 0.015625,
+      "hat_width": 0.0078125,
+      "index": 2,
+      "nonzero_stencil_entries": 0,
+      "normalizable": false,
+      "normalized_quadrature_integral": 0.0,
+      "raw_sum": 0.0
+    },
+    {
+      "Z_k": 0.0,
+      "center": 0.0234375,
+      "hat_width": 0.0078125,
+      "index": 3,
+      "nonzero_stencil_entries": 0,
+      "normalizable": false,
+      "normalized_quadrature_integral": 0.0,
+      "raw_sum": 0.0
+    },
+    {
+      "Z_k": 0.00018310546875,
+      "center": 0.03125,
+      "hat_width": 0.0078125,
+      "index": 4,
+      "nonzero_stencil_entries": 6,
+      "normalizable": true,
+      "normalized_quadrature_integral": 0.9999999945386667,
+      "raw_sum": 6.0
+    }
+  ],
+  "distance": "NORMALIZED_COMPUTATIONAL_INDEX_DISTANCE",
+  "domain_length": [
+    2.0,
+    2.0,
+    2.0
+  ],
+  "eps": 1e-12,
+  "implementation_class": "ADAPTED_ISOTROPIC_RADIAL_PIECEWISE_LINEAR",
+  "in_shape": [
+    64,
+    64,
+    64
+  ],
+  "kernel_size": 5,
+  "local_stencil_shape": [
+    3,
+    3,
+    3
+  ],
+  "out_shape": [
+    64,
+    64,
+    64
+  ],
+  "quadrature_normalization_contract_pass": false,
+  "quadrature_weight": 3.0517578125e-05,
+  "radius_cutoff": 0.03125,
+  "schema_version": "stage-ac-radial-hat-feasibility-v1",
+  "unique_supported_radii_within_cutoff": [
+    0.0,
+    0.03125
+  ],
+  "zero_support_basis_indices": [
+    1,
+    2,
+    3
+  ]
+}

@@ -1,0 +1,43 @@
+........................................................................ [ 45%]
+........................................................................ [ 90%]
+................                                                         [100%]
+=============================== warnings summary ===============================
+tests/test_autoregression_parity.py::test_upstream_and_local_physical_autoregression_match
+tests/test_autoregression_parity.py::test_upstream_and_local_hybrid_autoregression_match
+  /home/curl/miniconda3/envs/grmhd-no/lib/python3.11/site-packages/torch/nn/modules/module.py:1789: UserWarning: FNO.forward() received unexpected keyword arguments: ['physical_trajectory', 'trajectory_state', 'shells', 'physical_input', 'physical_target', 'y', 'encoded_state', 'rollout_step', '_rollout_trace_index']. These arguments will be ignored.
+    return forward_call(*args, **kwargs)
+
+tests/test_autoregression_parity.py::test_upstream_and_local_physical_autoregression_match
+tests/test_autoregression_parity.py::test_upstream_and_local_hybrid_autoregression_match
+  /home/curl/projects/grmhd-no-repro/external/neuraloperator/neuralop/training/trainer.py:660: UserWarning: LpLoss.__call__() received unexpected keyword arguments: ['physical_trajectory', 'trajectory_state', 'shells', 'physical_input', 'physical_target', 'x', 'encoded_state', 'rollout_step', '_rollout_trace_index', 'physical_prediction']. These arguments will be ignored.
+    step_loss = loss(out, **sample)
+
+tests/test_autoregression_parity.py::test_upstream_and_local_physical_autoregression_match
+tests/test_autoregression_parity.py::test_upstream_and_local_hybrid_autoregression_match
+  /home/curl/miniconda3/envs/grmhd-no/lib/python3.11/site-packages/torch/nn/modules/module.py:1789: UserWarning: FNO.forward() received unexpected keyword arguments: ['physical_trajectory', 'trajectory_state', 'shells', 'physical_input', 'physical_target', 'y', 'encoded_state', 'rollout_step', '_rollout_trace_index', 'physical_prediction']. These arguments will be ignored.
+    return forward_call(*args, **kwargs)
+
+tests/test_autoregression_parity.py::test_upstream_and_local_physical_autoregression_match
+tests/test_autoregression_parity.py::test_upstream_and_local_hybrid_autoregression_match
+  /home/curl/projects/grmhd-no-repro/src/grmhd/parity.py:289: UserWarning: LpLoss.__call__() received unexpected keyword arguments: ['physical_trajectory', 'trajectory_state', 'shells', 'physical_input', 'physical_target', 'x', 'encoded_state', 'rollout_step', '_rollout_trace_index', 'physical_prediction']. These arguments will be ignored.
+    local_loss += loss_local(local_last, **local_sample)
+
+tests/test_paper_trainer_single_batch.py::test_upstream_trainer_batch_matches_manual_path[full]
+tests/test_paper_trainer_single_batch.py::test_upstream_trainer_batch_matches_manual_path[plain]
+  /home/curl/miniconda3/envs/grmhd-no/lib/python3.11/site-packages/torch/nn/modules/module.py:1789: UserWarning: FNO.forward() received unexpected keyword arguments: ['y']. These arguments will be ignored.
+    return forward_call(*args, **kwargs)
+
+tests/test_upstream_trainer_parity.py::test_upstream_trainer_and_manual_batch_match_exactly
+  /home/curl/miniconda3/envs/grmhd-no/lib/python3.11/site-packages/torch/nn/modules/module.py:1832: UserWarning: FNO.forward() received unexpected keyword arguments: ['physical_input', 'physical_target', 'shells', 'trajectory_state', 'y', 'encoded_state', 'rollout_step']. These arguments will be ignored.
+    result = forward_call(*args, **kwargs)
+
+tests/test_upstream_trainer_parity.py::test_upstream_trainer_and_manual_batch_match_exactly
+  /home/curl/projects/grmhd-no-repro/external/neuraloperator/neuralop/training/trainer.py:536: UserWarning: LpLoss.__call__() received unexpected keyword arguments: ['physical_input', 'physical_target', 'shells', 'trajectory_state', 'x', 'encoded_state', 'rollout_step']. These arguments will be ignored.
+    loss += training_loss(out, **sample)
+
+tests/test_upstream_trainer_parity.py::test_upstream_trainer_and_manual_batch_match_exactly
+  /home/curl/projects/grmhd-no-repro/src/grmhd/parity.py:140: UserWarning: LpLoss.__call__() received unexpected keyword arguments: ['physical_input', 'physical_target', 'shells', 'trajectory_state', 'x', 'encoded_state', 'rollout_step']. These arguments will be ignored.
+    manual_value = loss_manual(manual_output, **processed)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+160 passed, 13 warnings in 7.94s

@@ -1,0 +1,8 @@
+# Preserve generated scientific artifacts byte-for-byte.
+artifacts/**/*.csv -text -diff
+outputs/**/*.csv -text -diff
+artifacts/stage_ab/environment/gpu_bridge_audit.txt -text -diff
+*.png binary
+*.npy binary
+*.npz binary
+*.pkl binary

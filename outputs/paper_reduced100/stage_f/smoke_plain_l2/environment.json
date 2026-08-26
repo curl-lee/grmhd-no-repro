@@ -1,0 +1,62 @@
+{
+  "config_checksum": "bd8318440fef2fc7fdb49eae8796964429005f74ab03ca6c306548ad1f25ef44",
+  "cuda_available": false,
+  "cuda_device": null,
+  "cuda_device_count": 0,
+  "dataset_checksum": "cd3966bed1f617f49d775151cff87ae92eb2432a560bb82ae9355605e7aea70a",
+  "device": "cpu",
+  "epochs": 2,
+  "exact_adapted_blocked": {
+    "adapted": [
+      "press_thermal_proxy",
+      "spherical_kerr_schild_grid_and_stored_components",
+      "spherical_r_shells_and_radial_reference",
+      "computational_grid_H1",
+      "resource_scaled_epochs"
+    ],
+    "blocked": [
+      "unverified_EOS_conversion",
+      "Cartesian_or_metric_vector_conversion",
+      "scientific_claims_from_smoke"
+    ],
+    "exact": [
+      "ordered_reduced100_split",
+      "canonical_paper_preprocessing",
+      "upstream_FNO_and_H1_implementation"
+    ]
+  },
+  "executable": "/home/curl/miniconda3/envs/grmhd-no/bin/python",
+  "experiment_name": "smoke_plain_l2",
+  "gradient_accumulation": 1,
+  "max_train_batches": 2,
+  "max_validation_batches": 1,
+  "mode": "plain",
+  "numpy": "2.4.6",
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "preprocessing_checksum": "1645714424d95b02de2283fc16a8ef05f3864d15f11025580af13f3e67964001",
+  "prior_artifact_checksums": {
+    "bounds": "3ac9a148f2ab1b4735925c683438a4eec7194e19bb2d4f2eed40b0a2b383d38e",
+    "dissipation": "95725b031d13f93d76bd97d6cf468926797d367973e227d9259c309f22575192",
+    "envelope": "3354b711f30f58b784869a5df4f33a55b63884a68b9b70f5f251aebc9203dd46",
+    "radial": "75e29fdbe0ac38f1cb1bae6b8e9678c10af14508d2b240cf4b738ea12d7b885d",
+    "roi": "6993051ffddbd7c51c87d951bc8fa082d54d981fe64347b33bcd41d97b5ea060",
+    "shells": "99580fc2c62431f46e6702972660b060aa1294920e5f9530b45b43ce08c190b7"
+  },
+  "project_branch": "codex/paper-faithful-reduced-reproduction",
+  "project_commit": "2be61389563ceb1f68c06753814a0c4756acb3c7",
+  "project_dirty": false,
+  "python": "3.11.15 (main, Jun 11 2026, 15:20:16) [GCC 14.3.0]",
+  "scientific_result": false,
+  "smoke": true,
+  "torch": "2.12.1+cu130",
+  "uname": {
+    "machine": "x86_64",
+    "node": "curl",
+    "processor": "x86_64",
+    "release": "6.18.33.2-microsoft-standard-WSL2",
+    "system": "Linux",
+    "version": "#1 SMP PREEMPT_DYNAMIC Thu Jun 18 21:54:43 UTC 2026"
+  },
+  "upstream_commit": "86a8bc7812a31b42c4f7895693cf4ac11521c066",
+  "upstream_worktree_clean": true
+}

@@ -1,0 +1,54 @@
+{
+  "OBJECTIVE_GRADIENT_CONFLICT": "WEAK",
+  "checkpoint": "shared_initial_state",
+  "classification_rule": "STRONG median<=0 or >=50% nonpositive; MODERATE median<0.25 or >=25% nonpositive; WEAK median<0.5; else NONE",
+  "direction": {
+    "lambda_combined": 0.07447930801946967,
+    "lambda_single": 0.14895861603893934,
+    "target_fraction_combined": 0.05,
+    "target_fraction_single": 0.1
+  },
+  "gradient_norm_ratio_medians_aux_over_plain": {
+    "direction": 0.6713273972272873,
+    "radial": 7323.0986328125,
+    "shell": 292.6269226074219,
+    "transport": 3665.2760009765625
+  },
+  "pair_subset": [
+    0,
+    7,
+    14,
+    21,
+    28,
+    35,
+    42,
+    49,
+    56,
+    63,
+    70,
+    77,
+    84,
+    91,
+    98,
+    105,
+    112,
+    119,
+    126,
+    133,
+    140,
+    147,
+    154,
+    167
+  ],
+  "pair_subset_count": 24,
+  "schema_version": "stage-v-train-only-gradient-scaling-v1",
+  "train_only": true,
+  "transport": {
+    "definition": "0.5*(normalized_shell_variance_relative_squared_error+normalized_radial_profile_relative_squared_error)",
+    "lambda_combined": 1.3641537495860664e-05,
+    "lambda_single": 2.728307499172133e-05,
+    "target_fraction_combined": 0.05,
+    "target_fraction_single": 0.1
+  },
+  "validation_used_for_weight_selection": false
+}

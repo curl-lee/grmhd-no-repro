@@ -1,0 +1,10 @@
+comparison,limitation,n,pearson_p,pearson_r,source,spearman_p,spearman_rho,status
+h1_base_value_vs_validation_average_l2,"n=30; descriptive post-hoc association, not causal",30,1.875668963275276e-08,-0.8262034779769575,30 Full epoch summaries,2.3790273272380907e-22,-0.9835372636262512,descriptive_only
+h1_base_gradient_vs_validation_average_l2,"n=30; descriptive post-hoc association, not causal",30,0.005922158515535801,0.49052972799480316,30 Full epoch summaries,0.21098110982847504,-0.23515016685205786,descriptive_only
+h1_base_value_vs_validation_global_l2,"n=30; descriptive post-hoc association, not causal",30,1.7272509615984216e-06,-0.7511721989735273,30 Full epoch summaries,6.5936354164149935e-21,-0.9790878754171303,descriptive_only
+h1_base_value_vs_clipping_fraction,clipping fraction is exactly one in every epoch,30,,,30 Full epoch summaries,,,undefined_constant_series
+preclip_total_gradient_vs_parameter_update_norm,learning-rate schedule and clipping are uncontrolled confounders; descriptive only,600,6.609339141008757e-36,0.48001765840784144,600 Full optimizer-step log rows,3.403331098472152e-37,0.4878252995147208,descriptive_only
+h1_base_gradient_ratio_vs_parameter_update_norm,learning-rate schedule and clipping are uncontrolled confounders; descriptive only,600,0.004668726798464957,0.11535004449182576,600 Full optimizer-step log rows,0.16411294389263362,0.05687510243084008,descriptive_only
+h1_base_value_vs_outer_shell_error,Stage G did not save an epoch-aligned outer-shell error series; the final comparison has only checkpoint-level aggregate scores,0,,,Stage G saved logs,,,not_computed
+h1_base_value_vs_artifact_flags,"artifact flags are available only for selected final rollout steps, not all 30 epochs",0,,,Stage G saved logs,,,not_computed
+inner_shell_h1_vs_morphology_score,no epoch-aligned morphology series exists; two final model scores are insufficient for correlation,0,,,Stage H fixed checkpoint audit and Stage G comparison,,,not_computed

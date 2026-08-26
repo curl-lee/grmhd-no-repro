@@ -1,0 +1,30 @@
+{
+  "GPU_FAILURE_LAYER": "WSL_GPU_BRIDGE",
+  "GPU_SCIENTIFIC_GATE": "FAIL",
+  "WSL_GPU_BRIDGE_FAILURE": true,
+  "conda_environment": "grmhd-no",
+  "cpu_fallback": false,
+  "dev_dxg_exists": false,
+  "driver_change_attempted": false,
+  "host_gpu_visibility": "UNKNOWN",
+  "host_visibility_note": "Windows nvidia-smi.exe could not be executed because WSL interop returned UtilBindVsockAnyPort; host driver state is not independently proven from this instance.",
+  "ld_library_path": "",
+  "package_reinstall_attempted": false,
+  "project_code_modified_for_gpu_recovery": false,
+  "reproduction_scope": "ADAPTED_SPHERICAL_KS_WORKFLOW_REPRODUCTION",
+  "schema_version": "stage-aa-gpu-gate-v1",
+  "torch": {
+    "capability": null,
+    "compiled_cuda": "13.0",
+    "cuda_available": false,
+    "device": null,
+    "device_count": 0,
+    "python_executable": "/home/curl/miniconda3/envs/grmhd-no/bin/python",
+    "python_version": "3.11.15 (main, Jun 11 2026, 15:20:16) [GCC 14.3.0]",
+    "torch_version": "2.12.1+cu130"
+  },
+  "training_authorized": false,
+  "windows_nvidia_smi_pass": false,
+  "wsl_nvidia_smi_pass": false,
+  "wsl_stub_libcuda_exists": true
+}

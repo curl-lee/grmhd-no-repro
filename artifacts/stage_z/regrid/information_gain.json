@@ -1,0 +1,54 @@
+{
+  "classification": {
+    "128": "GOOD",
+    "64": "POOR",
+    "96": "MODERATE"
+  },
+  "condition_count": 4,
+  "conditions": {
+    "radial_increment_error_improves_ge_20pct": true,
+    "shell_increment_error_improves_ge_20pct": true,
+    "temporal_increment_cosine_improves": true,
+    "temporal_increment_relative_difference_improves_ge_20pct": true
+  },
+  "higher_res_data_information_gain": true,
+  "metrics": {
+    "128": {
+      "radial_increment_relative_l2": 0.0,
+      "shell_increment_relative_l2": 0.0,
+      "temporal_increment_cosine": 1.0,
+      "temporal_increment_loss_inner": 0.0,
+      "temporal_increment_loss_middle": 0.0,
+      "temporal_increment_loss_outer": 0.0,
+      "temporal_increment_relative_difference": 0.0
+    },
+    "64": {
+      "radial_increment_relative_l2": 0.3283430178762241,
+      "shell_increment_relative_l2": 0.2060294061585904,
+      "temporal_increment_cosine": 0.8715487138500086,
+      "temporal_increment_loss_inner": 0.44360202273396504,
+      "temporal_increment_loss_middle": 0.3644246358208748,
+      "temporal_increment_loss_outer": 0.42273226636403505,
+      "temporal_increment_relative_difference": 0.5034285651131418
+    },
+    "96": {
+      "radial_increment_relative_l2": 0.2050737536566343,
+      "shell_increment_relative_l2": 0.1030762900537098,
+      "temporal_increment_cosine": 0.9268723126200844,
+      "temporal_increment_loss_inner": 0.3323640787800465,
+      "temporal_increment_loss_middle": 0.2663181744892211,
+      "temporal_increment_loss_outer": 0.3839287481225897,
+      "temporal_increment_relative_difference": 0.3783468475883613
+    }
+  },
+  "reference_semantics": "HIGHER_RES_SAMPLING_REFERENCE",
+  "relative_improvements": {
+    "radial_increment_relative_l2": 0.37542830975031966,
+    "shell_increment_relative_l2": 0.49970107677557835,
+    "temporal_increment_cosine_absolute_delta": 0.055323598770075755,
+    "temporal_increment_relative_difference": 0.24845971443171752
+  },
+  "reproduction_scope": "ADAPTED_SPHERICAL_KS_WORKFLOW_REPRODUCTION",
+  "schema_version": "stage-z-information-gain-v1",
+  "threshold": 0.2
+}

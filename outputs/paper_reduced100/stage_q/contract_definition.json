@@ -1,0 +1,29 @@
+{
+  "affine_equivalent": "y_alpha = (1-alpha)*z_t + alpha*y_direct",
+  "alpha_grid": [
+    0.0,
+    0.125,
+    0.25,
+    0.5,
+    1.0
+  ],
+  "anchored_output": "y_alpha = z_t + alpha * r_theta(z_t)",
+  "candidate_alphas": [
+    0.125,
+    0.25,
+    0.5
+  ],
+  "classification": "no_training_output_contract_audit",
+  "config_sha256": "a6b689dbd7cdd60dd0c64fdbd036b9f3732ed52af8ee3ebf6832aa2d3bc0755b",
+  "direct_output": "y_direct = F_theta(concat(z_t, fixed_shells))",
+  "endpoint_semantics": {
+    "0.0": "exact_persistence_control",
+    "1.0": "exact_stage_o_direct_control"
+  },
+  "fixed_shells": true,
+  "no_clipping_or_transform_in_contract": true,
+  "residual": "r_theta(z_t) = y_direct - z_t",
+  "rules_frozen_before_alpha_results": true,
+  "scalar_alpha_only": true,
+  "schema_version": "paper-stage-q-anchor-contract-v1"
+}

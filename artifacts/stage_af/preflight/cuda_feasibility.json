@@ -1,0 +1,39 @@
+{
+  "backward_seconds": 1.31310383500022,
+  "batch": 1,
+  "capability": [
+    12,
+    0
+  ],
+  "cpu_cuda_agreement": {
+    "atol": 2e-05,
+    "max_abs": 1.1920928955078125e-07,
+    "pass": true,
+    "relative_l2": 6.522432727251726e-08,
+    "rtol": 2e-05
+  },
+  "device": "NVIDIA GeForce RTX 5070",
+  "disco_forward_seconds": 0.6048121643066406,
+  "forward_finite": true,
+  "forward_seconds": 0.6231939160002185,
+  "gradients_finite": true,
+  "input_on_cuda": true,
+  "input_shape": [
+    1,
+    16,
+    64,
+    64,
+    64
+  ],
+  "loss_finite": true,
+  "loss_on_cuda": true,
+  "model_parameters_on_cuda": true,
+  "optimizer_created": false,
+  "output_on_cuda": true,
+  "parameter_update_performed": false,
+  "peak_allocated_mib": 1505.1240234375,
+  "peak_reserved_mib": 2000.0,
+  "status": "passed",
+  "torch_cuda_version": "13.0",
+  "torch_version": "2.12.1+cu130"
+}

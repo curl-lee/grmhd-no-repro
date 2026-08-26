@@ -1,0 +1,586 @@
+{
+  "checksums": {
+    "dataset": "cd3966bed1f617f49d775151cff87ae92eb2432a560bb82ae9355605e7aea70a",
+    "manifest": "f6f3497717b577db25ff96f58daa5b98debe5300c329e30b543805d11d21b9d6",
+    "pair_order_file": "5e1e361ea75e01ffd667822d8bfe870d70c5bc69570d52cdf806e637b2df2b52",
+    "preprocessing": "1645714424d95b02de2283fc16a8ef05f3864d15f11025580af13f3e67964001",
+    "stage_d_artifacts": {
+      "bounds": "3ac9a148f2ab1b4735925c683438a4eec7194e19bb2d4f2eed40b0a2b383d38e",
+      "dissipation": "95725b031d13f93d76bd97d6cf468926797d367973e227d9259c309f22575192",
+      "envelope": "3354b711f30f58b784869a5df4f33a55b63884a68b9b70f5f251aebc9203dd46",
+      "radial": "75e29fdbe0ac38f1cb1bae6b8e9678c10af14508d2b240cf4b738ea12d7b885d",
+      "roi": "6993051ffddbd7c51c87d951bc8fa082d54d981fe64347b33bcd41d97b5ea060",
+      "shells": "99580fc2c62431f46e6702972660b060aa1294920e5f9530b45b43ce08c190b7"
+    },
+    "stage_e_loss_contract": "5ca5e5df00490e286550887002f15372883f4dbe591fd31a4a340634d4146aac",
+    "stage_g_plain_config": "bd8318440fef2fc7fdb49eae8796964429005f74ab03ca6c306548ad1f25ef44",
+    "stage_k_config": "8b229c5c2528d66bd4e11d0b0c4af16d00e906129386f8119af1670721ba30af"
+  },
+  "classification": "adapted_method_reproduction",
+  "environment": {
+    "executable": "/home/curl/miniconda3/envs/grmhd-no/bin/python",
+    "gpu_capability": [
+      12,
+      0
+    ],
+    "gpu_name": "NVIDIA GeForce RTX 5070",
+    "numpy": "2.4.6",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.11.15 (main, Jun 11 2026, 15:20:16) [GCC 14.3.0]",
+    "torch": "2.12.1+cu130",
+    "torch_cuda": "13.0"
+  },
+  "fairness": {
+    "config_differences": [
+      {
+        "full": "plain_l2_fno",
+        "path": "checkpoint_prefix",
+        "plain": "stage_k_localno_differential_plain"
+      },
+      {
+        "full": "paper_reduced100_plain_l2_fno",
+        "path": "experiment_name",
+        "plain": "stage_k_localno_differential_plain"
+      },
+      {
+        "full": "<missing>",
+        "path": "model.architecture",
+        "plain": "localno_differential_3d"
+      },
+      {
+        "full": "<missing>",
+        "path": "model.conv_padding_mode",
+        "plain": "periodic"
+      },
+      {
+        "full": "<missing>",
+        "path": "model.default_in_shape",
+        "plain": [
+          64,
+          64,
+          64
+        ]
+      },
+      {
+        "full": "<missing>",
+        "path": "model.enforce_hermitian_symmetry",
+        "plain": true
+      },
+      {
+        "full": "<missing>",
+        "path": "model.fin_diff_kernel_size",
+        "plain": 3
+      },
+      {
+        "full": "<missing>",
+        "path": "model.local_no_skip",
+        "plain": "linear"
+      },
+      {
+        "full": "<missing>",
+        "path": "model.mix_derivatives",
+        "plain": true
+      },
+      {
+        "full": "<missing>",
+        "path": "model.n_dim",
+        "plain": 3
+      },
+      {
+        "full": "<missing>",
+        "path": "model.normalization",
+        "plain": null
+      },
+      {
+        "full": "<missing>",
+        "path": "model.prediction_mode",
+        "plain": "direct"
+      },
+      {
+        "full": "neuralop.models.FNO",
+        "path": "model.source",
+        "plain": "neuralop.models.LocalNO"
+      },
+      {
+        "full": "<missing>",
+        "path": "model.spectral_enabled",
+        "plain": true
+      },
+      {
+        "full": "<missing>",
+        "path": "model.use_channel_mlp",
+        "plain": false
+      },
+      {
+        "full": "<missing>",
+        "path": "model.use_differential",
+        "plain": true
+      },
+      {
+        "full": "<missing>",
+        "path": "model.use_disco",
+        "plain": false
+      },
+      {
+        "full": "<missing>",
+        "path": "model.use_local_integral",
+        "plain": false
+      },
+      {
+        "full": "outputs/paper_reduced100/plain_l2_fno",
+        "path": "output_dir",
+        "plain": "outputs/paper_reduced100/stage_k/localno_differential_plain"
+      },
+      {
+        "full": [
+          "press_thermal_proxy",
+          "spherical_kerr_schild_grid_and_stored_components",
+          "spherical_r_shells_and_radial_reference",
+          "computational_grid_H1",
+          "resource_scaled_epochs"
+        ],
+        "path": "reproduction_metadata.adapted",
+        "plain": [
+          "differential_localno_without_disco_integral",
+          "press_thermal_proxy",
+          "spherical_kerr_schild_grid_and_stored_components",
+          "spherical_r_shell_inputs",
+          "resource_scaled_30_epochs"
+        ]
+      },
+      {
+        "full": [
+          "unverified_EOS_conversion",
+          "Cartesian_or_metric_vector_conversion",
+          "scientific_claims_from_smoke"
+        ],
+        "path": "reproduction_metadata.blocked",
+        "plain": [
+          "exact_3d_disco_backbone",
+          "unverified_eint_eos_conversion",
+          "cartesian_kerr_schild_conversion",
+          "paper_300_snapshot_dataset",
+          "paper_1200_epoch_budget",
+          "coarse_fine_coupled_simulation"
+        ]
+      },
+      {
+        "full": "<missing>",
+        "path": "reproduction_metadata.classification",
+        "plain": "adapted_method_reproduction"
+      },
+      {
+        "full": [
+          "ordered_reduced100_split",
+          "canonical_paper_preprocessing",
+          "upstream_FNO_and_H1_implementation"
+        ],
+        "path": "reproduction_metadata.exact",
+        "plain": [
+          "ordered_reduced100_split",
+          "canonical_paper_preprocessing",
+          "plain_l2_loss_contract",
+          "pinned_upstream_differential_localno_implementation"
+        ]
+      },
+      {
+        "full": "<missing>",
+        "path": "reproduction_metadata.reproduction_level",
+        "plain": "adapted_method_reproduction"
+      }
+    ],
+    "same_batch_and_accumulation": true,
+    "same_checkpoint_selector": true,
+    "same_epochs": true,
+    "same_evaluation": true,
+    "same_optimizer": true,
+    "same_pair_order": true,
+    "same_preprocessing": true,
+    "same_scheduler": true,
+    "same_seed": true,
+    "same_split": true,
+    "same_tensor_initial_state": false,
+    "same_tensor_initial_state_reason": "different_model_architectures"
+  },
+  "gpu_preflight": {
+    "backward_seconds": 0.06878277800001342,
+    "differential_module_count": 4,
+    "disco_module_count": 0,
+    "forward_seconds": 0.3731882100000803,
+    "loss_seconds": 0.04072981300009815,
+    "peak_allocated_bytes": 540445184,
+    "peak_reserved_bytes": 719323136,
+    "spectral_module_count": 4,
+    "state_hash_unchanged": true,
+    "status": "passed"
+  },
+  "initial_state": {
+    "constructor_config": {
+      "architecture": "localno_differential_3d",
+      "conv_padding_mode": "periodic",
+      "default_in_shape": [
+        64,
+        64,
+        64
+      ],
+      "enforce_hermitian_symmetry": true,
+      "fin_diff_kernel_size": 3,
+      "hidden_channels": 16,
+      "in_channels": 16,
+      "local_no_skip": "linear",
+      "mix_derivatives": true,
+      "mixed_precision": false,
+      "n_dim": 3,
+      "n_layers": 4,
+      "n_modes": [
+        8,
+        8,
+        8
+      ],
+      "normalization": null,
+      "out_channels": 8,
+      "positional_embedding": null,
+      "prediction_mode": "direct",
+      "source": "neuralop.models.LocalNO",
+      "spectral_enabled": true,
+      "use_channel_mlp": false,
+      "use_differential": true,
+      "use_disco": false,
+      "use_local_integral": false
+    },
+    "parameters": [
+      {
+        "name": "local_no_blocks.convs.0.bias",
+        "numel": 16,
+        "shape": [
+          16,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "name": "local_no_blocks.convs.0.weight.tensor",
+        "numel": 81920,
+        "shape": [
+          16,
+          16,
+          8,
+          8,
+          5
+        ]
+      },
+      {
+        "name": "local_no_blocks.convs.1.bias",
+        "numel": 16,
+        "shape": [
+          16,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "name": "local_no_blocks.convs.1.weight.tensor",
+        "numel": 81920,
+        "shape": [
+          16,
+          16,
+          8,
+          8,
+          5
+        ]
+      },
+      {
+        "name": "local_no_blocks.convs.2.bias",
+        "numel": 16,
+        "shape": [
+          16,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "name": "local_no_blocks.convs.2.weight.tensor",
+        "numel": 81920,
+        "shape": [
+          16,
+          16,
+          8,
+          8,
+          5
+        ]
+      },
+      {
+        "name": "local_no_blocks.convs.3.bias",
+        "numel": 16,
+        "shape": [
+          16,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "name": "local_no_blocks.convs.3.weight.tensor",
+        "numel": 81920,
+        "shape": [
+          16,
+          16,
+          8,
+          8,
+          5
+        ]
+      },
+      {
+        "name": "local_no_blocks.local_no_skips.0.conv.weight",
+        "numel": 256,
+        "shape": [
+          16,
+          16,
+          1
+        ]
+      },
+      {
+        "name": "local_no_blocks.local_no_skips.1.conv.weight",
+        "numel": 256,
+        "shape": [
+          16,
+          16,
+          1
+        ]
+      },
+      {
+        "name": "local_no_blocks.local_no_skips.2.conv.weight",
+        "numel": 256,
+        "shape": [
+          16,
+          16,
+          1
+        ]
+      },
+      {
+        "name": "local_no_blocks.local_no_skips.3.conv.weight",
+        "numel": 256,
+        "shape": [
+          16,
+          16,
+          1
+        ]
+      },
+      {
+        "name": "local_no_blocks.differential.0.weight",
+        "numel": 6912,
+        "shape": [
+          16,
+          16,
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "name": "local_no_blocks.differential.1.weight",
+        "numel": 6912,
+        "shape": [
+          16,
+          16,
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "name": "local_no_blocks.differential.2.weight",
+        "numel": 6912,
+        "shape": [
+          16,
+          16,
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "name": "local_no_blocks.differential.3.weight",
+        "numel": 6912,
+        "shape": [
+          16,
+          16,
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "name": "lifting.fcs.0.weight",
+        "numel": 512,
+        "shape": [
+          32,
+          16,
+          1
+        ]
+      },
+      {
+        "name": "lifting.fcs.0.bias",
+        "numel": 32,
+        "shape": [
+          32
+        ]
+      },
+      {
+        "name": "lifting.fcs.1.weight",
+        "numel": 512,
+        "shape": [
+          16,
+          32,
+          1
+        ]
+      },
+      {
+        "name": "lifting.fcs.1.bias",
+        "numel": 16,
+        "shape": [
+          16
+        ]
+      },
+      {
+        "name": "projection.fcs.0.weight",
+        "numel": 512,
+        "shape": [
+          32,
+          16,
+          1
+        ]
+      },
+      {
+        "name": "projection.fcs.0.bias",
+        "numel": 32,
+        "shape": [
+          32
+        ]
+      },
+      {
+        "name": "projection.fcs.1.weight",
+        "numel": 256,
+        "shape": [
+          8,
+          32,
+          1
+        ]
+      },
+      {
+        "name": "projection.fcs.1.bias",
+        "numel": 8,
+        "shape": [
+          8
+        ]
+      }
+    ],
+    "path": "outputs/paper_reduced100/stage_k/shared_localno_initial_state.pt",
+    "seed": 42,
+    "strict_reload_sha256": "7e10895cb283be8532e4c036e8a526c536a632cce880c500080ea1d14fd89311",
+    "tensor_state_sha256": "7e10895cb283be8532e4c036e8a526c536a632cce880c500080ea1d14fd89311"
+  },
+  "model": {
+    "architecture": "localno_differential_3d",
+    "conv_padding_mode": "periodic",
+    "default_in_shape": [
+      64,
+      64,
+      64
+    ],
+    "enforce_hermitian_symmetry": true,
+    "fin_diff_kernel_size": 3,
+    "fno_plain_parameter_count": 331832,
+    "hidden_channels": 16,
+    "in_channels": 16,
+    "local_no_skip": "linear",
+    "localno_parameter_count": 358296,
+    "localno_to_fno_parameter_ratio": 1.0797511994021072,
+    "mix_derivatives": true,
+    "mixed_precision": false,
+    "n_dim": 3,
+    "n_layers": 4,
+    "n_modes": [
+      8,
+      8,
+      8
+    ],
+    "normalization": null,
+    "out_channels": 8,
+    "positional_embedding": null,
+    "prediction_mode": "direct",
+    "source": "neuralop.models.LocalNO",
+    "spectral_enabled": true,
+    "use_channel_mlp": false,
+    "use_differential": true,
+    "use_disco": false,
+    "use_local_integral": false
+  },
+  "not_3d_disco": true,
+  "not_exact_paper_reproduction": true,
+  "project_branch": "codex/paper-faithful-reduced-reproduction",
+  "project_dirty_during_preparation": false,
+  "project_git_commit": "4f9d9074436eba89117d07a5aa7e37f52541195f",
+  "protocol": {
+    "coordinates": {
+      "stored_components_not_cartesian": true,
+      "system": "spherical_kerr_schild",
+      "tensor_axes": [
+        "phi",
+        "theta",
+        "r"
+      ]
+    },
+    "dropped_transition": [
+      90,
+      91
+    ],
+    "name": "paper_reduced100_press_spherical_ks",
+    "radial_mode": "appendix_literal_press_proxy",
+    "thermal": {
+      "channel": "press",
+      "eos_conversion": "disabled_unverified_gamma",
+      "paper_adaptation": true
+    },
+    "train_pairs": 79,
+    "train_snapshots": [
+      11,
+      91
+    ],
+    "validation_pairs": 19,
+    "validation_shuffle": false,
+    "validation_snapshots": [
+      91,
+      111
+    ]
+  },
+  "run": {
+    "batch_size": 1,
+    "checkpoint_selection_metric": "validation normalized per-channel relative L2 arithmetic average",
+    "cosine_min_lr": 1e-06,
+    "early_stopping": "disabled",
+    "epochs": 30,
+    "eval_interval": 1,
+    "final_accumulation_count": 3,
+    "gradient_accumulation": 4,
+    "gradient_clip_norm": 1.0,
+    "learning_rate": 0.001,
+    "microbatches_per_epoch": 79,
+    "microbatches_total": 2370,
+    "mixed_precision": false,
+    "optimizer": "Adam",
+    "optimizer_steps_per_epoch": 20,
+    "optimizer_steps_total": 600,
+    "scheduler": "warmup_cosine_step_per_epoch",
+    "seed": 42,
+    "warmup_epochs": 2,
+    "weight_decay": 0.0001
+  },
+  "schema_version": "paper-stage-k-run-manifest-v1",
+  "status": "ready",
+  "upstream_commit": "86a8bc7812a31b42c4f7895693cf4ac11521c066",
+  "upstream_worktree_clean": true
+}

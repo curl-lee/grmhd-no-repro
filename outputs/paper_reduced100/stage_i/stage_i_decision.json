@@ -1,0 +1,37 @@
+{
+  "choice": "D",
+  "extension_better_category_counts_vs_full": {
+    "no_h1": 5,
+    "stored_coordinate": 5,
+    "unit_index": 5
+  },
+  "extension_better_category_counts_vs_plain": {
+    "no_h1": 1,
+    "stored_coordinate": 0,
+    "unit_index": 1
+  },
+  "h1_adaptation_conclusion": "Stage I extensions diagnose adaptation mismatch and do not replace Stage G Full.",
+  "name": "No extension rescues Full",
+  "paper_ablation_conclusion": "Do not start further training automatically; review this decision first.",
+  "paper_main_path": "Stage G Full with current upstream H1 weight 0.05 remains frozen",
+  "recommended_next_direction": "Improve upstream-to-paper geometry/operator fidelity before interpreting more loss ablations.",
+  "run_c_gate": {
+    "gt_finite_positive": true,
+    "microbatches_exact": true,
+    "no_gt_finite_positive": true,
+    "nonfinite_zero": true,
+    "optimizer_updates_exact": true,
+    "strict_reload": true,
+    "training_complete": true,
+    "validation_finite_positive": true
+  },
+  "schema_version": "paper-stage-i-final-decision-v1",
+  "stored_better_than_full_categories": [
+    "polar_morphology",
+    "magnetic_texture",
+    "radial_statistics",
+    "outer_shell_statistics",
+    "model_only_saturation"
+  ],
+  "stored_better_than_plain_categories": []
+}

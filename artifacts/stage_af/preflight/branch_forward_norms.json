@@ -1,0 +1,98 @@
+{
+  "samples": {
+    "training_like": {
+      "layers": {
+        "0": {
+          "differential": 28.610206604003906,
+          "disco3d": 626.4315185546875,
+          "disco_over_differential": 21.895386049642173,
+          "disco_over_spectral": 0.958733141993746,
+          "skip": 158.05526733398438,
+          "spectral": 653.3950805664062
+        },
+        "1": {
+          "differential": 33.468841552734375,
+          "disco3d": 1071.2142333984375,
+          "disco_over_differential": 32.00631344561492,
+          "disco_over_spectral": 1.5204770639435936,
+          "skip": 343.1797790527344,
+          "spectral": 704.5250854492188
+        },
+        "2": {
+          "differential": 57.28062438964844,
+          "disco3d": 2257.546875,
+          "disco_over_differential": 39.412050742379414,
+          "disco_over_spectral": 2.6511274960906106,
+          "skip": 489.865966796875,
+          "spectral": 851.5421752929688
+        },
+        "3": {
+          "differential": 81.20537567138672,
+          "disco3d": 4541.74951171875,
+          "disco_over_differential": 55.929173089449385,
+          "disco_over_spectral": 2.8695009155468036,
+          "skip": 1357.1561279296875,
+          "spectral": 1582.766357421875
+        }
+      },
+      "output_finite": true,
+      "output_norm": 374.17108154296875,
+      "output_shape": [
+        1,
+        8,
+        64,
+        64,
+        64
+      ],
+      "pair_index": 0
+    },
+    "validation_like": {
+      "layers": {
+        "0": {
+          "differential": 2417.570556640625,
+          "disco3d": 25342.30078125,
+          "disco_over_differential": 10.482548569943212,
+          "disco_over_spectral": 2.6607467680772103,
+          "skip": 6564.30224609375,
+          "spectral": 9524.5068359375
+        },
+        "1": {
+          "differential": 3928.582763671875,
+          "disco3d": 42447.3203125,
+          "disco_over_differential": 10.804741268280255,
+          "disco_over_spectral": 2.402469301482923,
+          "skip": 13387.53515625,
+          "spectral": 17668.205078125
+        },
+        "2": {
+          "differential": 6159.56494140625,
+          "disco3d": 78128.8203125,
+          "disco_over_differential": 12.68414588622925,
+          "disco_over_spectral": 2.8102735203825495,
+          "skip": 17449.025390625,
+          "spectral": 27801.14453125
+        },
+        "3": {
+          "differential": 9382.8955078125,
+          "disco3d": 169309.6875,
+          "disco_over_differential": 18.044503145007564,
+          "disco_over_spectral": 3.548194033050719,
+          "skip": 37040.09375,
+          "spectral": 47717.14453125
+        }
+      },
+      "output_finite": true,
+      "output_norm": 16180.10546875,
+      "output_shape": [
+        1,
+        8,
+        64,
+        64,
+        64
+      ],
+      "pair_index": 169
+    }
+  },
+  "scientific_validation_metric_computed": false,
+  "spherical_disco_branch_forward_active": true
+}

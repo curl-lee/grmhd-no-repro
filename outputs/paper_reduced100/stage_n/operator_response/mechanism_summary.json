@@ -1,0 +1,99 @@
+{
+  "backward_called": false,
+  "checkpoint_epoch": 22,
+  "checkpoint_sha256": "f69008f91da80a4a7a6374adc253bbcdf37f58f0d142ea80f2b3f399e1f02a9f",
+  "decision": "4. MIXED_OPERATOR_RESPONSE_FAILURE",
+  "device": "NVIDIA GeForce RTX 5070",
+  "epsilons": [
+    0.001,
+    0.01
+  ],
+  "fixed_states": [
+    11,
+    50,
+    90,
+    91,
+    92,
+    94,
+    96,
+    100,
+    110
+  ],
+  "mechanisms": {
+    "CHANNEL_COUPLING_FAILURE": {
+      "epsilon_consistency_required": true,
+      "epsilon_consistent_states": [],
+      "label": "inconclusive",
+      "signature_states": [
+        11,
+        50,
+        90,
+        91,
+        92,
+        94,
+        96,
+        100,
+        110
+      ]
+    },
+    "FREQUENCY_SELECTIVE_FAILURE": {
+      "epsilon_consistency_required": true,
+      "epsilon_consistent_states": [],
+      "label": "inconclusive",
+      "signature_states": []
+    },
+    "LOW_VARIANCE_ATTRACTOR": {
+      "epsilon_consistency_required": false,
+      "label": "supported",
+      "supporting_states": [
+        90,
+        91,
+        92,
+        94,
+        96,
+        100,
+        110
+      ]
+    },
+    "SHELL_RADIAL_TRANSPORT_BIAS": {
+      "direct_oracle_conditioned_transport_used": true,
+      "epsilon_consistency_required": false,
+      "label": "supported",
+      "supporting_states": [
+        11,
+        50,
+        90,
+        91,
+        92,
+        94,
+        96,
+        100,
+        110
+      ]
+    }
+  },
+  "model_eval": true,
+  "model_state_hash_after": "4320f2dc1ea7f49fed57a68391df2847d1da7003660a73a963fac96f24c18cde",
+  "model_state_hash_before": "4320f2dc1ea7f49fed57a68391df2847d1da7003660a73a963fac96f24c18cde",
+  "optimizer_created": false,
+  "prototype_transform_used": false,
+  "scheduler_created": false,
+  "schema_version": "paper-stage-n-operator-mechanism-v1",
+  "state_unchanged": true,
+  "supported_mechanisms": [
+    "LOW_VARIANCE_ATTRACTOR",
+    "SHELL_RADIAL_TRANSPORT_BIAS"
+  ],
+  "thresholds": {
+    "channel_off_diagonal_over_diagonal": 1.0,
+    "contraction_gain": 1.0,
+    "epsilon_consistency_relative_tolerance": 0.1,
+    "epsilon_consistent_basis_fraction_minimum": 0.8,
+    "frequency_gain_spread": 2.0,
+    "radial_phase_absolute_minimum": 0.5,
+    "shell_same_retention_minimum": 0.5,
+    "state_majority_required": 5,
+    "weak_state_count": 3
+  },
+  "torch_no_grad": true
+}

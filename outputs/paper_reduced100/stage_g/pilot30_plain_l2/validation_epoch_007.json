@@ -1,0 +1,524 @@
+{
+  "schema_version": "paper-stage-g-validation-epoch-v1",
+  "training": {
+    "clipping_fraction": 1.0,
+    "epoch": 6,
+    "final_accumulation_count": 3,
+    "h1_to_base_gradient_ratio": {
+      "maximum": null,
+      "mean": null,
+      "median": null,
+      "q95": null
+    },
+    "h1_to_base_value_ratio": {
+      "maximum": null,
+      "mean": null,
+      "median": null,
+      "q95": null
+    },
+    "microbatches_seen": 79,
+    "nonfinite_count": 0,
+    "optimizer_steps": 20,
+    "peak_allocated_mib": 709.908203125,
+    "peak_reserved_mib": 858.0,
+    "roi_ramp": 0.016,
+    "train_total": {
+      "maximum": 20.25917625427246,
+      "mean": 4.000438785251183,
+      "median": 2.8594470024108887,
+      "q95": 10.83733558654785
+    },
+    "validation_normalized_arithmetic_average_relative_l2": 0.6095404406620241,
+    "validation_normalized_global_relative_l2": 0.502617549136714,
+    "wall_seconds": 7.505954891999863
+  },
+  "validation": {
+    "batches": 19,
+    "evaluation_bound_clamp_fraction": 0.0035799929970189146,
+    "finite": true,
+    "inverse_clamp": {
+      "channel_order": [
+        "Bcc1",
+        "Bcc2",
+        "Bcc3",
+        "rho",
+        "press",
+        "vel1",
+        "vel2",
+        "vel3"
+      ],
+      "channels": {
+        "Bcc1": {
+          "intersection_fraction": 0.0,
+          "jaccard": null,
+          "model_clamp_count": 0,
+          "model_clamp_fraction": 0.0,
+          "model_negative_fraction": 0.0,
+          "model_only_fraction": 0.0,
+          "model_positive_fraction": 0.0,
+          "neither_fraction": 1.0,
+          "opposite_sign_intersection_fraction": 0.0,
+          "precision": null,
+          "recall": null,
+          "same_sign_intersection_fraction": 0.0,
+          "sign_agreement_within_intersection": null,
+          "target_clamp_count": 0,
+          "target_clamp_fraction": 0.0,
+          "target_negative_fraction": 0.0,
+          "target_only_fraction": 0.0,
+          "target_positive_fraction": 0.0,
+          "value_count": 4980736
+        },
+        "Bcc2": {
+          "intersection_fraction": 0.0,
+          "jaccard": 0.0,
+          "model_clamp_count": 0,
+          "model_clamp_fraction": 0.0,
+          "model_negative_fraction": 0.0,
+          "model_only_fraction": 0.0,
+          "model_positive_fraction": 0.0,
+          "neither_fraction": 0.8957320765445107,
+          "opposite_sign_intersection_fraction": 0.0,
+          "precision": null,
+          "recall": 0.0,
+          "same_sign_intersection_fraction": 0.0,
+          "sign_agreement_within_intersection": null,
+          "target_clamp_count": 519331,
+          "target_clamp_fraction": 0.10426792345548931,
+          "target_negative_fraction": 0.033221194618626645,
+          "target_only_fraction": 0.10426792345548931,
+          "target_positive_fraction": 0.07104672883686267,
+          "value_count": 4980736
+        },
+        "Bcc3": {
+          "intersection_fraction": 0.29160971390573603,
+          "jaccard": 0.5070420224275078,
+          "model_clamp_count": 1461806,
+          "model_clamp_fraction": 0.2934919658460115,
+          "model_negative_fraction": 0.136962890625,
+          "model_only_fraction": 0.0018822519402754935,
+          "model_positive_fraction": 0.1565290752210115,
+          "neither_fraction": 0.4248805798982319,
+          "opposite_sign_intersection_fraction": 0.000347137451171875,
+          "precision": 0.993586700287179,
+          "recall": 0.5087069194082398,
+          "same_sign_intersection_fraction": 0.29126257645456416,
+          "sign_agreement_within_intersection": 0.9988095820042397,
+          "target_clamp_count": 2855143,
+          "target_clamp_fraction": 0.5732371681614926,
+          "target_negative_fraction": 0.2852124665912829,
+          "target_only_fraction": 0.2816274542557566,
+          "target_positive_fraction": 0.2880247015702097,
+          "value_count": 4980736
+        },
+        "press": {
+          "intersection_fraction": 0.0,
+          "jaccard": null,
+          "model_clamp_count": 0,
+          "model_clamp_fraction": 0.0,
+          "model_negative_fraction": 0.0,
+          "model_only_fraction": 0.0,
+          "model_positive_fraction": 0.0,
+          "neither_fraction": 1.0,
+          "opposite_sign_intersection_fraction": 0.0,
+          "precision": null,
+          "recall": null,
+          "same_sign_intersection_fraction": 0.0,
+          "sign_agreement_within_intersection": null,
+          "target_clamp_count": 0,
+          "target_clamp_fraction": 0.0,
+          "target_negative_fraction": 0.0,
+          "target_only_fraction": 0.0,
+          "target_positive_fraction": 0.0,
+          "value_count": 4980736
+        },
+        "rho": {
+          "intersection_fraction": 0.0,
+          "jaccard": null,
+          "model_clamp_count": 0,
+          "model_clamp_fraction": 0.0,
+          "model_negative_fraction": 0.0,
+          "model_only_fraction": 0.0,
+          "model_positive_fraction": 0.0,
+          "neither_fraction": 1.0,
+          "opposite_sign_intersection_fraction": 0.0,
+          "precision": null,
+          "recall": null,
+          "same_sign_intersection_fraction": 0.0,
+          "sign_agreement_within_intersection": null,
+          "target_clamp_count": 0,
+          "target_clamp_fraction": 0.0,
+          "target_negative_fraction": 0.0,
+          "target_only_fraction": 0.0,
+          "target_positive_fraction": 0.0,
+          "value_count": 4980736
+        },
+        "vel1": {
+          "intersection_fraction": 0.0,
+          "jaccard": 0.0,
+          "model_clamp_count": 0,
+          "model_clamp_fraction": 0.0,
+          "model_negative_fraction": 0.0,
+          "model_only_fraction": 0.0,
+          "model_positive_fraction": 0.0,
+          "neither_fraction": 0.9998875668174342,
+          "opposite_sign_intersection_fraction": 0.0,
+          "precision": null,
+          "recall": 0.0,
+          "same_sign_intersection_fraction": 0.0,
+          "sign_agreement_within_intersection": null,
+          "target_clamp_count": 560,
+          "target_clamp_fraction": 0.00011243318256578947,
+          "target_negative_fraction": 0.0,
+          "target_only_fraction": 0.00011243318256578947,
+          "target_positive_fraction": 0.00011243318256578947,
+          "value_count": 4980736
+        },
+        "vel2": {
+          "intersection_fraction": 0.016553577623869244,
+          "jaccard": 0.29090235512040225,
+          "model_clamp_count": 182291,
+          "model_clamp_fraction": 0.03659920943410773,
+          "model_negative_fraction": 0.00047543174342105265,
+          "model_only_fraction": 0.020045631810238485,
+          "model_positive_fraction": 0.03612377769068668,
+          "neither_fraction": 0.9430957593415913,
+          "opposite_sign_intersection_fraction": 0.00041098343698601976,
+          "precision": 0.4522933112441097,
+          "recall": 0.4491102117298443,
+          "same_sign_intersection_fraction": 0.016142594186883224,
+          "sign_agreement_within_intersection": 0.9751725308978884,
+          "target_clamp_count": 183583,
+          "target_clamp_fraction": 0.03685860884817023,
+          "target_negative_fraction": 0.017985896060341282,
+          "target_only_fraction": 0.020305031224300985,
+          "target_positive_fraction": 0.018872712787828948,
+          "value_count": 4980736
+        },
+        "vel3": {
+          "intersection_fraction": 0.09605969880756579,
+          "jaccard": 0.2323078469349754,
+          "model_clamp_count": 535625,
+          "model_clamp_fraction": 0.10753932752107319,
+          "model_negative_fraction": 0.0,
+          "model_only_fraction": 0.011479628713507401,
+          "model_positive_fraction": 0.10753932752107319,
+          "neither_fraction": 0.5864982604980469,
+          "opposite_sign_intersection_fraction": 0.0,
+          "precision": 0.8932518086347725,
+          "recall": 0.23894133240376633,
+          "same_sign_intersection_fraction": 0.09605969880756579,
+          "sign_agreement_within_intersection": 1.0,
+          "target_clamp_count": 2002366,
+          "target_clamp_fraction": 0.40202211078844574,
+          "target_negative_fraction": 1.5861109683388158e-05,
+          "target_only_fraction": 0.3059624119808799,
+          "target_positive_fraction": 0.40200624967876236,
+          "value_count": 4980736
+        }
+      },
+      "gamma": 6.0,
+      "inverse_clamp_fraction": 0.99,
+      "inverse_clamp_limit": 5.9399999999999995,
+      "mask_definition": "strictly greater than +limit or strictly less than -limit",
+      "schema_version": "paper-clamp-comparison-v1",
+      "target_and_model_masks_kept_separate": true,
+      "update_count": 19
+    },
+    "loss": 18.37926453038266,
+    "oracle_aware": {
+      "channel_average": "unweighted arithmetic mean of the eight per-channel relative L2 values",
+      "channel_order": [
+        "Bcc1",
+        "Bcc2",
+        "Bcc3",
+        "rho",
+        "press",
+        "vel1",
+        "vel2",
+        "vel3"
+      ],
+      "metrics": {
+        "E_model_oracle": {
+          "arithmetic_average": 0.7670892780673946,
+          "denominator_squared_sum": {
+            "Bcc1": 13822307.35150171,
+            "Bcc2": 2867.3287330891117,
+            "Bcc3": 88.48658353912454,
+            "press": 1555346.3842992974,
+            "rho": 71510383.85729264,
+            "vel1": 1881146.3282843542,
+            "vel2": 530.7433121780614,
+            "vel3": 25208.26869549199
+          },
+          "global_relative_l2": 0.9887384122739409,
+          "numerator_squared_sum": {
+            "Bcc1": 12958075.659876151,
+            "Bcc2": 2652.0025073118622,
+            "Bcc3": 14.652548201434522,
+            "press": 1554985.5173987506,
+            "rho": 71491007.51833028,
+            "vel1": 797377.8325741506,
+            "vel2": 271.4373658410131,
+            "vel3": 4745.570444769814
+          },
+          "per_channel": {
+            "Bcc1": 0.9682332282248503,
+            "Bcc2": 0.9617190567376318,
+            "Bcc3": 0.40692827338244764,
+            "press": 0.9998839847385643,
+            "rho": 0.999864511623065,
+            "vel1": 0.6510596634293079,
+            "vel2": 0.7151424381870818,
+            "vel3": 0.4338830682162078
+          }
+        },
+        "E_model_raw": {
+          "arithmetic_average": 0.9131641417457752,
+          "denominator_squared_sum": {
+            "Bcc1": 13822297.552721845,
+            "Bcc2": 145114.5718615558,
+            "Bcc3": 33596835.36124721,
+            "press": 1555343.8155675814,
+            "rho": 71510267.65531789,
+            "vel1": 1881537.443805871,
+            "vel2": 1369.4868665514182,
+            "vel3": 594983.3193106027
+          },
+          "global_relative_l2": 0.9913502989071251,
+          "numerator_squared_sum": {
+            "Bcc1": 12958066.077032672,
+            "Bcc2": 143926.12831023688,
+            "Bcc3": 33561200.35875414,
+            "press": 1554982.948913698,
+            "rho": 71490891.33386493,
+            "vel1": 797720.3218945068,
+            "vel2": 861.196229427694,
+            "vel3": 479620.9689647687
+          },
+          "per_channel": {
+            "Bcc1": 0.9682332134030448,
+            "Bcc2": 0.9958967359460607,
+            "Bcc3": 0.9994695265740309,
+            "press": 0.9998839846262526,
+            "rho": 0.9998645115253281,
+            "vel1": 0.6511317838337838,
+            "vel2": 0.7929980584210492,
+            "vel3": 0.897835319636652
+          }
+        },
+        "E_norm": {
+          "arithmetic_average": 0.6095404406620241,
+          "denominator_squared_sum": {
+            "Bcc1": 8716574.66456146,
+            "Bcc2": 61928593.63794386,
+            "Bcc3": 119352639.5013099,
+            "press": 7033578.950206265,
+            "rho": 12206015.444492452,
+            "vel1": 22719331.961422753,
+            "vel2": 33101030.86666015,
+            "vel3": 97307318.8763613
+          },
+          "global_relative_l2": 0.502617549136714,
+          "numerator_squared_sum": {
+            "Bcc1": 2384681.3502992042,
+            "Bcc2": 29880807.267527845,
+            "Bcc3": 9807615.001645414,
+            "press": 4332336.599468298,
+            "rho": 8969325.907205604,
+            "vel1": 13652351.807630982,
+            "vel2": 16876488.927393463,
+            "vel3": 5638655.29449063
+          },
+          "per_channel": {
+            "Bcc1": 0.5230488485072496,
+            "Bcc2": 0.6946252312598847,
+            "Bcc3": 0.2866590720425575,
+            "press": 0.7848251513814819,
+            "rho": 0.8572212823426159,
+            "vel1": 0.7751860646984055,
+            "vel2": 0.7140362981764651,
+            "vel3": 0.240721576887532
+          }
+        },
+        "E_oracle_raw": {
+          "arithmetic_average": 0.4172870698288893,
+          "denominator_squared_sum": {
+            "Bcc1": 13822297.552721845,
+            "Bcc2": 145114.5718615558,
+            "Bcc3": 33596835.36124721,
+            "press": 1555343.8155675814,
+            "rho": 71510267.65531789,
+            "vel1": 1881537.443805871,
+            "vel2": 1369.4868665514182,
+            "vel3": 594983.3193106027
+          },
+          "global_relative_l2": 0.5263582454278267,
+          "numerator_squared_sum": {
+            "Bcc1": 1.1439780028302693e-05,
+            "Bcc2": 122478.1429389561,
+            "Bcc3": 33553427.737506513,
+            "press": 3.7612598333387642e-06,
+            "rho": 0.00015688299321327747,
+            "vel1": 9.969152631072772,
+            "vel2": 439.98035287643035,
+            "vel3": 431015.72228596814
+          },
+          "per_channel": {
+            "Bcc1": 9.09742990194711e-07,
+            "Bcc2": 0.9187001429962726,
+            "Bcc3": 0.9993537835756451,
+            "press": 1.5550826097238291e-06,
+            "rho": 1.4811659907546002e-06,
+            "vel1": 0.0023018270526343624,
+            "vel2": 0.5668102639892199,
+            "vel3": 0.8511265950257523
+          }
+        },
+        "excess_absolute": {
+          "arithmetic_average": 0.4958770719168859,
+          "definition": "E_model_raw - E_oracle_raw; a norm difference, not an error decomposition",
+          "global_relative_l2_difference": 0.4649920534792984,
+          "per_channel": {
+            "Bcc1": 0.9682323036600546,
+            "Bcc2": 0.07719659294978809,
+            "Bcc3": 0.00011574299838579272,
+            "press": 0.9998824295436429,
+            "rho": 0.9998630303593373,
+            "vel1": 0.6488299567811494,
+            "vel2": 0.22618779443182935,
+            "vel3": 0.0467087246108997
+          }
+        }
+      },
+      "reduction": "For each channel, sum squared errors and squared reference values over all evaluated pairs/voxels, then take sqrt(sum_error_sq/sum_reference_sq).",
+      "schema_version": "paper-oracle-metrics-v1",
+      "squared_error_numerator_decomposition": {
+        "identity": "||model-raw||^2 = ||model-oracle||^2 + ||oracle-raw||^2 + 2<model-oracle, oracle-raw>",
+        "per_channel": {
+          "Bcc1": {
+            "cross_term": -9.582854909401409,
+            "model_oracle_squared_error": 12958075.659876151,
+            "model_raw_squared_error": 12958066.077032672,
+            "oracle_raw_squared_error": 1.1439780028302693e-05,
+            "reconstructed_model_raw_squared_error": 12958066.077032682,
+            "reconstruction_residual": -9.313225746154785e-09,
+            "relative_reconstruction_residual": 7.187203469090091e-16
+          },
+          "Bcc2": {
+            "cross_term": 18795.98286396701,
+            "model_oracle_squared_error": 2652.0025073118622,
+            "model_raw_squared_error": 143926.12831023688,
+            "oracle_raw_squared_error": 122478.1429389561,
+            "reconstructed_model_raw_squared_error": 143926.12831023496,
+            "reconstruction_residual": 1.9208528101444244e-09,
+            "relative_reconstruction_residual": 1.3346102147651546e-14
+          },
+          "Bcc3": {
+            "cross_term": 7757.968699594828,
+            "model_oracle_squared_error": 14.652548201434522,
+            "model_raw_squared_error": 33561200.35875414,
+            "oracle_raw_squared_error": 33553427.737506513,
+            "reconstructed_model_raw_squared_error": 33561200.35875431,
+            "reconstruction_residual": -1.6391277313232422e-07,
+            "relative_reconstruction_residual": 4.8839961437663245e-15
+          },
+          "press": {
+            "cross_term": -2.568488812185075,
+            "model_oracle_squared_error": 1554985.5173987506,
+            "model_raw_squared_error": 1554982.948913698,
+            "oracle_raw_squared_error": 3.7612598333387642e-06,
+            "reconstructed_model_raw_squared_error": 1554982.9489136997,
+            "reconstruction_residual": -1.6298145055770874e-09,
+            "relative_reconstruction_residual": 1.0481237152572421e-15
+          },
+          "rho": {
+            "cross_term": -116.18462216345242,
+            "model_oracle_squared_error": 71491007.51833028,
+            "model_raw_squared_error": 71490891.33386493,
+            "oracle_raw_squared_error": 0.00015688299321327747,
+            "reconstructed_model_raw_squared_error": 71490891.33386499,
+            "reconstruction_residual": -5.960464477539063e-08,
+            "relative_reconstruction_residual": 8.337376085721869e-16
+          },
+          "vel1": {
+            "cross_term": 332.52016773217827,
+            "model_oracle_squared_error": 797377.8325741506,
+            "model_raw_squared_error": 797720.3218945068,
+            "oracle_raw_squared_error": 9.969152631072772,
+            "reconstructed_model_raw_squared_error": 797720.3218945139,
+            "reconstruction_residual": -7.101334631443024e-09,
+            "relative_reconstruction_residual": 8.9020355086079e-15
+          },
+          "vel2": {
+            "cross_term": 149.77851071024057,
+            "model_oracle_squared_error": 271.4373658410131,
+            "model_raw_squared_error": 861.196229427694,
+            "oracle_raw_squared_error": 439.98035287643035,
+            "reconstructed_model_raw_squared_error": 861.196229427684,
+            "reconstruction_residual": 1.000444171950221e-11,
+            "relative_reconstruction_residual": 1.1616913053777116e-14
+          },
+          "vel3": {
+            "cross_term": 43859.676234026956,
+            "model_oracle_squared_error": 4745.570444769814,
+            "model_raw_squared_error": 479620.9689647687,
+            "oracle_raw_squared_error": 431015.72228596814,
+            "reconstructed_model_raw_squared_error": 479620.9689647649,
+            "reconstruction_residual": 3.7834979593753815e-09,
+            "relative_reconstruction_residual": 7.888516566616803e-15
+          }
+        },
+        "warning": "Relative L2 norms and excess_absolute are not additive; only this squared-error numerator identity is exact."
+      },
+      "update_count": 19,
+      "value_count_per_channel": {
+        "Bcc1": 4980736,
+        "Bcc2": 4980736,
+        "Bcc3": 4980736,
+        "press": 4980736,
+        "rho": 4980736,
+        "vel1": 4980736,
+        "vel2": 4980736,
+        "vel3": 4980736
+      }
+    },
+    "physical_range": {
+      "Bcc1": {
+        "maximum": 0.5899924039840698,
+        "minimum": -0.871791660785675
+      },
+      "Bcc2": {
+        "maximum": 0.01400335505604744,
+        "minimum": -0.014731515198946
+      },
+      "Bcc3": {
+        "maximum": 0.005398778710514307,
+        "minimum": -0.005398778710514307
+      },
+      "press": {
+        "maximum": 0.009640051983296871,
+        "minimum": 6.038077344783233e-07
+      },
+      "rho": {
+        "maximum": 1.209276795387268,
+        "minimum": 2.9845687095075846e-05
+      },
+      "vel1": {
+        "maximum": 0.715808629989624,
+        "minimum": -0.13602280616760254
+      },
+      "vel2": {
+        "maximum": 0.03573155775666237,
+        "minimum": -0.03573151305317879
+      },
+      "vel3": {
+        "maximum": 0.10361377149820328,
+        "minimum": -0.00410707201808691
+      }
+    },
+    "probe_prediction_sha256": "ac678541a044bc0fbabd8ec4d81d6237f21e8dcb74a57c9088d5891e489a1dde",
+    "rho_press_positive": true,
+    "seconds": 2.138278618000186
+  }
+}

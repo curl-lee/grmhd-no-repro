@@ -1,0 +1,51 @@
+{
+  "arithmetic_average_relative_l2": 1.4137913915648586,
+  "checkpoint": "best_validation_l2",
+  "pairs": 19,
+  "per_channel_relative_l2": {
+    "Bcc1": 2.413806610231471,
+    "Bcc2": 1.0484552134612795,
+    "Bcc3": 1.0044651482621103,
+    "press": 1.5103660622894794,
+    "rho": 2.0410165906658624,
+    "vel1": 1.229474441432683,
+    "vel2": 1.0576117150630826,
+    "vel3": 1.0051353511128995
+  },
+  "persistence_semantics": "predicted_normalized_residual_equals_zero",
+  "predicted_residual_norm": {
+    "maximum": 3292.8760973258495,
+    "mean": 1414.7831857798953,
+    "median": 1144.4788780934746,
+    "q95": 3138.0716154156253
+  },
+  "prediction": "raw LocalNO output r_theta",
+  "residual_cosine": {
+    "maximum": 0.758703083652658,
+    "mean": 0.1319212204975863,
+    "median": 0.09032348600279078,
+    "q95": 0.4856282532994041
+  },
+  "residual_over_true_residual": {
+    "maximum": 0.6041643424497517,
+    "mean": 0.39705636173443914,
+    "median": 0.4207053481489618,
+    "q95": 0.5914251148223463
+  },
+  "residual_sign_agreement": {
+    "maximum": 0.5601077079772949,
+    "mean": 0.5242423760263544,
+    "median": 0.5206317901611328,
+    "q95": 0.5491994857788086
+  },
+  "schema_version": "paper-stage-r-residual-metrics-v1",
+  "target": "delta_z_true = z_t1 - z_t",
+  "true_residual_norm": {
+    "maximum": 36191.80540118954,
+    "mean": 5944.677724252577,
+    "median": 2588.0619618337696,
+    "q95": 20222.233581607456
+  },
+  "zero_residual_is_persistence": true,
+  "zero_residual_relative_l2": 1.0
+}

@@ -1,0 +1,19 @@
+{
+  "oracle_conditioned_gate_version": "stage_m_v1",
+  "reporting_only": true,
+  "required_outputs": [
+    "legacy_detector",
+    "gate_0_engineering_validity",
+    "gate_1_floor_qualification",
+    "gate_2_model_added_degradation",
+    "gate_3_transport_skill"
+  ],
+  "thresholds": {
+    "model_failure_steps": 2,
+    "model_severe_categories": 2,
+    "retention": 0.5,
+    "transport_minimum_skill": 0.0,
+    "transport_sign_agreement": 0.5
+  },
+  "training_blocking_default": false
+}

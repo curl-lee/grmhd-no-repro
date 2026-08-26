@@ -1,0 +1,87 @@
+{
+  "INDEX_FD_GEOMETRY_ERROR": "STRONG",
+  "axis_order": [
+    "phi",
+    "theta",
+    "r"
+  ],
+  "concepts": {
+    "A": "centered index derivative, unit scalar grid width, circular all axes",
+    "B": "stored-coordinate derivative using actual r/theta/phi centers",
+    "C": "B with scalar spherical-coordinate 1/r and 1/(r sin theta) proxies"
+  },
+  "fields": {
+    "gaussian_inner": {
+      "formula": "gaussian_inner",
+      "shape": [
+        64,
+        64,
+        64
+      ]
+    },
+    "gaussian_middle": {
+      "formula": "gaussian_middle",
+      "shape": [
+        64,
+        64,
+        64
+      ]
+    },
+    "gaussian_outer": {
+      "formula": "gaussian_outer",
+      "shape": [
+        64,
+        64,
+        64
+      ]
+    },
+    "mixed_spherical": {
+      "formula": "mixed_spherical",
+      "shape": [
+        64,
+        64,
+        64
+      ]
+    },
+    "phi_sine": {
+      "formula": "phi_sine",
+      "shape": [
+        64,
+        64,
+        64
+      ]
+    },
+    "radial_linear": {
+      "formula": "radial_linear",
+      "shape": [
+        64,
+        64,
+        64
+      ]
+    },
+    "radial_log": {
+      "formula": "radial_log",
+      "shape": [
+        64,
+        64,
+        64
+      ]
+    },
+    "theta_cosine": {
+      "formula": "theta_cosine",
+      "shape": [
+        64,
+        64,
+        64
+      ]
+    }
+  },
+  "grid_shape": [
+    64,
+    64,
+    64
+  ],
+  "kerr_schild_warning": "Spherical proxy only; not a strict Kerr-Schild covariant derivative.",
+  "median_relevant_index_space_normalized_l2": 0.9685963733524185,
+  "schema_version": "stage-u-synthetic-fields-v1"
+}

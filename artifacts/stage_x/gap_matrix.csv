@@ -1,0 +1,26 @@
+aspect,paper,current,match,severity,evidence,scientifically fixable
+coordinate system,Cartesian Kerr-Schild,spherical Kerr-Schild tensor,false,FUNDAMENTAL,paper A.2 vs ATHDF/config,requires matching data or fully verified transform
+coordinate grid,regular Cartesian 64 cube,log-r × linear-theta × periodic-phi 64 tensor,false,MAJOR,paper C.2 vs regrid code,"partially, with adapted operator/coordinates"
+vector component basis,Cartesian x/y/z,retained 1/2/3 spherical-coordinate representation,false,FUNDAMENTAL,paper A.2/C.2; ATHDF attrs/project warning,not with current provenance
+magnetic component semantics,Bx/By/Bz; coupled through CT,cell-centred Bcc1/2/3 nearest sampled; no transform/CT,false,FUNDAMENTAL,paper E; current source,requires source/coupling provenance
+velocity component semantics,vx/vy/vz,"vel1/2/3, convention unspecified in ATHDF",false,FUNDAMENTAL,paper C.2; ATHDF VariableNames,requires simulation provenance
+thermal variable,eint in model tensor (P stated elsewhere),press,false,MAJOR,paper A.2/C.2; ATHDF,requires verified EOS/paper clarification
+spatial domain,"Cartesian fine L^3, numeric bounds absent","full sphere, cropped r=1.1..200",unknown,MAJOR,paper §2; raw/regrid attrs,requires matching data
+regridding,canonical Cartesian 64 grid; upstream remap unspecified,finest-leaf nearest centre,unknown,MAJOR,paper C.2; current source plus Stage-X convergence,"yes, diagnostically"
+AMR treatment,not specified,2020 leaf blocks sampled to regular tensor,unknown,UNKNOWN,paper absent; raw metadata,unknown
+resolution,64_x×64_y×64_z,64_phi×64_theta×64_r,nominal only,MAJOR,paper C.2; HDF5,not by shape alone
+positional encoding,default Cartesian-index radial shells,physical spherical-r shells only,false,MAJOR,paper C.4; current forward,adapted continuous features possible
+radial shells,"Euclidean index radius, rmax=10",physical spherical r across 1.1..200,false,MAJOR,paper C.4/Table1; shells.py,adaptable but not exact
+spectral operator,exact instantiation not specified,"3D SpectralConv, modes8",unknown,UNKNOWN,paper C.8; current config,paper code needed
+differential operator,exact instantiation not specified,3D finite-difference branch,unknown,UNKNOWN,paper C.8; upstream/current,paper code needed
+DISCO/local integral operator,explicit volumetric equidistant DISCO,absent,false,MAJOR,paper C.8; pinned upstream/config,adapted prototype possible; exact code needed
+boundary assumptions,not reported for model; live inner coupling described,periodic padding on all tensor axes,unknown,MAJOR,paper C.8/E; current config,requires paper code/spec
+number of snapshots,"300 generated, last250 used",212 total,false,MODERATE,paper §2; HDF5,requires matching data
+time cadence,DeltaT=T/300,actual source times ~10 code units,unknown,MAJOR,paper §2; manifests,requires unit/provenance match
+split,"last250, 80/20",169/43 snapshots with 168/42 pairs,adapted,MODERATE,paper §2; split JSON,yes as adaptation
+preprocessing,canonical all channels,P3 omits softclip for Bcc2/Bcc3/vel3,false,MAJOR,paper C.3; config,"yes, but prior diagnostics motivated adaptation"
+normalization,median/MAD + gamma6 softclip,train-only P3 robust normalization,partial,MODERATE,paper C.3; config,yes
+loss,composite paper loss,Plain L2 residual,false,MAJOR,paper C.7; config,"yes, but not current best target"
+training budget,"1200 epochs, batch4/accum4","1200 epochs, batch1/accum4",partial,MODERATE,paper C.9; Stage T,resource-limited
+rollout,fine rollout plus live coarse coupling,offline spherical autoregression,false,MAJOR,paper §2/E; Stage T,requires coupling implementation/data
+coarse/fine coupling,implemented with hydro overwrite and magnetic CT,absent,false,FUNDAMENTAL,paper E; current contract,requires paper code/interface data
