@@ -380,9 +380,17 @@ def test_stage_k_through_q_history_is_frozen():
     assert FROZEN_HISTORY["Stage Q"] == "D. NO_VALID_ANCHOR_CANDIDATE"
 
 
-def test_no_prohibited_binary_is_tracked():
+def test_only_approved_checkpoint_binaries_are_tracked():
     tracked = subprocess.check_output(["git", "ls-files"], cwd=ROOT, text=True).splitlines()
-    assert not any(path.endswith((".pt", ".pth", ".h5", ".hdf5", ".athdf")) for path in tracked)
+    approved_checkpoints = {
+        "artifacts/stage_ag/training/checkpoints/best.pt",
+        "artifacts/stage_ag/training/checkpoints/last.pt",
+    }
+    tracked_checkpoints = {
+        path for path in tracked if path.endswith((".pt", ".pth"))
+    }
+    assert tracked_checkpoints == approved_checkpoints
+    assert not any(path.endswith((".h5", ".hdf5", ".athdf")) for path in tracked)
 
 
 def test_validation_cannot_tune_or_fit(config):

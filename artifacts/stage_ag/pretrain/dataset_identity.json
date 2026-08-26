@@ -1,0 +1,57 @@
+{
+  "axis_order": [
+    "N",
+    "C",
+    "Nphi",
+    "Ntheta",
+    "Nr"
+  ],
+  "channels": [
+    "Bcc1",
+    "Bcc2",
+    "Bcc3",
+    "rho",
+    "press",
+    "vel1",
+    "vel2",
+    "vel3"
+  ],
+  "dropped_boundary_pair": [
+    168,
+    169
+  ],
+  "expected_sha256": "3582a5c4f52f4fef305578ffd5a63c51423f8583f35d137c288d5c20203b50da",
+  "expected_shape": [
+    212,
+    8,
+    64,
+    64,
+    64
+  ],
+  "observed_sha256": "3582a5c4f52f4fef305578ffd5a63c51423f8583f35d137c288d5c20203b50da",
+  "pass": true,
+  "path": "data_proc/grmhd_regrid_inner_r200_64_expanded.h5",
+  "shape": [
+    212,
+    8,
+    64,
+    64,
+    64
+  ],
+  "train_pair_source_indices": [
+    0,
+    167
+  ],
+  "train_snapshot_indices": [
+    0,
+    168
+  ],
+  "validation_pair_source_indices": [
+    169,
+    210
+  ],
+  "validation_snapshot_indices": [
+    169,
+    211
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "basis_count": 5,
+  "branches": [
+    "SpectralConv",
+    "FiniteDifferenceConv",
+    "AnisotropicSphericalDISCO3D",
+    "linear_skip"
+  ],
+  "candidate_stencil_shape": [
+    7,
+    7,
+    7
+  ],
+  "directional_radius_multiplier": 3,
+  "geometry": "ANISOTROPIC_LOCAL_SPHERICAL_TANGENT_PROXY",
+  "hidden_width": 16,
+  "in_channels": 16,
+  "n_layers": 4,
+  "n_modes": [
+    8,
+    8,
+    8
+  ],
+  "name": "ANISOTROPIC_SPHERICAL_DISCO_LOCALNO",
+  "out_channels": 8,
+  "parameter_count": 363480,
+  "pass": true,
+  "phi_boundary": "PERIODIC",
+  "r_boundary": "TRUNCATED_RENORMALIZED",
+  "theta_boundary": "TRUNCATED_RENORMALIZED"
+}

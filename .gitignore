@@ -33,10 +33,14 @@ data_proc/
 *.ckpt
 events.out.tfevents*
 
-# Publication scope stops at Stage AF.
-artifacts/stage_ag/
-artifacts/stage_ah/
-configs/stage_ag/
-configs/stage_ah/
-scripts/train_stage_ag.py
-scripts/train_stage_ah.py
+# Publication scope stops at Stage AH.
+artifacts/stage_ai/
+configs/stage_ai/
+scripts/train_stage_ai.py
+
+# Stage AG publication keeps formal summaries plus best/last checkpoints, but
+# excludes reproducible fixed-epoch/resume states and the 1.06 GB prediction cache.
+artifacts/stage_ag/raw_validation_predictions/*.npz
+artifacts/stage_ag/training/checkpoints/epoch_*.pt
+artifacts/stage_ag/training/resume.pt
+artifacts/stage_ag/training_console.log

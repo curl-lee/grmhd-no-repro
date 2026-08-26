@@ -1,0 +1,104 @@
+stage: AG
+classification: anisotropic_spherical_disco3d_controlled_training_only
+reproduction_scope: ADAPTED_SPHERICAL_KS_WORKFLOW_REPRODUCTION
+
+frozen_stage_af_config: configs/stage_af/anisotropic_spherical_disco3d.yaml
+frozen_stage_af_config_sha256: 83b79876ff70dae244776729a79510fa32584016c769e814847d4888ba99284f
+frozen_stage_af_decision: artifacts/stage_af/STAGE_AF_DECISION.json
+frozen_stage_af_decision_sha256: e8350deba01ed7fb7ba7cd9e3a0484fb8577ed3232c7aeb81abb736431ae64a5
+frozen_stage_af_parameter_identity: artifacts/stage_af/preflight/model_parameter_identity.json
+frozen_stage_af_parameter_identity_sha256: 41517d142905f95455f7bb7c2f70280ec0b2eea378e8c274db16ad5a4c083b89
+frozen_stage_s_config: configs/stage_s/expanded_localno_p3_residual.yaml
+frozen_stage_s_config_sha256: cdba8328a66b79cd937a0262e6bc1123f645ba0821ba915481af1d64e551618a
+frozen_stage_t_resolved: artifacts/stage_t/full_long/resolved_config.json
+frozen_stage_t_resolved_sha256: 0eb573242fc804d6590fba262f49b4390a8e0018d338bcd46b28115fbfb5eddc
+frozen_stage_ad_epoch300: artifacts/stage_ad/training/disco3d_localno/checkpoints/epoch_0300.pt
+frozen_stage_ad_epoch300_sha256: b83b100024dfaa9f46628ec3c10b6c3e11eee72dbfe1a67dc1700ec6f71e1143
+
+data:
+  dataset: data_proc/grmhd_regrid_inner_r200_64_expanded.h5
+  dataset_sha256: 3582a5c4f52f4fef305578ffd5a63c51423f8583f35d137c288d5c20203b50da
+  shape: [212, 8, 64, 64, 64]
+  axis_order: [N, C, Nphi, Ntheta, Nr]
+  channels: [Bcc1, Bcc2, Bcc3, rho, press, vel1, vel2, vel3]
+  split: artifacts/stage_s/train_val_split.json
+  split_sha256: 4a909a4294a36d50b7effab093d711b28d5da650b9942f29658d97f5a1a36160
+  train_pairs: 168
+  validation_pairs: 42
+  dropped_boundary_pair: [168, 169]
+
+preprocessing:
+  artifact: artifacts/stage_s/p3_normalizer_expanded
+  normalizer_file: artifacts/stage_s/p3_normalizer_expanded/normalizer.npz
+  normalizer_sha256: c2a36edbb44732efb857165e9a710d393cec68c6ba285521cd9bcc7b783cffa6
+  name: Z64_P3_EXPANDED_TRAIN_ONLY
+  validation_used_for_fit: false
+
+model:
+  name: ANISOTROPIC_SPHERICAL_DISCO_LOCALNO
+  geometry: ANISOTROPIC_LOCAL_SPHERICAL_TANGENT_PROXY
+  in_channels: 16
+  out_channels: 8
+  hidden_width: 16
+  n_modes: [8, 8, 8]
+  n_layers: 4
+  parameter_count: 363480
+  basis_count: 5
+  candidate_stencil_shape: [7, 7, 7]
+  directional_radius_multiplier: 3
+  phi_boundary: PERIODIC
+  theta_boundary: TRUNCATED_RENORMALIZED
+  r_boundary: TRUNCATED_RENORMALIZED
+  kerr_schild_covariant_geometry: false
+  vector_component_transformation: false
+
+initialization:
+  common_state: outputs/paper_reduced100/stage_k/shared_localno_initial_state.pt
+  common_state_file_sha256: 07db393f5c3e831f44bcc2d47b8132c3f9a0e72e2a258618080db487cc13cbb0
+  common_tensor_state_sha256: 7e10895cb283be8532e4c036e8a526c536a632cce880c500080ea1d14fd89311
+  disco_seed: 42
+  expected_trainable_state_sha256: 77252855f054a199500fa779f7340b33b6a2ce546b2082f17f93666275f4c588
+
+pair_order:
+  algorithm: natural_epoch_orders
+  seed: 42
+  epochs: 300
+  expected_flat_sha256: 536896a6b697c89d59d1c647dbac1cdfb4ff3b26d35f0cf420d808b6dd28ff24
+  reference: Stage_AD_epoch_0300_metadata_and_Stage_T_epoch_hashes
+
+prediction:
+  mode: normalized_residual
+  input: eight_P3_channels_plus_eight_frozen_shell_channels
+  target: z_t_plus_1_minus_z_t
+  reconstruction: z_t_plus_model_residual
+
+loss:
+  name: PlainL2Loss
+  space: normalized_residual
+  enabled_priors: []
+
+training:
+  epochs: 300
+  batch_size: 1
+  gradient_accumulation: 4
+  microbatches_per_epoch: 168
+  updates_per_epoch: 42
+  optimizer_updates: 12600
+  optimizer: Adam
+  learning_rate: 1.0e-3
+  weight_decay: 1.0e-4
+  gradient_clip_norm: 1.0
+  mixed_precision: false
+  early_stopping: false
+  scheduler: stage_t_explicit_update_warmup_cosine
+  scheduler_total_updates: 50400
+  scheduler_warmup_updates: 3150
+  scheduler_min_learning_rate: 1.0e-6
+  mandatory_checkpoint_epochs: [2, 10, 30, 75, 150, 300]
+
+validation:
+  pairs: 42
+  checkpoint_epochs: [2, 10, 30, 75, 150, 300]
+  selector: validation_normalized_per_channel_relative_l2_arithmetic_average
+  used_for_early_stopping: false
+  scientific_analysis: false
