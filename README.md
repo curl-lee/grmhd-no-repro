@@ -10,7 +10,7 @@ u = [Bcc1, Bcc2, Bcc3, rho, press, vel1, vel2, vel3]
 ```
 
 The published snapshot contains the confirmed WSL work from Stage F through
-Stage AF. It is an **adapted reproduction**, not an exact reproduction of the
+Stage AH. It is an **adapted reproduction**, not an exact reproduction of the
 paper. The working data use spherical Kerr--Schild coordinates, `press` as the
 thermal channel, reduced/resampled grids, and proxy FNO/LocalNO operators. The
 paper's exact Cartesian-KS conversion, `eint` contract, coarse/fine coupling,
@@ -98,25 +98,29 @@ paths, stage usage, geometry, tests, and validity labels.
 | AD | Repaired volumetric DISCO | adapted DISCO3D LocalNO | one-step-only improvement | `artifacts/stage_ad/` |
 | AE | Isotropic spherical geometry | spherical DISCO3D | normalization invalid at four corners | `artifacts/stage_ae/` |
 | AF | Anisotropic spherical geometry | anisotropic DISCO3D | implementation gates passed; no training | `artifacts/stage_af/` |
+| AG | Controlled spherical training | anisotropic spherical DISCO LocalNO | 300 epochs / 12,600 updates completed; best/last reload passed | `artifacts/stage_ag/` |
+| AH | Post-training scientific analysis | Stage AD vs Stage AG | partial transport improvement; one-step direction and rollout gates failed | `artifacts/stage_ah/` |
 
 The table reports each stage's frozen decision rather than reinterpreting its
 metrics. Detailed status and provenance are in
-[`docs/reproduction_status_through_stage_af.md`](docs/reproduction_status_through_stage_af.md)
+[`docs/reproduction_status_through_stage_ah.md`](docs/reproduction_status_through_stage_ah.md)
 and [`docs/wsl_stage_provenance.md`](docs/wsl_stage_provenance.md).
 
 ## Repository layout
 
 - `src/grmhd/`: data, preprocessing, operators, models, loss, training, and evaluation code.
 - `scripts/`: reproducible audit, preparation, training, and evaluation entry points.
-- `configs/`: frozen experiment contracts through Stage AF.
+- `configs/`: frozen experiment contracts through Stage AH.
 - `tests/`: unit, dense-reference, gradient, boundary, equivariance, and CPU/CUDA tests.
 - `outputs/paper_reduced100/`: Stage F--R lightweight results.
-- `artifacts/stage_*/`: Stage S--AF reports, metrics, figures, and provenance.
+- `artifacts/stage_*/`: Stage S--AH reports, metrics, figures, and provenance.
 - `docs/`: scientific contracts and publication manifests.
 
-Checkpoint binaries are intentionally omitted to keep this source-and-results
-release reviewable. Their original paths, sizes, and SHA256 values are indexed
-in [`docs/excluded_checkpoint_sha256.csv`](docs/excluded_checkpoint_sha256.csv).
+Most checkpoint binaries are intentionally omitted to keep this source-and-results
+release reviewable. Stage AG's formal `best.pt` and `last.pt` are retained; all
+other omitted paths, sizes, SHA256 values, and regeneration routes are indexed
+in [`docs/excluded_checkpoint_sha256.csv`](docs/excluded_checkpoint_sha256.csv)
+and [`docs/stage_ag_excluded_artifacts_sha256.csv`](docs/stage_ag_excluded_artifacts_sha256.csv).
 
 ## Scientific limitations
 
@@ -124,5 +128,7 @@ This work does not establish an exact paper reproduction. The released results
 are limited by adapted spherical geometry, coordinate-basis vector components,
 the `press` thermal proxy, nearest-neighbor nonconservative regridding, a strong
 preprocessing oracle floor for selected channels, and proxy operator choices.
-Stage AF validates an anisotropic spherical-coordinate geometry proxy and its
-forward/backward feasibility only; it contains no trained Stage-AF forecast.
+Stage AG/AH test that anisotropic spherical-coordinate geometry proxy under a
+controlled 300-epoch budget. It retains state accuracy and improves median shell
+transport error, but does not improve residual L2/direction or the first-10x
+rollout landmark; this is a partial adapted-workflow result, not exact DISCO.
