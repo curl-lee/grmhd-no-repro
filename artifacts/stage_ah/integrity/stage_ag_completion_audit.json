@@ -1,0 +1,127 @@
+{
+  "STAGE_AG_COMPLETE": true,
+  "STAGE_AG_CONTROLLED_COMPARISON_VALID": true,
+  "dataset": {
+    "axis_order": [
+      "N",
+      "C",
+      "Nphi",
+      "Ntheta",
+      "Nr"
+    ],
+    "channels": [
+      "Bcc1",
+      "Bcc2",
+      "Bcc3",
+      "rho",
+      "press",
+      "vel1",
+      "vel2",
+      "vel3"
+    ],
+    "dropped_boundary_pair": [
+      168,
+      169
+    ],
+    "expected_sha256": "3582a5c4f52f4fef305578ffd5a63c51423f8583f35d137c288d5c20203b50da",
+    "expected_shape": [
+      212,
+      8,
+      64,
+      64,
+      64
+    ],
+    "observed_sha256": "3582a5c4f52f4fef305578ffd5a63c51423f8583f35d137c288d5c20203b50da",
+    "pass": true,
+    "path": "data_proc/grmhd_regrid_inner_r200_64_expanded.h5",
+    "shape": [
+      212,
+      8,
+      64,
+      64,
+      64
+    ],
+    "train_pair_source_indices": [
+      0,
+      167
+    ],
+    "train_snapshot_indices": [
+      0,
+      168
+    ],
+    "validation_pair_source_indices": [
+      169,
+      210
+    ],
+    "validation_snapshot_indices": [
+      169,
+      211
+    ]
+  },
+  "epochs_completed": 300,
+  "gates": {
+    "budget_match": true,
+    "dataset_identity_match": true,
+    "epoch_sequence_exact": true,
+    "initial_state_match": true,
+    "loss_match": true,
+    "microbatch_sequence_exact": true,
+    "model_identity_match": true,
+    "nonfinite_count_zero": true,
+    "optimizer_update_sequence_exact": true,
+    "pair_order_match": true,
+    "parameter_count_match": true,
+    "per_epoch_microbatches_exact": true,
+    "per_epoch_optimizer_updates_exact": true,
+    "pretrain_identity_pass": true,
+    "recorded_reload_pass": true,
+    "required_checkpoints_exist": true,
+    "split_match": true,
+    "training_started": true
+  },
+  "initial_trainable_state_sha256": "77252855f054a199500fa779f7340b33b6a2ce546b2082f17f93666275f4c588",
+  "microbatches_completed": 50400,
+  "model": {
+    "basis_count": 5,
+    "candidate_stencil_shape": [
+      7,
+      7,
+      7
+    ],
+    "directional_radius_multiplier": 3,
+    "geometry": "ANISOTROPIC_LOCAL_SPHERICAL_TANGENT_PROXY",
+    "hidden_width": 16,
+    "in_channels": 16,
+    "kerr_schild_covariant_geometry": false,
+    "n_layers": 4,
+    "n_modes": [
+      8,
+      8,
+      8
+    ],
+    "name": "ANISOTROPIC_SPHERICAL_DISCO_LOCALNO",
+    "out_channels": 8,
+    "parameter_count": 363480,
+    "phi_boundary": "PERIODIC",
+    "r_boundary": "TRUNCATED_RENORMALIZED",
+    "theta_boundary": "TRUNCATED_RENORMALIZED",
+    "vector_component_transformation": false
+  },
+  "nonfinite_count": 0,
+  "optimizer_updates_completed": 12600,
+  "pair_order_sha256": "536896a6b697c89d59d1c647dbac1cdfb4ff3b26d35f0cf420d808b6dd28ff24",
+  "peak_allocated_vram_mib": 1608.5966796875,
+  "peak_reserved_vram_mib": 1992.0,
+  "required_checkpoint_sha256": {
+    "artifacts/stage_ag/training/checkpoints/best.pt": "75775c87c0bfbde7478d428ae1b5d1d3df87be3e9954c394e27f7f19f547e8df",
+    "artifacts/stage_ag/training/checkpoints/epoch_0002.pt": "428f474fa3b2235f462eb7cc1ed4344a44f11762356b9ce59edd5ac069c0ff4f",
+    "artifacts/stage_ag/training/checkpoints/epoch_0010.pt": "4ab35f7a26ebe301d0b410deb5ec1dd3c243c6f03fbe5e4ae215fbaf1a7a42a4",
+    "artifacts/stage_ag/training/checkpoints/epoch_0030.pt": "730ab3ec580343b1e02e321ed613ebb6482b06937f0b416f28f9aa1b199c90d3",
+    "artifacts/stage_ag/training/checkpoints/epoch_0075.pt": "eb35ec6e4eb212b59472956021f24b633ae383f52a12ce0c5b6b8ed0a01b7d72",
+    "artifacts/stage_ag/training/checkpoints/epoch_0150.pt": "9a26cbde19f19abc1baef6fdc214a0f66ac82877e2fbb82f1b0881be5a80eba6",
+    "artifacts/stage_ag/training/checkpoints/epoch_0300.pt": "29df7fad18b9643bdb43e65bbacaf20afdf942669532099cc10ad73d04f8ed64",
+    "artifacts/stage_ag/training/checkpoints/last.pt": "abf2d55b8835310db4022042b73adbcec7573e6fd59269e20412c5dadcc5ae1b"
+  },
+  "schema_version": "stage-ah-stage-ag-completion-audit-v1",
+  "total_training_seconds": 92127.67364240902
+}

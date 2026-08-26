@@ -1,0 +1,49 @@
+stage: AH
+classification: post_hoc_scientific_analysis_only
+reproduction_scope: ADAPTED_SPHERICAL_KS_WORKFLOW_REPRODUCTION
+
+stage_ag:
+  completion: artifacts/stage_ag/TRAINING_COMPLETE.md
+  config: configs/stage_ag/controlled_training.yaml
+  formal_best_checkpoint: artifacts/stage_ag/training/checkpoints/best.pt
+  last_checkpoint: artifacts/stage_ag/training/checkpoints/last.pt
+  formal_selector: validation_normalized_per_channel_relative_l2_arithmetic_average
+
+baselines:
+  stage_t_metrics: artifacts/stage_t/full_long/checkpoint_metrics_epoch_0150.json
+  stage_t_rollout: artifacts/stage_t/full_long/rollout/epoch_0150_rollout.json
+  stage_ad_metrics: artifacts/stage_ad/training/disco3d_localno/one_step_metrics.json
+  stage_ad_rollout: artifacts/stage_ad/training/disco3d_localno/rollout_metrics.json
+  stage_ad_checkpoint: artifacts/stage_ad/training/disco3d_localno/checkpoints/epoch_0300.pt
+  stage_af_geometry: artifacts/stage_af/comparison/stage_ad_vs_stage_af_geometry.csv
+
+validation:
+  source_pairs: [169, 210]
+  count: 42
+  bootstrap_seed: 42
+  bootstrap_samples: 10000
+
+rollout:
+  initial_snapshot: 169
+  ground_truth_steps: 42
+  total_steps: 100
+  selected_steps: [1, 2, 3, 5, 10, 11, 19, 25, 42, 50, 75, 100]
+
+theta_regions:
+  near_north_pole: [0, 8]
+  mid_latitude_north: [8, 24]
+  equatorial: [24, 40]
+  mid_latitude_south: [40, 56]
+  near_south_pole: [56, 64]
+
+radial_regions:
+  inner: [0, 21]
+  middle: [21, 42]
+  outer: [42, 64]
+
+gates:
+  state_retention_factor: 1.05
+  shell_skill_minimum_delta: 0.10
+  radial_skill_minimum_delta: 0.10
+  rollout_minimum_first_10x_step_exclusive: 1
+  rollout_strong_first_10x_step_exclusive: 3
