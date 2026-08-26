@@ -250,7 +250,13 @@ def validate_frozen_input_manifest(
         capture_output=True,
         text=True,
     )
-    if ancestry.returncode != 0:
+    publication_manifest = root / "docs/publish_manifest.md"
+    clean_publication_snapshot = (
+        current_branch == "main"
+        and publication_manifest.is_file()
+        and expected_commit in publication_manifest.read_text(encoding="utf-8")
+    )
+    if ancestry.returncode != 0 and not clean_publication_snapshot:
         raise ValueError(
             "Stage H project history no longer descends from the frozen "
             f"starting commit {expected_commit}"

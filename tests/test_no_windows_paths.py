@@ -10,7 +10,7 @@ WINDOWS_ACTIVE_PATTERN = re.compile(
 
 def test_active_files_have_no_windows_paths_or_commands():
     roots = [Path("src"), Path("scripts"), Path("configs"), Path("tests")]
-    files = [Path("README_GRMHD_REPRO.md"), Path("pyproject.toml")]
+    files = [Path("README.md"), Path("pyproject.toml")]
     for root in roots:
         files.extend(
             path for path in root.rglob("*") if path.is_file() and path.suffix in {".py", ".yaml", ".yml", ".toml", ".md"}

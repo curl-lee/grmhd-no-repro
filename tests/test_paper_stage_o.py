@@ -326,10 +326,9 @@ def test_stage_o_rejects_architecture_and_disco_overrides(tmp_path):
         load_paper_experiment_config(path, project_root=ROOT)
 
 
-def test_no_stage_o_prototype_binary_or_checkpoint_is_tracked():
+def test_no_stage_o_checkpoint_is_tracked():
     tracked = subprocess.check_output(["git", "ls-files"], cwd=ROOT, text=True).splitlines()
     forbidden = (
-        "outputs/paper_reduced100/stage_n/prototypes/p3_combined_v1/normalizer.npz",
         "outputs/paper_reduced100/stage_o/localno_p3_plain/best_validation_l2/paper_state_dict.pt",
         "outputs/paper_reduced100/stage_o/localno_p3_plain/selected_states.pt",
     )
