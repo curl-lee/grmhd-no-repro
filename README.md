@@ -10,7 +10,7 @@ u = [Bcc1, Bcc2, Bcc3, rho, press, vel1, vel2, vel3]
 ```
 
 The published snapshot contains the confirmed WSL work from Stage F through
-Stage AH. It is an **adapted reproduction**, not an exact reproduction of the
+Stage AI. It is an **adapted reproduction**, not an exact reproduction of the
 paper. The working data use spherical Kerr--Schild coordinates, `press` as the
 thermal channel, reduced/resampled grids, and proxy FNO/LocalNO operators. The
 paper's exact Cartesian-KS conversion, `eint` contract, coarse/fine coupling,
@@ -61,6 +61,8 @@ under `data_proc/` or update a config path; never commit the datasets.
 - Project-local adapted volumetric DISCO3D and LocalNO attachment.
 - Isotropic spherical DISCO3D geometry audit.
 - Anisotropic local-spherical-tangent DISCO3D and LocalNO attachment.
+- Final canonical spectral-only FNO and parameter-matched 3D CNN/U-Net
+  baselines under the same P3 residual contract.
 - Canonical/P3 preprocessing, shell channels, train-only priors, paper-adapted
   losses, training/checkpoint utilities, rollout, and morphology metrics.
 
@@ -100,27 +102,30 @@ paths, stage usage, geometry, tests, and validity labels.
 | AF | Anisotropic spherical geometry | anisotropic DISCO3D | implementation gates passed; no training | `artifacts/stage_af/` |
 | AG | Controlled spherical training | anisotropic spherical DISCO LocalNO | 300 epochs / 12,600 updates completed; best/last reload passed | `artifacts/stage_ag/` |
 | AH | Post-training scientific analysis | Stage AD vs Stage AG | partial transport improvement; one-step direction and rollout gates failed | `artifacts/stage_ah/` |
+| AI | Final adapted baseline benchmark | Persistence, FNO, CNN, Stage T/AD/AG | mixed architecture result; CNN one-step winner; Persistence transport winner; all trained first10x=1 | `artifacts/stage_ai/` |
 
 The table reports each stage's frozen decision rather than reinterpreting its
 metrics. Detailed status and provenance are in
-[`docs/reproduction_status_through_stage_ah.md`](docs/reproduction_status_through_stage_ah.md)
+[`docs/reproduction_status_through_stage_ai.md`](docs/reproduction_status_through_stage_ai.md)
 and [`docs/wsl_stage_provenance.md`](docs/wsl_stage_provenance.md).
 
 ## Repository layout
 
 - `src/grmhd/`: data, preprocessing, operators, models, loss, training, and evaluation code.
 - `scripts/`: reproducible audit, preparation, training, and evaluation entry points.
-- `configs/`: frozen experiment contracts through Stage AH.
+- `configs/`: frozen experiment contracts through Stage AI.
 - `tests/`: unit, dense-reference, gradient, boundary, equivariance, and CPU/CUDA tests.
 - `outputs/paper_reduced100/`: Stage F--R lightweight results.
-- `artifacts/stage_*/`: Stage S--AH reports, metrics, figures, and provenance.
+- `artifacts/stage_*/`: Stage S--AI reports, metrics, figures, and provenance.
 - `docs/`: scientific contracts and publication manifests.
 
 Most checkpoint binaries are intentionally omitted to keep this source-and-results
-release reviewable. Stage AG's formal `best.pt` and `last.pt` are retained; all
-other omitted paths, sizes, SHA256 values, and regeneration routes are indexed
+release reviewable. Stage AG's formal `best.pt` and `last.pt` are retained;
+Stage AI FNO/CNN checkpoints remain local and are hash-indexed. All other
+omitted paths, sizes, SHA256 values, and regeneration routes are indexed
 in [`docs/excluded_checkpoint_sha256.csv`](docs/excluded_checkpoint_sha256.csv)
-and [`docs/stage_ag_excluded_artifacts_sha256.csv`](docs/stage_ag_excluded_artifacts_sha256.csv).
+[`docs/stage_ag_excluded_artifacts_sha256.csv`](docs/stage_ag_excluded_artifacts_sha256.csv),
+and [`docs/stage_ai_excluded_checkpoint_sha256.csv`](docs/stage_ai_excluded_checkpoint_sha256.csv).
 
 ## Scientific limitations
 
@@ -132,3 +137,10 @@ Stage AG/AH test that anisotropic spherical-coordinate geometry proxy under a
 controlled 300-epoch budget. It retains state accuracy and improves median shell
 transport error, but does not improve residual L2/direction or the first-10x
 rollout landmark; this is a partial adapted-workflow result, not exact DISCO.
+
+Stage AI closes the adapted benchmark under one frozen six-model evaluation.
+The 3D CNN/U-Net has the best normalized one-step metrics, while trained-model
+transport leadership is split and Persistence remains better on both aggregate
+transport skills. Every trained model reaches the 10x decoded-range landmark at
+rollout step 1. See [`artifacts/stage_ai/STAGE_AI_REPORT.md`](artifacts/stage_ai/STAGE_AI_REPORT.md)
+and [`docs/reproduction_ledger.md`](docs/reproduction_ledger.md).

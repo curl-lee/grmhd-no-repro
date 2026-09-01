@@ -1,10 +1,12 @@
-# Operator and model inventory through Stage AH
+# Operator and model inventory through Stage AI
 
 | Operator/model | Stage(s) | Geometry / basis | Implementation | Status |
 |---|---|---|---|---|
-| Persistence | F--AH comparisons | n/a | `src/grmhd/models.py` | baseline |
+| Persistence | F--AI comparisons | n/a | analytical zero-residual reference | baseline |
 | Canonical preprocessing oracle | F--AH | spherical grid, channel transforms | `src/grmhd/paper_preprocessing.py` | tested; selected channels have a material oracle floor |
 | FNO proxy | F--J | regular tensor Fourier modes | pinned upstream via `src/grmhd/models.py` | tested/trained; not paper 3-D DISCO |
+| Canonical spectral-only FNO | AI | tensor Fourier modes, 16→8 normalized residual | pinned upstream `LocalNO` spectral-only backbone via `src/grmhd/stage_ai.py` | final adapted baseline; 330,648 parameters; 300-epoch budget completed |
+| Parameter-matched 3D CNN/U-Net | AI | ordinary tensor-grid CNN; periodic phi, zero theta/r boundaries | `src/grmhd/stage_ai.py` | final adapted baseline; 346,488 parameters; no spherical-geometry branch |
 | Differential LocalNO | K--V | tensor-index finite difference plus spectral branch | pinned upstream `LocalNO`, project wrappers | tested/trained; long rollout unstable |
 | P3 differential LocalNO | N--T | differential LocalNO with isolated P3 transform | `src/grmhd/paper_stage_n.py`, `paper_stage_o.py`, `paper_stage_r.py` | adapted pilots completed |
 | Spherical finite-difference variants | U | coordinate and spherical-distance proxies | `src/grmhd/stage_u_geometry.py`, `stage_u_training.py` | diagnostic variants completed |
@@ -12,6 +14,7 @@
 | Adapted volumetric DISCO3D | AC--AD | index-space isotropic 7x7x7, five radial hats | `src/grmhd/operators/disco3d.py`, `src/grmhd/localno3d_disco.py` | AC contract invalid; AD three-cell repair tested/trained |
 | Isotropic spherical DISCO3D | AE | Euclidean spherical-coordinate proxy with scalar local scale | `src/grmhd/operators/spherical_disco3d.py` | implementation invalid at four theta/r corners; not trained |
 | Anisotropic spherical DISCO3D | AF--AH | target-local spherical tangent frame and directional scales | `src/grmhd/operators/anisotropic_spherical_disco3d.py`, `src/grmhd/anisotropic_spherical_disco_localno.py` | AF implementation gates pass; AG controlled training complete; AH decision B (partial improvement) |
+| Final six-model adapted benchmark | AI | common Z64/P3/residual/168+42 contract | `scripts/evaluate_stage_ai.py` | Persistence plus five strict-loaded trainable baselines; multidimensional comparison, not a single-score ranking |
 
 ## Supporting code
 
@@ -24,7 +27,8 @@
 - Training/checkpoints: `paper_trainer.py`, `paper_checkpoint.py`,
   `stage_s_training.py`, `stage_t_training.py`, `stage_w_training.py`.
 - Evaluation/rollout: `paper_metrics.py`, `paper_stage_g_evaluation.py`,
-  `paper_stage_l_attribution.py`, `stage_v_analysis.py`, `stage_ah.py`.
+  `paper_stage_l_attribution.py`, `stage_v_analysis.py`, `stage_ah.py`, and
+  `scripts/evaluate_stage_ai.py`.
 
 ## Test coverage
 

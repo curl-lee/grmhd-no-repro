@@ -5,13 +5,14 @@
 The release retains reports, decisions, resolved configurations, provenance,
 CSV/JSON metrics, train/validation logs, rollout summaries, implementation and
 geometry audits, bootstrap results, and review-sized figures for confirmed WSL
-stages through AH.
+stages through AI.
 
 | Stage range | Included directory |
 |---|---|
 | F--R | `outputs/paper_reduced100/stage_f/` through `stage_r/` |
 | S--AF | `artifacts/stage_s/` through `artifacts/stage_af/` |
 | AG--AH | completed controlled-training records and post-hoc scientific analysis |
+| AI | final six-model adapted benchmark, paired statistics, rollout, and cost analysis |
 | Shared contracts | `outputs/paper_reduced100/{manifest,stats,losses,priors,...}` |
 
 The largest retained individual files are lightweight structured result files:
@@ -44,13 +45,21 @@ SHA256 values, byte sizes, reasons, and regeneration routes are recorded in
 Git LFS is unnecessary because every retained file is below GitHub's ordinary
 per-file limit.
 
+Stage AI does not add checkpoint binaries. The FNO/CNN epoch, best, last, and
+resume states remain local under `artifacts/stage_ai/training/*/checkpoints/`.
+Their filenames, sizes, SHA256 values, local paths, and exact regeneration
+commands are recorded in
+[`stage_ai_excluded_checkpoint_sha256.csv`](stage_ai_excluded_checkpoint_sha256.csv).
+The lightweight selector records, strict-reload audits, train/validation logs,
+and unified metrics are published.
+
 ## Excluded data and transient files
 
 | Excluded class | Reason | Recovery/verification |
 |---|---|---|
 | raw `.athdf` snapshots | scientific dataset is not redistributed here | obtain separately and verify with `artifacts/stage_s/data_manifest.csv` |
 | processed `.h5`/`.hdf5` | 0.7--3.0 GB per expanded dataset | paths and SHA256 are in `data_manifest.md` |
-| work after Stage AH | outside the current publication ceiling | retain separately until formally completed |
+| work after Stage AI | outside the current publication ceiling | retain separately until formally completed |
 | Python caches/test caches | generated transient content | regenerated automatically |
 | TensorBoard events/temp logs | machine-local transient content | rerun the documented stage command |
 | raw Stage-AB process/PATH dumps | contains machine-local process and editor paths | formal report and GPU gate are retained |
