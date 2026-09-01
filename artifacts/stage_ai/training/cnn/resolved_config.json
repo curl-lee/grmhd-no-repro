@@ -1,0 +1,184 @@
+{
+  "config": {
+    "classification": "final_adapted_baseline_benchmark",
+    "data": {
+      "axis_order": [
+        "N",
+        "C",
+        "phi",
+        "theta",
+        "r"
+      ],
+      "channels": [
+        "Bcc1",
+        "Bcc2",
+        "Bcc3",
+        "rho",
+        "press",
+        "vel1",
+        "vel2",
+        "vel3"
+      ],
+      "dataset": "data_proc/grmhd_regrid_inner_r200_64_expanded.h5",
+      "dataset_sha256": "3582a5c4f52f4fef305578ffd5a63c51423f8583f35d137c288d5c20203b50da",
+      "dropped_boundary_pair": [
+        168,
+        169
+      ],
+      "shape": [
+        212,
+        8,
+        64,
+        64,
+        64
+      ],
+      "split": "artifacts/stage_s/train_val_split.json",
+      "split_sha256": "4a909a4294a36d50b7effab093d711b28d5da650b9942f29658d97f5a1a36160",
+      "train_pair_sources": [
+        0,
+        167
+      ],
+      "validation_pair_sources": [
+        169,
+        210
+      ]
+    },
+    "exact_reproduction_blocked": true,
+    "models": {
+      "cnn": {
+        "base_channels": 16,
+        "channel_widths": [
+          16,
+          32,
+          64
+        ],
+        "conv_kernel": 3,
+        "expected_parameter_count": 346488,
+        "name": "PARAMETER_MATCHED_3D_UNET_BASELINE",
+        "parameter_reference": 363480,
+        "phi_boundary": "circular",
+        "r_boundary": "zero",
+        "theta_boundary": "zero"
+      },
+      "fno": {
+        "expected_parameter_count": 330648,
+        "hidden_channels": 16,
+        "initialization_state": "outputs/paper_reduced100/stage_k/shared_localno_initial_state.pt",
+        "initialization_state_file_sha256": "07db393f5c3e831f44bcc2d47b8132c3f9a0e72e2a258618080db487cc13cbb0",
+        "n_layers": 4,
+        "n_modes": [
+          8,
+          8,
+          8
+        ],
+        "name": "SPECTRAL_ONLY_LOCALNO_BACKBONE",
+        "source": "pinned_neuralop_LocalNO_diff_layers_false"
+      }
+    },
+    "prediction": {
+      "input_channels": 16,
+      "loss": "PlainL2Loss",
+      "output_channels": 8,
+      "reconstruction": "z_t_plus_model_residual",
+      "shell_channels": 8,
+      "target": "normalized_residual"
+    },
+    "preprocessing": {
+      "artifact": "artifacts/stage_s/p3_normalizer_expanded",
+      "name": "Z64_P3_EXPANDED_TRAIN_ONLY",
+      "normalizer_file": "artifacts/stage_s/p3_normalizer_expanded/normalizer.npz",
+      "normalizer_sha256": "c2a36edbb44732efb857165e9a710d393cec68c6ba285521cd9bcc7b783cffa6",
+      "validation_used_for_fit": false
+    },
+    "reproduction_scope": "ADAPTED_SPHERICAL_KS_WORKFLOW_REPRODUCTION",
+    "reuse": {
+      "stage_ad_checkpoint": "artifacts/stage_ad/training/disco3d_localno/checkpoints/epoch_0300.pt",
+      "stage_ad_checkpoint_sha256": "b83b100024dfaa9f46628ec3c10b6c3e11eee72dbfe1a67dc1700ec6f71e1143",
+      "stage_ag_checkpoint": "artifacts/stage_ag/training/checkpoints/best.pt",
+      "stage_ag_checkpoint_sha256": "75775c87c0bfbde7478d428ae1b5d1d3df87be3e9954c394e27f7f19f547e8df",
+      "stage_t_checkpoint": "artifacts/stage_t/full_long/checkpoints/epoch_0150.pt",
+      "stage_t_checkpoint_sha256": "92254003fe63e13d0df1d52c3710ff15638545d4d74084f776300be34d434c96"
+    },
+    "runtime": {
+      "require_cuda": true,
+      "required_device_substring": "RTX 5070",
+      "seed": 42,
+      "upstream_commit": "86a8bc7812a31b42c4f7895693cf4ac11521c066"
+    },
+    "stage": "AI",
+    "training": {
+      "batch_size": 1,
+      "checkpoint_epochs": [
+        2,
+        10,
+        30,
+        75,
+        150,
+        300
+      ],
+      "early_stopping": false,
+      "epochs": 300,
+      "gradient_accumulation": 4,
+      "gradient_clip_norm": 1.0,
+      "learning_rate": 0.001,
+      "microbatches_per_epoch": 168,
+      "mixed_precision": false,
+      "optimizer": "Adam",
+      "optimizer_updates": 12600,
+      "pair_order_seed": 42,
+      "pair_order_sha256": "536896a6b697c89d59d1c647dbac1cdfb4ff3b26d35f0cf420d808b6dd28ff24",
+      "scheduler": "stage_t_explicit_update_warmup_cosine",
+      "scheduler_min_learning_rate": 1e-06,
+      "scheduler_total_updates": 50400,
+      "scheduler_warmup_updates": 3150,
+      "selector": "validation_normalized_per_channel_relative_l2_arithmetic_average",
+      "updates_per_epoch": 42,
+      "weight_decay": 0.0001
+    }
+  },
+  "metadata": {
+    "contract": "Stage AI canonical missing-baseline training",
+    "dataset_sha256": "3582a5c4f52f4fef305578ffd5a63c51423f8583f35d137c288d5c20203b50da",
+    "environment": {
+      "cuda": "13.0",
+      "device": "NVIDIA GeForce RTX 5070",
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "python": "3.11.15 (main, Jun 11 2026, 15:20:16) [GCC 14.3.0]",
+      "torch": "2.12.1+cu130"
+    },
+    "formal_selector": "validation_normalized_per_channel_relative_l2_arithmetic_average",
+    "loss": "PlainL2Loss_on_normalized_residual",
+    "model": "cnn",
+    "model_identity": {
+      "activation": "SiLU",
+      "base_channels": 16,
+      "channel_widths": [
+        16,
+        32,
+        64
+      ],
+      "downsampling": "MaxPool3d(2)",
+      "initial_trainable_state_sha256": "06a0d965d887e9188f1cd8243234eaff64ebf6e05f3e086f199cab53235e95d7",
+      "kernel_size": 3,
+      "method": "single_seed_default_PyTorch_initialization",
+      "model": "cnn",
+      "normalization": "GroupNorm(4)",
+      "observed_parameter_count": 346488,
+      "parameter_count": 346488,
+      "phi_boundary": "circular",
+      "r_boundary": "zero",
+      "relative_parameter_difference": -0.046748101683724,
+      "seed": 42,
+      "target_parameter_count": 363480,
+      "theta_boundary": "zero",
+      "trainable_state_sha256": "06a0d965d887e9188f1cd8243234eaff64ebf6e05f3e086f199cab53235e95d7",
+      "upsampling": "ConvTranspose3d(kernel=2,stride=2)"
+    },
+    "normalizer_sha256": "c2a36edbb44732efb857165e9a710d393cec68c6ba285521cd9bcc7b783cffa6",
+    "pair_order_sha256": "536896a6b697c89d59d1c647dbac1cdfb4ff3b26d35f0cf420d808b6dd28ff24",
+    "project_git_commit": "2d43a55b880a9b0c84b6ad9f0a2725eb5e12fe37",
+    "split_sha256": "4a909a4294a36d50b7effab093d711b28d5da650b9942f29658d97f5a1a36160",
+    "upstream_commit": "86a8bc7812a31b42c4f7895693cf4ac11521c066",
+    "validation_not_used_for_tuning_or_stopping": true
+  }
+}

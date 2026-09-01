@@ -1,0 +1,57 @@
+{
+  "device": "NVIDIA GeForce RTX 5070",
+  "forward_backward_seconds": 0.6209657280001011,
+  "forward_finite": true,
+  "gradient_nonzero": true,
+  "gradient_norm": 27.01109504699707,
+  "gradients_finite": true,
+  "identity": {
+    "activation": "SiLU",
+    "base_channels": 16,
+    "channel_widths": [
+      16,
+      32,
+      64
+    ],
+    "downsampling": "MaxPool3d(2)",
+    "initial_trainable_state_sha256": "06a0d965d887e9188f1cd8243234eaff64ebf6e05f3e086f199cab53235e95d7",
+    "kernel_size": 3,
+    "method": "single_seed_default_PyTorch_initialization",
+    "model": "cnn",
+    "normalization": "GroupNorm(4)",
+    "observed_parameter_count": 346488,
+    "parameter_count": 346488,
+    "phi_boundary": "circular",
+    "r_boundary": "zero",
+    "relative_parameter_difference": -0.046748101683724,
+    "seed": 42,
+    "target_parameter_count": 363480,
+    "theta_boundary": "zero",
+    "trainable_state_sha256": "06a0d965d887e9188f1cd8243234eaff64ebf6e05f3e086f199cab53235e95d7",
+    "upsampling": "ConvTranspose3d(kernel=2,stride=2)"
+  },
+  "input_shape": [
+    1,
+    16,
+    64,
+    64,
+    64
+  ],
+  "loss": 7.001989364624023,
+  "loss_finite": true,
+  "model": "cnn",
+  "optimizer_created": false,
+  "optimizer_update_performed": false,
+  "output_shape": [
+    1,
+    8,
+    64,
+    64,
+    64
+  ],
+  "pass": true,
+  "peak_allocated_mib": 467.7060546875,
+  "peak_reserved_mib": 702.0,
+  "torch": "2.12.1+cu130",
+  "torch_cuda": "13.0"
+}

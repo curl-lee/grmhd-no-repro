@@ -1,0 +1,7 @@
+model,artifact_stage,checkpoint_path,checkpoint_exists,checkpoint_size_bytes,checkpoint_sha256,reuse_or_retrain
+Persistence,analytic,not applicable,False,not_available,not_available,reuse
+FNO,G/U,artifacts/stage_u/variants/spectral_only/checkpoints/epoch_0150.pt,True,7940407,cef934e129199cc4758996abcdb1928022380371d198bed8c7835e8d43420209,retrain
+3D CNN/U-Net,not previously implemented,not available before Stage AI,False,not_available,not_available,train
+Differential LocalNO,T,artifacts/stage_t/full_long/checkpoints/epoch_0150.pt,True,8355431,92254003fe63e13d0df1d52c3710ff15638545d4d74084f776300be34d434c96,reuse
+Index-space DISCO3D LocalNO,AD,artifacts/stage_ad/training/disco3d_localno/checkpoints/epoch_0300.pt,True,8485491,b83b100024dfaa9f46628ec3c10b6c3e11eee72dbfe1a67dc1700ec6f71e1143,reuse
+Anisotropic spherical DISCO3D LocalNO,AG,artifacts/stage_ag/training/checkpoints/best.pt,True,8363199,75775c87c0bfbde7478d428ae1b5d1d3df87be3e9954c394e27f7f19f547e8df,reuse

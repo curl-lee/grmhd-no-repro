@@ -1,0 +1,44 @@
+{
+  "device": "NVIDIA GeForce RTX 5070",
+  "forward_backward_seconds": 0.5495773910000707,
+  "forward_finite": true,
+  "gradient_nonzero": true,
+  "gradient_norm": 1.630593180656433,
+  "gradients_finite": true,
+  "identity": {
+    "common_tensor_count": 20,
+    "common_tensor_state_sha256": "5d8f2f1b4ee859add4593e41df1c041e99a384cd61d9f4d42e0343c734733e55",
+    "full_initial_tensor_state_sha256": "5d8f2f1b4ee859add4593e41df1c041e99a384cd61d9f4d42e0343c734733e55",
+    "geometry_parameter_initialization": "none",
+    "initial_trainable_state_sha256": "5d8f2f1b4ee859add4593e41df1c041e99a384cd61d9f4d42e0343c734733e55",
+    "method": "strict subset of Stage K shared state after diff_layers=False construction",
+    "model": "fno",
+    "observed_parameter_count": 330648,
+    "parameter_count": 330648,
+    "variant": "spectral_only"
+  },
+  "input_shape": [
+    1,
+    16,
+    64,
+    64,
+    64
+  ],
+  "loss": 5.7434539794921875,
+  "loss_finite": true,
+  "model": "fno",
+  "optimizer_created": false,
+  "optimizer_update_performed": false,
+  "output_shape": [
+    1,
+    8,
+    64,
+    64,
+    64
+  ],
+  "pass": true,
+  "peak_allocated_mib": 450.79833984375,
+  "peak_reserved_mib": 582.0,
+  "torch": "2.12.1+cu130",
+  "torch_cuda": "13.0"
+}
