@@ -33,10 +33,8 @@ data_proc/
 *.ckpt
 events.out.tfevents*
 
-# Publication scope stops at Stage AH.
-artifacts/stage_ai/
-configs/stage_ai/
-scripts/train_stage_ai.py
+# Stage AI publishes lightweight configs, logs, metrics, reports, and figures.
+# Global checkpoint/data patterns above continue to exclude binary training state.
 
 # Stage AG publication keeps formal summaries plus best/last checkpoints, but
 # excludes reproducible fixed-epoch/resume states and the 1.06 GB prediction cache.
